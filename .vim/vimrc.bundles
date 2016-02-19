@@ -1,0 +1,113 @@
+" vundle vim插件管理 {
+
+    set nocompatible              " be iMproved, required
+    filetype off                  " required
+
+    set rtp+=$HOME/.vim/bundle/Vundle.vim
+    call vundle#begin('$HOME/.vim/bundle/')
+    Plugin 'gmarik/Vundle.vim'  "插件管理
+
+    " General {
+        Plugin 'flazz/vim-colorschemes' " 各种颜色主题
+        Plugin 'godlygeek/tabular'      " 对齐插件
+        Plugin 'Yggdroot/indentLine'    " 对齐线
+        Plugin 'majutsushi/tagbar'
+    " }
+
+    " note {
+        Plugin 'iamcco/markdown-preview.vim'
+    " }
+
+    " colorscheme 颜色主题 {
+        Plugin 'altercation/vim-colors-solarized' " 主题solarized
+        Plugin 'tomasr/molokai'                   " molokai配色方案
+    " }
+
+    " vimshell {
+        "Plugin 'Shougo/vimproc.vim'
+        "Plugin 'Shougo/vimshell.vim'
+    " }
+
+    " 语言相关，字典、自动补全 {
+        Plugin 'Shougo/neocomplcache.vim'
+        Plugin 'scrooloose/syntastic'
+        Plugin 'iamcco/vimcdoc'         " vim中文帮助文档
+        Plugin 'iamcco/vim-dict'        " 各种字典
+        Plugin 'iamcco/dict.vim'
+    " }
+
+    " html css {
+        Plugin 'mattn/emmet-vim'            " 快速编写html
+        Plugin 'docunext/closetag.vim'      " 自动补全html/xml标签
+        Plugin 'hail2u/vim-css3-syntax'
+        Plugin 'gorodinskiy/vim-coloresque' " CSS颜色插件
+        Plugin 'digitaltoad/vim-jade'
+    " }
+
+    " javascript {
+        "Plugin 'marijnh/tern_for_vim'
+        Plugin 'jelera/vim-javascript-syntax' " javascript增强高亮显示, 放vim-javascript上面
+        Plugin 'pangloss/vim-javascript'
+        Plugin 'elzr/vim-json'
+        Plugin 'groenewege/vim-less'
+        Plugin 'briancollins/vim-jst'         " JST/EJS模板高亮显示插件
+        Plugin 'kchmck/vim-coffee-script'
+        Plugin 'nono/jquery.vim'
+        Plugin 'maksimr/vim-jsbeautify'       " js代码格式化
+        Plugin 'heavenshell/vim-jsdoc'        " 编写注释
+    "
+
+    " python {
+        Plugin 'klen/python-mode'         " Pick either python-mode or pyflakes & pydoc
+        " python fly check, 弥补syntastic只能打开和保存才检查语法的不足
+        Plugin 'kevinw/pyflakes-vim'
+    " }
+
+    " nginx {
+        Plugin 'evanmiller/nginx-vim-syntax'
+    " }
+
+    "文件搜索，编辑相关插件 {
+        Plugin 'ctrlpvim/ctrlp.vim'
+        Plugin 'tacahiroy/ctrlp-funky' " ctrlp插件1 - 不用ctag进行函数快速跳转
+        Plugin 'dyng/ctrlsf.vim'    "快速搜索文件
+    " }
+
+    " git相关插件 {
+        Plugin 'tpope/vim-fugitive' " git插件，使用:Gstatus或:Git status
+        " 同git diff,实时展示文件中修改的行
+        " 只是不喜欢除了行号多一列, 默认关闭,gs时打开
+        Plugin 'airblade/vim-gitgutter'
+    " }
+
+    " 编辑，移动，对齐相关插件 {
+        Plugin 'bronson/vim-trailing-whitespace' " 清除尾部空格
+        Plugin 'Lokaltog/vim-easymotion'         " 快速移动
+        Plugin 'terryma/vim-multiple-cursors'    " 多光标编辑
+        Plugin 'tpope/vim-surround'              " 快速环绕
+        "ds" cs"( csw"===ysiw" ySS"
+        Plugin 'tpope/vim-repeat'
+        Plugin 'terryma/vim-expand-region'    " 选中区块
+        Plugin 'spf13/vim-autoclose'          " 自动关闭
+        Plugin 'vim-scripts/matchit.zip'      " 标签对跳转
+        Plugin 'kana/vim-textobj-user'
+        " 显示marks - 方便自己进行标记和跳转
+        " m[a-zA-Z] add mark
+        " '[a-zA-Z] go to mark
+        " m<Space>  del all marks
+        Plugin 'kshenoy/vim-signature'
+        Plugin 'scrooloose/nerdcommenter'   "快速注释
+        "注释<leader>cc
+        "取消注释<leader>cu
+    " }
+
+    " vim显示相关插件 {
+        Plugin 'bling/vim-airline'
+        Plugin 'scrooloose/nerdtree'
+        Plugin 'sjl/gundo.vim'  "文件历史插件
+    " }
+
+    call vundle#end()            " required
+    filetype plugin indent on    " required
+
+" }
