@@ -14,6 +14,16 @@ git neovim python2/3 (dev,pip) zsh tmux nodejs
 * sudo apt-get install git
 * git clone https://github.com/iamcco/dotfiles
 
+```
+git config --global user.name guangzhou.chen
+git config --global user.email guangzhou.chen@qunar.com
+git config --global push.default simple
+git config --global core.autocrlf false
+git config --global core.quotepath off
+git config --global core.editor vim
+git config --global gui.encoding utf-8
+```
+
 #### 安装 nodejs
 
 * sudo apt-get install nodejs-legacy
