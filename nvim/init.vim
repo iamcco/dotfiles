@@ -1,100 +1,154 @@
-" 检测环境 {
+" vim-plug {
+    call plug#begin('~/dotfiles/nvim/plugged')
 
-    " 检测系统 {
-        silent function! OSX()
-            return has('macunix')
-        endfunction
-        silent function! LINUX()
-            return has('unix') && !has('macunix') && !has('win32unix')
-        endfunction
-        silent function! WINDOWS()
-            return  (has('win16') || has('win32') || has('win64'))
-        endfunction
+    " color theme {
+        Plug 'morhetz/gruvbox'
     " }
 
-    " 设置vim的插件文件夹位置 {
-        if WINDOWS()
-          " 首先载入gvim自己生成的gvimrc配置
-          if filereadable(expand("$HOME/.vim/gvimrc"))
-              source $HOME/.vim/gvimrc
-          endif
-          set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-        endif
+    " General {
+        Plug 'godlygeek/tabular'      " 对齐插件
+        Plug 'Yggdroot/indentLine'    " 对齐线
+        Plug 'majutsushi/tagbar'
     " }
 
-" }
+    " note {
+        Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
+    " }
 
-" 使用bundle管理插件 {
-    if filereadable(expand("$HOME/.vim/vimrc.bundles"))
-        source $HOME/.vim/vimrc.bundles
-    endif
+    " colorscheme 颜色主题 {
+    " }
+
+    " 语言相关，字典、自动补全 {
+        Plug 'iamcco/vimcdoc'         " vim中文帮助文档
+        Plug 'iamcco/vim-dict'        " 各种字典
+        Plug 'iamcco/dict.vim'
+    " }
+
+    " html css {
+        Plug 'mattn/emmet-vim'            " 快速编写html
+        Plug 'docunext/closetag.vim'      " 自动补全html/xml标签
+        Plug 'hail2u/vim-css3-syntax'
+        Plug 'gorodinskiy/vim-coloresque' " CSS颜色插件
+        Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
+    " }
+
+    " javascript {
+        Plug 'Shougo/deoplete.nvim'
+        Plug 'marijnh/tern_for_vim', { 'for': 'javascript' , 'do': './npm install'}
+        Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' } " javascript增强高亮显示, 放vim-javascript上面
+        Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+        Plug 'maksimr/vim-jsbeautify', { 'for': 'javascript' }       " js代码格式化
+        Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript' }        " 编写注释
+        Plug 'nono/jquery.vim', { 'for': 'javascript' }
+
+        Plug 'elzr/vim-json', { 'for': 'json' }
+        Plug 'groenewege/vim-less', { 'for': 'less' }
+        Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+    " }
+
+    " python {
+        Plug 'klen/python-mode'         " Pick either python-mode or pyflakes & pydoc
+        " python fly check, 弥补syntastic只能打开和保存才检查语法的不足
+        Plug 'kevinw/pyflakes-vim'
+    " }
+
+    "文件搜索，编辑相关插件 {
+        Plug 'ctrlpvim/ctrlp.vim'
+        Plug 'tacahiroy/ctrlp-funky' " ctrlp插件1 - 不用ctag进行函数快速跳转
+        Plug 'dyng/ctrlsf.vim'    "快速搜索文件
+    " }
+
+    " git相关插件 {
+        Plug 'tpope/vim-fugitive' " git插件，使用:Gstatus或:Git status
+        " 同git diff,实时展示文件中修改的行
+        " 只是不喜欢除了行号多一列, 默认关闭,gs时打开
+        Plug 'airblade/vim-gitgutter'
+    " }
+
+    " 编辑，移动，对齐相关插件 {
+        Plug 'bronson/vim-trailing-whitespace' " 清除尾部空格
+        Plug 'Lokaltog/vim-easymotion'         " 快速移动
+        Plug 'terryma/vim-multiple-cursors'    " 多光标编辑
+        Plug 'tpope/vim-surround'              " 快速环绕
+        "ds" cs"( csw"===ysiw" ySS"
+        Plug 'tpope/vim-repeat'
+        Plug 'terryma/vim-expand-region'    " 选中区块
+        Plug 'spf13/vim-autoclose'          " 自动关闭
+        Plug 'vim-scripts/matchit.zip'      " 标签对跳转
+        Plug 'kana/vim-textobj-user'
+        " 显示marks - 方便自己进行标记和跳转
+        " m[a-zA-Z] add mark
+        " '[a-zA-Z] go to mark
+        " m<Space>  del all marks
+        Plug 'kshenoy/vim-signature'
+        Plug 'scrooloose/nerdcommenter'   "快速注释
+        "注释<leader>cc
+        "取消注释<leader>cu
+    " }
+
+    " vim显示相关插件 {
+        Plug 'bling/vim-airline'
+        Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+        Plug 'sjl/gundo.vim'  "文件历史插件
+    " }
+
+    call plug#end()
+
 " }
 
 " 常用配置 {
     " 注：使用utf-8格式后，软件与程序源码、文件路径不能有中文，否则报错
-    syntax on                                                               " Syntax highlighting
-    filetype on
-    filetype plugin on
-    filetype plugin indent on                                               " Automatically detect file types.
+    "syntax on                                                               " Syntax highlighting
+    "filetype on
+    "filetype plugin on
+    "filetype plugin indent on                                               " Automatically detect file types.
     scriptencoding utf-8
     set encoding=utf-8                                                      " 设置gvim内部编码
-    if WINDOWS()
-        source $VIMRUNTIME/delmenu.vim                                      " 仅在windows的Gvim使用 解决菜单和右键乱码
-        source $VIMRUNTIME/menu.vim                                         " 仅在windows的Gvim使用 解决菜单和右键乱码
-    endif
     set fileencoding=utf-8                                                  " 设置当前文件编码
     set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1 " 设置支持打开的文件的编码
     set fileformat=unix                                                     " 设置新文件的<EOL>格式
     set fileformats=unix,dos,mac                                            " 给出文件的<EOL>格式类型
-    set formatoptions+=m                                                    " 如遇Unicode值大于255的文本，不必等到空格再折行。
-    set formatoptions+=B                                                    " 合并两行中文时，不在中间加空格：
-    set guifont=Powerline_Consolas:h14
-    set background=dark                                                     " Assume a dark background
     set nowrap                                                              " Do not wrap long lines
     set synmaxcol=200                                                       " highlight最大的列数为200，200后的代码将没有高亮，防止处理含有特别长的行的时候，拖慢vim
-    set autoindent                                                          " Indent at the same level of the previous line
-    set smartindent
-    set shiftwidth=4                                                        " Use indents of 4 spaces
-    set expandtab                                                           " Tabs are spaces, not tabs
-    set tabstop=4                                                           " An indentation every four columns
-    set softtabstop=4                                                       " Let backspace delete indent
-    set nojoinspaces                                                        " Prevents inserting two spaces after punctuation on a join (J)
-    set splitright                                                          " Puts new vsplit windows to the right of the current
-    set splitbelow                                                          " Puts new split windows to the bottom of the current
-    set matchpairs+=<:>                                                     " Match, to be used with %
-    set pastetoggle=<F12>                                                   " pastetoggle (sane indentation on pastes)
+    set expandtab                                                           " 设置空格代替 tab
+    set tabstop=4                                                           " 设置缩进为 4 个空格
+    set shiftwidth=4                                                        " 设置缩进为 4 个空格
+    set softtabstop=4                                                       " 设置缩进为 4 个空格
+    "set matchpairs+=<:>                                                     " Match, to be used with %
+    "set pastetoggle=<F12>                                                   " pastetoggle (sane indentation on pastes)
     set mouse+=a                                                            " Automatically enable mouse usage
-    set mousehide                                                           " Hide the mouse cursor while typing
+    set mousehide                                                           " 编辑的时候隐藏鼠标
     set autoread                                                            " 文件在外部修改自动读取
-    set shortmess+=filmnrxoOtT                                              " Abbrev. of messages (avoids 'hit enter')
+    set shortmess+=filmnrxoOtT                                              " 使用消息简写形式，比如 readonly --> RO
     set viewoptions=folds,options,cursor,unix,slash                         " Better Unix / Windows compatibility
     set virtualedit=onemore                                                 " Allow for cursor beyond last character
-    set history=1000                                                        " Store a ton of history (default is 20)
+    "set history=1000                                                        " Store a ton of history (default is 20)
     set hidden                                                              " Allow buffer switching without saving
     set completeopt=longest,menu                                            " 让vim的补全菜单行为与一般ide一致(参考vimtip1228)
     set wildmenu                                                            " 增强模式中的命令行自动完成操作
     set wildmode=list:longest,full                                          " Command <Tab> completion, list matches, then longest common part, then all.
     set wildignore=*.o,*~,*.pyc,*.class                                     " ignore compiled files
-    set relativenumber number                                               " 相对行号，行号变成相对，可以用 nj，nk，进行跳转 5j，5k，上下跳5行
-    set tabpagemax=15                                                       " Only show 15 tabs
-    set showmode                                                            " Display the current mode
-    set cursorline                                                          " Highlight current line
-    set backspace=indent,eol,start                                          " Backspace for dummies
-    set linespace=0                                                         " No extra spaces between rows
     set nu                                                                  " Line numbers on
+    set relativenumber number                                               " 相对行号，行号变成相对，可以用 nj，nk，进行跳转 5j，5k，上下跳5行
+    "set showmode                                                            " Display the current mode
+    "set cursorline                                                          " Highlight current line
+    "set backspace=indent,eol,start                                          " Backspace for dummies
+    set linespace=0                                                         " No extra spaces between rows
     set showmatch                                                           " Show matching brackets/parenthesis
-    set incsearch                                                           " Find as you type search
-    set hlsearch                                                            " Highlight search terms
+    "set incsearch                                                           " Find as you type search
+    "set hlsearch                                                            " Highlight search terms
     set winminheight=0                                                      " Windows can be 0 line high
-    set ignorecase                                                          " Case insensitive search
-    set smartcase                                                           " Case sensitive when uc present
-    set whichwrap=b,s,h,l,<,>,[,]                                           " Backspace and cursor keys wrap too
+    set cursorline
+    set ignorecase                                                          " 搜索时忽略大小写
+    set smartcase                                                           " 在搜索时如果有大写字母，在大小写敏感
+    "set whichwrap=b,s,h,l,<,>,[,]                                           " Backspace and cursor keys wrap too
     set scrolljump=5                                                        " Lines to scroll when cursor leaves screen
     set scrolloff=3                                                         " Minimum lines to keep above and below cursor
-    set foldenable                                                          " Auto fold code
-    set foldmethod=indent nofoldenable
+    "set foldenable                                                          " Auto fold code
+    "set foldmethod=indent nofoldenable
     set list
     set listchars=tab:›\ ,trail:-,extends:#,nbsp:.                          " Highlight problematic whitespace
+    "set clipboard+=unnamedplus	" nvim-clip
 
     "切换到编辑文档所在目录
     autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
@@ -113,25 +167,61 @@
         autocmd BufWinEnter * call ResCur()
     augroup END
 
-    " 设置备份文件夹 {
+    " 设置备份 {
         set backup                  " 设置备份
         if has('persistent_undo')
             set undofile                " 把undo操作保存到文件当中
-            set undolevels=1000         " 设置undo操作的最大上限
-            set undoreload=10000        " 一个buffer载入时的最大undo行数
+            "set undolevels=1000         " 设置undo操作的最大上限
+            "set undoreload=10000        " 一个buffer载入时的最大undo行数
         endif
 
-        let g:skipview_files = [
-            \ '\[example pattern\]'
-            \ ]
+    " }
+
+    " 初始化文件夹 {
+
+        function! InitializeDirectories()
+            let parent = $HOME . '/.vimbackupfile'
+            let prefix = 'vim'
+            let dir_list = {
+                        \ 'backup': 'backupdir',
+                        \ 'views': 'viewdir',
+                        \ 'swap': 'directory' }
+
+            if has('persistent_undo')
+                let dir_list['undo'] = 'undodir'
+            endif
+
+            let common_dir = parent . '/.' . prefix
+
+            for [dirname, settingname] in items(dir_list)
+                let directory = common_dir . dirname . '/'
+                if exists("*mkdir")
+                    if !isdirectory(directory)
+                        call mkdir(directory, 'p', 0755)
+                    endif
+                endif
+                if !isdirectory(directory)
+                    echo "Warning: Unable to create backup directory: " . directory
+                    echo "Try: mkdir -p " . directory
+                else
+                    let directory = substitute(directory, " ", "\\\\ ", "g")
+                    exec "set " . settingname . "=" . directory
+                endif
+            endfor
+        endfunction
+        call InitializeDirectories()
+
     " }
 
 " }
 
-" Vim UI {
+" UI {
 
-    "colorscheme molokai
-    colorscheme solarized
+    " color theme {
+        set background=dark
+        let g:gruvbox_italic=1
+        colorscheme gruvbox
+    " }
 
     " 插入模式下用绝对行号, 普通模式下用相对 {
         au FocusLost * :set norelativenumber number
@@ -167,44 +257,15 @@
         " Broken down into easily includeable segments
         set statusline=%<%f\                     " Filename
         set statusline+=%w%h%m%r                 " Options
-        set statusline+=%{fugitive#statusline()} " Git Hotness
+        if exists('fugittive#statusline')
+            set statusline+=%{fugitive#statusline()} " Git Hotness
+        endif
         set statusline+=\ [%{&ff}/%Y]            " Filetype
         set statusline+=\ [%{getcwd()}]          " Current dir
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
     endif
 
-
-
-    " terminal or gui {
-        "终端主题
-        if !has('gui_running')
-            color Monokai
-        else
-            "窗口设置
-            winpos 2 0            " 指定窗口出现的位置，坐标原点在屏幕左上角
-            set lines=38 columns=160 " 指定窗口大小，lines为高度，columns为宽度
-
-            " 显示/隐藏菜单栏、工具栏、滚动条，可用 Ctrl + F11 切换
-            set guioptions-=m
-            set guioptions-=T
-            set guioptions-=r
-            set guioptions-=L
-            map <silent> <c-F11> :if &guioptions =~# 'm' <Bar>
-                \set guioptions-=m <Bar>
-                \set guioptions-=T <Bar>
-                \set guioptions-=r <Bar>
-                \set guioptions-=L <Bar>
-            \else <Bar>
-                \set guioptions+=m <Bar>
-                \set guioptions+=T <Bar>
-                \set guioptions+=r <Bar>
-                \set guioptions+=L <Bar>
-            \endif<CR>
-        endif
-    " }
-
 " }
-
 
 " 键位绑定 {
 
@@ -214,16 +275,12 @@
     let maplocalleader = '_'
 
     " 浏览器打开文件快捷键
-    noremap <leader>go :call ViewFile()<CR>
     let g:browsers = {}
-    let g:browsers['chrome'] = "c:/Program\ Files\ (x86)/Google/Chrome/Application/chrome.exe"
+    let g:browsers['chrome'] = "firefox"
     function! ViewFile()
         exec "silent !start " . g:browsers['chrome'] . " %:p"
     endfunction
-
-    "j/k统一为上一相对行和下一相对行，而不是绝对行
-    noremap j gj
-    noremap k gk
+    noremap <leader>go :call ViewFile()<CR>
 
     "容易按错的键位修正
     if has("user_commands")
@@ -287,42 +344,6 @@
     map zl zL
     map zh zH
 
-    " 窗口透明、置顶、最大化
-    " 需要vimtweak工具
-    if WINDOWS()
-        nmap <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
-        let g:Current_Alpha = 255
-        let g:Top_Most = 0
-        func! Alpha_add()
-            let g:Current_Alpha = g:Current_Alpha + 10
-            if g:Current_Alpha > 255
-                let g:Current_Alpha = 255
-            endif
-            call libcallnr("vimtweak.dll","SetAlpha",g:Current_Alpha)
-        endfunc
-        func! Alpha_sub()
-            let g:Current_Alpha = g:Current_Alpha - 10
-            if g:Current_Alpha < 155
-                let g:Current_Alpha = 155
-            endif
-            call libcallnr("vimtweak.dll","SetAlpha",g:Current_Alpha)
-        endfunc
-        func! Top_window()
-            if  g:Top_Most == 0
-                call libcallnr("vimtweak.dll","EnableTopMost",1)
-                let g:Top_Most = 1
-            else
-                call libcallnr("vimtweak.dll","EnableTopMost",0)
-                let g:Top_Most = 0
-            endif
-        endfunc
-
-        "快捷键设置
-        nmap <c-up> :call Alpha_add()<CR>
-        nmap <c-down> :call Alpha_sub()<CR>
-        nmap <leader>t :call Top_window()<CR>
-    endif
-
     "分屏窗口移动
     map <C-j> <C-W>j
     map <C-k> <C-W>k
@@ -352,14 +373,6 @@
 
 " plugins {
 
-    "solarized主题 {
-        let g:colors_name='solarized'
-        let g:solarized_termcolors=256
-        let g:solarized_termtrans=1
-        let g:solarized_contrast='normal'
-        let g:solarized_visibility='normal'
-    " }
-
     " OmniComplete {
         if has("autocmd") && exists("+omnifunc")
             autocmd Filetype *
@@ -386,63 +399,15 @@
         set completeopt=menu,longest
     " }
 
-    " neocomplcache {
-        let g:acp_enableAtStartup = 0             " Disable AutoComplPop.
-        let g:neocomplcache_enable_at_startup = 1 " Use neocomplcache.
-        let g:neocomplcache_enable_smart_case = 1 " Use smartcase.
-        let g:neocomplcache_min_syntax_length = 3 " Set minimum syntax keyword length.
-        let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+    " deoplete.nvim {
+        let g:deoplete#enable_at_startup = 1
+        let g:deoplete#max_list = 15
+    " }
 
-        " Define dictionary.
-        let g:neocomplcache_dictionary_filetype_lists = {
-                    \ 'default' : '',
-                    \ 'vimshell' : $HOME.'/.vimshell_hist',
-                    \ 'scheme' : $HOME.'/.gosh_completions',
-                    \ 'javascript' : $HOME.'/.vim/bundle/vim-dict/dict/javascript.dic',
-                    \ 'coffee' : $HOME.'/.vim/bundle/vim-dict/dict/javascript.dic',
-                    \ 'css' : $HOME.'/.vim/bundle/vim-dict/dict/css.dic',
-                    \ 'php' : $HOME.'/.vim/bundle/vim-dict/dict/php.dic'
-                    \ }
-        " Define keyword.
-        if !exists('g:neocomplcache_keyword_patterns')
-            let g:neocomplcache_keyword_patterns = {}
-        endif
-        let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+    " tern_for_vim {
+        set completeopt-=preview
+    " }
 
-        " 插件快捷键配置 {
-            "tab键补全选择
-            inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-            inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
-
-            " <CR>: close popup and save indent.
-            inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-            function! s:my_cr_function()
-                "return neocomplcache#smart_close_popup() . "\<CR>"
-                "For no inserting <CR> key.
-                return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-            endfunction
-        " }
-
-        " Enable omni completion.
-        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-        autocmd FileType html,markdown,String,string setlocal omnifunc=htmlcomplete#CompleteTags
-        "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-        autocmd FileType java set omnifunc=javacomplete#Complete
-
-        " Enable heavy omni completion.
-        if !exists('g:neocomplcache_force_omni_patterns')
-            let g:neocomplcache_force_omni_patterns = {}
-        endif
-        let g:neocomplcache_force_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-        let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-        let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-        " For perlomni.vim setting.
-        " https://github.com/c9s/perlomni.vim
-        let g:neocomplcache_force_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-    "}
 
     " closetag 自动补全html/xml标签 {
 
@@ -451,25 +416,11 @@
 
     " }
 
-    " syntastic {
-        set statusline+=%#warningmsg#
-        set statusline+=%{SyntasticStatuslineFlag()}
-        set statusline+=%*
-
-        let g:syntastic_always_populate_loc_list = 1
-        let g:syntastic_auto_loc_list = 1
-        let g:syntastic_mode_map = {
-                    \ "mode": "passive",
-                    \ "active_filetypes": [],
-                    \ "passive_filetypes": [] }
-    " }
-
-
     " vim-javascript {
 
-        "let g:html_indent_inctags = 'html,body,head,tbody'
-        "let g:html_indent_script1 = 'inc'
-        "let g:html_indent_style1 = 'inc'
+        let g:html_indent_inctags = 'html,body,head,tbody'
+        let g:html_indent_script1 = 'inc'
+        let g:html_indent_style1 = 'inc'
         let g:jsdoc_default_mapping = '0'
         map <leader>sf :call JsBeautify()<cr>
         autocmd FileType javascript noremap <buffer>  <leader>sf :call JsBeautify()<cr>
@@ -599,12 +550,12 @@
 
     " textobj-user {
 
-        call textobj#user#plugin('html', {
-        \   'keyVal': {
-        \     'pattern': ' *[0-9a-zA-Z_-]\+ *= *"[0-9a-zA-Z_-]\+"',
-        \     'select': ['ak', 'ik'],
-        \   },
-        \ })
+        "call textobj#user#plugin('html', {
+        "\   'keyVal': {
+        "\     'pattern': ' *[0-9a-zA-Z_-]\+ *= *"[0-9a-zA-Z_-]\+"',
+        "\     'select': ['ak', 'ik'],
+        "\   },
+        "\ })
 
     " }
 
@@ -629,13 +580,10 @@
 
     " vim-airline {
 
-        "let g:airline_theme='molokai'
-        "let g:airline_theme='luna'
-        "let g:airline_powerline_fonts=1
+        let g:airline_powerline_fonts=1
         if !exists('g:airline_symbols')
           let g:airline_symbols = {}
         endif
-        let g:airline#extensions#tabline#enabled = 1
 
     " }
 
@@ -688,43 +636,3 @@
 
 " }
 
-
-" Functions {
-
-    " 初始化文件夹 {
-
-        function! InitializeDirectories()
-            let parent = $HOME
-            let prefix = 'vim'
-            let dir_list = {
-                        \ 'backup': 'backupdir',
-                        \ 'views': 'viewdir',
-                        \ 'swap': 'directory' }
-
-            if has('persistent_undo')
-                let dir_list['undo'] = 'undodir'
-            endif
-
-            let common_dir = parent . '/.' . prefix
-
-            for [dirname, settingname] in items(dir_list)
-                let directory = common_dir . dirname . '/'
-                if exists("*mkdir")
-                    if !isdirectory(directory)
-                        call mkdir(directory)
-                    endif
-                endif
-                if !isdirectory(directory)
-                    echo "Warning: Unable to create backup directory: " . directory
-                    echo "Try: mkdir -p " . directory
-                else
-                    let directory = substitute(directory, " ", "\\\\ ", "g")
-                    exec "set " . settingname . "=" . directory
-                endif
-            endfor
-        endfunction
-        call InitializeDirectories()
-
-    " }
-
-" }

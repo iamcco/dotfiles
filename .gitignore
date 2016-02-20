@@ -1,0 +1,4 @@
+*.*~
+/nvim/plugged
+/nvim/autoload
+/nvim/.netrwhist
