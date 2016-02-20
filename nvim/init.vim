@@ -47,9 +47,7 @@
     " }
 
     " python {
-        Plug 'klen/python-mode'         " Pick either python-mode or pyflakes & pydoc
-        " python fly check, 弥补syntastic只能打开和保存才检查语法的不足
-        Plug 'kevinw/pyflakes-vim'
+        Plug 'hynek/vim-python-pep8-indent'
     " }
 
     "文件搜索，编辑相关插件 {
@@ -98,10 +96,6 @@
 
 " 常用配置 {
     " 注：使用utf-8格式后，软件与程序源码、文件路径不能有中文，否则报错
-    "syntax on                                                               " Syntax highlighting
-    "filetype on
-    "filetype plugin on
-    "filetype plugin indent on                                               " Automatically detect file types.
     scriptencoding utf-8
     set encoding=utf-8                                                      " 设置gvim内部编码
     set fileencoding=utf-8                                                  " 设置当前文件编码
@@ -114,15 +108,13 @@
     set tabstop=4                                                           " 设置缩进为 4 个空格
     set shiftwidth=4                                                        " 设置缩进为 4 个空格
     set softtabstop=4                                                       " 设置缩进为 4 个空格
-    "set matchpairs+=<:>                                                     " Match, to be used with %
-    "set pastetoggle=<F12>                                                   " pastetoggle (sane indentation on pastes)
+    set pastetoggle=<F12>                                                   " pastetoggle (sane indentation on pastes)
     set mouse+=a                                                            " Automatically enable mouse usage
     set mousehide                                                           " 编辑的时候隐藏鼠标
     set autoread                                                            " 文件在外部修改自动读取
     set shortmess+=filmnrxoOtT                                              " 使用消息简写形式，比如 readonly --> RO
     set viewoptions=folds,options,cursor,unix,slash                         " Better Unix / Windows compatibility
     set virtualedit=onemore                                                 " Allow for cursor beyond last character
-    "set history=1000                                                        " Store a ton of history (default is 20)
     set hidden                                                              " Allow buffer switching without saving
     set completeopt=longest,menu                                            " 让vim的补全菜单行为与一般ide一致(参考vimtip1228)
     set wildmenu                                                            " 增强模式中的命令行自动完成操作
@@ -130,25 +122,16 @@
     set wildignore=*.o,*~,*.pyc,*.class                                     " ignore compiled files
     set nu                                                                  " Line numbers on
     set relativenumber number                                               " 相对行号，行号变成相对，可以用 nj，nk，进行跳转 5j，5k，上下跳5行
-    "set showmode                                                            " Display the current mode
-    "set cursorline                                                          " Highlight current line
-    "set backspace=indent,eol,start                                          " Backspace for dummies
+    set cursorline                                                          " Highlight current line
     set linespace=0                                                         " No extra spaces between rows
     set showmatch                                                           " Show matching brackets/parenthesis
-    "set incsearch                                                           " Find as you type search
-    "set hlsearch                                                            " Highlight search terms
     set winminheight=0                                                      " Windows can be 0 line high
-    set cursorline
     set ignorecase                                                          " 搜索时忽略大小写
     set smartcase                                                           " 在搜索时如果有大写字母，在大小写敏感
-    "set whichwrap=b,s,h,l,<,>,[,]                                           " Backspace and cursor keys wrap too
     set scrolljump=5                                                        " Lines to scroll when cursor leaves screen
     set scrolloff=3                                                         " Minimum lines to keep above and below cursor
-    "set foldenable                                                          " Auto fold code
-    "set foldmethod=indent nofoldenable
     set list
     set listchars=tab:›\ ,trail:-,extends:#,nbsp:.                          " Highlight problematic whitespace
-    "set clipboard+=unnamedplus	" nvim-clip
 
     "切换到编辑文档所在目录
     autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
@@ -171,8 +154,6 @@
         set backup                  " 设置备份
         if has('persistent_undo')
             set undofile                " 把undo操作保存到文件当中
-            "set undolevels=1000         " 设置undo操作的最大上限
-            "set undoreload=10000        " 一个buffer载入时的最大undo行数
         endif
 
     " }
@@ -460,12 +441,6 @@
     " }
 
     " PyMode python-syntax {
-
-        " Disable if python support not present
-        let g:pymode_lint_checkers = ['pyflakes']
-        let g:pymode_trim_whitespaces = 0
-        let g:pymode_options = 0
-        let g:pymode_rope = 0
     " }
 
     " ctrlsf.vim {
@@ -550,12 +525,12 @@
 
     " textobj-user {
 
-        "call textobj#user#plugin('html', {
-        "\   'keyVal': {
-        "\     'pattern': ' *[0-9a-zA-Z_-]\+ *= *"[0-9a-zA-Z_-]\+"',
-        "\     'select': ['ak', 'ik'],
-        "\   },
-        "\ })
+        call textobj#user#plugin('html', {
+        \   'keyVal': {
+        \     'pattern': ' *[0-9a-zA-Z_-]\+ *= *"[0-9a-zA-Z_-]\+"',
+        \     'select': ['ak', 'ik'],
+        \   },
+        \ })
 
     " }
 
