@@ -15,9 +15,6 @@
         Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
     " }
 
-    " colorscheme 颜色主题 {
-    " }
-
     " 语言相关，字典、自动补全 {
         Plug 'iamcco/vimcdoc'         " vim中文帮助文档
         Plug 'iamcco/vim-dict'        " 各种字典
@@ -26,8 +23,8 @@
 
     " html css {
         Plug 'mattn/emmet-vim'            " 快速编写html
-        Plug 'docunext/closetag.vim'      " 自动补全html/xml标签
-        Plug 'hail2u/vim-css3-syntax'
+        Plug 'docunext/closetag.vim', { 'for': ['html', 'string', 'xml', 'markdown']}      " 自动补全html/xml标签
+        Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
         Plug 'gorodinskiy/vim-coloresque' " CSS颜色插件
         Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
     " }
@@ -47,7 +44,8 @@
     " }
 
     " python {
-        Plug 'hynek/vim-python-pep8-indent'
+        Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+        Plug 'davidhalter/jedi-vim', { 'for': 'python' }
     " }
 
     "文件搜索，编辑相关插件 {
@@ -355,38 +353,27 @@
 " plugins {
 
     " OmniComplete {
-        if has("autocmd") && exists("+omnifunc")
-            autocmd Filetype *
-                \if &omnifunc == "" |
-                \setlocal omnifunc=syntaxcomplete#Complete |
-                \endif
-        endif
-
         "补全菜单颜色
-        hi Pmenu  guifg=#1c1c1c guibg=#F1F1F1 ctermfg=black ctermbg=Lightgray
-        hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
-        hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
-
-        " Some convenient mappings
-        inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-        inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
-        inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-        inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-        inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
-        inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
-
-        "自动关闭补全预览菜单
-        au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-        set completeopt=menu,longest
+        "hi Pmenu  guifg=#1c1c1c guibg=#F1F1F1 ctermfg=black ctermbg=Lightgray
+        "hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
+        "hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
     " }
 
     " deoplete.nvim {
         let g:deoplete#enable_at_startup = 1
         let g:deoplete#max_list = 15
+        inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+        function! s:my_cr_function()
+            return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+        endfunction
+        inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     " }
 
     " tern_for_vim {
         set completeopt-=preview
+        let tern_show_signature_in_pum = 1    " 补全菜单显示函数参数提示
+        let tern_show_argument_hints = 'on_move'    " vim 最下栏显示补全参数
+        set noshowmode
     " }
 
 
