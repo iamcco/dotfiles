@@ -423,7 +423,7 @@
 
     " markdown-preview {
 "
-        let g:mkdp_path_to_chrome = "c:/Program\ Files\ (x86)/Google/Chrome/Application/chrome.exe"
+        let g:mkdp_path_to_chrome = "google-chrome"
 
     " }
 
