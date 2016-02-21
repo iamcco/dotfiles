@@ -97,5 +97,3 @@ chsh -s /bin/zsh
 #### TODO List
 
 * fzf
-* autocomplete
-* ubuntu theme
