@@ -551,7 +551,7 @@
 
     " NerdTree {
 
-        map <leader>e :NERDTreeToggle<CR>
+        map <leader>ee :NERDTreeToggle<CR>
         "autocmd VimEnter * NERDTree
         "wincmd w
         "autocmd VimEnter * wincmd w
