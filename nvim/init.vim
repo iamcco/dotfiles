@@ -23,7 +23,8 @@
 
     " html css {
         Plug 'mattn/emmet-vim'            " 快速编写html
-        Plug 'docunext/closetag.vim', { 'for': ['html', 'string', 'xml', 'markdown']}      " 自动补全html/xml标签
+        Plug 'othree/csscomplete.vim', { 'for': ['css', 'html', 'string', 'String']}   " omni for css3
+        Plug 'docunext/closetag.vim', { 'for': ['html', 'string', 'String', 'xml', 'markdown']}      " 自动补全html/xml标签
         Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
         Plug 'gorodinskiy/vim-coloresque' " CSS颜色插件
         Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
@@ -382,6 +383,10 @@
         let g:closetag_html_style=1
         autocmd BufRead,BufNewFile *.{String,string} set filetype=html
 
+    " }
+
+    " css complete {
+        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
     " }
 
     " vim-javascript {
