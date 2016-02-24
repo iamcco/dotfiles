@@ -26,7 +26,8 @@
         Plug 'othree/csscomplete.vim', { 'for': ['css', 'html', 'string', 'String']}   " omni for css3
         Plug 'docunext/closetag.vim', { 'for': ['html', 'string', 'String', 'xml', 'markdown']}      " 自动补全html/xml标签
         Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
-        Plug 'gorodinskiy/vim-coloresque' " CSS颜色插件
+        "Plug 'gorodinskiy/vim-coloresque' " CSS颜色插件 issues iskeyword
+        "Plug 'ap/vim-css-color'     " 有人维护的 CSS颜色插件 issues neovim不支持
         Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
     " }
 
@@ -87,6 +88,10 @@
         Plug 'bling/vim-airline'
         Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
         Plug 'sjl/gundo.vim'  "文件历史插件
+    " }
+
+    " font {
+        Plug 'ryanoasis/vim-devicons'
     " }
 
     call plug#end()
@@ -426,6 +431,12 @@
 
     " }
 
+    " font {
+        let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+        let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+        let g:DevIconsEnableFoldersOpenClose = 1
+    " }
+
     " markdown-preview {
 "
         let g:mkdp_path_to_chrome = "google-chrome"
@@ -557,9 +568,6 @@
     " NerdTree {
 
         map <leader>ee :NERDTreeToggle<CR>
-        "autocmd VimEnter * NERDTree
-        "wincmd w
-        "autocmd VimEnter * wincmd w
 
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
@@ -568,7 +576,37 @@
         let NERDTreeMouseMode=2
         let NERDTreeShowHidden=1
         let NERDTreeKeepTreeInNewTab=1
+        let g:NERDTreeDirArrowExpandable = '▸'
+        let g:NERDTreeDirArrowCollapsible = '▾'
         autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
+
+        " resolve Dots after icons in NERDTree
+        autocmd FileType nerdtree setlocal nolist
+
+        " NERDTress File highlighting
+        function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+            exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guifg='. a:guifg
+            exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+        endfunction
+
+        call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+        call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+        call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+        call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+        call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+        call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+        call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+        call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+        call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+        call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+        call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+        call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+        call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+        call NERDTreeHighlightFile('ds_store', 'Gray', 'none', '#686868', '#151515')
+        call NERDTreeHighlightFile('gitconfig', 'Gray', 'none', '#686868', '#151515')
+        call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#151515')
+        call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#151515')
+        call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 
     " }
 
