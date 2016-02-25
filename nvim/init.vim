@@ -11,6 +11,14 @@
         Plug 'majutsushi/tagbar'
     " }
 
+    " deoplete and sources about {
+        Plug 'Shougo/deoplete.nvim'
+        Plug 'Shougo/neco-vim', { 'for': 'vim' }
+        Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+
+        Plug 'benekastah/neomake'
+    " }
+
     " note {
         Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
     " }
@@ -32,7 +40,6 @@
     " }
 
     " javascript {
-        Plug 'Shougo/deoplete.nvim'
         Plug 'marijnh/tern_for_vim', { 'for': 'javascript' , 'do': './npm install'}
         Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' } " javascript增强高亮显示, 放vim-javascript上面
         Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -47,7 +54,6 @@
 
     " python {
         Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
-        Plug 'davidhalter/jedi-vim', { 'for': 'python' }
     " }
 
     "文件搜索，编辑相关插件 {
