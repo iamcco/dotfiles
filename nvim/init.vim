@@ -130,8 +130,7 @@
     set hidden                                                              " Allow buffer switching without saving
     set completeopt=longest,menu                                            " 让vim的补全菜单行为与一般ide一致(参考vimtip1228)
     set wildmenu                                                            " 增强模式中的命令行自动完成操作
-    set wildmode=list:longest,full                                          " Command <Tab> completion, list matches, then longest common part, then all.
-    set wildignore=*.o,*~,*.pyc,*.class                                     " ignore compiled files
+    set wildignore+=*.o,*~,*.pyc,*.class,*/tmp/*,*.so,*.swp,*.zip           " ignore compiled files
     set nu                                                                  " Line numbers on
     set relativenumber number                                               " 相对行号，行号变成相对，可以用 nj，nk，进行跳转 5j，5k，上下跳5行
     set cursorline                                                          " Highlight current line
@@ -474,7 +473,6 @@
         let g:ctrlp_map = '<c-p>'
         let g:ctrlp_cmd = 'CtrlP'
         map <leader>b :CtrlPMRU<CR>
-        set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux"
         let g:ctrlp_custom_ignore = {
             \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
             \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',

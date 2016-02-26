@@ -19,6 +19,14 @@
 * sudo apt-get install caffine
 > dash 搜索 gnome-session 添加 /usr/bin/caffeine-indicator 开机启动
 
+#### asciinema 终端记录
+
+* sudo apt-get install asciinema
+
+#### todolist
+
+* todotxt.com
+
 ## 开发环境配置
 
 git neovim python2/3 (dev,pip) zsh tmux nodejs
