@@ -13,6 +13,8 @@
 
     " deoplete and sources about {
         Plug 'Shougo/deoplete.nvim'
+        Plug 'Shougo/echodoc.vim', { 'for': 'python' }
+        Plug 'Shougo/neco-syntax'
         Plug 'Shougo/neco-vim', { 'for': 'vim' }
         Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
@@ -381,6 +383,11 @@
         inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     " }
 
+    " echodoc {
+        let g:echodoc_enable_at_startup = 1
+    "}
+
+
     " tern_for_vim {
         set completeopt-=preview
         let tern_show_signature_in_pum = 1    " 补全菜单显示函数参数提示
@@ -604,6 +611,7 @@
         call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
         call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
         call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+        call NERDTreeHighlightFile('string', 'yellow', 'none', 'yellow', '#151515')
         call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
         call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
         call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
