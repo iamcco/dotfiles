@@ -611,7 +611,6 @@
         call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
         call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
         call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-        call NERDTreeHighlightFile('string', 'yellow', 'none', 'yellow', '#151515')
         call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
         call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
         call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
