@@ -384,7 +384,8 @@
     " ctrlp.vim {
         let g:ctrlp_map = '<c-p>'
         let g:ctrlp_cmd = 'CtrlP'
-        map <Leader>p :CtrlP ./<CR>
+        noremap <Leader>p :CtrlP ./<CR>
+        noremap <Leader>b :CtrlPBuffer<CR>
         let g:ctrlp_custom_ignore = {
             \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
             \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
@@ -457,6 +458,7 @@
     " }
 
     " vim-airline {
+        let g:airline#extensions#wordcount#formatter = 'chines'
         let g:airline_powerline_fonts=1
         if !exists('g:airline_symbols')
           let g:airline_symbols = {}
