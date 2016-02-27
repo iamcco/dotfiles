@@ -1,104 +1,75 @@
 " vim-plug {
     call plug#begin('~/dotfiles/nvim/plugged')
 
-    " color theme {
-        Plug 'morhetz/gruvbox'
-    " }
-
-    " General {
-        Plug 'godlygeek/tabular'      " 对齐插件
-        Plug 'Yggdroot/indentLine'    " 对齐线
-        Plug 'majutsushi/tagbar'
-    " }
-
     " deoplete and sources about {
         Plug 'Shougo/deoplete.nvim'
-        Plug 'Shougo/echodoc.vim', { 'for': 'python' }
+        Plug 'Shougo/echodoc.vim',  { 'for': 'python' }
         Plug 'Shougo/neco-syntax'
-        Plug 'Shougo/neco-vim', { 'for': 'vim' }
+        Plug 'Shougo/neco-vim',     { 'for': 'vim' }
         Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
         Plug 'benekastah/neomake'
     " }
 
-    " note {
+    " markdown {
         Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
-    " }
-
-    " 语言相关，字典、自动补全 {
-        Plug 'iamcco/vimcdoc'         " vim中文帮助文档
-        Plug 'iamcco/vim-dict'        " 各种字典
-        Plug 'iamcco/dict.vim'
     " }
 
     " html css {
         Plug 'mattn/emmet-vim'            " 快速编写html
-        Plug 'othree/csscomplete.vim', { 'for': ['css', 'html', 'string', 'String']}   " omni for css3
-        Plug 'docunext/closetag.vim', { 'for': ['html', 'string', 'String', 'xml', 'markdown']}      " 自动补全html/xml标签
-        Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
-        "Plug 'gorodinskiy/vim-coloresque' " CSS颜色插件 issues iskeyword
-        "Plug 'ap/vim-css-color'     " 有人维护的 CSS颜色插件 issues neovim不支持
-        Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
+        Plug 'othree/csscomplete.vim',  { 'for': ['css', 'html', 'string', 'String'] }   " omni for css3
+        Plug 'docunext/closetag.vim',   { 'for': ['html', 'string', 'String', 'xml', 'markdown'] }      " 自动补全html/xml标签
+        Plug 'hail2u/vim-css3-syntax',  { 'for': 'css' }
+        Plug 'digitaltoad/vim-jade',    { 'for': 'jade' }
     " }
 
     " javascript {
-        Plug 'marijnh/tern_for_vim', { 'for': 'javascript' , 'do': './npm install'}
-        Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' } " javascript增强高亮显示, 放vim-javascript上面
-        Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-        Plug 'maksimr/vim-jsbeautify', { 'for': 'javascript' }       " js代码格式化
-        Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript' }        " 编写注释
-        Plug 'nono/jquery.vim', { 'for': 'javascript' }
-
-        Plug 'elzr/vim-json', { 'for': 'json' }
-        Plug 'groenewege/vim-less', { 'for': 'less' }
-        Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+        Plug 'marijnh/tern_for_vim',            { 'for': 'javascript', 'do': './npm install'}
+        Plug 'jelera/vim-javascript-syntax',    { 'for': 'javascript' } " javascript增强高亮显示, 放vim-javascript上面
+        Plug 'pangloss/vim-javascript',         { 'for': 'javascript' }
+        Plug 'maksimr/vim-jsbeautify',          { 'for': 'javascript' }       " js代码格式化
+        Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }        " 编写注释
+        Plug 'nono/jquery.vim',                 { 'for': 'javascript' }
+        Plug 'elzr/vim-json',                   { 'for': 'json' }
+        Plug 'groenewege/vim-less',             { 'for': 'less' }
+        Plug 'kchmck/vim-coffee-script',        { 'for': 'coffee' }
     " }
 
     " python {
         Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
     " }
 
-    "文件搜索，编辑相关插件 {
-        Plug 'ctrlpvim/ctrlp.vim'
-        Plug 'tacahiroy/ctrlp-funky' " ctrlp插件1 - 不用ctag进行函数快速跳转
-        Plug 'dyng/ctrlsf.vim'    "快速搜索文件
-    " }
-
     " git相关插件 {
-        Plug 'tpope/vim-fugitive' " git插件，使用:Gstatus或:Git status
-        " 同git diff,实时展示文件中修改的行
-        " 只是不喜欢除了行号多一列, 默认关闭,gs时打开
-        Plug 'airblade/vim-gitgutter'
+        Plug 'tpope/vim-fugitive'       " git插件，使用:Gstatus或:Git status
+        Plug 'airblade/vim-gitgutter'   " 同git diff,实时展示文件中修改的行
     " }
 
     " 编辑，移动，对齐相关插件 {
-        Plug 'bronson/vim-trailing-whitespace' " 清除尾部空格
-        Plug 'Lokaltog/vim-easymotion'         " 快速移动
-        Plug 'terryma/vim-multiple-cursors'    " 多光标编辑
-        Plug 'tpope/vim-surround'              " 快速环绕
-        "ds" cs"( csw"===ysiw" ySS"
-        Plug 'tpope/vim-repeat'
-        Plug 'terryma/vim-expand-region'    " 选中区块
-        Plug 'spf13/vim-autoclose'          " 自动关闭
-        Plug 'vim-scripts/matchit.zip'      " 标签对跳转
+        Plug 'bronson/vim-trailing-whitespace'  " 清除尾部空格
+        Plug 'Lokaltog/vim-easymotion'          " 快速移动
+        Plug 'terryma/vim-multiple-cursors'     " 多光标编辑
+        Plug 'tpope/vim-surround'               " 快速环绕 ds' cs'( csw'===ysiw' ySS'
+        Plug 'spf13/vim-autoclose'              " 自动关闭
+        Plug 'vim-scripts/matchit.zip'          " 标签对跳转
         Plug 'kana/vim-textobj-user'
-        " 显示marks - 方便自己进行标记和跳转
-        " m[a-zA-Z] add mark
-        " '[a-zA-Z] go to mark
-        " m<Space>  del all marks
+        Plug 'terryma/vim-expand-region'        " 选中区块
+        Plug 'scrooloose/nerdcommenter'         "快速注释
         Plug 'kshenoy/vim-signature'
-        Plug 'scrooloose/nerdcommenter'   "快速注释
-        "注释<leader>cc
-        "取消注释<leader>cu
     " }
 
-    " vim显示相关插件 {
-        Plug 'bling/vim-airline'
+    " Util {
+        Plug 'ctrlpvim/ctrlp.vim'
+        Plug 'tacahiroy/ctrlp-funky'    " ctrlp插件1 - 不用ctag进行函数快速跳转
+        Plug 'dyng/ctrlsf.vim'          "快速搜索文件
+        Plug 'iamcco/dict.vim'
         Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-        Plug 'sjl/gundo.vim'  "文件历史插件
+        Plug 'sjl/gundo.vim'            "文件历史插件
     " }
 
-    " font {
+    " UI theme font {
+        Plug 'morhetz/gruvbox'
+        Plug 'Yggdroot/indentLine'    " 对齐线
+        Plug 'bling/vim-airline'
         Plug 'ryanoasis/vim-devicons'
     " }
 
@@ -134,6 +105,7 @@
     set nu                                                                  " Line numbers on
     set relativenumber number                                               " 相对行号，行号变成相对，可以用 nj，nk，进行跳转 5j，5k，上下跳5行
     set cursorline                                                          " Highlight current line
+    set showcmd                                                             " 显示操作命令
     set linespace=0                                                         " No extra spaces between rows
     set showmatch                                                           " Show matching brackets/parenthesis
     set winminheight=0                                                      " Windows can be 0 line high
@@ -230,32 +202,20 @@
         nnoremap <C-n> :call NumberToggle()<cr>
     " }
 
-    highlight clear SignColumn      " SignColumn should match background
-    highlight clear LineNr          " Current line number row will have same background color in relative mode
-    "设置标记一列的背景颜色和数字一行颜色一致
+    " 设置 GitDiff mark 标记颜色
+    hi! MyDiffAdd guifg=yellow
+    hi! MyDiffDelete guifg=red
+    hi! MyDiffChange guifg=green
+    hi! MySignMarkText guifg=LightBlue
+    hi! link GitGutterAdd MyDiffAdd
+    hi! link GitGutterDelete MyDiffDelete
+    hi! link GitGutterChange MyDiffChange
+    hi! link GitGutterChangeDelete MyDiffChange
+    hi! link SignatureMarkText MySignMarkText
     hi! link SignColumn   LineNr
-    hi! link ShowMarksHLl DiffAdd
-    hi! link ShowMarksHLu DiffChange
-
-    if has('cmdline_info')
-        set ruler                   " Show the ruler
-        set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-        set showcmd                 " Show partial commands in status line and
-                                    " Selected characters/lines in visual mode
-    endif
-
-    if has('statusline')
-        set laststatus=2
-        " Broken down into easily includeable segments
-        set statusline=%<%f\                     " Filename
-        set statusline+=%w%h%m%r                 " Options
-        if exists('fugittive#statusline')
-            set statusline+=%{fugitive#statusline()} " Git Hotness
-        endif
-        set statusline+=\ [%{&ff}/%Y]            " Filetype
-        set statusline+=\ [%{getcwd()}]          " Current dir
-        set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-    endif
+    hi! clear DiffAdd
+    hi! clear DiffDelete
+    hi! clear DiffChange
 
 " }
 
@@ -268,25 +228,11 @@
 
     " 浏览器打开文件快捷键
     let g:browsers = {}
-    let g:browsers['chrome'] = "firefox"
+    let g:browsers['chrome'] = "google-chrome"
     function! ViewFile()
-        exec "silent !start " . g:browsers['chrome'] . " %:p"
+        exec "silent !" . g:browsers['chrome'] . " %:p"
     endfunction
     noremap <leader>go :call ViewFile()<CR>
-
-    "容易按错的键位修正
-    if has("user_commands")
-        command! -bang -nargs=* -complete=file E e<bang> <args>
-        command! -bang -nargs=* -complete=file W w<bang> <args>
-        command! -bang -nargs=* -complete=file Wq wq<bang> <args>
-        command! -bang -nargs=* -complete=file WQ wq<bang> <args>
-        command! -bang Wa wa<bang>
-        command! -bang WA wa<bang>
-        command! -bang Q q<bang>
-        command! -bang QA qa<bang>
-        command! -bang Qa qa<bang>
-    endif
-    cmap Tabe tabe
 
     "复制到行尾，行为向C和D
     nnoremap Y y$
@@ -319,15 +265,6 @@
 
     "选中状态能使用重复操作
     vnoremap . :normal .<CR>
-
-    "在需要sudo权限的代码时候使用
-    cmap w!! w !sudo tee % >/dev/null
-
-    cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
-    map <leader>ew :e %%
-    map <leader>es :sp %%
-    map <leader>ev :vsp %%
-    map <leader>et :tabe %%
 
     "列出所有光标所在单词的行，并可以选择相应数字跳到该行
     nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
@@ -365,13 +302,6 @@
 
 " plugins {
 
-    " OmniComplete {
-        "补全菜单颜色
-        "hi Pmenu  guifg=#1c1c1c guibg=#F1F1F1 ctermfg=black ctermbg=Lightgray
-        "hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
-        "hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
-    " }
-
     " deoplete.nvim {
         let g:deoplete#enable_at_startup = 1
         let g:deoplete#max_list = 15
@@ -386,7 +316,6 @@
         let g:echodoc_enable_at_startup = 1
     "}
 
-
     " tern_for_vim {
         set completeopt-=preview
         let tern_show_signature_in_pum = 1    " 补全菜单显示函数参数提示
@@ -394,12 +323,9 @@
         set noshowmode
     " }
 
-
     " closetag 自动补全html/xml标签 {
-
         let g:closetag_html_style=1
         autocmd BufRead,BufNewFile *.{String,string} set filetype=html
-
     " }
 
     " css complete {
@@ -407,12 +333,10 @@
     " }
 
     " vim-javascript {
-
         let g:html_indent_inctags = 'html,body,head,tbody'
         let g:html_indent_script1 = 'inc'
         let g:html_indent_style1 = 'inc'
         let g:jsdoc_default_mapping = '0'
-        map <leader>sf :call JsBeautify()<cr>
         autocmd FileType javascript noremap <buffer>  <leader>sf :call JsBeautify()<cr>
         autocmd FileType html noremap <buffer> <leader>sf :call HtmlBeautify()<cr>
         autocmd FileType css noremap <buffer> <leader>sf :call CSSBeautify()<cr>
@@ -420,7 +344,6 @@
         autocmd FileType javascript vnoremap <buffer> <leader>sf :call RangeJsBeautify()<cr>
         autocmd FileType html vnoremap <buffer> <leader>sf :call RangeHtmlBeautify()<cr>
         autocmd FileType css vnoremap <buffer> <leader>sf :call RangeCSSBeautify()<cr>
-
     " }
 
     " coffee-script {
@@ -431,48 +354,37 @@
     " }
 
     " JSON {
-
-        nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+        autocmd FileType json noremap <buffer> <leader>sf <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
         let g:vim_json_syntax_conceal = 0
-
     " }
 
     " markdown {
-
         autocmd BufRead,BufNewFile *.{md,mkd,markdown,mdown,mkdn,mdwn} set filetype=markdown
-
     " }
 
-    " font {
+    " font vim-devicons {
         let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
         let g:WebDevIconsUnicodeDecorateFolderNodes = 1
         let g:DevIconsEnableFoldersOpenClose = 1
     " }
 
     " markdown-preview {
-"
         let g:mkdp_path_to_chrome = "google-chrome"
-
-    " }
-
-    " PyMode python-syntax {
     " }
 
     " ctrlsf.vim {
-
         "依赖ag sudo apt-get install silversearcher-ag
         let g:ctrlsf_position = 'bottom'
         let g:ctrlsf_default_root = 'project'
         nmap <leader>fs <Plug>CtrlSFPrompt
         nmap <leader>fw <Plug>CtrlSFCwordPath
-
+        nmap <Leader>fo <Plug>CtrlSFOpen
     " }
 
     " ctrlp.vim {
-
         let g:ctrlp_map = '<c-p>'
         let g:ctrlp_cmd = 'CtrlP'
-        map <leader>b :CtrlPMRU<CR>
+        map <Leader>p :CtrlP ./<CR>
         let g:ctrlp_custom_ignore = {
             \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
             \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
@@ -484,21 +396,17 @@
         let g:ctrlp_mruf_max=500
         let g:ctrlp_follow_symlinks=1
         let g:ctrlp_working_path_mode = 'ra'    " 搜索根目录使用模式
-
     " }
 
     " ctrlp-funky {
-
         nnoremap <Leader>fu :CtrlPFunky<Cr>
         " narrow the list down with a word under cursor
         nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
         let g:ctrlp_funky_syntax_highlight = 1
         let g:ctrlp_extensions = ['funky']
-
     " }
 
     " vim-fugitive {
-
         nnoremap <silent> <leader>gs :Gstatus<CR>
         nnoremap <silent> <leader>gd :Gdiff<CR>
         nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -510,77 +418,53 @@
         nnoremap <silent> <leader>ge :Gedit<CR>
         " Mnemonic _i_nteractive
         nnoremap <silent> <leader>gi :Git add -p %<CR>
-        nnoremap <silent> <leader>gg :SignifyToggle<CR>
-
     " }
 
     " vim-gitgutter {
-
         let g:gitgutter_map_keys = 0
-        let g:gitgutter_enabled = 0
+        let g:gitgutter_enabled = 1
         let g:gitgutter_highlight_lines = 1
-        nnoremap <leader>gss :GitGutterToggle<CR>
-
+        nnoremap <leader>gg :GitGutterToggle<CR>
     " }
 
     " vim-trailing-whitespace {
-
         map <leader><space> :FixWhitespace<cr>
-
     " }
 
     " vim-multiple-cursors {
-
         let g:multi_cursor_next_key='<C-m>'
         let g:multi_cursor_prev_key='<C-p>'
         let g:multi_cursor_skip_key='<C-x>'
         let g:multi_cursor_quit_key='<Esc>'
-
     " }
 
     " textobj-user {
-
-        call textobj#user#plugin('html', {
-        \   'keyVal': {
-        \     'pattern': ' *[0-9a-zA-Z_-]\+ *= *"[0-9a-zA-Z_-]\+"',
-        \     'select': ['ak', 'ik'],
-        \   },
-        \ })
-
+    call textobj#user#plugin('html', {
+                \   'keyVal': {
+                \     'pattern': ' *[0-9a-zA-Z_-]\+ *= *"[0-9a-zA-Z_-]\+"',
+                \     'select': ['ak', 'ik'],
+                \   },
+                \ })
     " }
 
     " vim-expand-region {
-
         map + <Plug>(expand_region_expand)
         map _ <Plug>(expand_region_shrink)
-
     " }
 
     " vim-autoclose {
-
         let g:AutoClosePairs_del= "{}"
-
-    " }
-
-    " pyflakes-vim {
-
-        let g:pyflakes_use_quickfix = 0
-
     " }
 
     " vim-airline {
-
         let g:airline_powerline_fonts=1
         if !exists('g:airline_symbols')
           let g:airline_symbols = {}
         endif
-
     " }
 
     " NerdTree {
-
-        map <leader>ee :NERDTreeToggle<CR>
-
+        map <leader>e :NERDTreeToggle<CR>
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
         let NERDTreeChDirMode=2
@@ -623,33 +507,7 @@
     " }
 
     " gundo.vim {
-
         nnoremap <leader>h :GundoToggle<CR>
-
-    " }
-
-    " Tabularize {
-
-            nmap <Leader>a& :Tabularize /&<CR>
-            vmap <Leader>a& :Tabularize /&<CR>
-            nmap <Leader>a= :Tabularize /=<CR>
-            vmap <Leader>a= :Tabularize /=<CR>
-            nmap <Leader>a" :Tabularize /"<CR>
-            vmap <Leader>a" :Tabularize /"<CR>
-            nmap <Leader>a=> :Tabularize /=><CR>
-            vmap <Leader>a=> :Tabularize /=><CR>
-            nmap <Leader>a: :Tabularize /:<CR>
-            vmap <Leader>a: :Tabularize /:<CR>
-            nmap <Leader>a:: :Tabularize /:\zs<CR>
-            vmap <Leader>a:: :Tabularize /:\zs<CR>
-            nmap <Leader>a, :Tabularize /,<CR>
-            vmap <Leader>a, :Tabularize /,<CR>
-            nmap <Leader>a,, :Tabularize /,\zs<CR>
-            vmap <Leader>a,, :Tabularize /,\zs<CR>
-            nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-            vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-
     " }
 
 " }
-
