@@ -55,6 +55,7 @@ git config --global gui.encoding utf-8
 #### 安装 tmux
 
 * sudo apt-get install tmux
+
 > ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 
 
@@ -66,10 +67,11 @@ git config --global gui.encoding utf-8
 * sudo apt-get install neovim xclip
 * sudo apt-get install python-dev python-pip python3-dev python3-pip
 * ln -s dotfiles/nvim .config/nvim
+
 > :PlugInstall    
 > :UpdateRemotePlugins
 
-** neovim 配置 **
+**neovim 配置**
 ```
 sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
 sudo update-alternatives --config vi

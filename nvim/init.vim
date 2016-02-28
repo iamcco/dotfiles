@@ -60,10 +60,11 @@
     " Util {
         Plug 'ctrlpvim/ctrlp.vim'
         Plug 'tacahiroy/ctrlp-funky'    " ctrlp插件1 - 不用ctag进行函数快速跳转
-        Plug 'dyng/ctrlsf.vim'          "快速搜索文件
+        Plug 'dyng/ctrlsf.vim'          " 快速搜索文件
         Plug 'iamcco/dict.vim'
         Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-        Plug 'sjl/gundo.vim'            "文件历史插件
+        Plug 'sjl/gundo.vim'            " 文件历史插件
+        Plug 'junegunn/vim-easy-align'  " 对齐
     " }
 
     " UI theme font {
@@ -378,7 +379,7 @@
         let g:ctrlsf_default_root = 'project'
         nmap <leader>fs <Plug>CtrlSFPrompt
         nmap <leader>fw <Plug>CtrlSFCwordPath
-        nmap <Leader>fo <Plug>CtrlSFOpen
+        nmap <Leader>fo :CtrlSFOpen<CR>
     " }
 
     " ctrlp.vim {
@@ -463,6 +464,11 @@
         if !exists('g:airline_symbols')
           let g:airline_symbols = {}
         endif
+    " }
+
+    " easy-align {
+        xmap ga <Plug>(EasyAlign)
+        nmap ga <Plug>(EasyAlign)
     " }
 
     " NerdTree {
