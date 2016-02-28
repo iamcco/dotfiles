@@ -65,6 +65,7 @@
         Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
         Plug 'sjl/gundo.vim'            " 文件历史插件
         Plug 'junegunn/vim-easy-align'  " 对齐
+        Plug 'mhinz/vim-startify'       " 开始画面：）
     " }
 
     " UI theme font {
@@ -104,7 +105,7 @@
     set wildmenu                                                            " 增强模式中的命令行自动完成操作
     set wildignore+=*.o,*~,*.pyc,*.class,*/tmp/*,*.so,*.swp,*.zip           " ignore compiled files
     set nu                                                                  " Line numbers on
-    set relativenumber number                                               " 相对行号，行号变成相对，可以用 nj，nk，进行跳转 5j，5k，上下跳5行
+    set relativenumber number
     set cursorline                                                          " Highlight current line
     set showcmd                                                             " 显示操作命令
     set linespace=0                                                         " No extra spaces between rows
@@ -189,10 +190,10 @@
     " }
 
     " 插入模式下用绝对行号, 普通模式下用相对 {
-        au FocusLost * :set norelativenumber number
-        au FocusGained * :set relativenumber
-        autocmd InsertEnter * :set norelativenumber number
-        autocmd InsertLeave * :set relativenumber
+        au FocusLost * :echo 'lost'
+        au FocusGained * :echo 'gain'
+        au InsertEnter * :setl norelativenumber number
+        au InsertLeave * :setl relativenumber
         function! NumberToggle()
             if(&relativenumber == 1)
                 set norelativenumber number
@@ -512,6 +513,11 @@
         call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#151515')
         call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 
+    " }
+
+    " strify {
+        let g:startify_bookmarks = ['~/workspaces/']
+        let g:startify_session_dir = '~/.vimbackupfile/.vimsession'
     " }
 
     " gundo.vim {
