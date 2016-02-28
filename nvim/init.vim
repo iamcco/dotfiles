@@ -516,7 +516,7 @@
     " }
 
     " strify {
-        let g:startify_bookmarks = ['~/workspaces/']
+        let g:startify_bookmarks = [{'w': '~/workspaces/'}, {'b': '~/my/yuuko/'}, {'n': '~/my/learnNote/'}]
         let g:startify_session_dir = '~/.vimbackupfile/.vimsession'
     " }
 
