@@ -118,7 +118,26 @@ chsh -s /bin/zsh
 * Util
   * Plug 'iamcco/vimcdoc'         " vim中文帮助文档
   * Plug 'iamcco/vim-dict'        " 各种字典
+* 模糊搜索
+  * ggVGc/vim-fuzzysearch
+* 书签
+  * MattesGroeger/vim-bookmarks
+* zoom
+  * szw/vim-maximizer
+* 区块选择
+  * gcmt/wildfire.vim
+* 快速demo
+  * mohitleo9/vim-fidget
+* jsdoc
+  * heavenshell/vim-jsdoc
+* autoformat
+  * Chiel92/vim-autoformat
+* vim-bbye
+  * moll/vim-bbye
+
+* tpope/vim-scriptease
 
 #### TODO List
 
 * fzf
+* ctrlSpace
