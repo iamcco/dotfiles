@@ -49,8 +49,7 @@ git config --global gui.encoding utf-8
 
 #### 安装 nodejs
 
-* sudo apt-get install nodejs-legacy
-* sudo apt-get install npm
+* https://github.com/nodesource/distributions
 
 #### 安装 tmux
 
