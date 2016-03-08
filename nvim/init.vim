@@ -1,3 +1,6 @@
+let g:python_host_skip_check = 1
+let g:python3_host_skip_check = 1
+
 " vim-plug {
     call plug#begin('~/dotfiles/nvim/plugged')
 
@@ -33,6 +36,7 @@
         Plug 'elzr/vim-json',                   { 'for': 'json' }
         Plug 'groenewege/vim-less',             { 'for': 'less' }
         Plug 'kchmck/vim-coffee-script',        { 'for': 'coffee' }
+        Plug 'nikvdp/ejs-syntax'
     " }
 
     " python {
@@ -63,9 +67,10 @@
         Plug 'dyng/ctrlsf.vim'          " 快速搜索文件
         Plug 'iamcco/dict.vim'
         Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-        Plug 'sjl/gundo.vim'            " 文件历史插件
+        Plug 'simnalamburt/vim-mundo'   " 文件历史插件
         Plug 'junegunn/vim-easy-align'  " 对齐
         Plug 'mhinz/vim-startify'       " 开始画面：）
+        Plug 'sheerun/vim-polyglot'
     " }
 
     " UI theme font {
@@ -520,8 +525,8 @@
         let g:startify_session_dir = '~/.vimbackupfile/.vimsession'
     " }
 
-    " gundo.vim {
-        nnoremap <leader>h :GundoToggle<CR>
+    " mundo.vim {
+        nnoremap <Leader>h :MundoToggle<CR>
     " }
 
 " }
