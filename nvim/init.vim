@@ -36,7 +36,6 @@ let g:python3_host_skip_check = 1
         Plug 'elzr/vim-json',                   { 'for': 'json' }
         Plug 'groenewege/vim-less',             { 'for': 'less' }
         Plug 'kchmck/vim-coffee-script',        { 'for': 'coffee' }
-        Plug 'nikvdp/ejs-syntax'
     " }
 
     " python {
