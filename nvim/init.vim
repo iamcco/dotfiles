@@ -57,7 +57,7 @@ let g:python3_host_skip_check = 1
         Plug 'vim-scripts/matchit.zip'          " 标签对跳转
         Plug 'kana/vim-textobj-user'
         Plug 'terryma/vim-expand-region'        " 选中区块
-        Plug 'scrooloose/nerdcommenter'         "快速注释
+        Plug 'scrooloose/nerdcommenter'         " 快速注释
         Plug 'kshenoy/vim-signature'
     " }
 
@@ -71,6 +71,7 @@ let g:python3_host_skip_check = 1
         Plug 'junegunn/vim-easy-align'  " 对齐
         Plug 'mhinz/vim-startify'       " 开始画面：）
         Plug 'sheerun/vim-polyglot'
+        Plug 'tpope/vim-repeat'         " 重复命令 with .
     " }
 
     " UI theme font {
