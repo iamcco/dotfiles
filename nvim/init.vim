@@ -20,26 +20,14 @@ let g:python3_host_skip_check = 1
 
     " html css {
         Plug 'mattn/emmet-vim'            " 快速编写html
-        Plug 'othree/csscomplete.vim',  { 'for': ['css', 'html', 'string', 'String'] }   " omni for css3
-        Plug 'docunext/closetag.vim',   { 'for': ['html', 'string', 'String', 'xml', 'markdown'] }      " 自动补全html/xml标签
-        Plug 'hail2u/vim-css3-syntax',  { 'for': 'css' }
-        Plug 'digitaltoad/vim-jade',    { 'for': 'jade' }
+        Plug 'othree/csscomplete.vim',  { 'for': ['css', 'html', 'string', 'String', 'stylus'] }   " omni for css3
+        Plug 'docunext/closetag.vim',   { 'for': ['html', 'jst', 'string', 'String', 'xml', 'markdown'] }      " 自动补全html/xml标签
     " }
 
     " javascript {
         Plug 'marijnh/tern_for_vim',            { 'for': 'javascript', 'do': './npm install'}
-        Plug 'jelera/vim-javascript-syntax',    { 'for': 'javascript' } " javascript增强高亮显示, 放vim-javascript上面
-        Plug 'pangloss/vim-javascript',         { 'for': 'javascript' }
         Plug 'maksimr/vim-jsbeautify',          { 'for': 'javascript' }       " js代码格式化
         Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }        " 编写注释
-        Plug 'nono/jquery.vim',                 { 'for': 'javascript' }
-        Plug 'elzr/vim-json',                   { 'for': 'json' }
-        Plug 'groenewege/vim-less',             { 'for': 'less' }
-        Plug 'kchmck/vim-coffee-script',        { 'for': 'coffee' }
-    " }
-
-    " python {
-        Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
     " }
 
     " git相关插件 {
@@ -520,9 +508,19 @@ let g:python3_host_skip_check = 1
 
     " }
 
-    " strify {
+    " startify {
         let g:startify_bookmarks = [{'w': '~/workspaces/'}, {'b': '~/my/yuuko/'}, {'n': '~/my/learnNote/'}]
         let g:startify_session_dir = '~/.vimbackupfile/.vimsession'
+        let g:startify_list_order = [
+                \ ['   Sessions:'],
+                \ 'sessions',
+                \ ['   Bookmarks:'],
+                \ 'bookmarks',
+                \ ['   Files recently used:'],
+                \ 'files',
+                \ ['   Files recently used in: ' . getcwd()],
+                \ 'dir',
+                \ ]
     " }
 
     " mundo.vim {
