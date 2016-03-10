@@ -6,7 +6,7 @@ let g:python3_host_skip_check = 1
 
     " deoplete and sources about {
         Plug 'Shougo/deoplete.nvim'
-        Plug 'Shougo/echodoc.vim',  { 'for': 'python' }
+        Plug 'Shougo/echodoc.vim'
         Plug 'Shougo/neco-syntax'
         Plug 'Shougo/neco-vim',     { 'for': 'vim' }
         Plug 'zchee/deoplete-jedi', { 'for': 'python' }
@@ -25,7 +25,7 @@ let g:python3_host_skip_check = 1
     " }
 
     " javascript {
-        Plug 'marijnh/tern_for_vim',            { 'for': 'javascript', 'do': './npm install'}
+        Plug 'carlitux/deoplete-ternjs',        { 'for': 'javascript' }
         Plug 'maksimr/vim-jsbeautify',          { 'for': 'javascript' }       " js代码格式化
         Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }        " 编写注释
     " }
@@ -309,13 +309,11 @@ let g:python3_host_skip_check = 1
 
     " echodoc {
         let g:echodoc_enable_at_startup = 1
+        set noshowmode
     "}
 
-    " tern_for_vim {
+    " deoplete-ternjs {
         set completeopt-=preview
-        let tern_show_signature_in_pum = 1    " 补全菜单显示函数参数提示
-        let tern_show_argument_hints = 'on_move'    " vim 最下栏显示补全参数
-        set noshowmode
     " }
 
     " closetag 自动补全html/xml标签 {
