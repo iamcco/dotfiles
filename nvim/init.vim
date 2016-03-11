@@ -42,7 +42,7 @@ let g:python3_host_skip_check = 1
         Plug 'tpope/vim-surround'               " 快速环绕 ds' cs'( csw'===ysiw' ySS'
         Plug 'spf13/vim-autoclose'              " 自动关闭
         Plug 'vim-scripts/matchit.zip'          " 标签对跳转
-        Plug 'kana/vim-textobj-user'
+        Plug 'kana/vim-textobj-user'            " 扩展文本对象
         Plug 'terryma/vim-expand-region'        " 选中区块
         Plug 'scrooloose/nerdcommenter'         " 快速注释
         Plug 'kshenoy/vim-signature'
@@ -52,20 +52,20 @@ let g:python3_host_skip_check = 1
         Plug 'ctrlpvim/ctrlp.vim'
         Plug 'tacahiroy/ctrlp-funky'    " ctrlp插件1 - 不用ctag进行函数快速跳转
         Plug 'dyng/ctrlsf.vim'          " 快速搜索文件
-        Plug 'iamcco/dict.vim'
+        Plug 'iamcco/dict.vim'          " 字典翻译
         Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
         Plug 'simnalamburt/vim-mundo'   " 文件历史插件
         Plug 'junegunn/vim-easy-align'  " 对齐
         Plug 'mhinz/vim-startify'       " 开始画面：）
-        Plug 'sheerun/vim-polyglot'
+        Plug 'sheerun/vim-polyglot'     " 各种语言 syntax 缩进等修正增强等
         Plug 'tpope/vim-repeat'         " 重复命令 with .
     " }
 
     " UI theme font {
-        Plug 'morhetz/gruvbox'
-        Plug 'Yggdroot/indentLine'    " 对齐线
-        Plug 'bling/vim-airline'
-        Plug 'ryanoasis/vim-devicons'
+        Plug 'morhetz/gruvbox'          " 颜色主体
+        Plug 'Yggdroot/indentLine'      " 对齐线
+        Plug 'bling/vim-airline'        " 状态栏增强
+        Plug 'ryanoasis/vim-devicons'   " 各种图标
     " }
 
     call plug#end()
@@ -80,14 +80,14 @@ let g:python3_host_skip_check = 1
     set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1 " 设置支持打开的文件的编码
     set fileformat=unix                                                     " 设置新文件的<EOL>格式
     set fileformats=unix,dos,mac                                            " 给出文件的<EOL>格式类型
-    set nowrap                                                              " Do not wrap long lines
+    set nowrap                                                              " 长行不换行
     set synmaxcol=200                                                       " highlight最大的列数为200，200后的代码将没有高亮，防止处理含有特别长的行的时候，拖慢vim
     set expandtab                                                           " 设置空格代替 tab
     set tabstop=4                                                           " 设置缩进为 4 个空格
     set shiftwidth=4                                                        " 设置缩进为 4 个空格
     set softtabstop=4                                                       " 设置缩进为 4 个空格
-    set pastetoggle=<F12>                                                   " pastetoggle (sane indentation on pastes)
-    set mouse+=a                                                            " Automatically enable mouse usage
+    set pastetoggle=<F12>                                                   " 粘贴模式
+    set mouse+=a                                                            " 启用鼠标
     set mousehide                                                           " 编辑的时候隐藏鼠标
     set autoread                                                            " 文件在外部修改自动读取
     set shortmess+=filmnrxoOtT                                              " 使用消息简写形式，比如 readonly --> RO
@@ -178,7 +178,7 @@ let g:python3_host_skip_check = 1
 
     " color theme {
         set background=dark
-        let g:gruvbox_italic=1
+        let g:gruvbox_italic=1      " 启用斜体
         colorscheme gruvbox
     " }
 
@@ -250,10 +250,6 @@ let g:python3_host_skip_check = 1
     "找到git合并中冲突的地方
     map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 
-    "进入文件的当前工作文件夹
-    cmap cwd lcd %:p:h
-    cmap cd. lcd %:p:h
-
     "移动完自后在此选择移动块
     vnoremap < <gv
     vnoremap > >gv
@@ -316,8 +312,17 @@ let g:python3_host_skip_check = 1
         set completeopt-=preview
     " }
 
+    " neomake {
+        let g:neomake_javascript_jshint_maker = {
+                    \ 'args': ['--verbose'],
+                    \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
+                    \ }
+        let g:neomake_javascript_enabled_makers = ['jshint']
+        autocmd! BufWritePost *.js Neomake
+    " }
+
     " closetag 自动补全html/xml标签 {
-        let g:closetag_html_style=1
+        let g:closetag_html_style=1     " html sytle tag matching
         autocmd BufRead,BufNewFile *.{String,string} set filetype=html
     " }
 
@@ -357,8 +362,6 @@ let g:python3_host_skip_check = 1
 
     " font vim-devicons {
         let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-        let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-        let g:DevIconsEnableFoldersOpenClose = 1
     " }
 
     " markdown-preview {
