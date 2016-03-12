@@ -59,12 +59,13 @@ let g:python3_host_skip_check = 1
         Plug 'mhinz/vim-startify'       " 开始画面：）
         Plug 'sheerun/vim-polyglot'     " 各种语言 syntax 缩进等修正增强等
         Plug 'tpope/vim-repeat'         " 重复命令 with .
+        Plug 'thinca/vim-quickrun'
     " }
 
     " UI theme font {
         Plug 'morhetz/gruvbox'          " 颜色主体
         Plug 'Yggdroot/indentLine'      " 对齐线
-        Plug 'bling/vim-airline'        " 状态栏增强
+        Plug 'vim-airline/vim-airline'        " 状态栏增强
         Plug 'ryanoasis/vim-devicons'   " 各种图标
     " }
 
@@ -347,7 +348,6 @@ let g:python3_host_skip_check = 1
     " coffee-script {
         " coffee-script的缩进为2个空格
         autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
-        autocmd FileType coffee noremap <buffer> <leader>r :CoffeeRun<cr>
         autocmd FileType coffee noremap <buffer> <leader>w :CoffeeWatch<cr>
     " }
 
@@ -454,11 +454,24 @@ let g:python3_host_skip_check = 1
     " }
 
     " vim-airline {
-        let g:airline#extensions#wordcount#formatter = 'chines'
         let g:airline_powerline_fonts=1
         if !exists('g:airline_symbols')
           let g:airline_symbols = {}
         endif
+    " }
+
+    " quickrun {
+        let g:quickrun_config = {}
+        let g:quickrun_config.javascript = {
+                    \'outputter/buffer/split': 'bo',
+                    \'outputter/buffer/into': 1,
+                    \'outputter/buffer/close_on_empty': 1
+                    \}
+        let g:quickrun_config.coffee = {
+                    \'outputter/buffer/split': 'bo',
+                    \'outputter/buffer/into': 1,
+                    \'outputter/buffer/close_on_empty': 1
+                    \}
     " }
 
     " easy-align {
@@ -515,12 +528,12 @@ let g:python3_host_skip_check = 1
         let g:startify_list_order = [
                 \ ['   Sessions:'],
                 \ 'sessions',
-                \ ['   Bookmarks:'],
-                \ 'bookmarks',
                 \ ['   Files recently used:'],
                 \ 'files',
                 \ ['   Files recently used in: ' . getcwd()],
                 \ 'dir',
+                \ ['   Bookmarks:'],
+                \ 'bookmarks',
                 \ ]
     " }
 
