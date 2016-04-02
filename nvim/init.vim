@@ -6,6 +6,7 @@ let g:python3_host_skip_check = 1
 
     " deoplete and sources about {
         Plug 'Shougo/deoplete.nvim'
+        Plug 'Shougo/context_filetype.vim'
         Plug 'Shougo/echodoc.vim'
         Plug 'Shougo/neco-syntax'
         Plug 'Shougo/neco-vim',     { 'for': 'vim' }
@@ -21,6 +22,7 @@ let g:python3_host_skip_check = 1
     " html css {
         Plug 'mattn/emmet-vim'            " 快速编写html
         Plug 'othree/csscomplete.vim',  { 'for': ['css', 'html', 'string', 'String', 'stylus'] }   " omni for css3
+        Plug 'iamcco/csscomb.vim',      { 'for': ['css', 'stylus', 'less', 'sass'] }
         Plug 'docunext/closetag.vim',   { 'for': ['html', 'jst', 'string', 'String', 'xml', 'markdown'] }      " 自动补全html/xml标签
     " }
 
@@ -52,7 +54,7 @@ let g:python3_host_skip_check = 1
         Plug 'ctrlpvim/ctrlp.vim'
         Plug 'tacahiroy/ctrlp-funky'    " ctrlp插件1 - 不用ctag进行函数快速跳转
         Plug 'dyng/ctrlsf.vim'          " 快速搜索文件
-        Plug 'iamcco/dict.vim'          " 字典翻译
+        Plug 'iamcco/dict.nvim'
         Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
         Plug 'simnalamburt/vim-mundo'   " 文件历史插件
         Plug 'junegunn/vim-easy-align'  " 对齐
@@ -60,6 +62,8 @@ let g:python3_host_skip_check = 1
         Plug 'sheerun/vim-polyglot'     " 各种语言 syntax 缩进等修正增强等
         Plug 'tpope/vim-repeat'         " 重复命令 with .
         Plug 'thinca/vim-quickrun'
+        Plug 'airblade/vim-rooter'
+        Plug 'vim-ctrlspace/vim-ctrlspace'
     " }
 
     " UI theme font {
@@ -82,7 +86,7 @@ let g:python3_host_skip_check = 1
     set fileformat=unix                                                     " 设置新文件的<EOL>格式
     set fileformats=unix,dos,mac                                            " 给出文件的<EOL>格式类型
     set nowrap                                                              " 长行不换行
-    set synmaxcol=200                                                       " highlight最大的列数为200，200后的代码将没有高亮，防止处理含有特别长的行的时候，拖慢vim
+    "set synmaxcol=200                                                       " highlight最大的列数为200，200后的代码将没有高亮，防止处理含有特别长的行的时候，拖慢vim
     set expandtab                                                           " 设置空格代替 tab
     set tabstop=4                                                           " 设置缩进为 4 个空格
     set shiftwidth=4                                                        " 设置缩进为 4 个空格
@@ -113,7 +117,7 @@ let g:python3_host_skip_check = 1
     set listchars=tab:›\ ,trail:-,extends:#,nbsp:.                          " Highlight problematic whitespace
 
     "切换到编辑文档所在目录
-    autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+    "autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
     "在编辑git提交文档的时候光标移到第一行
     au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
@@ -296,7 +300,7 @@ let g:python3_host_skip_check = 1
 
     " deoplete.nvim {
         let g:deoplete#enable_at_startup = 1
-        let g:deoplete#max_list = 15
+        "let g:deoplete#max_list = 15
         inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
         function! s:my_cr_function()
             return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
@@ -309,8 +313,21 @@ let g:python3_host_skip_check = 1
         set noshowmode
     "}
 
+    " context_filetype {
+        if !exists('g:context_filetype#same_filetypes')
+          let g:context_filetype#same_filetypes = {}
+        endif
+        let g:context_filetype#same_filetypes.javascript = 'html,string,String'
+        let g:context_filetype#same_filetypes.html = 'javascript,string,String'
+        let g:context_filetype#same_filetypes.string = 'javascript,html,String'
+        let g:context_filetype#same_filetypes.String = 'javascript,html,string'
+
+    " }
+
     " deoplete-ternjs {
         set completeopt-=preview
+        let g:tern_request_timeout = 1
+        let g:tern_show_signature_in_pum = 1
     " }
 
     " neomake {
@@ -319,7 +336,8 @@ let g:python3_host_skip_check = 1
                     \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
                     \ }
         let g:neomake_javascript_enabled_makers = ['jshint']
-        autocmd! BufWritePost *.js Neomake
+        "let g:neomake_javascript_enabled_makers = ['eslint']
+        autocmd! BufWritePost *.{js,css,py,vim} Neomake
     " }
 
     " closetag 自动补全html/xml标签 {
@@ -472,6 +490,16 @@ let g:python3_host_skip_check = 1
                     \'outputter/buffer/into': 1,
                     \'outputter/buffer/close_on_empty': 1
                     \}
+        let g:quickrun_config.python = {
+                    \'outputter/buffer/split': 'bo',
+                    \'outputter/buffer/into': 1,
+                    \'outputter/buffer/close_on_empty': 1
+                    \}
+        let g:quickrun_config.sh = {
+                    \'outputter/buffer/split': 'bo',
+                    \'outputter/buffer/into': 1,
+                    \'outputter/buffer/close_on_empty': 1
+                    \}
     " }
 
     " easy-align {
@@ -484,7 +512,7 @@ let g:python3_host_skip_check = 1
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
         let NERDTreeChDirMode=2
-        let NERDTreeQuitOnOpen=0
+        let NERDTreeQuitOnOpen=1
         let NERDTreeMouseMode=2
         let NERDTreeShowHidden=1
         let NERDTreeKeepTreeInNewTab=1
@@ -520,6 +548,13 @@ let g:python3_host_skip_check = 1
         call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#151515')
         call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 
+    " }
+
+    " ctrlspace {
+        set showtabline=0
+        let g:CtrlSpaceSaveWorkspaceOnExit = 1
+        let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+        let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
     " }
 
     " startify {
