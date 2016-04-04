@@ -136,7 +136,11 @@ chsh -s /bin/zsh
 
 * tpope/vim-scriptease
 
+* https://github.com/svermeulen/vim-easyclip
+
+* https://github.com/tpope/vim-commentary
+
 #### TODO List
 
-* fzf
-* ctrlSpace
+* [ ] fzf
+* [ ] ctrlSpace
