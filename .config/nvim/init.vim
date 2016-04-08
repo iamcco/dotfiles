@@ -2,7 +2,7 @@ let g:python_host_skip_check = 1
 let g:python3_host_skip_check = 1
 
 " vim-plug {
-    call plug#begin('~/dotfiles/nvim/plugged')
+    call plug#begin('~/dotfiles/.config/nvim/plugged')
 
     " deoplete and sources about {
         Plug 'Shougo/deoplete.nvim'
@@ -383,7 +383,7 @@ let g:python3_host_skip_check = 1
     " }
 
     " markdown-preview {
-        let g:mkdp_path_to_chrome = "google-chrome"
+        let g:mkdp_path_to_chrome = "open -a Safari"
     " }
 
     " ctrlsf.vim {

@@ -1,3 +1,4 @@
 *.*~
-/nvim/plugged
-/nvim/.netrwhist
+.DS_store
+.config/nvim/.netrwhist
+.config/nvim/plugged/
