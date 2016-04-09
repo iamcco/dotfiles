@@ -36,17 +36,6 @@ git neovim python2/3 (dev,pip) zsh tmux nodejs
 * sudo apt-get install git
 * git clone https://github.com/iamcco/dotfiles
 
-git 配置
-```
-git config --global user.name guangzhou.chen
-git config --global user.email guangzhou.chen@qunar.com
-git config --global push.default simple
-git config --global core.autocrlf false
-git config --global core.quotepath off
-git config --global core.editor vim
-git config --global gui.encoding utf-8
-```
-
 #### 安装 nodejs
 
 * https://github.com/nodesource/distributions
@@ -54,9 +43,6 @@ git config --global gui.encoding utf-8
 #### 安装 tmux
 
 * sudo apt-get install tmux
-
-> ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
-
 
 #### 安装 neovim
 
