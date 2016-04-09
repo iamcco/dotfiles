@@ -1,0 +1,11 @@
+[user]
+	name = guangzhou.chen
+	email = guangzhou.chen@qunar.com
+[push]
+	default = simple
+[core]
+	autocrlf = false
+	quotepath = off
+	editor = nvim
+[gui]
+	encoding = utf-8
