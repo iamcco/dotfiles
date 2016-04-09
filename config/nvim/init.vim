@@ -2,7 +2,7 @@ let g:python_host_skip_check = 1
 let g:python3_host_skip_check = 1
 
 " vim-plug {
-    call plug#begin('~/dotfiles/.config/nvim/plugged')
+    call plug#begin('~/dotfiles/config/nvim/plugged')
 
     " deoplete and sources about {
         Plug 'Shougo/deoplete.nvim'

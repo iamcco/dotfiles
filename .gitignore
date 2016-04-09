@@ -2,3 +2,5 @@
 .DS_store
 .config/nvim/.netrwhist
 .config/nvim/plugged/
+config/nvim/.netrwhist
+config/nvim/plugged/
