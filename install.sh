@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-PWD_DIR=$PWD
+SCRIPT_PATH=${0%\/*}
+cd $SCRIPT_PATH
+SCRIPT_PATH=$PWD
 BACKUP_DIR="$HOME/backup_`date +%Y-%m-%d_%H-%M-%S`"
 
 # color
@@ -19,7 +21,7 @@ mk_symlink() {
     then
         printf "$RED mk_symlink need a name $NC\n"
     else
-        local TARGET=$PWD_DIR/$1
+        local TARGET=$SCRIPT_PATH/$1
         local LINKTO=$HOME/.$1
         if [ -e "$TARGET" ]
         then
