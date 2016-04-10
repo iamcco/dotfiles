@@ -53,7 +53,7 @@ plugins=(git)
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -83,6 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#environment variable
+# environment variable
+# neovim use true color
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 alias qnpm="npm --registry=http://registry.npm.corp.qunar.com/ --cache=$HOME/.npm/.cache/qnpm --userconfig=$HOME/.qnpmrc"

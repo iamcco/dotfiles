@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# local config for git
+
+USER_NAME=$1
+WORK=guangzhou.chen@qunar.com
+GITHUB=ooiss@qq.com
+
+git_config_list() {
+    git config --list | grep user
+}
+
+if [ -n "$USER_NAME" ]
+then
+    if [ "$USER_NAME" == "work" ]
+    then
+        git config user.name guangzhou.chen
+        git config user.email $WORK
+        git_config_list
+    elif [ "$USER_NAME" == "github" ]
+    then
+        git config user.name 年糕小豆汤
+        git config user.email $GITHUB
+        git_config_list
+    else
+        echo "no match type"
+    fi
+else
+    echo "need type to config"
+fi
