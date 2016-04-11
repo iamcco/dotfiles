@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 # local config for git
 
+if [ ! -d "$PWD/.git" ]
+then
+    echo 'this is not an git project'
+    exit 1
+fi
+
 USER_NAME=$1
 WORK=guangzhou.chen@qunar.com
 GITHUB=ooiss@qq.com

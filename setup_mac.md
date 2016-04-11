@@ -18,6 +18,11 @@
 9. baiduinput
 10. tern
 11. glup
+12. hexo
+13. charles
+14. cheatsheet
+15. dash
+16. licecap
 
 > 配置iterm2 颜色    
 > brew cask install python/python3    

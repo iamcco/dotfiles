@@ -383,7 +383,7 @@ let g:python3_host_skip_check = 1
     " }
 
     " markdown-preview {
-        let g:mkdp_path_to_chrome = "open -a Safari"
+        let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
     " }
 
     " ctrlsf.vim {
