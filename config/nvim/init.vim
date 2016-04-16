@@ -331,12 +331,7 @@ let g:python3_host_skip_check = 1
     " }
 
     " neomake {
-        let g:neomake_javascript_jshint_maker = {
-                    \ 'args': ['--verbose'],
-                    \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
-                    \ }
-        let g:neomake_javascript_enabled_makers = ['jshint']
-        "let g:neomake_javascript_enabled_makers = ['eslint']
+        let g:neomake_javascript_enabled_makers = ['eslint']
         autocmd! BufWritePost *.{js,css,py,vim} Neomake
     " }
 

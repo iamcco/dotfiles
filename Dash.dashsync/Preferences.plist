@@ -122,6 +122,11 @@
 				<key>date</key>
 				<date>2016-04-11T08:16:34Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/CSS.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2016-04-14T07:15:05Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/Docker.xml</key>
 			<dict>
 				<key>date</key>
@@ -146,6 +151,11 @@
 			<dict>
 				<key>date</key>
 				<date>2016-04-11T08:38:58Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/Less.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2016-04-14T07:15:21Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/MongoDB.xml</key>
 			<dict>
@@ -172,6 +182,11 @@
 				<key>date</key>
 				<date>2016-04-11T08:27:38Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/Sass.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2016-04-14T07:15:24Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/Stylus.xml</key>
 			<dict>
 				<key>date</key>
@@ -194,7 +209,13 @@
 			</dict>
 		</dict>
 		<key>uninstalled</key>
-		<dict/>
+		<dict>
+			<key>http://kapeli.com/feeds/Android.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2016-04-11T14:16:52Z</date>
+			</dict>
+		</dict>
 	</dict>
 	<key>isPinned</key>
 	<true/>

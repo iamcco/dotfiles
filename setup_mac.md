@@ -23,6 +23,8 @@
 14. cheatsheet
 15. dash
 16. licecap
+17. `the_silver_searcher`
+18. eslint
 
 > 配置iterm2 颜色    
 > brew cask install python/python3    
