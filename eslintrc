@@ -1,6 +1,10 @@
 {
   "globals": {
-    "$": true                                   //zepto,jquery
+    "$": true,                                   // zepto,jquery
+    "$$": true,                                  // avalon global varible
+    "avalon": true,                              // avalon global varible
+    "CRM": true,                                 // CRM global varible
+    "QApp": true,                                // QApp global varible
   },
   "env": {
     "browser": true,

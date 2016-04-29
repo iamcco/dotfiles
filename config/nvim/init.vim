@@ -64,6 +64,7 @@ let g:python3_host_skip_check = 1
         Plug 'thinca/vim-quickrun'
         Plug 'airblade/vim-rooter'
         Plug 'vim-ctrlspace/vim-ctrlspace'
+        Plug 'junegunn/vim-peekaboo'    " 查看寄存器
     " }
 
     " UI theme font {
@@ -115,6 +116,8 @@ let g:python3_host_skip_check = 1
     set scrolloff=3                                                         " Minimum lines to keep above and below cursor
     set list
     set listchars=tab:›\ ,trail:-,extends:#,nbsp:.                          " Highlight problematic whitespace
+
+    au TermClose * bd!      " 关闭 terminal 的同时，关闭 buffer
 
     "切换到编辑文档所在目录
     "autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
@@ -446,6 +449,12 @@ let g:python3_host_skip_check = 1
         let g:multi_cursor_prev_key='<C-p>'
         let g:multi_cursor_skip_key='<C-x>'
         let g:multi_cursor_quit_key='<Esc>'
+        function Multiple_cursors_before()
+            let g:deoplete#disable_auto_complete = 1
+        endfunction
+        function Multiple_cursors_after()
+            let g:deoplete#disable_auto_complete = 0
+        endfunction
     " }
 
     " textobj-user {
@@ -510,7 +519,7 @@ let g:python3_host_skip_check = 1
         let NERDTreeQuitOnOpen=1
         let NERDTreeMouseMode=2
         let NERDTreeShowHidden=1
-        let NERDTreeKeepTreeInNewTab=1
+        "let NERDTreeKeepTreeInNewTab=1
         let g:NERDTreeDirArrowExpandable = '▸'
         let g:NERDTreeDirArrowCollapsible = '▾'
         autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
