@@ -55,16 +55,16 @@ let g:python3_host_skip_check = 1
         Plug 'tacahiroy/ctrlp-funky'    " ctrlp插件1 - 不用ctag进行函数快速跳转
         Plug 'dyng/ctrlsf.vim'          " 快速搜索文件
         Plug 'iamcco/dict.nvim'
-        Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+        Plug 'scrooloose/nerdtree'
         Plug 'simnalamburt/vim-mundo'   " 文件历史插件
         Plug 'junegunn/vim-easy-align'  " 对齐
         Plug 'mhinz/vim-startify'       " 开始画面：）
         Plug 'sheerun/vim-polyglot'     " 各种语言 syntax 缩进等修正增强等
         Plug 'tpope/vim-repeat'         " 重复命令 with .
         Plug 'thinca/vim-quickrun'
-        Plug 'airblade/vim-rooter'
         Plug 'vim-ctrlspace/vim-ctrlspace'
         Plug 'junegunn/vim-peekaboo'    " 查看寄存器
+        Plug 'kassio/neoterm'
     " }
 
     " UI theme font {
@@ -120,7 +120,7 @@ let g:python3_host_skip_check = 1
     au TermClose * bd!      " 关闭 terminal 的同时，关闭 buffer
 
     "切换到编辑文档所在目录
-    "autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+    autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
     "在编辑git提交文档的时候光标移到第一行
     au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
@@ -335,7 +335,8 @@ let g:python3_host_skip_check = 1
 
     " neomake {
         let g:neomake_javascript_enabled_makers = ['eslint']
-        autocmd! BufWritePost *.{js,css,py,vim} Neomake
+        let g:neomake_html_enabled_makers = ['tidy']
+        autocmd! BufWritePost *.{js,css,html,py,vim} Neomake
     " }
 
     " closetag 自动补全html/xml标签 {
@@ -512,14 +513,26 @@ let g:python3_host_skip_check = 1
     " }
 
     " NerdTree {
-        map <leader>e :NERDTreeToggle<CR>
+        function! GetRootPathDirectory()
+            return fnamemodify(finddir('.git', fnameescape(expand('%:p:h')) . ';'), ':h')
+        endfunction
+
+        function! OpenNerdTreeAtRootDirectory()
+            if !g:NERDTree.IsOpen()
+                exec "cd " . GetRootPathDirectory()
+                NERDTreeFind "\"" . expand('%:p') . ".""
+            else
+                NERDTreeToggle
+            endif
+        endfunction
+
+        map <silent> <leader>e :call OpenNerdTreeAtRootDirectory()<CR>
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
         let NERDTreeChDirMode=2
         let NERDTreeQuitOnOpen=1
         let NERDTreeMouseMode=2
         let NERDTreeShowHidden=1
-        "let NERDTreeKeepTreeInNewTab=1
         let g:NERDTreeDirArrowExpandable = '▸'
         let g:NERDTreeDirArrowCollapsible = '▾'
         autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
@@ -562,7 +575,6 @@ let g:python3_host_skip_check = 1
     " }
 
     " startify {
-        let g:startify_bookmarks = [{'w': '~/workspaces/'}, {'b': '~/my/yuuko/'}, {'n': '~/my/learnNote/'}]
         let g:startify_session_dir = '~/.vimbackupfile/.vimsession'
         let g:startify_list_order = [
                 \ ['   Sessions:'],
@@ -580,4 +592,23 @@ let g:python3_host_skip_check = 1
         nnoremap <Leader>h :MundoToggle<CR>
     " }
 
+    " neoterm {
+        let g:neoterm_size = 10
+        " open new term
+        nnoremap <silent> ,tn :call neoterm#tnew()<CR>
+        " open term
+        nnoremap <silent> ,to :call neoterm#open()<CR>
+        " Toggles the last window in the current tab.
+        nnoremap <silent> ,tt :call neoterm#toggle()<CR>
+        " hide/close terminal
+        nnoremap <silent> ,th :call neoterm#close()<CR>
+        " clear terminal
+        nnoremap <silent> ,tl :call neoterm#clear()<CR>
+        " kills the current job (send a <c-c>)
+        nnoremap <silent> ,tc :call neoterm#kill()<CR>
+        " command
+        nnoremap <silent> ,tm :T
+    " }
+
 " }
+
