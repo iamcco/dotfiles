@@ -120,7 +120,7 @@ let g:python3_host_skip_check = 1
     au TermClose * bd!      " 关闭 terminal 的同时，关闭 buffer
 
     "切换到编辑文档所在目录
-    autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+    "autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
     "在编辑git提交文档的时候光标移到第一行
     au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
@@ -461,7 +461,7 @@ let g:python3_host_skip_check = 1
     " textobj-user {
     call textobj#user#plugin('html', {
                 \   'keyVal': {
-                \     'pattern': ' *[0-9a-zA-Z_-]\+ *= *"[0-9a-zA-Z_-]\+"',
+                \     'pattern': ' *[^" ]\+ *= *"[^"]\+"',
                 \     'select': ['ak', 'ik'],
                 \   },
                 \ })
