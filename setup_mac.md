@@ -25,6 +25,16 @@
 16. licecap
 17. `the_silver_searcher`
 18. eslint
+19. asciinema
+20. ihosts
+21. 有道词典
+22. 奇妙清单
+23. ms-word
+24. appTime
+25. virtualbox
+26. egret
+27. typescript
+28. aria2c
 
 > 配置iterm2 颜色    
 > brew cask install python/python3    

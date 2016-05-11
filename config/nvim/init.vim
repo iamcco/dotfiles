@@ -65,6 +65,7 @@ let g:python3_host_skip_check = 1
         Plug 'vim-ctrlspace/vim-ctrlspace'
         Plug 'junegunn/vim-peekaboo'    " 查看寄存器
         Plug 'kassio/neoterm'
+        Plug 'ybian/smartim'            " Normal 状态自动切换回 English 输入法
     " }
 
     " UI theme font {
@@ -72,6 +73,11 @@ let g:python3_host_skip_check = 1
         Plug 'Yggdroot/indentLine'      " 对齐线
         Plug 'vim-airline/vim-airline'        " 状态栏增强
         Plug 'ryanoasis/vim-devicons'   " 各种图标
+    " }
+
+    " func{
+        "Plug 'timeyyy/orchestra.nvim'
+        "Plug 'timeyyy/clackclack.symphony'
     " }
 
     call plug#end()
@@ -352,7 +358,6 @@ let g:python3_host_skip_check = 1
         let g:html_indent_inctags = 'html,body,head,tbody'
         let g:html_indent_script1 = 'inc'
         let g:html_indent_style1 = 'inc'
-        let g:jsdoc_default_mapping = '0'
         autocmd FileType javascript noremap <buffer>  <leader>sf :call JsBeautify()<cr>
         autocmd FileType html noremap <buffer> <leader>sf :call HtmlBeautify()<cr>
         autocmd FileType css noremap <buffer> <leader>sf :call CSSBeautify()<cr>
@@ -360,6 +365,10 @@ let g:python3_host_skip_check = 1
         autocmd FileType javascript vnoremap <buffer> <leader>sf :call RangeJsBeautify()<cr>
         autocmd FileType html vnoremap <buffer> <leader>sf :call RangeHtmlBeautify()<cr>
         autocmd FileType css vnoremap <buffer> <leader>sf :call RangeCSSBeautify()<cr>
+
+        " vim-jsdoc
+        nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
+
     " }
 
     " coffee-script {
@@ -610,5 +619,13 @@ let g:python3_host_skip_check = 1
         nnoremap <silent> ,tm :T
     " }
 
+    " smartim {
+        let g:smartim_default = 'com.apple.keylayout.ABC'
+    " }
+
+    " func {
+        "call orchestra#prelude()
+        "call orchestra#set_tune('clackclack')
+    " }
 " }
 
