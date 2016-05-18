@@ -191,6 +191,7 @@ let g:python3_host_skip_check = 1
 " UI {
 
     " color theme {
+        set termguicolors
         set background=dark
         let g:gruvbox_italic=1      " 启用斜体
         colorscheme gruvbox

@@ -35,6 +35,7 @@
 26. egret
 27. typescript
 28. aria2c
+29. Dr. Cleaner Elite
 
 > 配置iterm2 颜色    
 > brew cask install python/python3    

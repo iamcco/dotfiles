@@ -85,5 +85,4 @@ source $ZSH/oh-my-zsh.sh
 
 # environment variable
 # neovim use true color
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
 alias qnpm="npm --registry=http://registry.npm.corp.qunar.com/ --cache=$HOME/.npm/.cache/qnpm --userconfig=$HOME/.qnpmrc"

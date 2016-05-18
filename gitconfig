@@ -7,5 +7,12 @@
 	autocrlf = false
 	quotepath = off
 	editor = nvim
+	excludesfile = /Users/aioiyuuko/.gitignore_global
 [gui]
 	encoding = utf-8
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/aioiyuuko/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
