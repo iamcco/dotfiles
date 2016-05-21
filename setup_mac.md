@@ -36,6 +36,8 @@
 27. typescript
 28. aria2c
 29. Dr. Cleaner Elite
+30. sourcetree
+31. helm
 
 > 配置iterm2 颜色    
 > brew cask install python/python3    
