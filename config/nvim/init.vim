@@ -66,6 +66,7 @@ let g:python3_host_skip_check = 1
         Plug 'junegunn/vim-peekaboo'    " 查看寄存器
         Plug 'kassio/neoterm'
         Plug 'ybian/smartim'            " Normal 状态自动切换回 English 输入法
+        Plug 'junegunn/goyo.vim'
     " }
 
     " UI theme font {
@@ -73,11 +74,6 @@ let g:python3_host_skip_check = 1
         Plug 'Yggdroot/indentLine'      " 对齐线
         Plug 'vim-airline/vim-airline'        " 状态栏增强
         Plug 'ryanoasis/vim-devicons'   " 各种图标
-    " }
-
-    " func{
-        "Plug 'timeyyy/orchestra.nvim'
-        "Plug 'timeyyy/clackclack.symphony'
     " }
 
     call plug#end()
@@ -238,7 +234,7 @@ let g:python3_host_skip_check = 1
 
     " 浏览器打开文件快捷键
     let g:browsers = {}
-    let g:browsers['chrome'] = "google-chrome"
+    let g:browsers['chrome'] = "open -a Google\ Chrome"
     function! ViewFile()
         exec "silent !" . g:browsers['chrome'] . " %:p"
     endfunction
@@ -624,9 +620,5 @@ let g:python3_host_skip_check = 1
         let g:smartim_default = 'com.apple.keylayout.ABC'
     " }
 
-    " func {
-        "call orchestra#prelude()
-        "call orchestra#set_tune('clackclack')
-    " }
 " }
 

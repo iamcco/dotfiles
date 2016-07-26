@@ -38,6 +38,9 @@
 29. Dr. Cleaner Elite
 30. sourcetree
 31. helm
+32. babel
+33. java
+34. tickets => pip3 install tickets
 
 > 配置iterm2 颜色    
 > brew cask install python/python3    
