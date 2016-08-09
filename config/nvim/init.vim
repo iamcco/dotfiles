@@ -208,20 +208,20 @@ let g:python3_host_skip_check = 1
         nnoremap <C-n> :call NumberToggle()<cr>
     " }
 
-    " 设置 GitDiff mark 标记颜色
-    hi! MyDiffAdd guifg=yellow
-    hi! MyDiffDelete guifg=red
-    hi! MyDiffChange guifg=green
-    hi! MySignMarkText guifg=LightBlue
-    hi! link GitGutterAdd MyDiffAdd
-    hi! link GitGutterDelete MyDiffDelete
-    hi! link GitGutterChange MyDiffChange
-    hi! link GitGutterChangeDelete MyDiffChange
-    hi! link SignatureMarkText MySignMarkText
-    hi! link SignColumn   LineNr
-    hi! clear DiffAdd
-    hi! clear DiffDelete
-    hi! clear DiffChange
+    "" 设置 GitDiff mark 标记颜色
+    "hi! MyDiffAdd guifg=yellow
+    "hi! MyDiffDelete guifg=red
+    "hi! MyDiffChange guifg=green
+    "hi! MySignMarkText guifg=LightBlue
+    "hi! link GitGutterAdd MyDiffAdd
+    "hi! link GitGutterDelete MyDiffDelete
+    "hi! link GitGutterChange MyDiffChange
+    "hi! link GitGutterChangeDelete MyDiffChange
+    "hi! link SignatureMarkText MySignMarkText
+    "hi! link SignColumn   LineNr
+    "hi! clear DiffAdd
+    "hi! clear DiffDelete
+    "hi! clear DiffChange
 
 " }
 
