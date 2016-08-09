@@ -29,12 +29,12 @@ let g:python3_host_skip_check = 1
     " javascript {
         Plug 'carlitux/deoplete-ternjs',        { 'for': 'javascript' }
         Plug 'maksimr/vim-jsbeautify',          { 'for': 'javascript' }       " js代码格式化
-        Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }        " 编写注释
+        "Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }        " 编写注释
     " }
 
     " git相关插件 {
-        Plug 'tpope/vim-fugitive'       " git插件，使用:Gstatus或:Git status
-        Plug 'airblade/vim-gitgutter'   " 同git diff,实时展示文件中修改的行
+        "Plug 'tpope/vim-fugitive'       " git插件，使用:Gstatus或:Git status
+        "Plug 'airblade/vim-gitgutter'   " 同git diff,实时展示文件中修改的行
     " }
 
     " 编辑，移动，对齐相关插件 {
@@ -58,7 +58,7 @@ let g:python3_host_skip_check = 1
         Plug 'scrooloose/nerdtree'
         Plug 'simnalamburt/vim-mundo'   " 文件历史插件
         Plug 'junegunn/vim-easy-align'  " 对齐
-        Plug 'mhinz/vim-startify'       " 开始画面：）
+        "Plug 'mhinz/vim-startify'       " 开始画面：）
         Plug 'sheerun/vim-polyglot'     " 各种语言 syntax 缩进等修正增强等
         Plug 'tpope/vim-repeat'         " 重复命令 with .
         Plug 'thinca/vim-quickrun'
@@ -72,8 +72,8 @@ let g:python3_host_skip_check = 1
     " UI theme font {
         Plug 'morhetz/gruvbox'          " 颜色主体
         Plug 'Yggdroot/indentLine'      " 对齐线
-        Plug 'vim-airline/vim-airline'        " 状态栏增强
-        Plug 'ryanoasis/vim-devicons'   " 各种图标
+        "Plug 'vim-airline/vim-airline'        " 状态栏增强
+        "Plug 'ryanoasis/vim-devicons'   " 各种图标
     " }
 
     call plug#end()
@@ -364,7 +364,7 @@ let g:python3_host_skip_check = 1
         autocmd FileType css vnoremap <buffer> <leader>sf :call RangeCSSBeautify()<cr>
 
         " vim-jsdoc
-        nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
+        "nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
 
     " }
 
@@ -383,12 +383,12 @@ let g:python3_host_skip_check = 1
         autocmd BufRead,BufNewFile *.{md,mkd,markdown,mdown,mkdn,mdwn} set filetype=markdown
     " }
 
-    " font vim-devicons {
-        let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-    " }
+    "" font vim-devicons {
+        "let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+    "" }
 
     " markdown-preview {
-        let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
+        let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
     " }
 
     " ctrlsf.vim {
@@ -426,26 +426,26 @@ let g:python3_host_skip_check = 1
         let g:ctrlp_extensions = ['funky']
     " }
 
-    " vim-fugitive {
-        nnoremap <silent> <leader>gs :Gstatus<CR>
-        nnoremap <silent> <leader>gd :Gdiff<CR>
-        nnoremap <silent> <leader>gc :Gcommit<CR>
-        nnoremap <silent> <leader>gb :Gblame<CR>
-        nnoremap <silent> <leader>gl :Glog<CR>
-        nnoremap <silent> <leader>gp :Git push<CR>
-        nnoremap <silent> <leader>gr :Gread<CR>
-        nnoremap <silent> <leader>gw :Gwrite<CR>
-        nnoremap <silent> <leader>ge :Gedit<CR>
-        " Mnemonic _i_nteractive
-        nnoremap <silent> <leader>gi :Git add -p %<CR>
-    " }
+    "" vim-fugitive {
+        "nnoremap <silent> <leader>gs :Gstatus<CR>
+        "nnoremap <silent> <leader>gd :Gdiff<CR>
+        "nnoremap <silent> <leader>gc :Gcommit<CR>
+        "nnoremap <silent> <leader>gb :Gblame<CR>
+        "nnoremap <silent> <leader>gl :Glog<CR>
+        "nnoremap <silent> <leader>gp :Git push<CR>
+        "nnoremap <silent> <leader>gr :Gread<CR>
+        "nnoremap <silent> <leader>gw :Gwrite<CR>
+        "nnoremap <silent> <leader>ge :Gedit<CR>
+        "" Mnemonic _i_nteractive
+        "nnoremap <silent> <leader>gi :Git add -p %<CR>
+    "" }
 
-    " vim-gitgutter {
-        let g:gitgutter_map_keys = 0
-        let g:gitgutter_enabled = 1
-        let g:gitgutter_highlight_lines = 1
-        nnoremap <leader>gg :GitGutterToggle<CR>
-    " }
+    "" vim-gitgutter {
+        "let g:gitgutter_map_keys = 0
+        "let g:gitgutter_enabled = 1
+        "let g:gitgutter_highlight_lines = 1
+        "nnoremap <leader>gg :GitGutterToggle<CR>
+    "" }
 
     " vim-trailing-whitespace {
         map <leader><space> :FixWhitespace<cr>
@@ -482,12 +482,12 @@ let g:python3_host_skip_check = 1
         let g:AutoClosePairs_del= "{}"
     " }
 
-    " vim-airline {
-        let g:airline_powerline_fonts=1
-        if !exists('g:airline_symbols')
-          let g:airline_symbols = {}
-        endif
-    " }
+    "" vim-airline {
+        "let g:airline_powerline_fonts=1
+        "if !exists('g:airline_symbols')
+          "let g:airline_symbols = {}
+        "endif
+    "" }
 
     " quickrun {
         let g:quickrun_config = {}
@@ -580,19 +580,19 @@ let g:python3_host_skip_check = 1
         let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
     " }
 
-    " startify {
-        let g:startify_session_dir = '~/.vimbackupfile/.vimsession'
-        let g:startify_list_order = [
-                \ ['   Sessions:'],
-                \ 'sessions',
-                \ ['   Files recently used:'],
-                \ 'files',
-                \ ['   Files recently used in: ' . getcwd()],
-                \ 'dir',
-                \ ['   Bookmarks:'],
-                \ 'bookmarks',
-                \ ]
-    " }
+    "" startify {
+        "let g:startify_session_dir = '~/.vimbackupfile/.vimsession'
+        "let g:startify_list_order = [
+                "\ ['   Sessions:'],
+                "\ 'sessions',
+                "\ ['   Files recently used:'],
+                "\ 'files',
+                "\ ['   Files recently used in: ' . getcwd()],
+                "\ 'dir',
+                "\ ['   Bookmarks:'],
+                "\ 'bookmarks',
+                "\ ]
+    "" }
 
     " mundo.vim {
         nnoremap <Leader>h :MundoToggle<CR>

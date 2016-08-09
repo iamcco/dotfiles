@@ -122,6 +122,11 @@
 				<key>date</key>
 				<date>2016-04-11T08:16:34Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/C.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2016-08-02T02:46:48Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/CSS.xml</key>
 			<dict>
 				<key>date</key>
@@ -157,6 +162,11 @@
 				<key>date</key>
 				<date>2016-04-14T07:15:21Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/Markdown.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2016-08-02T02:31:50Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/MongoDB.xml</key>
 			<dict>
 				<key>date</key>
@@ -176,6 +186,11 @@
 			<dict>
 				<key>date</key>
 				<date>2016-04-11T08:27:16Z</date>
+			</dict>
+			<key>http://kapeli.com/feeds/React.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2016-08-02T02:52:35Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/SVG.xml</key>
 			<dict>
