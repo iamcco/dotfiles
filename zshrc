@@ -84,9 +84,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # environment variable
-# neovim use true color
+
+# alias
 alias qnpm="npm --registry=http://registry.npm.corp.qunar.com/ --cache=$HOME/.npm/.cache/qnpm --userconfig=$HOME/.qnpmrc"
 
+# JAVA
 JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home"
 CLASS_PATH=".:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar"
 PATH="$PATH:$JAVA_HOME/bin"
