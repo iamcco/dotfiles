@@ -28,6 +28,7 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
     " }
 
     " javascript {
+        Plug 'mhartington/deoplete-typescript'
         Plug 'carlitux/deoplete-ternjs',        { 'for': 'javascript' }
         Plug 'maksimr/vim-jsbeautify',          { 'for': 'javascript' }       " js代码格式化
         "Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }        " 编写注释
@@ -335,6 +336,10 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
         set completeopt-=preview
         let g:tern_request_timeout = 1
         let g:tern_show_signature_in_pum = 1
+    " }
+
+    " deoplete-typescript {
+        let g:deoplete#sources#tss#javascript_support = 1
     " }
 
     " neomake {
