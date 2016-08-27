@@ -207,6 +207,11 @@
 				<key>date</key>
 				<date>2016-04-11T08:23:46Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/TypeScript.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2016-08-19T09:00:09Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/ZeptoJS.xml</key>
 			<dict>
 				<key>date</key>
