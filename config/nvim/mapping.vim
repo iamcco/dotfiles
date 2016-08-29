@@ -46,15 +46,26 @@ map zh zH
 " }}} move to the left or right
 
 " move in split windows {{{
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-h> <C-W>h
+nmap <C-l> <C-W>l
+"nmap <silent> <C-k> :exec 'resize ' . (winheight(0) + 1)<CR>
+"nmap <silent> <C-j> :exec 'resize ' . (winheight(0) - 1)<CR>
+"nmap <silent> <C-h> :exec 'vertical resize ' . (winheight(0) + 1)<CR>
+"nmap <silent> <C-l> :exec 'vertical resize ' . (winheight(0) - 1)<CR>
 " }}} move in split windows
 
 " select all {{{
 map <Leader>sa ggVG
 " }}} select all
+
+" words move {{{
+cnoremap <C-h> <S-Left>
+cnoremap <C-l> <S-Right>
+vnoremap <silent> <C-j> :m '>+1<CR>gv=gv
+vnoremap <silent> <C-k> :m '<-2<CR>gv=gv
+" }}} words move
 
 " }}} key mapping
 

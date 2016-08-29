@@ -22,6 +22,12 @@ if filereadable(expand('<sfile>:p:h') . '/general.vim')
 endif
 " }}}
 
+" command {{{
+if filereadable(expand('<sfile>:p:h') . '/commands.vim')
+    exec "srouce " . expand('<sfile>:p:h') . '/commands.vim'
+endif
+"}}}
+
 " key mapping {{{
 if filereadable(expand('<sfile>:p:h') . '/mapping.vim')
     exec "source " . expand('<sfile>:p:h') . '/mapping.vim'

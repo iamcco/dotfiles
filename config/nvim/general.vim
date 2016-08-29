@@ -20,14 +20,55 @@ set tabstop=4                                                           " 设置
 set nowrap                                                              " 长行不换行
 " }}} wrap
 
+" window scroll {{{
+set winminheight=0                                                      " Windows can be 0 line high
+set scrolljump=5                                                        " Lines to scroll when cursor leaves screen
+set scrolloff=3                                                         " Minimum lines to keep above and below cursor
+" }}} window scroll
+
+" folding {{{
+set foldmethod=syntax
+" }}} folding
+
+" line number {{{
+set relativenumber number
+au FocusLost,InsertEnter * call UseAbsNum()
+au FocusGained,InsertLeave * call UseRelNum()
+function! UseAbsNum()
+    if !exists('#goyo')
+        set norelativenumber number
+    else
+        set norelativenumber nonumber
+    endif
+endfunction
+function! UseRelNum()
+    if !exists('#goyo')
+        set relativenumber number
+    else
+        set norelativenumber nonumber
+    endif
+endfunction
+function! NumberToggle()
+    if(&relativenumber == 1)
+        set norelativenumber number
+    else
+        set relativenumber
+    endif
+endfunc
+nnoremap <C-n> :call NumberToggle()<cr>
+" }}} line number
+
 " mouse {{{
 set mouse+=a                                                            " 启用鼠标
 set mousehide                                                           " 编辑的时候隐藏鼠标
 " }}} mouse
 
-" message {{{
-set shortmess+=filmnrxoOtT                                              " 使用消息简写形式，比如 readonly --> RO
-" }}} message
+" No annoying sound on errors and Abbrev. of messages {{{
+set shortmess+=filmnrxoOtT
+set noerrorbells
+set novisualbell
+set t_vb=
+" }}} No annoying sound on errors and Abbrev. of messages
 
 " buffer {{{
 set hidden                                                              " Allow buffer switching without saving
@@ -39,24 +80,13 @@ set wildignore+=*.o,*~,*.pyc,*.class,*/tmp/*,*.so,*.swp,*.zip           " ignore
 set completeopt=longest,menu                                            " 让vim的补全菜单行为与一般ide一致(参考vimtip1228)
 " }}} wildmenu
 
-" line number {{{
-
-set relativenumber number
-au InsertEnter * :setl norelativenumber number
-au InsertLeave * :setl relativenumber
-function! NumberToggle()
-    if(&relativenumber == 1)
-        set norelativenumber number
-    else
-        set relativenumber
-    endif
-endfunc
-nnoremap <C-n> :call NumberToggle()<cr>
-
-" }}}
-
 " statusline {{{
 set showcmd                                                             " 显示操作命令
+set laststatus=2
+set statusline=%<%f\ " filename
+set statusline+=%w%h%m%r " option
+set statusline+=\ %{getcwd()} " current dir
+set statusline+=%=%-14.(%{&fileformat}/%{&filetype}/%{&encoding}\ %l/%L,%c%V%)\ %p%% " Right aligned file nav info
 " }}} statusline
 
 " match {{{
@@ -64,12 +94,6 @@ set showmatch                                                           " Show m
 set smartcase                                                           " 在搜索时如果有大写字母，在大小写敏感
 set ignorecase                                                          " 搜索时忽略大小写
 " }}} match
-
-" window {{{
-set winminheight=0                                                      " Windows can be 0 line high
-set scrolljump=5                                                        " Lines to scroll when cursor leaves screen
-set scrolloff=3                                                         " Minimum lines to keep above and below cursor
-" }}} window
 
 " cursor {{{
 set cursorline                                                          " Highlight current line
@@ -175,6 +199,10 @@ function! InitializeDirectories()
 endfunction
 call InitializeDirectories()
 " }}} backup
+
+" magic pattern {{{
+set magic
+" }}} magic pattern
 
 " }}} general config
 
