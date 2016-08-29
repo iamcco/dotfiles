@@ -24,7 +24,7 @@ endif
 
 " command {{{
 if filereadable(expand('<sfile>:p:h') . '/commands.vim')
-    exec "srouce " . expand('<sfile>:p:h') . '/commands.vim'
+    exec "source " . expand('<sfile>:p:h') . '/commands.vim'
 endif
 "}}}
 
