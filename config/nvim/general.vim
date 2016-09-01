@@ -27,7 +27,7 @@ set scrolloff=3                                                         " Minimu
 " }}} window scroll
 
 " folding {{{
-set foldmethod=syntax
+"set foldmethod=syntax
 " }}} folding
 
 " line number {{{
@@ -55,7 +55,7 @@ function! NumberToggle()
         set relativenumber
     endif
 endfunc
-nnoremap <C-n> :call NumberToggle()<cr>
+nnoremap <C-m> :call NumberToggle()<cr>
 " }}} line number
 
 " mouse {{{

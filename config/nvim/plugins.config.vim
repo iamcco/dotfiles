@@ -118,24 +118,11 @@ let g:ctrlp_working_path_mode = 'ra'    " 搜索根目录使用模式
 " }}} ctrlp
 
 " vim-fugitive {{{
-"nnoremap <silent> <leader>gs :Gstatus<CR>
-"nnoremap <silent> <leader>gd :Gdiff<CR>
-"nnoremap <silent> <leader>gc :Gcommit<CR>
-"nnoremap <silent> <leader>gb :Gblame<CR>
-"nnoremap <silent> <leader>gl :Glog<CR>
-"nnoremap <silent> <leader>gp :Git push<CR>
-"nnoremap <silent> <leader>gr :Gread<CR>
-"nnoremap <silent> <leader>gw :Gwrite<CR>
-"nnoremap <silent> <leader>ge :Gedit<CR>
-"" Mnemonic _i_nteractive
-"nnoremap <silent> <leader>gi :Git add -p %<CR>
+" TODO: config
 " }}} vim-fugitive
 
 " vim-gitgutter {{{
-"let g:gitgutter_map_keys = 0
-"let g:gitgutter_enabled = 1
-"let g:gitgutter_highlight_lines = 1
-"nnoremap <leader>gg :GitGutterToggle<CR>
+" TODO: config
 " }}} vim-gitgutter
 
 " vim-trailing-whitespace {{{
@@ -143,7 +130,7 @@ map <leader><space> :FixWhitespace<cr>
 " }}} vim-trailing-whitespace
 
 " vim-multiple-cursors {{{
-let g:multi_cursor_next_key='<C-m>'
+let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
