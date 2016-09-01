@@ -200,9 +200,9 @@ endfunction
 call InitializeDirectories()
 " }}} backup
 
-" magic pattern {{{
-set magic
-" }}} magic pattern
+" updatetime {{{
+set updatetime=250
+" }}} updatetime
 
 " }}} general config
 
