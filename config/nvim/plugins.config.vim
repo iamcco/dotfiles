@@ -28,12 +28,12 @@ let g:context_filetype#same_filetypes.String = 'javascript,html,string'
 
 " deoplete-ternjs {{{
 set completeopt-=preview
-"let g:tern_request_timeout = 1
-"let g:tern_show_signature_in_pum = 1
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = 1
 " }}} deoplete-ternjs
 
 " deoplete-typescript {{{
-let g:deoplete#sources#tss#javascript_support = 1
+"let g:deoplete#sources#tss#javascript_support = 1
 " }}} deoplete-typescript
 
 " neomake {{{
@@ -286,9 +286,9 @@ nnoremap <silent> ,tc :call neoterm#kill()<CR>
 nnoremap <silent> ,tm :T
 " }}} neoterm
 
-" smartim {{{
-let g:smartim_default = 'com.apple.keylayout.ABC'
-" }}} smartim
+" airline {{{
+let g:airline_powerline_fonts=1
+" }}} airline
 
 " }}} plugins config
 

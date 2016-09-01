@@ -24,8 +24,8 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
     " }}} html css
 
     " javascript {{{
-        Plug 'mhartington/deoplete-typescript',     { 'for': 'javascript' }
-        "Plug 'carlitux/deoplete-ternjs',        { 'for': 'javascript' }
+        "Plug 'mhartington/deoplete-typescript',     { 'for': 'javascript' }
+        Plug 'carlitux/deoplete-ternjs',        { 'for': 'javascript' }
         Plug 'maksimr/vim-jsbeautify',          { 'for': 'javascript' }       " js代码格式化
         "Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }        " 编写注释
     " }}} javascript
@@ -62,15 +62,16 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'vim-ctrlspace/vim-ctrlspace'
         Plug 'junegunn/vim-peekaboo'    " 查看寄存器
         Plug 'kassio/neoterm'
-        Plug 'ybian/smartim'            " Normal 状态自动切换回 English 输入法
+        Plug 'iamcco/smartIM.nvim'
         Plug 'junegunn/goyo.vim'
+        Plug 'Konfekt/FastFold'
     " }}} Util
 
     " UI theme font {{{
         Plug 'morhetz/gruvbox'          " 颜色主体
         Plug 'ashfinal/vim-colors-paper'
-        Plug 'Yggdroot/indentLine'      " 对齐线
-        "Plug 'vim-airline/vim-airline'        " 状态栏增强
+        "Plug 'Yggdroot/indentLine'      " 对齐线
+        Plug 'vim-airline/vim-airline'        " 状态栏增强
         "Plug 'ryanoasis/vim-devicons'   " 各种图标
     " }}} UI theme font
 

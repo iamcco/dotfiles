@@ -83,10 +83,10 @@ set completeopt=longest,menu                                            " 让vim
 " statusline {{{
 set showcmd                                                             " 显示操作命令
 set laststatus=2
-set statusline=%<%f\ " filename
-set statusline+=%w%h%m%r " option
-set statusline+=\ %{getcwd()} " current dir
-set statusline+=%=%-14.(%{&fileformat}/%{&filetype}/%{&encoding}\ %l/%L,%c%V%)\ %p%% " Right aligned file nav info
+"set statusline=%<%f\ " filename
+"set statusline+=%w%h%m%r " option
+"set statusline+=\ %{getcwd()} " current dir
+"set statusline+=%=%-14.(%{&fileformat}/%{&filetype}/%{&encoding}\ %l/%L,%c%V%)\ %p%% " Right aligned file nav info
 " }}} statusline
 
 " match {{{
