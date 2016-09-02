@@ -96,3 +96,11 @@ PATH="$PATH:$JAVA_HOME/bin"
 export JAVA_HOME
 export CLASS_PATH
 export PATH
+
+# android sdk
+ANDROID_HOME="/Users/aioiyuuko/Library/Android/sdk"
+PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
+
+export ANDROID_HOME
+export PATH
+

@@ -66,6 +66,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'iamcco/smartIM.nvim'
         Plug 'junegunn/goyo.vim'
         Plug 'Konfekt/FastFold'
+        Plug 'metakirby5/codi.vim'
     " }}} Util
 
     " UI theme font {{{
