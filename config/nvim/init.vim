@@ -4,40 +4,40 @@
 
 " init config {{{
 
+" config util function and variable {{{
+let s:init_vim_path = expand('<sfile>:p:h')
+function! Load_viml_config(path) abort
+    let path = s:init_vim_path . '/' . a:path
+    if filereadable(path)
+        exec 'source ' . path
+    endif
+endfunction
+" }}} config util function and variable
+
 " neovim setting {{{
-if filereadable(expand('<sfile>:p:h') . '/neovim.vim')
-    exec "source " . expand('<sfile>:p:h') . "/neovim.vim"
+if has('nvim')
+    call Load_viml_config('viml/neovim.vim')
 endif
 "}}} neovim setting
 
 " plugins list {{{
-if filereadable(expand('<sfile>:p:h') . '/plugins.vim')
-    exec "source " . expand('<sfile>:p:h') . "/plugins.vim"
-endif
+call Load_viml_config('viml/plugins.vim')
 "}}} plugins list
 
 " general {{{
-if filereadable(expand('<sfile>:p:h') . '/general.vim')
-    exec "source " . expand('<sfile>:p:h') . '/general.vim'
-endif
+call Load_viml_config('viml/general.vim')
 " }}}
 
 " command {{{
-if filereadable(expand('<sfile>:p:h') . '/commands.vim')
-    exec "source " . expand('<sfile>:p:h') . '/commands.vim'
-endif
+call Load_viml_config('viml/commands.vim')
 "}}}
 
 " key mapping {{{
-if filereadable(expand('<sfile>:p:h') . '/mapping.vim')
-    exec "source " . expand('<sfile>:p:h') . '/mapping.vim'
-endif
+call Load_viml_config('viml/mapping.vim')
 " }}}
 
 " plugins config {{{
-if filereadable(expand('<sfile>:p:h') . '/plugins.config.vim')
-    exec "source " . expand('<sfile>:p:h') . '/plugins.config.vim'
-endif
+call Load_viml_config('viml/plugins.config.vim')
 " }}}
 
 " }}} init config

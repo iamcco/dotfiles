@@ -27,19 +27,22 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         "Plug 'mhartington/deoplete-typescript',     { 'for': 'javascript' }
         Plug 'carlitux/deoplete-ternjs',        { 'for': 'javascript' }
         Plug 'maksimr/vim-jsbeautify',          { 'for': 'javascript' }       " js代码格式化
-        "Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }        " 编写注释
+        Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }        " 编写注释
     " }}} javascript
 
     " git {{{
-        "Plug 'tpope/vim-fugitive'       " git插件，使用:Gstatus或:Git status
+        Plug 'tpope/vim-fugitive'       " git插件，使用:Gstatus或:Git status
+        Plug 'junegunn/gv.vim'
         Plug 'airblade/vim-gitgutter'   " 同git diff,实时展示文件中修改的行
         "Plug 'nathan-hoad/differ'
+        Plug 'cohama/agit.vim'
     " }}} git
 
     " cursor move and align {{{
         Plug 'bronson/vim-trailing-whitespace'  " 清除尾部空格
         Plug 'Lokaltog/vim-easymotion'          " 快速移动
         Plug 'terryma/vim-multiple-cursors'     " 多光标编辑
+        Plug 'itchyny/vim-cursorword'
         Plug 'tpope/vim-surround'               " 快速环绕 ds' cs'( csw'===ysiw' ySS'
         Plug 'spf13/vim-autoclose'              " 自动关闭
         Plug 'vim-scripts/matchit.zip'          " 标签对跳转
@@ -67,6 +70,9 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'junegunn/goyo.vim'
         Plug 'Konfekt/FastFold'
         Plug 'metakirby5/codi.vim'
+        Plug 'itchyny/calendar.vim'
+        Plug 'itchyny/vim-gitbranch'
+        Plug 'itchyny/vim-parenmatch'   " 替换自带的 matchparent插件
     " }}} Util
 
     " UI theme font {{{

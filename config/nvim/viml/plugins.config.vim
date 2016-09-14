@@ -277,6 +277,11 @@ nnoremap <silent> ,tm :T
 let g:airline_powerline_fonts=1
 " }}} airline
 
+" parenmatch {{{
+" disable the default matchparen plugin
+let g:loaded_matchparen = 1
+" }}} parenmatch
+
 " }}} plugins config
 
 " vim:set et sw=4 ts=4 fdm=marker fdl=1:
