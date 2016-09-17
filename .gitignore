@@ -1,5 +1,5 @@
 *.*~
 .DS_store
 .netrwhist
-config/nvim/viml/plugged/
-config/asciinema/
+dotfiles/config/nvim/viml/plugged/
+dotfiles/config/asciinema/
