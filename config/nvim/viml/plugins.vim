@@ -73,14 +73,13 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'itchyny/calendar.vim'
         Plug 'itchyny/vim-gitbranch'
         Plug 'itchyny/vim-parenmatch'   " 替换自带的 matchparent插件
+        "Plug 'Shougo/denite.nvim'
     " }}} Util
 
     " UI theme font {{{
         Plug 'morhetz/gruvbox'          " 颜色主体
         Plug 'ashfinal/vim-colors-paper'
-        "Plug 'Yggdroot/indentLine'      " 对齐线
         Plug 'vim-airline/vim-airline'        " 状态栏增强
-        "Plug 'ryanoasis/vim-devicons'   " 各种图标
     " }}} UI theme font
 
 " }}} plugins list
