@@ -40,7 +40,7 @@ mk_symlink() {
 }
 
 
-for ITEM in config eslintrc gitconfig tern-project tmux.conf zshrc bin
+for ITEM in config/nvim config/nyaovim eslintrc gitconfig tern-project tmux.conf zshrc bin
 do
     mk_symlink $ITEM
 done

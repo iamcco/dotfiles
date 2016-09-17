@@ -274,6 +274,7 @@ nnoremap <silent> ,tm :T
 " }}} neoterm
 
 " airline {{{
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts=1
 " }}} airline
 
