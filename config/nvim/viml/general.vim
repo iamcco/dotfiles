@@ -121,8 +121,11 @@ set autoread                                                            " 文件
 " color theme {{{
 set background=dark
 "let g:gruvbox_italic=1      " 启用斜体
-"colorscheme gruvbox
-colorscheme paper
+try
+    "colorscheme gruvbox
+    colorscheme paper
+catch /.*/
+endtry
 
 "" 设置 GitDiff mark 标记颜色
 "hi! MyDiffAdd guifg=yellow
