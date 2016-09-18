@@ -51,17 +51,20 @@ autocmd BufRead,BufNewFile *.{String,string} set filetype=html
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
 " }}}
 
-" vim-javascript {{{
+" vim-JsBeautify {{{
 let g:html_indent_inctags = 'html,body,head,tbody'
 let g:html_indent_script1 = 'inc'
 let g:html_indent_style1 = 'inc'
+let g:vim_json_syntax_conceal = 0
 autocmd FileType javascript noremap <buffer>  <leader>sf :call JsBeautify()<cr>
 autocmd FileType javascript vnoremap <buffer> <leader>sf :call RangeJsBeautify()<cr>
 autocmd FileType html noremap <buffer> <leader>sf :call HtmlBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <leader>sf :call RangeHtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader>sf :call CSSBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <leader>sf :call RangeCSSBeautify()<cr>
-" }}} vim-javascript
+autocmd FileType json noremap <buffer> <leader>sf :call JsonBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <leader>sf :call RangeJsonBeautify()<cr>
+" }}} vim-JsBeautify
 
 " vim-jsdoc {{{
 "nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
@@ -72,11 +75,6 @@ autocmd FileType css vnoremap <buffer> <leader>sf :call RangeCSSBeautify()<cr>
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType coffee noremap <buffer> <leader>w :CoffeeWatch<cr>
 " }}} coffee-script
-
-" JSON {{{
-autocmd FileType json noremap <buffer> <leader>sf <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
-let g:vim_json_syntax_conceal = 0
-" }}} JSON
 
 " markdown {{{
 autocmd BufRead,BufNewFile *.{md,mkd,markdown,mdown,mkdn,mdwn} set filetype=markdown

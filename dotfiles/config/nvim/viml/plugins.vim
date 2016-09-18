@@ -26,7 +26,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
     " javascript {{{
         "Plug 'mhartington/deoplete-typescript',     { 'for': 'javascript' }
         Plug 'carlitux/deoplete-ternjs',        { 'for': 'javascript' }
-        Plug 'maksimr/vim-jsbeautify',          { 'for': 'javascript' }       " js代码格式化
+        Plug 'maksimr/vim-jsbeautify',          { 'for': ['javascript', 'html', 'css', 'json'] }       " js代码格式化
         Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }        " 编写注释
     " }}} javascript
 
