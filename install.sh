@@ -15,6 +15,6 @@ NC='\033[0m'
 # install softwares
 source $SCRIPT_PATH/sh/softwares
 # link dotfiles
-source $SCRIPT_PATH/sh/setup_dotfiles
+source $SCRIPT_PATH/sh/dotfiles
 
 # vim:set ft=sh:
