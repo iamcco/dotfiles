@@ -1,9 +1,24 @@
 #!/usr/bin/env bash
 
+echo "apt-get update \n"
+sudo apt-get update
+
+install_git() {
+    # install git
+    echo "install git \n"
+    sudo apt-get install git
+
+    # clone the dotfiles
+    echo "clone dotfiles \n"
+    git clone https://github.com/iamcco/dotfiles.git ~/dotfiles
+
+}
+
+install_git
+
 # consts
-SCRIPT_PATH=${0%\/*}
-cd $SCRIPT_PATH
-SCRIPT_PATH=$PWD
+cd ~/dotfiles
+SCRIPT_PATH=`pwd`
 BACKUP_DIR="$HOME/backup_`date +%Y-%m-%d_%H-%M-%S`"
 
 # color

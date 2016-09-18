@@ -4,12 +4,6 @@
 echo "change cwd to $SCRIPT_PATH \n"
 cd $SCRIPT_PATH
 
-install_git() {
-    # install git
-    echo "install git \n"
-    sudo apt-get install git
-}
-
 install_neovim() {
     # install neovim
     echo "install neovim \n"
@@ -66,7 +60,6 @@ install_fonts() {
     cd $SCRIPT_PATH
 }
 
-install_git
 install_neovim
 install_oh_my_zsh
 install_nodejs
