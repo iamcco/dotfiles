@@ -11,7 +11,7 @@ install_neovim() {
     sudo apt-get update
     sudo apt-get install neovim
     sudo apt-get install xclip
-    sudo apt-get install python-dev python-pip python3-dev python3-pip
+    sudo apt-get install python-pip python3-pip python-dev python-pip python3-dev python3-pip
     pip instal neovim
     pip3 install neovim
 }
@@ -50,9 +50,9 @@ install_fonts() {
     # install Fantasque sans font
     echo "install Fantasque sans font \n"
     cd "$SCRIPT_PATH/dotfiles/fonts-backup"
-    unzip Fantasque-sans-fonts.zip
+    unzip "$SCRIPT_PATH/fonts-backup/Fantasque-sans-fonts.zip"
     mkdir ~/.fonts
-    mv fontsBackup/FantasqueSansMono-patcher ~/.fonts/FantasqueSansMono
+    mv "$SCRIPT_PATH/fonts-backup/fontsBackup/FantasqueSansMono-patcher" ~/.fonts/FantasqueSansMono
     cd ~/.fonts/FantasqueSansMono
     mkfontdir
     mkfontscale
