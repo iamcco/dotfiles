@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "apt-get update \n"
+echo "$NC apt-get update $NC"
 sudo apt-get update
 
 install_git() {
@@ -9,7 +9,7 @@ install_git() {
     sudo apt-get install git
 
     # clone the dotfiles
-    echo "clone dotfiles \n"
+    echo "$NC clone dotfiles $NC"
     git clone https://github.com/iamcco/dotfiles.git ~/dotfiles
 
 }
