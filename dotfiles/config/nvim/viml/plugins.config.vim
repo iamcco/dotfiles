@@ -15,6 +15,10 @@ let g:echodoc_enable_at_startup = 1
 set noshowmode
 " }}} echodoc
 
+" vim-polyglot"{{{
+let g:jsx_ext_required = 1
+" }}} vim-polyglot
+
 " context_filetype {{{
 if !exists('g:context_filetype#same_filetypes')
     let g:context_filetype#same_filetypes = {}
