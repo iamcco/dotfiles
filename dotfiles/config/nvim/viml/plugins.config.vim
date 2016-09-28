@@ -149,14 +149,15 @@ endfunction
 " }}} vim-multiple-cursors
 
 " textobj-user {{{
-if exists('*textobj#user#plugin')
+try
     call textobj#user#plugin('html', {
                 \   'keyVal': {
                 \     'pattern': ' *[^" ]\+ *= *"[^"]\+"',
                 \     'select': ['ak', 'ik'],
                 \   },
                 \ })
-endif
+catch /.*/
+endtry
 " }}} textobj-user
 
 " vim-expand-region {{{

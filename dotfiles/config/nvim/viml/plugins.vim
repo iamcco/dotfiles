@@ -24,7 +24,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
     " }}} html css
 
     " javascript {{{
-        "Plug 'mhartington/deoplete-typescript',     { 'for': 'javascript' }
+        Plug 'mhartington/deoplete-typescript',     { 'for': 'typescript' }
         Plug 'carlitux/deoplete-ternjs',        { 'for': 'javascript' }
         Plug 'maksimr/vim-jsbeautify',          { 'for': ['javascript', 'html', 'css', 'json'] }       " js代码格式化
         Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }        " 编写注释
@@ -32,9 +32,8 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
 
     " git {{{
         Plug 'tpope/vim-fugitive'       " git插件，使用:Gstatus或:Git status
-        Plug 'junegunn/gv.vim'
         Plug 'airblade/vim-gitgutter'   " 同git diff,实时展示文件中修改的行
-        "Plug 'nathan-hoad/differ'
+        Plug 'junegunn/gv.vim'
         Plug 'cohama/agit.vim'
     " }}} git
 
@@ -45,7 +44,6 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'itchyny/vim-cursorword'
         Plug 'tpope/vim-surround'               " 快速环绕 ds' cs'( csw'===ysiw' ySS'
         Plug 'spf13/vim-autoclose'              " 自动关闭
-        Plug 'vim-scripts/matchit.zip'          " 标签对跳转
         Plug 'kana/vim-textobj-user'            " 扩展文本对象
         Plug 'terryma/vim-expand-region'        " 选中区块
         Plug 'scrooloose/nerdcommenter'         " 快速注释
@@ -71,7 +69,6 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'Konfekt/FastFold'
         Plug 'metakirby5/codi.vim'
         Plug 'itchyny/calendar.vim'
-        Plug 'itchyny/vim-gitbranch'
         Plug 'itchyny/vim-parenmatch'   " 替换自带的 matchparent插件
         "Plug 'Shougo/denite.nvim'
         Plug 'tweekmonster/helpful.vim'
@@ -82,8 +79,8 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
     " UI theme font {{{
         Plug 'morhetz/gruvbox'          " 颜色主体
         Plug 'ashfinal/vim-colors-paper'
-        Plug 'vim-airline/vim-airline'        " 状态栏增强
         Plug 'whatyouhide/vim-gotham'
+        Plug 'vim-airline/vim-airline'        " 状态栏增强
     " }}} UI theme font
 
 " }}} plugins list
