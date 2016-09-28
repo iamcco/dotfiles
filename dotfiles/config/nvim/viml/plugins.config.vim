@@ -89,7 +89,11 @@ autocmd BufRead,BufNewFile *.{md,mkd,markdown,mdown,mkdn,mdwn} set filetype=mark
 " }}} font vim-devicons
 
 " markdown-preview {{{
-let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
+if has('mac')
+    let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
+elseif has('unix') && !has('mac')
+    let g:mkdp_path_to_chrome = "google-chrome"
+endif
 " }}} markdown-preview
 
 " ctrlsf {{{
