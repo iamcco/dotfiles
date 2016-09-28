@@ -123,7 +123,8 @@ set background=dark
 "let g:gruvbox_italic=1      " 启用斜体
 try
     "colorscheme gruvbox
-    colorscheme paper
+    "colorscheme paper
+    colorscheme gotham
 catch /.*/
 endtry
 
@@ -131,13 +132,13 @@ endtry
 "hi! MyDiffAdd guifg=yellow
 "hi! MyDiffDelete guifg=red
 "hi! MyDiffChange guifg=green
-hi! MySignMarkText guifg=LightBlue
+"hi! MySignMarkText guifg=LightBlue
 "hi! link GitGutterAdd MyDiffAdd
 "hi! link GitGutterDelete MyDiffDelete
 "hi! link GitGutterChange MyDiffChange
 "hi! link GitGutterChangeDelete MyDiffChange
-hi! link SignatureMarkText MySignMarkText
-hi! link SignColumn   LineNr    " 标记一列的背景颜色
+"hi! link SignatureMarkText MySignMarkText
+"hi! link SignColumn   LineNr    " 标记一列的背景颜色
 "hi! clear DiffAdd
 "hi! clear DiffDelete
 "hi! clear DiffChange

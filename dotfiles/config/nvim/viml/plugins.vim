@@ -83,6 +83,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'morhetz/gruvbox'          " 颜色主体
         Plug 'ashfinal/vim-colors-paper'
         Plug 'vim-airline/vim-airline'        " 状态栏增强
+        Plug 'whatyouhide/vim-gotham'
     " }}} UI theme font
 
 " }}} plugins list
