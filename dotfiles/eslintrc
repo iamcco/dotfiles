@@ -5,6 +5,8 @@
     "avalon": true,                              // avalon global varible
     "CRM": true,                                 // CRM global varible
     "QApp": true,                                // QApp global varible
+    "onion": true,                               // onion global varible
+    "BMap": true
   },
   "env": {
     "browser": true,
