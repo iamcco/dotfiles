@@ -55,7 +55,6 @@ function! NumberToggle()
         set relativenumber
     endif
 endfunc
-nnoremap <C-m> :call NumberToggle()<cr>
 " }}} line number
 
 " mouse {{{
