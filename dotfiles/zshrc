@@ -104,3 +104,6 @@ PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
 export ANDROID_HOME
 export PATH
 
+# pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+

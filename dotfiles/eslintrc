@@ -6,7 +6,9 @@
     "CRM": true,                                 // CRM global varible
     "QApp": true,                                // QApp global varible
     "onion": true,                               // onion global varible
-    "BMap": true
+    "BMap": true,
+    "Q": true,
+    "google": true
   },
   "env": {
     "browser": true,
