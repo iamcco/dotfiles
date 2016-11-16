@@ -3,16 +3,24 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
 " plugins list {{{
 
     " autocomplete {{{
+        "自动补全
         Plug 'Shougo/deoplete.nvim'
+        "不同类型文件间文本补全
         Plug 'Shougo/context_filetype.vim'
+        "回显函数文档
         Plug 'Shougo/echodoc.vim'
+        "viml语法
         Plug 'Shougo/neco-syntax'
+        "vim补全
         Plug 'Shougo/neco-vim',     { 'for': 'vim' }
+        "python补全
         Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+        "代码检查
         Plug 'benekastah/neomake'
     " }}} autocomplete
 
     " markdown {{{
+        Plug 'mathjax-support-for-mkdp'
         Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
     " }}} markdown
 
@@ -72,8 +80,6 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'itchyny/vim-parenmatch'   " 替换自带的 matchparent插件
         "Plug 'Shougo/denite.nvim'
         Plug 'tweekmonster/helpful.vim'
-        Plug 'majutsushi/tagbar'
-        Plug 'hushicai/tagbar-javascript.vim'
     " }}} Util
 
     " UI theme font {{{
