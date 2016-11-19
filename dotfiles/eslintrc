@@ -1,6 +1,5 @@
 {
   "globals": {
-    "$": true,                                   // zepto,jquery
     "$$": true,                                  // avalon global varible
     "avalon": true,                              // avalon global varible
     "CRM": true,                                 // CRM global varible
@@ -13,12 +12,18 @@
   "env": {
     "browser": true,
     "node": true,
-    "es6": true
+    "es6": true,
+    "jquery": true
   },
-  "ecmaFeatures": {
-    "modules": true,
-    "classes": true,
-    "experimentalObjectRestSpread": true
+  "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+          "jsx": true,
+          "modules": true,
+          "classes": true,
+          "experimentalObjectRestSpread": true
+      }
   },
   "plugins": [],
   "rules": {

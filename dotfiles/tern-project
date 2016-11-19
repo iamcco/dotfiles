@@ -1,12 +1,13 @@
-
 {
-    "libs": [
-        "browser",
-        "jquery",
-        "ecma5",
-        "ecma6"
-    ],
     "plugins": {
+        "es_modules": {},
         "node": {}
-    }
+    },
+    "libs": [
+        "ecma5",
+        "ecma6",
+        "browser",
+        "jquery"
+    ],
+    "ecmaVersion": 6
 }

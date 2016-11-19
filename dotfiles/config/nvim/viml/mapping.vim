@@ -67,6 +67,24 @@ vnoremap <silent> <C-j> :m '>+1<CR>gv=gv
 vnoremap <silent> <C-k> :m '<-2<CR>gv=gv
 " }}} words move
 
+" close location list window {{{
+function! s:map_location_list()
+    if &buftype == 'quickfix'
+        redir => buffers
+        silent ls
+        redir END
+
+        let nr = bufnr('%')
+        for buf in split(buffers, '\n')
+            if match(buf, '\v^\s*'.nr) > -1 && match(buf, '\cQuickfix') == -1
+                noremap <silent><buffer> q :lclose<CR>
+            endif
+        endfor
+    endif
+endfunction
+autocmd! BufWinEnter * call s:map_location_list()
+" }}} close location list window
+
 " }}} key mapping
 
 " vim:set et sw=4 ts=4 fdm=marker fdl=1:
