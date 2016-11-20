@@ -20,7 +20,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
     " }}} autocomplete
 
     " markdown {{{
-        Plug 'mathjax-support-for-mkdp'
+        Plug 'iamcco/mathjax-support-for-mkdp'
         Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
     " }}} markdown
 
