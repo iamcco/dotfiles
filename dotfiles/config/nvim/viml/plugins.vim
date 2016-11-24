@@ -80,6 +80,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'itchyny/vim-parenmatch'   " 替换自带的 matchparent插件
         "Plug 'Shougo/denite.nvim'
         Plug 'tweekmonster/helpful.vim'
+        Plug 'iamcco/go-to-file.vim'
     " }}} Util
 
     " UI theme font {{{

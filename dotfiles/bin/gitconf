@@ -8,7 +8,8 @@ then
 fi
 
 USER_NAME=$1
-WORK=guangzhou.chen@qunar.com
+QUNAR=guangzhou.chen@qunar.com
+WORMPEX=guangzhou.chen@wormpex.com
 GITHUB=ooiss@qq.com
 
 git_config_list() {
@@ -17,15 +18,20 @@ git_config_list() {
 
 if [ -n "$USER_NAME" ]
 then
-    if [ "$USER_NAME" == "work" ]
+    if [ "$USER_NAME" == "qunar" ]
     then
         git config user.name guangzhou.chen
-        git config user.email $WORK
+        git config user.email $QUNAR
         git_config_list
     elif [ "$USER_NAME" == "github" ]
     then
         git config user.name 年糕小豆汤
         git config user.email $GITHUB
+        git_config_list
+    elif [ "$USER_NAME" == "wormpex" ]
+    then
+        git config user.name 陈光宙
+        git config user.email $WORMPEX
         git_config_list
     else
         echo "no match type"
