@@ -16,7 +16,8 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         "python补全
         Plug 'zchee/deoplete-jedi', { 'for': 'python' }
         "代码检查
-        Plug 'benekastah/neomake'
+        "Plug 'benekastah/neomake'
+        Plug 'w0rp/ale'
     " }}} autocomplete
 
     " markdown {{{

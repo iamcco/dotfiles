@@ -40,11 +40,19 @@ let g:tern_show_signature_in_pum = 1
 "let g:deoplete#sources#tss#javascript_support = 1
 " }}} deoplete-typescript
 
-" neomake {{{
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_html_enabled_makers = ['tidy']
-autocmd! BufWritePost *.{js,css,html,py,vim} Neomake
-" }}} neomake
+"" neomake {{{
+"let g:neomake_javascript_enabled_makers = ['eslint']
+"let g:neomake_html_enabled_makers = ['tidy']
+"autocmd! BufWritePost *.{js,css,html,py,vim} Neomake
+"" }}} neomake
+
+" ALE {{{
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '⚠'
+"}}} ALE
 
 " closetag {{{
 let g:closetag_html_style=1     " html sytle tag matching
