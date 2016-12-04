@@ -7,7 +7,8 @@
     "onion": true,                               // onion global varible
     "BMap": true,
     "Q": true,
-    "google": true
+    "google": true,
+    "W": true
   },
   "env": {
     "browser": true,
