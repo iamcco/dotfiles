@@ -67,7 +67,8 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'simnalamburt/vim-mundo'   " 文件历史插件
         Plug 'junegunn/vim-easy-align'  " 对齐
         "Plug 'mhinz/vim-startify'       " 开始画面：）
-        Plug 'sheerun/vim-polyglot'     " 各种语言 syntax 缩进等修正增强等
+        "Plug 'sheerun/vim-polyglot'     " 各种语言 syntax 缩进等修正增强等
+        Plug 'neoclide/vim-jsx-improve'
         Plug 'tpope/vim-repeat'         " 重复命令 with .
         Plug 'thinca/vim-quickrun'
         Plug 'vim-ctrlspace/vim-ctrlspace'

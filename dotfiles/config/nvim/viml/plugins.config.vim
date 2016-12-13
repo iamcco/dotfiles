@@ -16,7 +16,7 @@ set noshowmode
 " }}} echodoc
 
 " vim-polyglot"{{{
-let g:jsx_ext_required = 1
+"let g:jsx_ext_required = 1
 " }}} vim-polyglot
 
 " context_filetype {{{
