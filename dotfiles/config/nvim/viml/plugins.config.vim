@@ -47,11 +47,9 @@ let g:tern_show_signature_in_pum = 1
 "" }}} neomake
 
 " ALE {{{
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '⚠'
+let g:ale_linters = {'javascript': ['eslint']}
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '●'
 "}}} ALE
 
 " closetag {{{
