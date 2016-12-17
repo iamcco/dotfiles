@@ -18,6 +18,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         "代码检查
         "Plug 'benekastah/neomake'
         Plug 'w0rp/ale'
+        Plug 'editorconfig/editorconfig-vim'
     " }}} autocomplete
 
     " markdown {{{
