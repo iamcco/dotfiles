@@ -96,6 +96,8 @@ set ignorecase                                                          " 搜索
 
 " cursor {{{
 set cursorline                                                          " Highlight current line
+set cc=100
+set cuc
 set viewoptions=folds,options,cursor,unix,slash                         " Better Unix / Windows compatibility
 set virtualedit=onemore                                                 " Allow for cursor beyond last character
 " }}} cursor
