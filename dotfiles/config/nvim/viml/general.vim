@@ -125,11 +125,16 @@ set background=dark
 try
     "colorscheme gruvbox
     "colorscheme paper
-    colorscheme gotham
+    "colorscheme gotham
+    colorscheme NeoSolarized
 catch /.*/
 endtry
 
 "" 设置 GitDiff mark 标记颜色
+hi! MyError ctermfg=2 ctermbg=0 guifg=#990000 guibg=#073642
+hi! MyWarningMsg ctermfg=2 ctermbg=0 guifg=#999900 guibg=#073642
+hi! link ALEErrorSign MyError
+hi! link ALEWarningSign MyWarningMsg
 "hi! MyDiffAdd guifg=yellow
 "hi! MyDiffDelete guifg=red
 "hi! MyDiffChange guifg=green
