@@ -264,6 +264,7 @@ set showtabline=0
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+noremap <unique> <silent> <C-Space> :CtrlSpace<CR>
 " }}} ctrlspace
 
 " mundo {{{
