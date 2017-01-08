@@ -63,7 +63,7 @@ set mousehide                                                           " 编辑
 " }}} mouse
 
 " No annoying sound on errors and Abbrev. of messages {{{
-set shortmess+=filmnrxoOtT
+set shortmess+=aoOtTIc
 set noerrorbells
 set novisualbell
 set t_vb=
