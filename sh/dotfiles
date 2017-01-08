@@ -34,7 +34,7 @@ if [ -e $SCRIPT_PATH ]; then
     }
 
 
-    for ITEM in config/nvim config/nyaovim eslintrc gitconfig tern-project tmux.conf zshrc bin
+    for ITEM in config/nvim config/nyaovim eslintrc gitconfig tern-project tmux.conf zshrc bin stylelintrc.json
     do
         mk_symlink $ITEM
     done
