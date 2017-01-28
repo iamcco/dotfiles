@@ -159,7 +159,7 @@ promise() {
                 exit 1
             fi
         fi
-        mk_symlink "${path_to_config_dir/neovim/init.vim}" "${path_to_nvim}/init.vim"
+        mk_symlink "${path_to_config_dir}/neovim/init.vim" "${path_to_nvim}/init.vim"
         msg_aoi "install neovim ocnfig:"; msg_green " DONE\n"
     }
 
