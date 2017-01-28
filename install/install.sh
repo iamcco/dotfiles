@@ -92,7 +92,12 @@ promise() {
             return 0
         else
             msg_red " ✘\n"
-            return $(clone_repo)
+            if clone_repo
+            then
+                return 0
+            else
+                return 1
+            fi
         fi
     }
 
