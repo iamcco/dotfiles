@@ -65,7 +65,7 @@ promise() {
     # create backup dir
     mkdir_backup() {
         echo -n "create backup dir: "; msg_aoi "${backup_dir}"
-        if mkdir "${backup_dir}"
+        if mkdir "${backup_dir}" > /dev/null 2>&1
         then
             msg_green " √\n"
         else
@@ -76,7 +76,7 @@ promise() {
 
     # clone git repo
     clone_repo() {
-        msg_aoi "clone ${repo_url}"
+        msg_aoi "clone ${repo_url}\n"
         if git clone "${repo_url}" "${path_to_config_dir}"
         then
             return 0
@@ -112,7 +112,7 @@ promise() {
                 if [ ! -d $backup_dir ]; then mkdir_backup; fi
                 # backup dotfile
                 echo -n "mv "; msg_aoi "${2}"; echo -n " to "; msg_aoi "${backup_dir}: "
-                if mv "$2" "$backup_dir/"
+                if mv "$2" "$backup_dir/" > /dev/null 2>&1
                 then
                     msg_green "√\n"
                 else
@@ -120,7 +120,7 @@ promise() {
                 fi
             fi
             echo -n "link "; msg_aoi "${1}"; echo -n " to "; msg_aoi "${2}"
-            if ln -s "$1" "$2"
+            if ln -s "$1" "$2" > /dev/null 2>&1
             then
                 msg_green " √\n"
             else
@@ -151,7 +151,7 @@ promise() {
         else
             msg_red " ✘\n"
             echo -n "mkdir directory "; msg_aoi "${path_to_nvim}\n"
-            if mkdir -p "${path_to_nvim}"
+            if mkdir -p "${path_to_nvim}" > /dev/null 2>&1
             then
                 msg_green " √\n"
             else
@@ -160,6 +160,7 @@ promise() {
             fi
         fi
         mk_symlink "${path_to_config_dir/neovim/init.vim}" "${path_to_nvim}/init.vim"
+        msg_aoi "install neovim ocnfig:"; msg_green " DONE\n"
     }
 
     install_all() {
