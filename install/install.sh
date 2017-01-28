@@ -8,11 +8,13 @@ promise() {
     color_fg_blue='\033[34m'
     color_fg_aoi='\033[36m'
     color_end='\033[0m'
+
     # config constant
     repo_url='https://github.com/iamcco/dotfiles.git'
     config_name='.configrc'
     path_to_config_dir="$HOME/$config_name"
     backup_dir="$HOME/backup_`date +%Y-%m-%d_%H-%M-%S`"
+
     # requirement
     requirement="git"
 
@@ -43,7 +45,7 @@ promise() {
 
     # check for requirement
     check_required() {
-        msg_title "check for requirement"
+        msg_aoi "check for requirement\n"
         idx=1
         for command in $requirement
         do
@@ -59,6 +61,7 @@ promise() {
             fi
             ((idx++))
         done
+        msg_aoi "check for requirement: "; msg_green "DONE\n"
         return 0
     }
 
@@ -85,7 +88,7 @@ promise() {
     }
 
     check_repo() {
-        echo -n "check "; msg_aoi "${path_to_config_dir}:"
+        echo -n "check "; msg_aoi "${path_to_config_dir}"
         if [ -e $path_to_config_dir ]
         then
             msg_green " √\n"
@@ -132,7 +135,7 @@ promise() {
     }
 
     install_dotfiles() {
-        msg_aoi "install dotfiles:\n"
+        msg_aoi "install dotfiles\n"
         local path_to_dotfiles="${path_to_config_dir}/dotfiles"
         ls "${path_to_dotfiles}" | while read item
         do
@@ -142,8 +145,8 @@ promise() {
     }
 
     install_neovim_config() {
-        msg_aoi "install neovim config:\n"
-        local path_to_nvim="${HOME}/.config/nvim"
+        msg_aoi "install neovim config\n"
+        local path_to_nvim="${HOME}/.config"
         echo -n "check "; msg_aoi "${path_to_nvim}"
         if [ -e $path_to_nvim ]
         then
@@ -159,7 +162,7 @@ promise() {
                 exit 1
             fi
         fi
-        mk_symlink "${path_to_config_dir}/neovim/init.vim" "${path_to_nvim}/init.vim"
+        mk_symlink "${path_to_config_dir}/nvim" "${path_to_nvim}/nvim"
         msg_aoi "install neovim ocnfig:"; msg_green " DONE\n"
     }
 
@@ -177,9 +180,9 @@ promise() {
         echo -n "select: "
         read num
         case $num in
-            1) check_repo && install_neovim_config ;;
-            2) check_repo && install_dotfiles ;;
-            3) check_repo && install_all ;;
+            1) check_required && check_repo && install_neovim_config ;;
+            2) check_required && check_repo && install_dotfiles ;;
+            3) check_required && check_repo && install_all ;;
             *) echo "Goodbye :)" ;;
         esac
     }
