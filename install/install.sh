@@ -111,7 +111,7 @@ promise() {
                 # create backup dir if not exists
                 if [ ! -d $backup_dir ]; then mkdir_backup; fi
                 # backup dotfile
-                echo -n "mv "; msg_aoi "${2}"; echo -n " to "; msg_aoi "${backup_dir}: "
+                echo -n "mv "; msg_aoi "${2}"; echo -n " to "; msg_aoi "${backup_dir} "
                 if mv "$2" "$backup_dir/" > /dev/null 2>&1
                 then
                     msg_green "√\n"
@@ -150,7 +150,7 @@ promise() {
             msg_green " √\n"
         else
             msg_red " ✘\n"
-            echo -n "mkdir directory "; msg_aoi "${path_to_nvim}\n"
+            echo -n "mkdir directory "; msg_aoi "${path_to_nvim}"
             if mkdir -p "${path_to_nvim}" > /dev/null 2>&1
             then
                 msg_green " √\n"
