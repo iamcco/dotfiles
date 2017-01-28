@@ -3,3 +3,4 @@
 .netrwhist
 dotfiles/config/nvim/viml/plugged/
 dotfiles/config/asciinema/
+neovim/viml/plugged
