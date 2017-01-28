@@ -71,7 +71,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'neoclide/vim-jsx-improve'
         Plug 'tpope/vim-repeat'         " 重复命令 with .
         Plug 'thinca/vim-quickrun'
-        Plug 'vim-ctrlspace/vim-ctrlspace'
+        "Plug 'vim-ctrlspace/vim-ctrlspace'
         Plug 'junegunn/vim-peekaboo'    " 查看寄存器
         Plug 'kassio/neoterm'
         Plug 'iamcco/smartIM.nvim'
