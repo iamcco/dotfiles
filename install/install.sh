@@ -167,8 +167,7 @@ promise() {
     }
 
     install_all() {
-        install_dotfiles
-        install_neovim_config
+        install_dotfiles && install_neovim_config
     }
 
     # show menu
