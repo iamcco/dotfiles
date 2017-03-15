@@ -107,3 +107,23 @@ export PATH
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
+# thefuck
+eval "$(thefuck --alias)"
+
+# sqlite3
+# export PATH="/usr/local/opt/sqlite/bin:$PATH"
+# For compilers to find this software you may need to set:
+#     LDFLAGS:  -L/usr/local/opt/sqlite/lib
+#     CPPFLAGS: -I/usr/local/opt/sqlite/include
+# For pkg-config to find this software you may need to set:
+#     PKG_CONFIG_PATH: /usr/local/opt/sqlite/lib/pkgconfig
+
+# openssl
+# If you need to have this software first in your PATH run:
+#   echo 'export PATH="/usr/local/opt/openssl/bin:$PATH"' >> ~/.zshrc
+#
+# For compilers to find this software you may need to set:
+#     LDFLAGS:  -L/usr/local/opt/openssl/lib
+#     CPPFLAGS: -I/usr/local/opt/openssl/include
+# For pkg-config to find this software you may need to set:
+#     PKG_CONFIG_PATH: /usr/local/opt/openssl/lib/pkgconfig
