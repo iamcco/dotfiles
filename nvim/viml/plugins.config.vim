@@ -1,14 +1,25 @@
 " plugins config {{{
 
 " deoplete {{{
-let g:deoplete#enable_at_startup = 1
-"let g:deoplete#max_list = 15
+"let g:deoplete#enable_at_startup = 1
+"let g:deoplete#auto_complete_delay = 0
+""let g:deoplete#max_list = 15
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
     return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
 endfunction
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " }}} deoplete
+
+" LanguageClient-neovim"{{{
+"let g:LanguageClient_serverCommands = {
+        "\ 'javascript': ['tsc', '&&', ],
+        "\ }
+" LanguageClient-neovim"}}}
+
+" nvim-completion-manager"{{{
+let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
+" nvim-completion-manager"}}}
 
 " echodoc {{{
 let g:echodoc_enable_at_startup = 1
@@ -97,6 +108,12 @@ autocmd BufRead,BufNewFile *.{md,mkd,markdown,mdown,mkdn,mdwn} set filetype=mark
 "let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 " }}} font vim-devicons
 
+" vim-devicons "{{{
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:WebDevIconsOS = 'Darwin'
+"}}} vim-devicons
+
 " markdown-preview {{{
 if has('mac')
     let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
@@ -113,24 +130,6 @@ nmap <leader>fs <Plug>CtrlSFPrompt
 nmap <leader>fw <Plug>CtrlSFCwordPath
 nmap <Leader>fo :CtrlSFOpen<CR>
 " }}} ctrlsf
-
-" ctrlp {{{
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-noremap <Leader>p :CtrlP ./<CR>
-noremap <Leader>b :CtrlPBuffer<CR>
-let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
-            \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
-            \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-            \ }
-let g:ctrlp_match_window_bottom=1
-let g:ctrlp_max_height=15
-let g:ctrlp_match_window_reversed=0
-let g:ctrlp_mruf_max=500
-let g:ctrlp_follow_symlinks=1
-let g:ctrlp_working_path_mode = 'ra'    " 搜索根目录使用模式
-" }}} ctrlp
 
 " vim-fugitive {{{
 " TODO: config
@@ -151,9 +150,11 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 function Multiple_cursors_before()
     let g:deoplete#disable_auto_complete = 1
+    call cm#disable_for_buffer()
 endfunction
 function Multiple_cursors_after()
     let g:deoplete#disable_auto_complete = 0
+    call cm#enable_for_buffer()
 endfunction
 " }}} vim-multiple-cursors
 
@@ -262,6 +263,29 @@ call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 
 " }}} NerdTree
 
+" Goyo "{{{
+function! s:goyo_enter()
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  set nocursorcolumn
+  set nocursorline
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  set showmode
+  set showcmd
+  set scrolloff=3
+  set cursorcolumn
+  set cursorline
+  Limelight!
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+" }}} Goyo
+
 " ctrlspace {{{
 set showtabline=0
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
@@ -294,13 +318,45 @@ nnoremap <silent> ,tm :T
 
 " airline {{{
 let g:airline_theme='paper'
-let g:airline_powerline_fonts=1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
 " }}} airline
 
 " parenmatch {{{
 " disable the default matchparen plugin
 let g:loaded_matchparen = 1
 " }}} parenmatch
+
+" Denite "{{{
+call denite#custom#map(
+            \ 'insert',
+            \ '<C-j>',
+            \ '<denite:move_to_next_line>',
+            \ 'noremap'
+            \)
+call denite#custom#map(
+            \ 'insert',
+            \ '<C-k>',
+            \ '<denite:move_to_previous_line>',
+            \ 'noremap'
+            \)
+noremap <silent> <c-p> :Denite file_rec<CR>
+noremap <silent> <Leader>b :Denite buffer<CR>
+"}}} Denite
 
 " }}} plugins config
 

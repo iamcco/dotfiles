@@ -4,17 +4,20 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
 
     " autocomplete {{{
         "自动补全
-        Plug 'Shougo/deoplete.nvim'
+        "Plug 'Shougo/deoplete.nvim'
+        "Plug 'autozimu/LanguageClient-neovim'
+        Plug 'roxma/nvim-completion-manager'
+        Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
         "不同类型文件间文本补全
-        Plug 'Shougo/context_filetype.vim'
+        "Plug 'Shougo/context_filetype.vim'
         "回显函数文档
-        Plug 'Shougo/echodoc.vim'
+        "Plug 'Shougo/echodoc.vim'
         "viml语法
-        Plug 'Shougo/neco-syntax'
+        "Plug 'Shougo/neco-syntax'
         "vim补全
-        Plug 'Shougo/neco-vim',     { 'for': 'vim' }
+        "Plug 'Shougo/neco-vim',     { 'for': 'vim' }
         "python补全
-        Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+        "Plug 'zchee/deoplete-jedi', { 'for': 'python' }
         "代码检查
         Plug 'w0rp/ale'
         Plug 'sgur/vim-editorconfig'
@@ -23,6 +26,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
     " markdown {{{
         Plug 'iamcco/mathjax-support-for-mkdp'
         Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
+        Plug 'joker1007/vim-markdown-quote-syntax'
     " }}} markdown
 
     " html css {{{
@@ -33,8 +37,8 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
     " }}} html css
 
     " javascript {{{
-        Plug 'mhartington/deoplete-typescript',     { 'for': 'typescript' }
-        Plug 'carlitux/deoplete-ternjs',        { 'for': 'javascript' }
+        "Plug 'mhartington/deoplete-typescript',     { 'for': 'typescript' }
+        "Plug 'carlitux/deoplete-ternjs',        { 'for': 'javascript' }
         Plug 'maksimr/vim-jsbeautify',          { 'for': ['javascript', 'html', 'css', 'json'] }       " js代码格式化
         Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }        " 编写注释
     " }}} javascript
@@ -60,10 +64,12 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
     " }}} cursor move and align
 
     " Util {{{
-        Plug 'ctrlpvim/ctrlp.vim'
+        "Plug 'ctrlpvim/ctrlp.vim'
         Plug 'dyng/ctrlsf.vim'          " 快速搜索文件
-        Plug 'iamcco/dict.nvim'
+        Plug 'iamcco/dict.vim', { 'on': 'Dict' }
         Plug 'scrooloose/nerdtree'
+        Plug 'Xuyuanp/nerdtree-git-plugin'
+        Plug 'ryanoasis/vim-devicons'
         Plug 'simnalamburt/vim-mundo'   " 文件历史插件
         Plug 'junegunn/vim-easy-align'  " 对齐
         "Plug 'mhinz/vim-startify'       " 开始画面：）
@@ -71,16 +77,20 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'neoclide/vim-jsx-improve'
         Plug 'tpope/vim-repeat'         " 重复命令 with .
         Plug 'thinca/vim-quickrun'
-        Plug 'vim-ctrlspace/vim-ctrlspace'
+        "Plug 'vim-ctrlspace/vim-ctrlspace'
         Plug 'junegunn/vim-peekaboo'    " 查看寄存器
         Plug 'kassio/neoterm'
         Plug 'iamcco/smartIM.nvim'
         Plug 'junegunn/goyo.vim'
+        Plug 'junegunn/limelight.vim'
         Plug 'Konfekt/FastFold'
         Plug 'metakirby5/codi.vim'
         Plug 'itchyny/calendar.vim'
         Plug 'itchyny/vim-parenmatch'   " 替换自带的 matchparent插件
-        "Plug 'Shougo/denite.nvim'
+        Plug 'Shougo/denite.nvim'
+        Plug 'chemzqm/todoapp.vim'
+        Plug 'junegunn/vim-emoji'
+        Plug 'pocari/vim-denite-emoji'
         Plug 'tweekmonster/helpful.vim'
         Plug 'iamcco/go-to-file.vim'
         Plug 'iamcco/go-to-rules.vim'
