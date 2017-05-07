@@ -8,4 +8,9 @@ command! Wcolor echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
 
 " }}} commands
 
+" 查看文件修改 author {{{
+command! GitDiffAuthor exec "normal :tabnew | r!git blame \<c-r>=expand('%:p')\<CR>\<CR>ggdd:set scrollbind | vs #\<CR>:set scrollbind\<CR>"
+
+" }}} 查看文件修改 author
+
 " vim:set et sw=4 ts=4 fdm=marker fdl=1:

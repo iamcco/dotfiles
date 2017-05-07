@@ -214,6 +214,10 @@ call InitializeDirectories()
 set updatetime=250
 " }}} updatetime
 
+" substitution {{{
+set inccommand=nosplit
+" substitution }}}
+
 " }}} general config
 
 " vim:set et sw=4 ts=4 fdm=marker fdl=1:

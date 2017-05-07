@@ -356,6 +356,33 @@ call denite#custom#map(
             \)
 noremap <silent> <c-p> :Denite file_rec<CR>
 noremap <silent> <Leader>b :Denite buffer<CR>
+" Add custom menus
+let s:menus = {}
+let s:menus.neovim = {
+    \ 'description': 'neovim 配置文件'
+    \ }
+let s:menus.neovim.file_candidates = [
+    \ ['init.vim', '~/.configrc/nvim/init.vim'],
+    \ ['neovim.vim', '~/.configrc/nvim/viml/neovim.vim'],
+    \ ['general.vim', '~/.configrc/nvim/viml/general.vim'],
+    \ ['mapping.vim', '~/.configrc/nvim/viml/mapping.vim'],
+    \ ['commands.vim', '~/.configrc/nvim/viml/commands.vim'],
+    \ ['plugins.vim', '~/.configrc/nvim/viml/plugins.vim'],
+    \ ['plugins.config.vim', '~/.configrc/nvim/viml/plugins.config.vim'],
+    \ ]
+let s:menus.my_commands = {
+    \ 'description': 'Example commands'
+    \ }
+let s:menus.my_commands.command_candidates = [
+    \ ['Split the window', 'vnew'],
+    \ ['Open zsh menu', 'Denite menu:zsh'],
+    \ ]
+call denite#custom#var('menu', 'menus', s:menus)
+call denite#custom#var('file_rec', 'command',
+    \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+call denite#custom#source(
+    \ 'file_rec', 'matchers', ['matcher_substring'])
+
 "}}} Denite
 
 " }}} plugins config

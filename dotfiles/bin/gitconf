@@ -8,9 +8,9 @@ then
 fi
 
 USER_NAME=$1
-QUNAR=guangzhou.chen@qunar.com
-WORMPEX=guangzhou.chen@wormpex.com
-GITHUB=ooiss@qq.com
+QUNAR=`echo "Z3Vhbmd6aG91LmNoZW5AcXVuYXIuY29tCg==" | base64 -D -`
+WORMPEX=`echo "Z3Vhbmd6aG91LmNoZW5Ad29ybXBleC5jb20K" | base64 -D -`
+GITHUB=`echo "b29pc3NAcXEuY29tCg==" | base64 -D -`
 
 git_config_list() {
     git config --list | grep user

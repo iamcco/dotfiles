@@ -64,6 +64,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
     " }}} cursor move and align
 
     " Util {{{
+        Plug 'Shougo/vinarise.vim'
         "Plug 'ctrlpvim/ctrlp.vim'
         Plug 'dyng/ctrlsf.vim'          " 快速搜索文件
         Plug 'iamcco/dict.vim', { 'on': 'Dict' }
@@ -78,7 +79,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'tpope/vim-repeat'         " 重复命令 with .
         Plug 'thinca/vim-quickrun'
         "Plug 'vim-ctrlspace/vim-ctrlspace'
-        Plug 'junegunn/vim-peekaboo'    " 查看寄存器
+        "Plug 'junegunn/vim-peekaboo'    " 查看寄存器
         Plug 'kassio/neoterm'
         Plug 'iamcco/smartIM.nvim'
         Plug 'junegunn/goyo.vim'
