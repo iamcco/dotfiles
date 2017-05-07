@@ -69,8 +69,8 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'dyng/ctrlsf.vim'          " 快速搜索文件
         Plug 'iamcco/dict.vim', { 'on': 'Dict' }
         Plug 'scrooloose/nerdtree'
-        Plug 'Xuyuanp/nerdtree-git-plugin'
-        Plug 'ryanoasis/vim-devicons'
+        "Plug 'Xuyuanp/nerdtree-git-plugin'
+        "Plug 'ryanoasis/vim-devicons'
         Plug 'simnalamburt/vim-mundo'   " 文件历史插件
         Plug 'junegunn/vim-easy-align'  " 对齐
         "Plug 'mhinz/vim-startify'       " 开始画面：）

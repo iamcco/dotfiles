@@ -109,9 +109,9 @@ autocmd BufRead,BufNewFile *.{md,mkd,markdown,mdown,mkdn,mdwn} set filetype=mark
 " }}} font vim-devicons
 
 " vim-devicons "{{{
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-let g:WebDevIconsOS = 'Darwin'
+"let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+"let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+"let g:WebDevIconsOS = 'Darwin'
 "}}} vim-devicons
 
 " markdown-preview {{{
