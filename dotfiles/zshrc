@@ -107,6 +107,13 @@ export PATH
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
+# rustup
+CARGO_HOME="/Users/aioiyuuko/.cargo"
+PATH="$PATH:$CARGO_HOME/bin"
+
+export CARGO_HOME
+export PATH
+
 # thefuck
 eval "$(thefuck --alias)"
 
