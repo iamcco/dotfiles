@@ -9,7 +9,7 @@ fi
 
 USER_NAME=$1
 QUNAR=`echo "Z3Vhbmd6aG91LmNoZW5AcXVuYXIuY29tCg==" | base64 -D -`
-WORMPEX=`echo "Z3Vhbmd6aG91LmNoZW5Ad29ybXBleC5jb20K" | base64 -D -`
+CJ=`echo "Z3Vhbmd6aG91LmNoZW5Ad29ybXBleC5jb20K" | base64 -D -`
 GITHUB=`echo "b29pc3NAcXEuY29tCg==" | base64 -D -`
 
 git_config_list() {
@@ -28,10 +28,10 @@ then
         git config user.name 年糕小豆汤
         git config user.email $GITHUB
         git_config_list
-    elif [ "$USER_NAME" == "wormpex" ]
+    elif [ "$USER_NAME" == "cj" ]
     then
         git config user.name 陈光宙
-        git config user.email $WORMPEX
+        git config user.email $CJ
         git_config_list
     else
         echo "no match type"
