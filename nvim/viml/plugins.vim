@@ -51,7 +51,6 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
     " }}} git
 
     " cursor move and align {{{
-        Plug 'bronson/vim-trailing-whitespace'  " 清除尾部空格
         Plug 'Lokaltog/vim-easymotion'          " 快速移动
         Plug 'terryma/vim-multiple-cursors'     " 多光标编辑
         Plug 'itchyny/vim-cursorword'
@@ -78,7 +77,6 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'neoclide/vim-jsx-improve'
         Plug 'tpope/vim-repeat'         " 重复命令 with .
         Plug 'thinca/vim-quickrun'
-        "Plug 'vim-ctrlspace/vim-ctrlspace'
         "Plug 'junegunn/vim-peekaboo'    " 查看寄存器
         Plug 'kassio/neoterm'
         Plug 'iamcco/smartIM.nvim'
@@ -95,6 +93,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'tweekmonster/helpful.vim'
         Plug 'iamcco/go-to-file.vim'
         Plug 'iamcco/go-to-rules.vim'
+        Plug 'tenfyzhong/CompleteParameter.vim'
     " }}} Util
 
     " UI theme font {{{
@@ -103,6 +102,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'ashfinal/vim-colors-paper'
         Plug 'whatyouhide/vim-gotham'
         Plug 'vim-airline/vim-airline'        " 状态栏增强
+        Plug 'johngrib/vim-game-code-break'
     " }}} UI theme font
 
 " }}} plugins list

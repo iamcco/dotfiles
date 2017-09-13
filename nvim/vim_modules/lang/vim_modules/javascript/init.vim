@@ -12,3 +12,9 @@ autocmd FileType css vnoremap <buffer> <leader>sf :call RangeCSSBeautify()<cr>
 autocmd FileType json noremap <buffer> <leader>sf :call JsonBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <leader>sf :call RangeJsonBeautify()<cr>
 " }}} vim-JsBeautify
+
+" coffee-script {{{
+" coffee-script的缩进为2个空格
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd FileType coffee noremap <buffer> <leader>w :CoffeeWatch<cr>
+" }}} coffee-script

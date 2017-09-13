@@ -1,4 +1,5 @@
-call configrc#modules#plugin_add('mhartington/deoplete-typescript')
-call configrc#modules#plugin_add('carlitux/deoplete-ternjs')
-call configrc#modules#plugin_add('maksimr/vim-jsbeautify')
-call configrc#modules#plugin_add('heavenshell/vim-jsdoc')
+"call vim_modules#modules#import_plugin('maksimr/vim-jsbeautify')
+"call vim_modules#modules#import_plugin('heavenshell/vim-jsdoc')
+
+Plug 'maksimr/vim-jsbeautify'
+Plug 'heavenshell/vim-jsdoc'

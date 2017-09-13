@@ -1,129 +1,3 @@
-" plugins config {{{
-
-" deoplete {{{
-"let g:deoplete#enable_at_startup = 1
-"let g:deoplete#auto_complete_delay = 0
-""let g:deoplete#max_list = 15
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-endfunction
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" }}} deoplete
-
-" LanguageClient-neovim"{{{
-"let g:LanguageClient_serverCommands = {
-        "\ 'javascript': ['tsc', '&&', ],
-        "\ }
-" LanguageClient-neovim"}}}
-
-" nvim-completion-manager"{{{
-let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
-" nvim-completion-manager"}}}
-
-" echodoc {{{
-let g:echodoc_enable_at_startup = 1
-set noshowmode
-" }}} echodoc
-
-" vim-polyglot"{{{
-"let g:jsx_ext_required = 1
-" }}} vim-polyglot
-
-" context_filetype {{{
-if !exists('g:context_filetype#same_filetypes')
-    let g:context_filetype#same_filetypes = {}
-endif
-let g:context_filetype#same_filetypes.javascript = 'html,string,String'
-let g:context_filetype#same_filetypes.html = 'javascript,string,String'
-let g:context_filetype#same_filetypes.string = 'javascript,html,String'
-let g:context_filetype#same_filetypes.String = 'javascript,html,string'
-
-" }}} context_filetype
-
-" deoplete-ternjs {{{
-set completeopt-=preview
-let g:tern_request_timeout = 1
-let g:tern_show_signature_in_pum = 1
-" }}} deoplete-ternjs
-
-" deoplete-typescript {{{
-"let g:deoplete#sources#tss#javascript_support = 1
-" }}} deoplete-typescript
-
-"" neomake {{{
-"let g:neomake_javascript_enabled_makers = ['eslint']
-"let g:neomake_html_enabled_makers = ['tidy']
-"autocmd! BufWritePost *.{js,css,html,py,vim} Neomake
-"" }}} neomake
-
-" ALE {{{
-let g:ale_linters = {
-            \'javascript': ['eslint'],
-            \'html': ['htmlhint']
-            \}
-let g:ale_sign_error = '●'
-let g:ale_sign_warning = '●'
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['eslint']
-"}}} ALE
-
-" closetag {{{
-let g:closetag_html_style=1     " html sytle tag matching
-autocmd BufRead,BufNewFile *.{String,string} set filetype=html
-" }}} closetag
-
-" css complete {{{
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
-" }}}
-
-" vim-JsBeautify {{{
-let g:html_indent_inctags = 'html,body,head,tbody'
-let g:html_indent_script1 = 'inc'
-let g:html_indent_style1 = 'inc'
-let g:vim_json_syntax_conceal = 0
-autocmd FileType javascript noremap <buffer>  <leader>sf :call JsBeautify()<cr>
-autocmd FileType javascript vnoremap <buffer> <leader>sf :call RangeJsBeautify()<cr>
-autocmd FileType html noremap <buffer> <leader>sf :call HtmlBeautify()<cr>
-autocmd FileType html vnoremap <buffer> <leader>sf :call RangeHtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <leader>sf :call CSSBeautify()<cr>
-autocmd FileType css vnoremap <buffer> <leader>sf :call RangeCSSBeautify()<cr>
-autocmd FileType json noremap <buffer> <leader>sf :call JsonBeautify()<cr>
-autocmd FileType json vnoremap <buffer> <leader>sf :call RangeJsonBeautify()<cr>
-" }}} vim-JsBeautify
-
-" vim-jsdoc {{{
-"nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
-" }}} vim-jsdoc
-
-" coffee-script {{{
-" coffee-script的缩进为2个空格
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
-autocmd FileType coffee noremap <buffer> <leader>w :CoffeeWatch<cr>
-" }}} coffee-script
-
-" markdown {{{
-autocmd BufRead,BufNewFile *.{md,mkd,markdown,mdown,mkdn,mdwn} set filetype=markdown
-" }}} markdown
-
-" font vim-devicons {{{
-"let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-" }}} font vim-devicons
-
-" vim-devicons "{{{
-"let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-"let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-"let g:WebDevIconsOS = 'Darwin'
-"}}} vim-devicons
-
-" markdown-preview {{{
-if has('mac')
-    let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
-elseif has('unix') && !has('mac')
-    let g:mkdp_path_to_chrome = "google-chrome"
-endif
-" }}} markdown-preview
-
 " ctrlsf {{{
 " ag sudo apt-get install silversearcher-ag
 let g:ctrlsf_position = 'bottom'
@@ -132,14 +6,6 @@ nmap <leader>fs <Plug>CtrlSFPrompt
 nmap <leader>fw <Plug>CtrlSFCwordPath
 nmap <Leader>fo :CtrlSFOpen<CR>
 " }}} ctrlsf
-
-" vim-fugitive {{{
-" TODO: config
-" }}} vim-fugitive
-
-" vim-gitgutter {{{
-" TODO: config
-" }}} vim-gitgutter
 
 " vim-trailing-whitespace {{{
 map <leader><space> :FixWhitespace<cr>
@@ -288,14 +154,6 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " }}} Goyo
 
-" ctrlspace {{{
-set showtabline=0
-let g:CtrlSpaceSaveWorkspaceOnExit = 1
-let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
-let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
-noremap <unique> <silent> <C-Space> :CtrlSpace<CR>
-" }}} ctrlspace
-
 " mundo {{{
 nnoremap <Leader>h :MundoToggle<CR>
 " }}} mundo
@@ -386,7 +244,3 @@ call denite#custom#source(
     \ 'file_rec', 'matchers', ['matcher_substring'])
 
 "}}} Denite
-
-" }}} plugins config
-
-" vim:set et sw=4 ts=4 fdm=marker fdl=1:

@@ -1,3 +1,0 @@
-call configrc#modules#begin()
-    call configrc#modules#add('lang')
-call configrc#modules#end()
