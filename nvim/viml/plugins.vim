@@ -7,6 +7,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         "Plug 'Shougo/deoplete.nvim'
         "Plug 'autozimu/LanguageClient-neovim'
         Plug 'roxma/nvim-completion-manager'
+        Plug 'roxma/ncm-github'
         Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
         "不同类型文件间文本补全
         "Plug 'Shougo/context_filetype.vim'
