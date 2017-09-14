@@ -2,3 +2,4 @@
 .DS_store
 .netrwhist
 nvim/viml/plugged
+nvim/vim_plugins
