@@ -95,6 +95,9 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'iamcco/go-to-file.vim'
         Plug 'iamcco/go-to-rules.vim'
         Plug 'tenfyzhong/CompleteParameter.vim'
+        Plug 'iamcco/react-error-codes.vim'
+        Plug 'bfredl/nvim-miniyank'
+        Plug 'iamcco/util.vim'
     " }}} Util
 
     " UI theme font {{{

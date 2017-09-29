@@ -154,9 +154,43 @@ hi! link ALEWarningSign MyWarningMsg
 "autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 " }}} change the pwd to the edit file
 
-" move cursor to the first line for gitcommit {{{
+" git {{{
+" move cursor to the first line for gitcommit
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
-" }}} move cursor to the first line for gitcommit
+let g:start_hold_time = localtime()
+let g:start_hold_line = getcurpos()[1]
+let g:start_has_show = 0
+function! StartHoldLine(timerId) abort
+    if g:start_hold_line ==# getcurpos()[1]
+        if mode() ==# 'n'
+            if localtime() - g:start_hold_time >= 1
+                if !g:start_has_show
+                    let g:start_has_show = 1
+                    let l:msg = util#git#get_current_line_blame()
+                    let l:msg_format = substitute(l:msg, '\v[^(]*\(([^)]*)\).*', '\1', 'g')
+                    if l:msg !=# l:msg_format
+                        let l:msg_format = split(l:msg_format, ' ')
+                        if g:start_hold_line ==# l:msg_format[4]
+                            echo g:start_hold_line . ' ' . l:msg_format[4]
+                            "echo 'by ' . get(l:msg_format, '0', '') . ' at ' . get(l:msg_format, '1', '')
+                        endif
+                    endif
+                endif
+            endif
+        endif
+    else
+        let g:start_hold_time = localtime()
+        let g:start_has_show = 0
+    endif
+    let g:start_hold_line = getcurpos()[1]
+    let g:start_hold_line_timer = timer_start(1000,
+                \'StartHoldLine',
+                \{ 'repeat': 1 })
+endfunction
+let g:start_hold_line_timer = timer_start(500,
+            \'StartHoldLine',
+            \{ 'repeat': 1 })
+" }}}
 
 " move the cursor to right position {{{
 function! ResCur()

@@ -382,10 +382,19 @@ let s:menus.my_commands.command_candidates = [
 call denite#custom#var('menu', 'menus', s:menus)
 call denite#custom#var('file_rec', 'command',
     \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-call denite#custom#source(
-    \ 'file_rec', 'matchers', ['matcher_substring'])
+"call denite#custom#source(
+    "\ 'file_rec', 'matchers', ['matcher_substring'])
 
 "}}} Denite
+
+" miniyank {{{
+map p <Plug>(miniyank-autoput)
+map P <Plug>(miniyank-autoPut)
+map <leader>p <Plug>(miniyank-startput)
+map <leader>P <Plug>(miniyank-startPut)
+map <leader>n <Plug>(miniyank-cycle)
+let g:miniyank_filename = $HOME."/.miniyank.mpack"
+" }}} end miniyank
 
 " }}} plugins config
 
