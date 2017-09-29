@@ -170,10 +170,7 @@ function! StartHoldLine(timerId) abort
                     let l:msg_format = substitute(l:msg, '\v[^(]*\(([^)]*)\).*', '\1', 'g')
                     if l:msg !=# l:msg_format
                         let l:msg_format = split(l:msg_format, ' ')
-                        if g:start_hold_line ==# l:msg_format[4]
-                            echo g:start_hold_line . ' ' . l:msg_format[4]
-                            "echo 'by ' . get(l:msg_format, '0', '') . ' at ' . get(l:msg_format, '1', '')
-                        endif
+                        echo 'by ' . get(l:msg_format, '0', '') . ' at ' . get(l:msg_format, '1', '')
                     endif
                 endif
             endif
