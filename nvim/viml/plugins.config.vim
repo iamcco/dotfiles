@@ -30,17 +30,6 @@ set noshowmode
 "let g:jsx_ext_required = 1
 " }}} vim-polyglot
 
-" context_filetype {{{
-if !exists('g:context_filetype#same_filetypes')
-    let g:context_filetype#same_filetypes = {}
-endif
-let g:context_filetype#same_filetypes.javascript = 'html,string,String'
-let g:context_filetype#same_filetypes.html = 'javascript,string,String'
-let g:context_filetype#same_filetypes.string = 'javascript,html,String'
-let g:context_filetype#same_filetypes.String = 'javascript,html,string'
-
-" }}} context_filetype
-
 " deoplete-ternjs {{{
 set completeopt-=preview
 let g:tern_request_timeout = 1
