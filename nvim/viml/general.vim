@@ -1,8 +1,8 @@
 " general config"{{{
 
 " encoding {{{
-scriptencoding utf-8
 set encoding=utf-8                                                      " 设置gvim内部编码
+scriptencoding utf-8
 set fileencoding=utf-8                                                  " 设置当前文件编码
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1 " 设置支持打开的文件的编码
 set fileformat=unix                                                     " 设置新文件的<EOL>格式
@@ -96,8 +96,8 @@ set ignorecase                                                          " 搜索
 
 " cursor {{{
 set cursorline                                                          " Highlight current line
-set cc=100
-set cuc
+set colorcolumn=100
+set cursorcolumn
 set viewoptions=folds,options,cursor,unix,slash                         " Better Unix / Windows compatibility
 set virtualedit=onemore                                                 " Allow for cursor beyond last character
 " }}} cursor
@@ -156,42 +156,15 @@ hi! link ALEWarningSign MyWarningMsg
 
 " git {{{
 " move cursor to the first line for gitcommit
-au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
-let g:start_hold_time = localtime()
-let g:start_hold_line = getcurpos()[1]
-let g:start_has_show = 0
-function! StartHoldLine(timerId) abort
-    if g:start_hold_line ==# getcurpos()[1]
-        if mode() ==# 'n'
-            if localtime() - g:start_hold_time >= 1
-                if !g:start_has_show
-                    let g:start_has_show = 1
-                    let l:msg = util#git#get_current_line_blame()
-                    let l:msg_format = substitute(l:msg, '\v[^(]*\(([^)]*)\).*', '\1', 'g')
-                    if l:msg !=# l:msg_format
-                        let l:msg_format = split(l:msg_format, ' ')
-                        echo 'by ' . get(l:msg_format, '0', '') . ' at ' . get(l:msg_format, '1', '')
-                    endif
-                endif
-            endif
-        endif
-    else
-        let g:start_hold_time = localtime()
-        let g:start_has_show = 0
-    endif
-    let g:start_hold_line = getcurpos()[1]
-    let g:start_hold_line_timer = timer_start(1000,
-                \'StartHoldLine',
-                \{ 'repeat': 1 })
-endfunction
-let g:start_hold_line_timer = timer_start(500,
-            \'StartHoldLine',
-            \{ 'repeat': 1 })
+augroup GIT_USER_AUTOCMD
+    autocmd!
+    autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+augroup END
 " }}}
 
 " move the cursor to right position {{{
 function! ResCur()
-    if line("'\"") <= line("$")
+    if line("'\"") <= line('$')
         normal! g`"
         return 1
     endif
@@ -209,32 +182,32 @@ if has('persistent_undo')
 endif
 
 function! InitializeDirectories()
-    let parent = $HOME . '/.vimbackupfile'
-    let prefix = 'vim'
-    let dir_list = {
+    let l:parent = $HOME . '/.vimbackupfile'
+    let l:prefix = 'vim'
+    let l:dir_list = {
                 \ 'backup': 'backupdir',
                 \ 'views': 'viewdir',
                 \ 'swap': 'directory' }
 
     if has('persistent_undo')
-        let dir_list['undo'] = 'undodir'
+        let l:dir_list['undo'] = 'undodir'
     endif
 
-    let common_dir = parent . '/.' . prefix
+    let l:common_dir = l:parent . '/.' . l:prefix
 
-    for [dirname, settingname] in items(dir_list)
-        let directory = common_dir . dirname . '/'
-        if exists("*mkdir")
-            if !isdirectory(directory)
-                call mkdir(directory, 'p', 0755)
+    for [l:dirname, l:settingname] in items(l:dir_list)
+        let l:directory = l:common_dir . l:dirname . '/'
+        if exists('*mkdir')
+            if !isdirectory(l:directory)
+                call mkdir(l:directory, 'p', 0755)
             endif
         endif
-        if !isdirectory(directory)
-            echo "Warning: Unable to create backup directory: " . directory
-            echo "Try: mkdir -p " . directory
+        if !isdirectory(l:directory)
+            echo 'Warning: Unable to create backup directory: ' . l:directory
+            echo 'Try: mkdir -p ' . l:directory
         else
-            let directory = substitute(directory, " ", "\\\\ ", "g")
-            exec "set " . settingname . "=" . directory
+            let l:directory = substitute(l:directory, ' ', "\\\\ ", 'g')
+            exec 'set ' . l:settingname . '=' . l:directory
         endif
     endfor
 endfunction

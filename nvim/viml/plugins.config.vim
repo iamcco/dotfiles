@@ -288,14 +288,6 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " }}} Goyo
 
-" ctrlspace {{{
-set showtabline=0
-let g:CtrlSpaceSaveWorkspaceOnExit = 1
-let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
-let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
-noremap <unique> <silent> <C-Space> :CtrlSpace<CR>
-" }}} ctrlspace
-
 " mundo {{{
 nnoremap <Leader>h :MundoToggle<CR>
 " }}} mundo
@@ -318,25 +310,92 @@ nnoremap <silent> ,tc :call neoterm#kill()<CR>
 nnoremap <silent> ,tm :T
 " }}} neoterm
 
-" airline {{{
-let g:airline_theme='paper'
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
-" }}} airline
+" lightline {{{
+let g:lightline = {
+            \ 'colorscheme': 'solarized',
+            \ 'active': {
+            \   'left': [
+            \             ['mode', 'paste'],
+            \             ['readonly', 'filename', 'modified'],
+            \             ['gitbranch', 'gitblame']
+            \           ],
+            \   'right': [
+            \              ['linter_errors', 'linter_warnings', 'lineinfo'],
+            \              ['percent'],
+            \              ['filetype']
+            \            ]
+            \ },
+            \ 'component_expand': {
+            \   'gitblame': 'UserConfigGetGitBlame',
+            \   'gitbranch': 'fugitive#head',
+            \   'linter_warnings': 'UserConfigGetLinterWarnings',
+            \   'linter_errors': 'UserConfigGetLinterErrors',
+            \ },
+            \ 'component_type': {
+            \   'linter_warnings': 'warning',
+            \   'linter_errors': 'error'
+            \ },
+            \ }
+
+function! UserConfigGetLinterWarnings() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:all_non_errors == 0 ? '' : printf('%d', all_non_errors)
+endfunction
+
+function! UserConfigGetLinterErrors() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  return l:all_errors == 0 ? '' : printf('%d', all_errors)
+endfunction
+
+autocmd User ALELint call s:UserConfigUpdateLightline()
+
+function! s:UserConfigUpdateLightline()
+  if exists('#lightline')
+    call lightline#update()
+  end
+endfunction
+
+let g:start_hold_time = localtime()
+let g:start_hold_line = getcurpos()[1]
+let g:start_has_show = 0
+let g:user_config_blame = ''
+function! UserConfigGetGitBlame() abort
+    return winwidth(0) > 100 ? g:user_config_blame : ''
+endfunction
+function! StartHoldLine(timerId) abort
+    if g:start_hold_line ==# getcurpos()[1]
+        if mode() ==# 'n'
+            if localtime() - g:start_hold_time >= 1
+                if !g:start_has_show
+                    let g:start_has_show = 1
+                    let l:msg = util#git#get_current_line_blame()
+                    let l:msg_format = substitute(l:msg, '\v[^(]*\(([^)]*)\).*', '\1', 'g')
+                    if l:msg !=# l:msg_format
+                        let l:msg_format = split(l:msg_format, ' ')
+                        let g:user_config_blame = 'by ' .
+                                    \ get(l:msg_format, '0', '') .
+                                    \ ' at ' . get(l:msg_format, '1', '')
+                        call s:UserConfigUpdateLightline()
+                    endif
+                endif
+            endif
+        endif
+    else
+        let g:start_hold_time = localtime()
+        let g:start_has_show = 0
+    endif
+    let g:start_hold_line = getcurpos()[1]
+    let g:start_hold_line_timer = timer_start(1000,
+                \'StartHoldLine',
+                \{ 'repeat': 1 })
+endfunction
+let g:start_hold_line_timer = timer_start(500,
+            \'StartHoldLine',
+            \{ 'repeat': 1 })
+" }}}
 
 " parenmatch {{{
 " disable the default matchparen plugin

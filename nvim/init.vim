@@ -7,9 +7,9 @@
 " config util function and variable {{{
 let s:init_vim_path = expand('<sfile>:p:h')
 function! Load_viml_config(path) abort
-    let path = s:init_vim_path . '/' . a:path
-    if filereadable(path)
-        exec 'source ' . path
+    let l:path = s:init_vim_path . '/' . a:path
+    if filereadable(l:path)
+        exec 'source ' . l:path
     endif
 endfunction
 " }}} config util function and variable

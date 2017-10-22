@@ -105,7 +105,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
         Plug 'icymind/NeoSolarized'
         Plug 'ashfinal/vim-colors-paper'
         Plug 'whatyouhide/vim-gotham'
-        Plug 'vim-airline/vim-airline'        " 状态栏增强
+        Plug 'itchyny/lightline.vim'
         Plug 'johngrib/vim-game-code-break'
     " }}} UI theme font
 
