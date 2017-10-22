@@ -317,7 +317,7 @@ let g:lightline = {
             \   'left': [
             \             ['mode', 'paste'],
             \             ['readonly', 'filename', 'modified'],
-            \             ['gitbranch', 'gitblame']
+            \             ['gitBranchAndBlame']
             \           ],
             \   'right': [
             \              ['linter_errors', 'linter_warnings', 'lineinfo'],
@@ -326,8 +326,7 @@ let g:lightline = {
             \            ]
             \ },
             \ 'component_expand': {
-            \   'gitblame': 'UserConfigGetGitBlame',
-            \   'gitbranch': 'fugitive#head',
+            \   'gitBranchAndBlame': 'UserConfigGitBranchAndBlame',
             \   'linter_warnings': 'UserConfigGetLinterWarnings',
             \   'linter_errors': 'UserConfigGetLinterErrors',
             \ },
@@ -352,48 +351,44 @@ endfunction
 
 autocmd User ALELint call s:UserConfigUpdateLightline()
 
+let s:git_blame_line = 0
+let s:user_config_blame = ''
 function! s:UserConfigUpdateLightline()
   if exists('#lightline')
     call lightline#update()
   end
 endfunction
 
-let g:start_hold_time = localtime()
-let g:start_hold_line = getcurpos()[1]
-let g:start_has_show = 0
-let g:user_config_blame = ''
-function! UserConfigGetGitBlame() abort
-    return winwidth(0) > 100 ? g:user_config_blame : ''
-endfunction
-function! StartHoldLine(timerId) abort
-    if g:start_hold_line ==# getcurpos()[1]
-        if mode() ==# 'n'
-            if localtime() - g:start_hold_time >= 1
-                if !g:start_has_show
-                    let g:start_has_show = 1
-                    let l:msg = util#git#get_current_line_blame()
-                    let l:msg_format = substitute(l:msg, '\v[^(]*\(([^)]*)\).*', '\1', 'g')
-                    if l:msg !=# l:msg_format
-                        let l:msg_format = split(l:msg_format, ' ')
-                        let g:user_config_blame = 'by ' .
-                                    \ get(l:msg_format, '0', '') .
-                                    \ ' at ' . get(l:msg_format, '1', '')
-                        call s:UserConfigUpdateLightline()
-                    endif
-                endif
-            endif
-        endif
-    else
-        let g:start_hold_time = localtime()
-        let g:start_has_show = 0
+function! UserConfigGitBranchAndBlame() abort
+    let l:branchAndBlame = ''
+    let l:branch = fugitive#head()
+    if l:branch !=# ''
+        let l:branchAndBlame = '%<%{"' . l:branch . '"}'
     endif
-    let g:start_hold_line = getcurpos()[1]
+    if s:user_config_blame !=# ''
+        let l:branchAndBlame = l:branchAndBlame . '%{"  / ' . s:user_config_blame . '"}'
+    endif
+    return l:branchAndBlame
+endfunction
+function! UserConfigGetGlame(...) abort
+    let l:current_line = getcurpos()[1]
+    if s:git_blame_line !=# l:current_line
+        let l:msg = util#git#get_current_line_blame()
+        let l:msg_format = substitute(l:msg, '\v[^(]*\(([^)]*)\).*', '\1', 'g')
+        if l:msg !=# l:msg_format
+            let l:msg_format = split(l:msg_format, ' ')
+            let s:user_config_blame = get(l:msg_format, '1', '') . ' ' . get(l:msg_format, '0', '')
+            call s:UserConfigUpdateLightline()
+        endif
+    endif
+    let s:git_blame_line = l:current_line
+
     let g:start_hold_line_timer = timer_start(1000,
-                \'StartHoldLine',
+                \'UserConfigGetGlame',
                 \{ 'repeat': 1 })
 endfunction
-let g:start_hold_line_timer = timer_start(500,
-            \'StartHoldLine',
+let g:start_hold_line_timer = timer_start(1000,
+            \'UserConfigGetGlame',
             \{ 'repeat': 1 })
 " }}}
 
