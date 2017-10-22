@@ -24,6 +24,7 @@ set nowrap                                                              " 长行
 set winminheight=0                                                      " Windows can be 0 line high
 set scrolljump=5                                                        " Lines to scroll when cursor leaves screen
 set scrolloff=3                                                         " Minimum lines to keep above and below cursor
+set splitright
 " }}} window scroll
 
 " folding {{{
@@ -135,24 +136,20 @@ hi! MyError ctermfg=2 ctermbg=0 guifg=#990000 guibg=#073642
 hi! MyWarningMsg ctermfg=2 ctermbg=0 guifg=#999900 guibg=#073642
 hi! link ALEErrorSign MyError
 hi! link ALEWarningSign MyWarningMsg
-"hi! MyDiffAdd guifg=yellow
-"hi! MyDiffDelete guifg=red
-"hi! MyDiffChange guifg=green
+hi! MyDiffAdd ctermfg=2 guifg=#719e07 guibg=#073642
+hi! MyDiffDelete ctermfg=1 guifg=#dc322f guibg=#073642
+hi! MyDiffChange ctermfg=3 guifg=#b58900 guibg=#073642
 "hi! MySignMarkText guifg=LightBlue
-"hi! link GitGutterAdd MyDiffAdd
-"hi! link GitGutterDelete MyDiffDelete
-"hi! link GitGutterChange MyDiffChange
-"hi! link GitGutterChangeDelete MyDiffChange
+hi! link GitGutterAdd MyDiffAdd
+hi! link GitGutterDelete MyDiffDelete
+hi! link GitGutterChange MyDiffChange
+hi! link GitGutterChangeDelete MyDiffChange
 "hi! link SignatureMarkText MySignMarkText
 "hi! link SignColumn   LineNr    " 标记一列的背景颜色
 "hi! clear DiffAdd
 "hi! clear DiffDelete
 "hi! clear DiffChange
 " }}} color theme
-
-" change the pwd to the edit file {{{
-"autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
-" }}} change the pwd to the edit file
 
 " git {{{
 " move cursor to the first line for gitcommit
