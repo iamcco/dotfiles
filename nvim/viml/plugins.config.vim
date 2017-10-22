@@ -399,8 +399,7 @@ call denite#custom#map(
             \ '<denite:move_to_previous_line>',
             \ 'noremap'
             \)
-noremap <silent> <c-p> :Denite file_rec -vertical-preview<CR>
-
+noremap <silent> <c-p> :Denite file_rec -highlight-matched-char=Type -vertical-preview<CR>
 
 noremap <silent> <Leader>b :Denite buffer<CR>
 " Add custom menus
