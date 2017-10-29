@@ -65,8 +65,6 @@ Plug 'Shougo/vinarise.vim'
 " TODO
 Plug 'dyng/ctrlsf.vim'          " 快速搜索文件
 Plug 'iamcco/dict.vim', { 'on': 'Dict' }
-" TODO
-Plug 'scrooloose/nerdtree'
 Plug 'simnalamburt/vim-mundo'   " 文件历史插件
 Plug 'junegunn/vim-easy-align'  " 对齐
 Plug 'neoclide/vim-jsx-improve'

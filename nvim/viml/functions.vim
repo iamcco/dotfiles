@@ -131,3 +131,7 @@ function! UserFuncMapLoclistQuit()
         endfor
     endif
 endfunction
+
+function! UserFuncGetProjectDir()
+    return fnamemodify(finddir('.git', fnameescape(expand('%:p:h')) . ';'), ':h')
+endfunction
