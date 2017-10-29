@@ -98,12 +98,8 @@ Plug 'tweekmonster/startuptime.vim'
 " }}} Util
 
 " UI theme font {{{
-Plug 'morhetz/gruvbox'
-Plug 'icymind/NeoSolarized'
-Plug 'ashfinal/vim-colors-paper'
-Plug 'whatyouhide/vim-gotham'
 Plug 'itchyny/lightline.vim'
-Plug 'johngrib/vim-game-code-break'
+Plug 'icymind/NeoSolarized'
 " }}} UI theme font
 
 " maybe next {{{
