@@ -295,8 +295,7 @@ call denite#custom#map(
             \ '<denite:move_to_previous_line>',
             \ 'noremap'
             \)
-noremap <silent> <c-p> :Denite file_rec -highlight-matched-char=Type -vertical-preview<CR>
-
+noremap <silent> <c-p> :Denite file_rec<CR>
 noremap <silent> <Leader>b :Denite buffer<CR>
 " Add custom menus
 let s:menus = {}
@@ -322,9 +321,14 @@ let s:menus.my_commands.command_candidates = [
 call denite#custom#var('menu', 'menus', s:menus)
 call denite#custom#var('file_rec', 'command',
     \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-"call denite#custom#source(
-    "\ 'file_rec', 'matchers', ['matcher_substring'])
-
+call denite#custom#option(
+    \ '_', {
+    \   'highlight_matched_char': 'Type',
+    \   'vertical_preview': 1,
+    \  }
+    \)
+call denite#custom#source(
+    \ '_', 'matchers', ['matcher_fuzzy', 'sorter_rank'])
 "}}} Denite
 
 " miniyank {{{

@@ -95,6 +95,7 @@ Plug 'iamcco/react-error-codes.vim'
 Plug 'bfredl/nvim-miniyank'
 Plug 'iamcco/util.vim'
 Plug 'tweekmonster/startuptime.vim'
+Plug 'iamcco/file-manager.vim'
 " }}} Util
 
 " UI theme font {{{
@@ -103,6 +104,7 @@ Plug 'icymind/NeoSolarized'
 " }}} UI theme font
 
 " maybe next {{{
+"Plug 'tweekmonster/braceless.vim'
 "Plug 'samuelsimoes/vim-jsx-utils'
 "Plug 'alvan/vim-closetag'
 "Plug 'spf13/vim-autoclose'
