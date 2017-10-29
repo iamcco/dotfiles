@@ -1,50 +1,20 @@
+" vim:set et sw=2 ts=2 fdm=marker fdl=1:
+" Author:   年糕小豆汤 <ooiss@qq.com>
+" Github:   https://github.com/iamcco
+" License:  MIT License
+
+scriptencoding utf-8
+
 " plugins config {{{
 
-" deoplete {{{
-"let g:deoplete#enable_at_startup = 1
-"let g:deoplete#auto_complete_delay = 0
-""let g:deoplete#max_list = 15
+" nvim-completion-manager {{{
+let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
     return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
 endfunction
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" }}} deoplete
-
-" LanguageClient-neovim"{{{
-"let g:LanguageClient_serverCommands = {
-        "\ 'javascript': ['tsc', '&&', ],
-        "\ }
-" LanguageClient-neovim"}}}
-
-" nvim-completion-manager"{{{
-let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
-" nvim-completion-manager"}}}
-
-" echodoc {{{
-let g:echodoc_enable_at_startup = 1
-set noshowmode
-" }}} echodoc
-
-" vim-polyglot"{{{
-"let g:jsx_ext_required = 1
-" }}} vim-polyglot
-
-" deoplete-ternjs {{{
-set completeopt-=preview
-let g:tern_request_timeout = 1
-let g:tern_show_signature_in_pum = 1
-" }}} deoplete-ternjs
-
-" deoplete-typescript {{{
-"let g:deoplete#sources#tss#javascript_support = 1
-" }}} deoplete-typescript
-
-"" neomake {{{
-"let g:neomake_javascript_enabled_makers = ['eslint']
-"let g:neomake_html_enabled_makers = ['tidy']
-"autocmd! BufWritePost *.{js,css,html,py,vim} Neomake
-"" }}} neomake
+" }}} nvim-completion-manager
 
 " ALE {{{
 let g:ale_linters = {
@@ -62,15 +32,12 @@ let g:closetag_html_style=1     " html sytle tag matching
 autocmd BufRead,BufNewFile *.{String,string} set filetype=html
 " }}} closetag
 
-" css complete {{{
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
-" }}}
-
 " vim-JsBeautify {{{
 let g:html_indent_inctags = 'html,body,head,tbody'
 let g:html_indent_script1 = 'inc'
 let g:html_indent_style1 = 'inc'
 let g:vim_json_syntax_conceal = 0
+" TODO
 autocmd FileType javascript noremap <buffer>  <leader>sf :call JsBeautify()<cr>
 autocmd FileType javascript vnoremap <buffer> <leader>sf :call RangeJsBeautify()<cr>
 autocmd FileType html noremap <buffer> <leader>sf :call HtmlBeautify()<cr>
@@ -82,33 +49,14 @@ autocmd FileType json vnoremap <buffer> <leader>sf :call RangeJsonBeautify()<cr>
 " }}} vim-JsBeautify
 
 " vim-jsdoc {{{
+" TODO
 "nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
 " }}} vim-jsdoc
-
-" coffee-script {{{
-" coffee-script的缩进为2个空格
-autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
-autocmd FileType coffee noremap <buffer> <leader>w :CoffeeWatch<cr>
-" }}} coffee-script
-
-" markdown {{{
-autocmd BufRead,BufNewFile *.{md,mkd,markdown,mdown,mkdn,mdwn} set filetype=markdown
-" }}} markdown
-
-" font vim-devicons {{{
-"let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-" }}} font vim-devicons
-
-" vim-devicons "{{{
-"let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-"let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-"let g:WebDevIconsOS = 'Darwin'
-"}}} vim-devicons
 
 " markdown-preview {{{
 if has('mac')
     let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
-elseif has('unix') && !has('mac')
+elseif has('unix')
     let g:mkdp_path_to_chrome = "google-chrome"
 endif
 " }}} markdown-preview
@@ -130,10 +78,6 @@ nmap <Leader>fo :CtrlSFOpen<CR>
 " TODO: config
 " }}} vim-gitgutter
 
-" vim-trailing-whitespace {{{
-map <leader><space> :FixWhitespace<cr>
-" }}} vim-trailing-whitespace
-
 " vim-multiple-cursors {{{
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
@@ -150,6 +94,7 @@ endfunction
 " }}} vim-multiple-cursors
 
 " textobj-user {{{
+" TODO
 try
     call textobj#user#plugin('html', {
                 \   'keyVal': {
@@ -167,7 +112,8 @@ map _ <Plug>(expand_region_shrink)
 " }}} vim-expand-region
 
 " vim-autoclose {{{
-let g:AutoClosePairs_del= "{}"
+" TODO
+"let g:AutoClosePairs_del= "{}"
 " }}} vim-autoclose
 
 " quickrun {{{
@@ -315,69 +261,19 @@ let g:lightline = {
             \            ]
             \ },
             \ 'component_expand': {
-            \   'gitBranchAndBlame': 'UserConfigGitBranchAndBlame',
-            \   'linter_warnings': 'UserConfigGetLinterWarnings',
-            \   'linter_errors': 'UserConfigGetLinterErrors',
+            \   'gitBranchAndBlame': 'UserFuncGitBranchAndBlame',
+            \   'linter_warnings': 'UserFuncGetLinterWarnings',
+            \   'linter_errors': 'UserFuncGetLinterErrors',
             \ },
             \ 'component_type': {
             \   'linter_warnings': 'warning',
             \   'linter_errors': 'error'
             \ },
             \ }
+autocmd User ALELint call UserFuncUpdateLightline()
 
-function! UserConfigGetLinterWarnings() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:all_non_errors == 0 ? '' : printf('%d', all_non_errors)
-endfunction
-
-function! UserConfigGetLinterErrors() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  return l:all_errors == 0 ? '' : printf('%d', all_errors)
-endfunction
-
-autocmd User ALELint call s:UserConfigUpdateLightline()
-
-let s:git_blame_line = 0
-let s:user_config_blame = ''
-function! s:UserConfigUpdateLightline()
-  if exists('#lightline')
-    call lightline#update()
-  end
-endfunction
-
-function! UserConfigGitBranchAndBlame() abort
-    let l:branchAndBlame = ''
-    let l:branch = fugitive#head()
-    if l:branch !=# ''
-        let l:branchAndBlame = '%<%{"' . l:branch . '"}'
-    endif
-    if s:user_config_blame !=# ''
-        let l:branchAndBlame = l:branchAndBlame . '%{"  / ' . s:user_config_blame . '"}'
-    endif
-    return l:branchAndBlame
-endfunction
-function! UserConfigGetGlame(...) abort
-    let l:current_line = getcurpos()[1]
-    if s:git_blame_line !=# l:current_line
-        let l:msg = util#git#get_current_line_blame()
-        let l:msg_format = substitute(l:msg, '\v[^(]*\(([^)]*)\).*', '\1', 'g')
-        if l:msg !=# l:msg_format
-            let l:msg_format = split(l:msg_format, ' ')
-            let s:user_config_blame = get(l:msg_format, '1', '') . ' ' . get(l:msg_format, '0', '')
-            call s:UserConfigUpdateLightline()
-        endif
-    endif
-    let s:git_blame_line = l:current_line
-
-    let g:start_hold_line_timer = timer_start(1000,
-                \'UserConfigGetGlame',
-                \{ 'repeat': 1 })
-endfunction
-let g:start_hold_line_timer = timer_start(1000,
-            \'UserConfigGetGlame',
+let g:UserVarHoldLineTimer = timer_start(1000,
+            \'UserFuncGetGlame',
             \{ 'repeat': 1 })
 " }}}
 
@@ -441,5 +337,3 @@ let g:miniyank_filename = $HOME."/.miniyank.mpack"
 " }}} end miniyank
 
 " }}} plugins config
-
-" vim:set et sw=4 ts=4 fdm=marker fdl=1:

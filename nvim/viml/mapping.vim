@@ -1,4 +1,9 @@
-" key mapping {{{
+" vim:set et sw=2 ts=2 fdm=marker fdl=1:
+" Author:   年糕小豆汤 <ooiss@qq.com>
+" Github:   https://github.com/iamcco
+" License:  MIT License
+
+scriptencoding utf-8
 
 " map leader key {{{
 let mapleader = ','
@@ -7,12 +12,7 @@ let maplocalleader = '_'
 " }}} map leader key
 
 " open file with browsers {{{
-let g:browsers = {}
-let g:browsers['chrome'] = 'open -a Google\ Chrome '
-function! ViewFile()
-    exec 'silent !' . g:browsers['chrome'] . expand('%:p')
-endfunction
-noremap <leader>go :call ViewFile()<CR>
+noremap <leader>go :call UserFuncViewFile()<CR>
 " }}} open file with browsers
 
 " copy to the line end {{{
@@ -66,25 +66,3 @@ cnoremap <C-l> <S-Right>
 vnoremap <silent> <C-j> :m '>+1<CR>gv=gv
 vnoremap <silent> <C-k> :m '<-2<CR>gv=gv
 " }}} words move
-
-" close location list window {{{
-function! s:map_location_list()
-    if &buftype == 'quickfix'
-        redir => buffers
-        silent ls
-        redir END
-
-        let nr = bufnr('%')
-        for buf in split(buffers, '\n')
-            if match(buf, '\v^\s*'.nr) > -1 && match(buf, '\cQuickfix') == -1
-                noremap <silent><buffer> q :lclose<CR>
-            endif
-        endfor
-    endif
-endfunction
-autocmd! BufWinEnter * call s:map_location_list()
-" }}} close location list window
-
-" }}} key mapping
-
-" vim:set et sw=4 ts=4 fdm=marker fdl=1:
