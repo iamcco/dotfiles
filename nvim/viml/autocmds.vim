@@ -5,14 +5,6 @@
 
 scriptencoding utf-8
 
-" git {{{
-" move cursor to the first line for gitcommit
-augroup UserAugGit
-    autocmd!
-    autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
-augroup END
-" }}}
-
 " move the cursor to right position {{{
 augroup UserAugPos
     autocmd!
@@ -32,6 +24,8 @@ augroup END
 augroup UserAugFileType
     autocmd!
     autocmd BufRead,BufNewFile *.{md,mkd,markdown,mdown,mkdn,mdwn} set filetype=markdown
+    " move cursor to the first line for gitcommit
+    autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 augroup END
 " }}}
 
