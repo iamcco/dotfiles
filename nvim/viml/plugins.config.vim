@@ -274,7 +274,9 @@ call denite#custom#option(
     \  }
     \)
 call denite#custom#source(
-    \ '_', 'matchers', ['matcher_fuzzy', 'sorter_rank'])
+    \ '_', 'matchers', ['matcher_fuzzy'])
+call denite#custom#source(
+    \ '_', 'sorters', ['sorter_sublime'])
 "}}} Denite
 
 " miniyank {{{
