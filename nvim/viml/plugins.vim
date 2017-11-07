@@ -39,6 +39,7 @@ Plug 'calebeby/ncm-css'
 " javascript {{{
 Plug 'maksimr/vim-jsbeautify',          { 'for': ['javascript', 'html', 'css', 'json'] }
 Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }
+Plug 'galooshi/vim-import-js',          { 'for': 'javascript' }
 " }}} javascript
 
 " git {{{
