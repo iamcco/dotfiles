@@ -9,6 +9,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
 
 " autocomplete {{{
 Plug 'roxma/nvim-completion-manager'
+Plug 'fgrsnau/ncm-otherbuf'
 Plug 'roxma/ncm-github'
 Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
 Plug 'Shougo/neco-syntax'
