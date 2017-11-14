@@ -86,7 +86,6 @@ source $ZSH/oh-my-zsh.sh
 # environment variable
 
 # alias
-alias wnpm="npm --registry=http://npm.corp.bianlifeng.com:7001"
 
 # JAVA
 JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home"
