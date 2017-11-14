@@ -82,7 +82,7 @@ Plug 'Konfekt/FastFold'
 Plug 'metakirby5/codi.vim'
 " TODO
 Plug 'itchyny/calendar.vim'
-Plug 'itchyny/vim-parenmatch'   " 替换自带的 matchparent插件
+Plug 'andymass/vim-matchup'
 Plug 'Shougo/denite.nvim'
 " TODO
 Plug 'chemzqm/todoapp.vim'

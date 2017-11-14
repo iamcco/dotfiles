@@ -222,10 +222,9 @@ let g:UserVarHoldLineTimer = timer_start(1000,
             \{ 'repeat': 1 })
 " }}}
 
-" parenmatch {{{
-" disable the default matchparen plugin
-let g:loaded_matchparen = 1
-" }}} parenmatch
+" matchup {{{
+let g:matchup_transmute_enabled = 1
+" }}} matchup
 
 " Denite "{{{
 call denite#custom#map(
