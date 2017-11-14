@@ -8,9 +8,12 @@ then
 fi
 
 USER_NAME=$1
-QUNAR=`echo "Z3Vhbmd6aG91LmNoZW5AcXVuYXIuY29tCg==" | base64 -D -`
-CJ=`echo "Z3Vhbmd6aG91LmNoZW5Ad29ybXBleC5jb20K" | base64 -D -`
-GITHUB=`echo "b29pc3NAcXEuY29tCg==" | base64 -D -`
+
+GEmail=`echo "b29pc3NAcXEuY29tCg==" | base64 -D -`
+GName=`echo "5bm057OV5bCP6LGG5rGkCg==" | base64 -D -`
+
+WEmail=`echo "Z3Vhbmd6aG91LmNoZW5Ad29ybXBleC5jb20K" | base64 -D -`
+WName=`echo "6ZmI5YWJ5a6ZCg==" | base64 -D -`
 
 git_config_list() {
     git config --list | grep user
@@ -18,20 +21,15 @@ git_config_list() {
 
 if [ -n "$USER_NAME" ]
 then
-    if [ "$USER_NAME" == "qunar" ]
+    if [ "$USER_NAME" == "g" ]
     then
-        git config user.name guangzhou.chen
-        git config user.email $QUNAR
+        git config user.name $GName
+        git config user.email $GEmail
         git_config_list
-    elif [ "$USER_NAME" == "github" ]
+    elif [ "$USER_NAME" == "w" ]
     then
-        git config user.name 年糕小豆汤
-        git config user.email $GITHUB
-        git_config_list
-    elif [ "$USER_NAME" == "cj" ]
-    then
-        git config user.name 陈光宙
-        git config user.email $CJ
+        git config user.name $WName
+        git config user.email $WEmail
         git_config_list
     else
         echo "no match type"
