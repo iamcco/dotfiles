@@ -61,7 +61,7 @@ set completeopt=longest,menu
 " }}} wildmenu
 
 " statusline {{{
-set showcmd
+set noshowcmd
 set laststatus=2
 " }}} statusline
 
