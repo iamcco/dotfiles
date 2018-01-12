@@ -101,22 +101,24 @@ function! UserFuncGitBranchAndBlame() abort
     return l:branchAndBlame
 endfunction
 
-function! UserFuncGetGlame(...) abort
-    let l:current_line = getcurpos()[1]
-    if s:git_blame_line !=# l:current_line
-        let l:blame_info = get(git_blame#get_lines_blame_parse(), '0', {})
-        if get(l:blame_info, 'status', v:false)
-          let s:user_config_blame = get(l:blame_info, 'date', '') . ' ' . get(l:blame_info, 'user', '')
-        else
-          let s:user_config_blame = ''
-        endif
-        call UserFuncUpdateLightline()
-    endif
-    let s:git_blame_line = l:current_line
+function! UserFuncClearTimer() abort
+  call timer_stop(get(g:, 'UserVarHoldLineTimer', 0))
+endfunction
 
-    let g:UserVarHoldLineTimer = timer_start(1000,
-                \'UserFuncGetGlame',
-                \{ 'repeat': 1 })
+function! UserFuncStartTimer() abort
+  let g:UserVarHoldLineTimer = timer_start(500,
+        \'UserFuncGetGlame',
+        \{ 'repeat': 1 })
+endfunction
+
+function! UserFuncGetGlame(...) abort
+    let l:blame_info = get(git_blame#get_lines_blame_parse(), '0', {})
+    if get(l:blame_info, 'status', v:false)
+      let s:user_config_blame = get(l:blame_info, 'date', '') . ' ' . get(l:blame_info, 'user', '')
+    else
+      let s:user_config_blame = ''
+    endif
+    call UserFuncUpdateLightline()
 endfunction
 
 function! UserFuncUpdateLightline()

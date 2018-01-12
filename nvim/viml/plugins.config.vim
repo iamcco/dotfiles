@@ -218,10 +218,8 @@ let g:lightline = {
             \ },
             \ }
 autocmd User ALELint call UserFuncUpdateLightline()
-
-let g:UserVarHoldLineTimer = timer_start(1000,
-            \'UserFuncGetGlame',
-            \{ 'repeat': 1 })
+autocmd CursorHold * call UserFuncStartTimer()
+autocmd CursorMoved * call UserFuncClearTimer()
 " }}}
 
 " matchup {{{
