@@ -104,13 +104,13 @@ endfunction
 function! UserFuncGetGlame(...) abort
     let l:current_line = getcurpos()[1]
     if s:git_blame_line !=# l:current_line
-        let l:msg = util#git#get_current_line_blame()
-        let l:msg_format = substitute(l:msg, '\v[^(]*\(([^)]*)\).*', '\1', 'g')
-        if l:msg !=# l:msg_format
-            let l:msg_format = split(l:msg_format, ' ')
-            let s:user_config_blame = get(l:msg_format, '1', '') . ' ' . get(l:msg_format, '0', '')
-            call UserFuncUpdateLightline()
+        let l:blame_info = get(git_blame#get_lines_blame_parse(), '0', {})
+        if get(l:blame_info, 'status', v:false)
+          let s:user_config_blame = get(l:blame_info, 'date', '') . ' ' . get(l:blame_info, 'user', '')
+        else
+          let s:user_config_blame = ''
         endif
+        call UserFuncUpdateLightline()
     endif
     let s:git_blame_line = l:current_line
 

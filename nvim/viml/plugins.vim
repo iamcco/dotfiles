@@ -92,10 +92,13 @@ Plug 'tweekmonster/helpful.vim'
 Plug 'iamcco/go-to-file.vim'
 Plug 'iamcco/go-to-rules.vim'
 Plug 'iamcco/react-error-codes.vim'
-Plug 'bfredl/nvim-miniyank'
-Plug 'iamcco/util.vim'
-Plug 'tweekmonster/startuptime.vim'
+Plug 'iamcco/git-blame.vim'
 Plug 'iamcco/file-manager.vim'
+Plug 'iamcco/buzuo.vim'
+Plug 'bfredl/nvim-miniyank'
+Plug 'tweekmonster/startuptime.vim'
+Plug 'junegunn/vader.vim'
+Plug 'jiangmiao/auto-pairs'
 " }}} Util
 
 " UI theme font {{{
@@ -107,7 +110,6 @@ Plug 'icymind/NeoSolarized'
 "Plug 'tweekmonster/braceless.vim'
 "Plug 'samuelsimoes/vim-jsx-utils'
 "Plug 'alvan/vim-closetag'
-"Plug 'spf13/vim-autoclose'
 "Plug 'junegunn/vim-emoji'
 " }}} maybe next
 
