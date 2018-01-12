@@ -207,6 +207,7 @@ let g:lightline = {
             \            ]
             \ },
             \ 'component_expand': {
+            \   'filename': 'UserFuncGetFileName',
             \   'gitBranchAndBlame': 'UserFuncGitBranchAndBlame',
             \   'linter_warnings': 'UserFuncGetLinterWarnings',
             \   'linter_errors': 'UserFuncGetLinterErrors',

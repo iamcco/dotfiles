@@ -59,6 +59,20 @@ function! UserFuncJumpLastPos()
   endif
 endfunction
 
+function! UserFuncGetFileName()
+  let l:filename = expand('%:p')
+  " 对于 index.js 特殊处理，如果文件名字是 /xxxx/xxx/xx/index.js 取 xx
+  let l:js_index_file_reg = ':s?\v^.*\/(\w+)\/index\.js$?\1?'
+  if l:filename =~? '\vindex\.js$'
+    let l:filename = fnamemodify(l:filename, l:js_index_file_reg)
+  elseif l:filename !=# ''
+    let l:filename = fnamemodify(l:filename, ':t')
+  else
+    let l:filename = '[No Name]'
+  endif
+  return l:filename
+endfunction
+
 function! UserFuncGetLinterWarnings() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:all_errors = l:counts.error + l:counts.style_error
