@@ -14,6 +14,9 @@ function! s:my_cr_function()
     return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
 endfunction
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"let $NVIM_PYTHON_LOG_FILE="/Users/aioiyuuko/nvim_log"
+"let $NVIM_NCM_LOG_LEVEL="DEBUG"
+"let $NVIM_NCM_MULTI_THREAD=0
 " }}} nvim-completion-manager
 
 " ALE {{{

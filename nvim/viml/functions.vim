@@ -102,7 +102,9 @@ function! UserFuncGitBranchAndBlame() abort
 endfunction
 
 function! UserFuncClearTimer() abort
-  call timer_stop(get(g:, 'UserVarHoldLineTimer', 0))
+  if exists('g:UserVarHoldLineTimer')
+    call timer_stop(g:UserVarHoldLineTimer)
+  endif
 endfunction
 
 function! UserFuncStartTimer() abort
