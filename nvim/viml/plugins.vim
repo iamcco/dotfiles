@@ -83,7 +83,7 @@ Plug 'metakirby5/codi.vim'
 " TODO
 Plug 'itchyny/calendar.vim'
 Plug 'andymass/vim-matchup'
-Plug 'Shougo/denite.nvim'
+Plug 'Shougo/denite.nvim' 
 " TODO
 Plug 'chemzqm/todoapp.vim'
 Plug 'pocari/vim-denite-emoji'
@@ -100,6 +100,7 @@ Plug 'bfredl/nvim-miniyank'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'junegunn/vader.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'juanibiapina/vim-lighttree'
 " }}} Util
 
 " UI theme font {{{
