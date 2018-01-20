@@ -200,7 +200,7 @@ let g:lightline = {
             \ 'active': {
             \   'left': [
             \             ['mode', 'paste'],
-            \             ['readonly', 'filename', 'modified'],
+            \             ['readonly', 'activeFilename', 'modified'],
             \             ['gitBranchAndBlame']
             \           ],
             \   'right': [
@@ -210,7 +210,7 @@ let g:lightline = {
             \            ]
             \ },
             \ 'component_expand': {
-            \   'filename': 'UserFuncGetFileName',
+            \   'activeFilename': 'UserFuncGetFileName',
             \   'gitBranchAndBlame': 'UserFuncGitBranchAndBlame',
             \   'linter_warnings': 'UserFuncGetLinterWarnings',
             \   'linter_errors': 'UserFuncGetLinterErrors',
