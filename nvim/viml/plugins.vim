@@ -87,6 +87,7 @@ Plug 'Shougo/denite.nvim'
 " TODO
 Plug 'chemzqm/todoapp.vim'
 Plug 'pocari/vim-denite-emoji'
+Plug 'junegunn/vim-emoji'
 Plug 'tweekmonster/helpful.vim'
 " TODO
 Plug 'iamcco/go-to-file.vim'
@@ -113,7 +114,6 @@ Plug 'icymind/NeoSolarized'
 "Plug 'tweekmonster/braceless.vim'
 "Plug 'samuelsimoes/vim-jsx-utils'
 "Plug 'alvan/vim-closetag'
-"Plug 'junegunn/vim-emoji'
 " }}} maybe next
 
 call plug#end()
