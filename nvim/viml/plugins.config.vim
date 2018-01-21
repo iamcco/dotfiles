@@ -242,6 +242,7 @@ call denite#custom#map(
             \ '<denite:move_to_previous_line>',
             \ 'noremap'
             \)
+noremap <silent> <Space> :Denite source<CR>
 noremap <silent> <c-p> :Denite file_rec<CR>
 noremap <silent> <Leader>b :Denite buffer<CR>
 noremap <silent> <leader>e :Denite file_manager<CR>
