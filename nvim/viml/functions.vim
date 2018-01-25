@@ -153,3 +153,13 @@ endfunction
 function! UserFuncGetProjectDir()
     return fnamemodify(finddir('.git', fnameescape(expand('%:p:h')) . ';'), ':h')
 endfunction
+
+function! UserFuncDetectFileType() abort
+    let l:extension = expand('%:e')
+    if l:extension ==# ''
+      let l:path = expand('%:p:h')
+      if l:path =~# '\v.+-config$'
+        set filetype=json
+      endif
+    endif
+endfunction

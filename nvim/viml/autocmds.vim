@@ -29,6 +29,12 @@ augroup UserAugFileType
 augroup END
 " }}}
 
+" detect file type
+augroup UserDetectFileType
+  autocmd!
+  autocmd BufRead,BufNewFile * call UserFuncDetectFileType()
+augroup END
+
 " mapping {{{
 augroup UserAugMapping
     autocmd!
