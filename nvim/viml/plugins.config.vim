@@ -245,7 +245,6 @@ call denite#custom#map(
 noremap <silent> <Space> :Denite source<CR>
 noremap <silent> <c-p> :Denite file_rec<CR>
 noremap <silent> <Leader>b :Denite buffer<CR>
-noremap <silent> <leader>e :Denite file_manager<CR>
 " Add custom menus
 let s:menus = {}
 let s:menus.neovim = {
@@ -290,5 +289,9 @@ map <leader>P <Plug>(miniyank-startPut)
 map <leader>n <Plug>(miniyank-cycle)
 let g:miniyank_filename = $HOME."/.miniyank.mpack"
 " }}} end miniyank
+
+" lightTree {{{
+noremap <silent> <leader>e :LightTree<CR>
+" }}}
 
 " }}} plugins config
