@@ -84,8 +84,6 @@ Plug 'metakirby5/codi.vim'
 Plug 'itchyny/calendar.vim'
 Plug 'andymass/vim-matchup'
 Plug 'Shougo/denite.nvim' 
-" TODO
-Plug 'chemzqm/todoapp.vim'
 Plug 'pocari/vim-denite-emoji'
 Plug 'junegunn/vim-emoji'
 Plug 'tweekmonster/helpful.vim'
