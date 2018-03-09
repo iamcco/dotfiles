@@ -179,19 +179,19 @@ nnoremap <Leader>h :MundoToggle<CR>
 " neoterm {{{
 let g:neoterm_size = 10
 " open new term
-nnoremap <silent> ,tn :call neoterm#tnew()<CR>
+nnoremap <silent> ,tn :Tnew<CR>
 " open term
-nnoremap <silent> ,to :call neoterm#open()<CR>
+nnoremap <silent> ,to :Topen<CR>
 " Toggles the last window in the current tab.
-nnoremap <silent> ,tt :call neoterm#toggle()<CR>
+nnoremap <silent> ,tt :Ttoggle<CR>
 " hide/close terminal
-nnoremap <silent> ,th :call neoterm#close()<CR>
+nnoremap <silent> ,th :Ttoggle<CR>
 " clear terminal
-nnoremap <silent> ,tl :call neoterm#clear()<CR>
+nnoremap <silent> ,tl :Tclear<CR>
 " kills the current job (send a <c-c>)
-nnoremap <silent> ,tc :call neoterm#kill()<CR>
+nnoremap <silent> ,tc :Tkill<CR>
 " command
-nnoremap <silent> ,tm :T
+nnoremap <silent> ,tm :T 
 " }}} neoterm
 
 " lightline {{{
