@@ -101,6 +101,9 @@ Plug 'tweekmonster/startuptime.vim'
 Plug 'junegunn/vader.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'juanibiapina/vim-lighttree'
+Plug 'iyuuya/denite-ale'
+Plug 'chemzqm/vim-easygit'
+Plug 'chemzqm/denite-git'
 " }}} Util
 
 " UI theme font {{{
