@@ -226,7 +226,7 @@ autocmd CursorMoved * call UserFuncClearTimer()
 " }}}
 
 " matchup {{{
-let g:matchup_transmute_enabled = 1
+let g:matchup_transmute_enabled = 0
 " }}} matchup
 
 " Denite "{{{
