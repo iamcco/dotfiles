@@ -1,25 +1,26 @@
 [user]
-	name = iamcco
-	email = ooiss@qq.com
+    name = iamcco
+    email = ooiss@qq.com
 [push]
-	default = simple
+    default = simple
 [core]
-	autocrlf = false
-	quotepath = off
-	editor = nvim
-	excludesfile = /Users/aioiyuuko/.gitignore_global
+    autocrlf = false
+    quotepath = off
+    editor = nvim
+    excludesfile = /Users/aioiyuuko/.gitignore_global
 [gui]
-	encoding = utf-8
+    encoding = utf-8
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
 [mergetool "sourcetree"]
-	cmd = /Users/aioiyuuko/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Users/aioiyuuko/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 [alias]
-	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+    dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+    ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
