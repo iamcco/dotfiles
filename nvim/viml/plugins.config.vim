@@ -227,6 +227,11 @@ autocmd CursorMoved * call UserFuncClearTimer()
 
 " matchup {{{
 let g:matchup_transmute_enabled = 0
+augroup matchup_matchparen_highlight
+  autocmd!
+  autocmd ColorScheme * hi MatchParen guibg=#0a3e03 guifg=None
+augroup END
+
 " }}} matchup
 
 " Denite "{{{
