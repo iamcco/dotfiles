@@ -129,6 +129,20 @@ function! UserFuncUpdateLightline()
   end
 endfunction
 
+function! UserFuncStartLightline() abort
+  augroup UserLightline
+    autocmd!
+    autocmd User ALELint call UserFuncUpdateLightline()
+    autocmd CursorHold * call UserFuncStartTimer()
+    autocmd CursorMoved * call UserFuncClearTimer()
+  augroup END
+endfunction
+
+function! UserFuncClearLightline() abort
+  autocmd! UserLightline
+  call UserFuncClearTimer()
+endfunction
+
 let s:browsers = {}
 let s:browsers['chrome'] = 'open -a Google\ Chrome '
 function! UserFuncViewFile()
