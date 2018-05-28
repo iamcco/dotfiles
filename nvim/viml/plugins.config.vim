@@ -231,7 +231,7 @@ autocmd CursorMoved * call UserFuncClearTimer()
 let g:matchup_transmute_enabled = 0
 augroup matchup_matchparen_highlight
   autocmd!
-  autocmd ColorScheme * hi MatchParen guibg=#0a3e03 guifg=None
+  autocmd ColorScheme * hi MatchParen guibg=#075b6f guifg=None
 augroup END
 
 " }}} matchup
@@ -265,7 +265,7 @@ let s:menus.neovim.file_candidates = [
     \ ['commands.vim', '~/.configrc/nvim/viml/commands.vim'],
     \ ['plugins.vim', '~/.configrc/nvim/viml/plugins.vim'],
     \ ['plugins.config.vim', '~/.configrc/nvim/viml/plugins.config.vim'],
-    \ ]
+    \]
 let s:menus.my_commands = {
     \ 'description': 'Example commands'
     \ }
