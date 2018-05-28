@@ -82,7 +82,7 @@ Plug 'Konfekt/FastFold'
 Plug 'metakirby5/codi.vim'
 " TODO
 Plug 'itchyny/calendar.vim'
-Plug 'andymass/vim-matchup'
+Plug 'iamcco/vim-matchup'
 Plug 'Shougo/denite.nvim' 
 Plug 'pocari/vim-denite-emoji'
 Plug 'junegunn/vim-emoji'
@@ -105,6 +105,7 @@ Plug 'juanibiapina/vim-lighttree'
 Plug 'iyuuya/denite-ale'
 Plug 'chemzqm/vim-easygit'
 Plug 'chemzqm/denite-git'
+Plug 'iamcco/devdocs.vim'
 " }}} Util
 
 " UI theme font {{{

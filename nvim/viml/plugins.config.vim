@@ -222,9 +222,12 @@ let g:lightline = {
             \   'linter_errors': 'error'
             \ },
             \ }
-autocmd User ALELint call UserFuncUpdateLightline()
-autocmd CursorHold * call UserFuncStartTimer()
-autocmd CursorMoved * call UserFuncClearTimer()
+call UserFuncStartLightline()
+augroup UserMatchupOffscreen
+  autocmd!
+  autocmd User MatchupOffscreenEnter call UserFuncClearLightline()
+  autocmd User MatchupOffscreenLeave call UserFuncStartLightline()
+augroup END
 " }}}
 
 " matchup {{{
