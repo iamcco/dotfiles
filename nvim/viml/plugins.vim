@@ -105,12 +105,14 @@ Plug 'juanibiapina/vim-lighttree'
 Plug 'iyuuya/denite-ale'
 Plug 'chemzqm/vim-easygit'
 Plug 'chemzqm/denite-git'
-Plug 'iamcco/devdocs.vim'
+Plug 'iamcco/devdocs.nvim'
+Plug 'rickhowe/diffchar.vim'
 " }}} Util
 
 " UI theme font {{{
 Plug 'itchyny/lightline.vim'
 Plug 'icymind/NeoSolarized'
+Plug 'logico-dev/typewriter'
 " }}} UI theme font
 
 " maybe next {{{
