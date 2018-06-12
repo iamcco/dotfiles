@@ -105,7 +105,7 @@ Plug 'juanibiapina/vim-lighttree'
 Plug 'iyuuya/denite-ale'
 Plug 'chemzqm/vim-easygit'
 Plug 'chemzqm/denite-git'
-Plug 'iamcco/devdocs.nvim'
+Plug 'iamcco/devdocs.nvim', { 'do': 'npm install' }
 Plug 'rickhowe/diffchar.vim'
 " }}} Util
 
