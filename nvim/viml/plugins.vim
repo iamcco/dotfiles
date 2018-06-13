@@ -37,6 +37,10 @@ Plug 'iamcco/csscomb.vim',      { 'for': ['css', 'stylus', 'less', 'sass'] }
 Plug 'calebeby/ncm-css'
 " }}} css
 
+" typescript {{{
+Plug 'leafgarland/typescript-vim'
+" }}}
+
 " javascript {{{
 Plug 'maksimr/vim-jsbeautify',          { 'for': ['javascript', 'html', 'css', 'json'] }
 Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }
@@ -63,13 +67,15 @@ Plug 'kshenoy/vim-signature'
 " }}} cursor move and align
 
 " Util {{{
+Plug 'luochen1990/rainbow'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'Shougo/vinarise.vim'
 " TODO
 Plug 'dyng/ctrlsf.vim'          " 快速搜索文件
 Plug 'iamcco/dict.vim', { 'on': 'Dict' }
 Plug 'simnalamburt/vim-mundo'   " 文件历史插件
 Plug 'junegunn/vim-easy-align'  " 对齐
-Plug 'neoclide/vim-jsx-improve'
 Plug 'tpope/vim-repeat'         " 重复命令 with .
 Plug 'thinca/vim-quickrun'
 Plug 'kassio/neoterm'
@@ -106,9 +112,14 @@ Plug 'iyuuya/denite-ale'
 Plug 'chemzqm/vim-easygit'
 Plug 'chemzqm/denite-git'
 Plug 'iamcco/devdocs.vim'
+Plug 'jbgutierrez/vim-better-comments'
+Plug 'jbgutierrez/vim-babel'
+Plug 'mattn/webapi-vim'
+Plug 'soywod/vim-keepeye'
 " }}} Util
 
 " UI theme font {{{
+Plug 'ap/vim-css-color'
 Plug 'itchyny/lightline.vim'
 Plug 'icymind/NeoSolarized'
 " }}} UI theme font

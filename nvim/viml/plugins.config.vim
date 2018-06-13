@@ -124,7 +124,14 @@ map _ <Plug>(expand_region_shrink)
 
 " quickrun {{{
 let g:quickrun_config = {}
+let g:quickrun_config['javascript.jsx'] = {
+            \'command': 'node',
+            \'outputter/buffer/split': 'bo',
+            \'outputter/buffer/into': 1,
+            \'outputter/buffer/close_on_empty': 1
+            \}
 let g:quickrun_config.javascript = {
+            \'command': 'node',
             \'outputter/buffer/split': 'bo',
             \'outputter/buffer/into': 1,
             \'outputter/buffer/close_on_empty': 1
@@ -290,6 +297,45 @@ call denite#custom#source(
 call denite#custom#source(
     \ '_', 'sorters', ['sorter_sublime'])
 "}}} Denite
+
+" vim-javascript {{{
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+augroup javascript_folding
+  au!
+  au FileType javascript setlocal foldmethod=syntax
+augroup END
+" }}}
+
+" rainbow {{{
+let g:rainbow_active = 1
+"let g:rainbow_conf = {
+      "\    'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+      "\    'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+      "\    'operators': '_,_',
+      "\    'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+      "\    'separately': {
+      "\        '*': {},
+      "\        'javascript': {
+      "\            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold'],
+      "\        },
+      "\        'tex': {
+      "\            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+      "\        },
+      "\        'lisp': {
+      "\            'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+      "\        },
+      "\        'vim': {
+      "\            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+      "\        },
+      "\        'html': {
+      "\            'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+      "\        },
+      "\        'css': 0,
+      "\    }
+      "\}
+" }}}
 
 " miniyank {{{
 map p <Plug>(miniyank-autoput)
