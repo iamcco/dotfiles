@@ -116,12 +116,15 @@ Plug 'jbgutierrez/vim-better-comments'
 Plug 'jbgutierrez/vim-babel'
 Plug 'mattn/webapi-vim'
 Plug 'soywod/vim-keepeye'
+Plug 'iamcco/devdocs.nvim', { 'do': 'npm install' }
+Plug 'rickhowe/diffchar.vim'
 " }}} Util
 
 " UI theme font {{{
 Plug 'ap/vim-css-color'
 Plug 'itchyny/lightline.vim'
 Plug 'icymind/NeoSolarized'
+Plug 'logico-dev/typewriter'
 " }}} UI theme font
 
 " maybe next {{{
