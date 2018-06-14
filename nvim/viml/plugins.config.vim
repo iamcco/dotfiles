@@ -354,7 +354,7 @@ let g:miniyank_filename = $HOME."/.miniyank.mpack"
 " }}} end miniyank
 
 " lightTree {{{
-noremap <silent> <leader>e :LightTree<CR>
+noremap <silent> <leader>e :LightTreeFind<CR>
 " }}}
 
 " }}} plugins config
