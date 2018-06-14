@@ -45,6 +45,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maksimr/vim-jsbeautify',          { 'for': ['javascript', 'html', 'css', 'json'] }
 Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }
 Plug 'galooshi/vim-import-js',          { 'for': 'javascript' }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 " }}} javascript
 
 " git {{{
@@ -111,7 +112,6 @@ Plug 'juanibiapina/vim-lighttree'
 Plug 'iyuuya/denite-ale'
 Plug 'chemzqm/vim-easygit'
 Plug 'chemzqm/denite-git'
-Plug 'iamcco/devdocs.vim'
 Plug 'jbgutierrez/vim-better-comments'
 Plug 'jbgutierrez/vim-babel'
 Plug 'mattn/webapi-vim'
