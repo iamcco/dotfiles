@@ -85,7 +85,6 @@ Plug 'iamcco/smartIM.nvim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 " TODO
-Plug 'Konfekt/FastFold'
 Plug 'metakirby5/codi.vim'
 " TODO
 Plug 'itchyny/calendar.vim'
@@ -118,6 +117,7 @@ Plug 'mattn/webapi-vim'
 Plug 'soywod/vim-keepeye'
 Plug 'iamcco/devdocs.nvim', { 'do': 'npm install' }
 Plug 'rickhowe/diffchar.vim'
+Plug 'jreybert/vimagit'
 " }}} Util
 
 " UI theme font {{{
