@@ -55,8 +55,9 @@ autocmd FileType json vnoremap <buffer> <leader>sf :call RangeJsonBeautify()<cr>
 " }}} vim-JsBeautify
 
 " vim-jsdoc {{{
-" TODO
-"nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
+let g:jsdoc_input_description = 1
+let g:jsdoc_enable_es6 = 1
+let g:jsdoc_underscore_private = 1
 " }}} vim-jsdoc
 
 " markdown-preview {{{
@@ -276,13 +277,6 @@ let s:menus.neovim.file_candidates = [
     \ ['plugins.vim', '~/.configrc/nvim/viml/plugins.vim'],
     \ ['plugins.config.vim', '~/.configrc/nvim/viml/plugins.config.vim'],
     \]
-let s:menus.my_commands = {
-    \ 'description': 'Example commands'
-    \ }
-let s:menus.my_commands.command_candidates = [
-    \ ['Split the window', 'vnew'],
-    \ ['Open zsh menu', 'Denite menu:zsh'],
-    \ ]
 call denite#custom#var('menu', 'menus', s:menus)
 call denite#custom#var('file_rec', 'command',
     \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
