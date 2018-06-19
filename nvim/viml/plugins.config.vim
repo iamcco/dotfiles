@@ -21,7 +21,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " ALE {{{
 let g:ale_linters = {
-            \ 'javascript': ['eslint'],
+            \ 'javascript': ['eslint', 'tsserver'],
             \ 'html': ['htmlhint'],
             \ 'markdown': ['markdownlint']
             \ }
