@@ -113,6 +113,12 @@ PATH="$PATH:$CARGO_HOME/bin"
 export CARGO_HOME
 export PATH
 
+# flutter
+export FLUTTER_HOME="/Users/aioiyuuko/flutter"
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+export PATH="$FLUTTER_HOME/bin":$PATH
+
 # thefuck
 eval "$(thefuck --alias)"
 

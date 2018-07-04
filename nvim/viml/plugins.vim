@@ -9,6 +9,7 @@ call plug#begin(expand('<sfile>:p:h') . '/plugged')
 
 " autocomplete {{{
 Plug 'roxma/nvim-completion-manager'
+Plug 'ncm2/ncm2-highlight-double-stuck'
 Plug 'fgrsnau/ncm-otherbuf'
 Plug 'roxma/ncm-github'
 Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
@@ -40,6 +41,10 @@ Plug 'calebeby/ncm-css'
 " typescript {{{
 Plug 'leafgarland/typescript-vim'
 " }}}
+
+" dart {
+Plug 'dart-lang/dart-vim-plugin'
+" }
 
 " javascript {{{
 Plug 'maksimr/vim-jsbeautify',          { 'for': ['javascript', 'html', 'css', 'json'] }
