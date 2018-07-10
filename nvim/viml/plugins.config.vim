@@ -7,17 +7,16 @@ scriptencoding utf-8
 
 " plugins config {{{
 
-" nvim-completion-manager {{{
-let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-endfunction
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"let $NVIM_PYTHON_LOG_FILE="/Users/aioiyuuko/nvim_log"
-"let $NVIM_NCM_LOG_LEVEL="DEBUG"
-"let $NVIM_NCM_MULTI_THREAD=0
-" }}} nvim-completion-manager
+" ncm2 {
+set completeopt=noinsert,menuone,noselect
+autocmd BufEnter * call ncm2#enable_for_buffer()
+let g:ncm2#matcher = 'abbrfuzzy'
+let g:ncm2#sorter = 'abbrfuzzy'
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" }
 
 " ALE {{{
 let g:ale_linters = {

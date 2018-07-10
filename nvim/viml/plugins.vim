@@ -7,12 +7,26 @@ scriptencoding utf-8
 
 call plug#begin(expand('<sfile>:p:h') . '/plugged')
 
+" {
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-github'
+Plug 'ncm2/ncm2-tagprefix'
+Plug 'ncm2/ncm2-cssomni'
+Plug 'ncm2/ncm2-tern', { 'do': 'npm install' }
+Plug 'ncm2/ncm2-jedi'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-html-subscope'
+Plug 'ncm2/ncm2-markdown-subscope'
+Plug 'ncm2/ncm2-rst-subscope'
+Plug 'ncm2/ncm2-abbrfuzzy'
+Plug 'ncm2/ncm2-match-highlight'
+Plug 'ncm2/ncm2-highprio-pop'
+" }
+
 " autocomplete {{{
-Plug 'roxma/nvim-completion-manager'
-Plug 'ncm2/ncm2-highlight-double-stuck'
-Plug 'fgrsnau/ncm-otherbuf'
-Plug 'roxma/ncm-github'
-Plug 'roxma/nvim-cm-tern',  { 'do': 'npm install' }
 Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neco-vim',     { 'for': 'vim' }
 " }}} autocomplete
@@ -35,7 +49,6 @@ Plug 'docunext/closetag.vim',   { 'for': ['html', 'jst', 'string', 'String', 'xm
 
 " css {{{
 Plug 'iamcco/csscomb.vim',      { 'for': ['css', 'stylus', 'less', 'sass'] }
-Plug 'calebeby/ncm-css'
 " }}} css
 
 " typescript {{{
