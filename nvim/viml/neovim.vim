@@ -6,8 +6,9 @@
 scriptencoding utf-8
 
 " neovim config {{{
-"let g:python_host_skip_check = 1
-"let g:python3_host_skip_check = 1
+let g:python_host_prog = expand('~/.pyenv/shims/python')
+let g:python3_host_prog = expand('~/.pyenv/shims/python3')
+let g:node_host_prog = '/usr/local/lib/node_modules/neovim/bin/cli.js'
 
 " delete the buffer when exit terminal
 au TermClose * bd!

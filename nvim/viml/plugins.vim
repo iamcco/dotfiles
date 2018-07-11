@@ -5,10 +5,11 @@
 
 scriptencoding utf-8
 
-call plug#begin(expand('<sfile>:p:h') . '/plugged')
+call plug#begin(expand('<sfile>:p:h') . '/plugins')
 
 " ncm {{{
 Plug 'neoclide/coc.nvim', { 'do': 'npm install' }
+Plug 'chemzqm/jsonc.vim'
 " }}}
 
 " "{
@@ -135,7 +136,7 @@ Plug 'chemzqm/vim-easygit'
 Plug 'chemzqm/denite-git'
 Plug 'jbgutierrez/vim-babel'
 Plug 'mattn/webapi-vim'
-Plug 'soywod/vim-keepeye'
+"Plug 'soywod/vim-keepeye'
 Plug 'iamcco/devdocs.nvim', { 'do': 'npm install' }
 Plug 'rickhowe/diffchar.vim'
 Plug 'jreybert/vimagit'
