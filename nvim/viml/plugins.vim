@@ -9,6 +9,8 @@ call plug#begin(expand('<sfile>:p:h') . '/plugins')
 
 " ncm {{{
 Plug 'neoclide/coc.nvim', { 'do': 'npm install' }
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 Plug 'chemzqm/jsonc.vim'
 " }}}
 
@@ -68,7 +70,6 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'maksimr/vim-jsbeautify',          { 'for': ['javascript', 'html', 'css', 'json'] }
 Plug 'heavenshell/vim-jsdoc',           { 'for': 'javascript' }
 Plug 'galooshi/vim-import-js',          { 'for': 'javascript' }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 " }}} javascript
 
 " git {{{
