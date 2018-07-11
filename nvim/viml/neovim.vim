@@ -6,8 +6,8 @@
 scriptencoding utf-8
 
 " neovim config {{{
-let g:python_host_skip_check = 1
-let g:python3_host_skip_check = 1
+"let g:python_host_skip_check = 1
+"let g:python3_host_skip_check = 1
 
 " delete the buffer when exit terminal
 au TermClose * bd!

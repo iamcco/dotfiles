@@ -7,16 +7,23 @@ scriptencoding utf-8
 
 " plugins config {{{
 
-" ncm2 {
+" coc.nvim {{{
 set completeopt=noinsert,menuone,noselect
-autocmd BufEnter * call ncm2#enable_for_buffer()
-let g:ncm2#matcher = 'abbrfuzzy'
-let g:ncm2#sorter = 'abbrfuzzy'
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>" : "\<CR>")
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" }}}
 
-" }
+" ncm2 {
+"set completeopt=noinsert,menuone,noselect
+"autocmd BufEnter * call ncm2#enable_for_buffer()
+"let g:ncm2#matcher = 'abbrfuzzy'
+"let g:ncm2#sorter = 'abbrfuzzy'
+"inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+"" }
 
 " ALE {{{
 let g:ale_linters = {
