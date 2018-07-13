@@ -1,0 +1,4 @@
+{
+  "coc.preferences.diagnostic.enable": false
+}
+// vim:ft=jsonc
