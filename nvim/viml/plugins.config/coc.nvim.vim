@@ -8,5 +8,6 @@ augroup CocActionMapping
     autocmd FileType javascript noremap <buffer> <silent> <C-]> :call CocAction('jumpDefinition')<CR>
     autocmd FileType jsx noremap <buffer> <silent> <C-]> :call CocAction('jumpDefinition')<CR>
     autocmd FileType javascript.jsx noremap <buffer> <silent> <C-]> :call CocAction('jumpDefinition')<CR>
+    autocmd FileType python noremap <buffer> <silent> <C-]> :call CocAction('jumpDefinition')<CR>
 augroup END
 
