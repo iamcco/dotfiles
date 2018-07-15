@@ -1,4 +1,22 @@
 {
-  "coc.preferences.diagnostic.enable": false
+  "coc.preferences.diagnostic.enable": false,
+  "languageserver": {
+    "sh": {
+      "command": "bash-language-server",
+      "args": ["start", "--stdio"],
+      "filetypes": ["sh"],
+      "cwd": "./",
+      "initializationOptions": {},
+      "settings": {}
+    },
+    "dart": {
+      "command": "dart_language_server",
+      "args": [],
+      "filetypes": ["dart"],
+      "cwd": "./lib",
+      "initializationOptions": {},
+      "settings": {}
+    }
+  }
 }
 // vim:ft=jsonc

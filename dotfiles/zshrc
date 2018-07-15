@@ -117,7 +117,8 @@ export PATH
 export FLUTTER_HOME="/Users/aioiyuuko/flutter"
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
-export PATH="$FLUTTER_HOME/bin":$PATH
+export PATH="$FLUTTER_HOME/bin":"$FLUTTER_HOME/bin/cache/dart-sdk/bin":$PATH
+export PATH="$PATH":"/Users/aioiyuuko/.pub-cache/bin"
 
 # thefuck
 eval "$(thefuck --alias)"
