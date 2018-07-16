@@ -1,6 +1,0 @@
-eslint
-tern
-typescript
-gulp
-webpack
-webpack-dev-server
