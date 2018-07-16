@@ -42,9 +42,4 @@ augroup UserAugMapping
 augroup END
 " }}} mapping
 
-" git blame {{{
-augroup UserGitBlame
-  autocmd!
-  autocmd VimLeavePre * call UserFuncClearTimer()
-augroup END
 " }}}

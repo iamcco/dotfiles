@@ -10,7 +10,7 @@ fi
 base64decode="base64 -d -"
 
 if [ "$(uname)" = 'Darwin' ]; then
-    base64decode="base64 -d -"
+    base64decode="base64 -D -"
 fi
 
 USER_NAME=$1

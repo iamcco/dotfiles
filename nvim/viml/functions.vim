@@ -86,62 +86,8 @@ function! UserFuncGetLinterErrors() abort
   return l:all_errors == 0 ? '' : printf('%d', l:all_errors)
 endfunction
 
-let s:git_blame_line = 0
 let s:user_config_blame = ''
 
-function! UserFuncGitBranchAndBlame() abort
-    let l:branchAndBlame = ''
-    let l:branch = fugitive#head()
-    if l:branch !=# ''
-        let l:branchAndBlame = '%<%{"' . l:branch . '"}'
-    endif
-    if s:user_config_blame !=# ''
-        let l:branchAndBlame = l:branchAndBlame . '%{"  / ' . s:user_config_blame . '"}'
-    endif
-    return l:branchAndBlame
-endfunction
-
-function! UserFuncClearTimer() abort
-  if exists('g:UserVarHoldLineTimer')
-    call timer_stop(g:UserVarHoldLineTimer)
-  endif
-endfunction
-
-function! UserFuncStartTimer() abort
-  let g:UserVarHoldLineTimer = timer_start(500,
-        \'UserFuncGetGlame',
-        \{ 'repeat': 1 })
-endfunction
-
-function! UserFuncGetGlame(...) abort
-    let l:blame_info = get(git_blame#get_lines_blame_parse(), '0', {})
-    if get(l:blame_info, 'status', v:false)
-      let s:user_config_blame = get(l:blame_info, 'date', '') . ' ' . get(l:blame_info, 'user', '')
-    else
-      let s:user_config_blame = ''
-    endif
-    call UserFuncUpdateLightline()
-endfunction
-
-function! UserFuncUpdateLightline()
-  if exists('#lightline')
-    call lightline#update()
-  end
-endfunction
-
-function! UserFuncStartLightline() abort
-  augroup UserLightline
-    autocmd!
-    autocmd User ALELint call UserFuncUpdateLightline()
-    autocmd CursorHold * call UserFuncStartTimer()
-    autocmd CursorMoved * call UserFuncClearTimer()
-  augroup END
-endfunction
-
-function! UserFuncClearLightline() abort
-  autocmd! UserLightline
-  call UserFuncClearTimer()
-endfunction
 
 let s:browsers = {}
 let s:browsers['chrome'] = 'open -a Google\ Chrome '

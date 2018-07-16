@@ -23,9 +23,46 @@ let g:lightline = {
             \   'linter_errors': 'error'
             \ },
             \ }
-call UserFuncStartLightline()
+
+augroup Lightline_user
+    autocmd!
+    autocmd User ALELint call s:update_light_line()
+    autocmd User Git_Blame_Update call s:update_light_line()
+augroup END
+
+function! s:update_light_line() abort
+    if get(s:, 'is_active', v:true)
+        call lightline#update()
+    endif
+endfunction
+
+function! s:deactive() abort
+    let s:is_active = v:false
+endfunction
+
+function! s:active() abort
+    let s:is_active = v:true
+endfunction
+
+function! UserFuncGitBranchAndBlame() abort
+    let l:branchAndBlame = ''
+    let l:branch = fugitive#head()
+    if l:branch !=# ''
+        let l:branchAndBlame = '%<%{"' . l:branch . '"}'
+    endif
+    if exists('b:git_blame_current_line')
+        let l:branchAndBlame = l:branchAndBlame
+                    \. '%{"  / '
+                    \. b:git_blame_current_line.date
+                    \. ' '
+                    \. b:git_blame_current_line.user
+                    \. '"}'
+    endif
+    return l:branchAndBlame
+endfunction
+
 augroup UserMatchupOffscreen
   autocmd!
-  autocmd User MatchupOffscreenEnter call UserFuncClearLightline()
-  autocmd User MatchupOffscreenLeave call UserFuncStartLightline()
+  autocmd User MatchupOffscreenEnter call s:deactive()
+  autocmd User MatchupOffscreenLeave call s:active()
 augroup END
