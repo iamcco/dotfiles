@@ -3,9 +3,9 @@
 " Github:   https://github.com/iamcco
 " License:  MIT License
 
-" init config {{{
 scriptencoding utf-8
-let s:initPath = expand('<sfile>:p:h')
+
+let s:script_path = expand('<sfile>:p:h')
 let s:sourceList = [
       \ 'plugins',
       \ 'functions',
@@ -13,11 +13,14 @@ let s:sourceList = [
       \ 'general',
       \ 'autocmds',
       \ 'mapping',
-      \ 'lightline',
+      \ 'style',
       \ 'neovim',
       \ 'plugins.config',
       \]
 for s:item in s:sourceList
-  exec 'source ' . s:initPath . '/viml/' . s:item . '.vim'
+  exec 'source ' . s:script_path . '/viml/' . s:item . '.vim'
 endfor
-" }}} init config
+
+" Free memory
+unlet s:script_path
+unlet s:sourceList
