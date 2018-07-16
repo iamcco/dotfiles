@@ -7,13 +7,19 @@ then
     exit 1
 fi
 
+base64decode="base64 -d -"
+
+if [ "$(uname)" = 'Darwin' ]; then
+    base64decode="base64 -d -"
+fi
+
 USER_NAME=$1
 
-GEmail=`echo "b29pc3NAcXEuY29tCg==" | base64 -D -`
-GName=`echo "5bm057OV5bCP6LGG5rGkCg==" | base64 -D -`
+GEmail=`echo "b29pc3NAcXEuY29tCg==" | $base64decode`
+GName=`echo "5bm057OV5bCP6LGG5rGkCg==" | $base64decode`
 
-WEmail=`echo "Z3Vhbmd6aG91LmNoZW5Ad29ybXBleC5jb20K" | base64 -D -`
-WName=`echo "6ZmI5YWJ5a6ZCg==" | base64 -D -`
+WEmail=`echo "Z3Vhbmd6aG91LmNoZW5Ad29ybXBleC5jb20K" | $base64decode`
+WName=`echo "6ZmI5YWJ5a6ZCg==" | $base64decode`
 
 git_config_list() {
     git config --list | grep user
