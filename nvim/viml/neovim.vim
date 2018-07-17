@@ -25,5 +25,5 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 tnoremap <Esc> <C-\><C-n>
 
 " use ture color
-set termguicolors
+"set termguicolors
 " }}} neovim config

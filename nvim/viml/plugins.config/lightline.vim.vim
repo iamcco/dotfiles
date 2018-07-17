@@ -1,5 +1,5 @@
 let g:lightline = {
-            \ 'colorscheme': 'solarized',
+            \ 'colorscheme': 'gruvbox',
             \ 'active': {
             \   'left': [
             \             ['mode', 'paste'],

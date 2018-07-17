@@ -96,11 +96,6 @@ set pastetoggle=<F12>
 set autoread
 " }}} autoread
 
-" color theme {{{
-set background=dark
-colorscheme NeoSolarized
-" }}} color theme
-
 " backup {{{
 call UserFuncInitDir()
 set backup
