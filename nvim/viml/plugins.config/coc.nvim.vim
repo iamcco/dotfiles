@@ -7,11 +7,9 @@ let s:action_types = ['jumpDefinition', 'jumpImplementation']
 let s:current_action_index = 0
 
 function! s:goto() abort
-    if s:current_action_index > len(s:action_types) - 1
-        let s:current_action_index = 0
-    endif
-    call CocAction(get(s:action_types, s:current_action_index, 'jumpDefinition'))
-    let s:current_action_index += 1
+    for l:action in s:action_types
+        call CocAction(l:action)
+    endfor
 endfunction
 
 augroup CocActionMapping
