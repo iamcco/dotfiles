@@ -20,3 +20,24 @@ augroup CocActionMapping
     autocmd FileType python noremap <buffer> <silent> <C-]> :call <SID>goto()<CR>
 augroup END
 
+function! s:snippet() abort
+    let l:start_line = line('.')
+    let l:is_position = search('\v%x0')
+    if l:is_position !=# 0
+        silent! s/\v\t/    /g
+        silent! s/\v%x0\n//g
+        silent! s/\v%x0/\r/g
+        let l:end_line = line('.')
+        call cursor(l:start_line, 0)
+        let l:pos = searchpos('\v\$\{\d+\}', 'n', l:end_line)
+        if l:pos[0] !=# 0 && l:pos[1] !=# 0
+            call cursor(l:pos[0], l:pos[1])
+            normal! df}
+        endif
+    endif
+endfunction
+
+augroup CocVueSnippet
+    autocmd!
+    autocmd CompleteDone *.vue call <SID>snippet()
+augroup END

@@ -148,3 +148,5 @@ export PATH="$PATH":"$HOME/npm-global/bin"
 #     CPPFLAGS: -I/usr/local/opt/openssl/include
 # For pkg-config to find this software you may need to set:
 #     PKG_CONFIG_PATH: /usr/local/opt/openssl/lib/pkgconfig
+
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
