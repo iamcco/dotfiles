@@ -1,9 +1,8 @@
 let g:ale_linters = {
-            \ 'javascript': [],
+            \ 'javascript': ['eslint'],
             \ 'vue': [],
-            \ 'json': [],
-            \ 'html': [],
-            \ 'markdown': []
+            \ 'html': ['htmlhint'],
+            \ 'markdown': ['markdownlint']
             \ }
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '●'
