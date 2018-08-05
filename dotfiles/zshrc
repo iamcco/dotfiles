@@ -150,3 +150,5 @@ export PATH="$PATH":"$HOME/npm-global/bin"
 #     PKG_CONFIG_PATH: /usr/local/opt/openssl/lib/pkgconfig
 
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
