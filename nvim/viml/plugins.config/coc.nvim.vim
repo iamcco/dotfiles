@@ -8,6 +8,9 @@ endfunction
 
 " if exists snippets
 function s:isSnipsExpandable()
+    if !exists('UltiSnips#SnippetsInCurrentScope')
+        return v:false
+    endif
     let l:line = getline('.')
     let l:start = col('.') - 1
     while l:start > 0 && l:line[l:start - 1] =~# '\k'
