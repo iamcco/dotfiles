@@ -32,7 +32,10 @@ augroup END
 
 function! s:update_light_line() abort
     if get(s:, 'is_active', v:true)
-        call lightline#update()
+        try
+            call lightline#update()
+        catch /.*/
+        endtry
     endif
 endfunction
 
