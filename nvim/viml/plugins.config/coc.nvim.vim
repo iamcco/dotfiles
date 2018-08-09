@@ -2,16 +2,32 @@ set completeopt=noinsert,menuone,noselect
 
 " use <tab> for trigger completion and navigate next complete item
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+  let l:col = col('.') - 1
+  return !l:col || getline('.')[l:col - 1]  =~# '\s'
 endfunction
 
+" if exists snippets
 function s:isSnipsExpandable()
-    return !(
+    let l:line = getline('.')
+    let l:start = col('.') - 1
+    while l:start > 0 && l:line[l:start - 1] =~# '\k'
+        let l:start -= 1
+    endwhile
+    let l:trigger = l:line[l:start : col('.')-2]
+    " get user input str
+    if s:input_word ==# ''
+        let s:input_word = l:trigger
+    endif
+    " get snippets
+    let l:snippets = UltiSnips#SnippetsInCurrentScope()
+    let l:has_snips = !(
       \ col('.') <= 1
       \ || !empty(matchstr(getline('.'), '\%' . (col('.') - 1) . 'c\s'))
-      \ || empty(UltiSnips#SnippetsInCurrentScope())
+      \ || empty(l:snippets)
+      \ || get(l:snippets, l:trigger, 'notExists') ==# 'notExists'
       \ )
+    " has snippets and snippets is input str
+    return l:has_snips && s:input_word ==# l:trigger
 endfunction
 
 " tab:
@@ -62,6 +78,10 @@ augroup CocActionMapping
     autocmd FileType python noremap <buffer> <silent> <C-]> :call <SID>goto()<CR>
 augroup END
 
+function! s:clear_input() abort
+    let s:input_word = ''
+endfunction
+
 function! s:snippet() abort
     let l:start_line = line('.')
     let l:is_position = search('\v%x0')
@@ -79,7 +99,8 @@ function! s:snippet() abort
     endif
 endfunction
 
-augroup CocVueSnippet
+augroup CocSnippet
     autocmd!
     autocmd CompleteDone *.vue call <SID>snippet()
+    autocmd CursorMovedI * call <SID>clear_input()
 augroup END
