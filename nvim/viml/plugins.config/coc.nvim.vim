@@ -8,7 +8,7 @@ endfunction
 
 " if exists snippets
 function s:isSnipsExpandable()
-    if !exists('UltiSnips#SnippetsInCurrentScope')
+    if !exists('*UltiSnips#SnippetsInCurrentScope')
         return v:false
     endif
     let l:line = getline('.')

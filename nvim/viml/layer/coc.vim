@@ -1,4 +1,4 @@
-Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'Shougo/neco-vim',     { 'for': 'vim' }
 Plug 'Shougo/echodoc.vim'
 Plug 'SirVer/ultisnips'
