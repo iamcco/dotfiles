@@ -152,3 +152,7 @@ export PATH="$PATH":"$HOME/npm-global/bin"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# icu4c
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"

@@ -1,6 +1,6 @@
 {
     "coc.preferences.triggerAfterInsertEnter": false,
-    "coc.preferences.diagnostic.enable": false,
+    "coc.preferences.diagnostic.enable": true,
     "languageserver": {
         "sh": {
             "command": "bash-language-server",
