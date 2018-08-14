@@ -89,8 +89,7 @@ augroup CocActionMapping
     autocmd!
     autocmd FileType javascript noremap <buffer> <silent> <C-]> :call <SID>goto()<CR>
     autocmd FileType jsx noremap <buffer> <silent> <C-]> :call <SID>goto()<CR>
-    autocmd FileType ts noremap <buffer> <silent> <C-]> :call <SID>goto()<CR>
-    autocmd FileType tsx noremap <buffer> <silent> <C-]> :call <SID>goto()<CR>
+    autocmd FileType typescript noremap <buffer> <silent> <C-]> :call <SID>goto()<CR>
     autocmd FileType javascript.jsx noremap <buffer> <silent> <C-]> :call <SID>goto()<CR>
     autocmd FileType python noremap <buffer> <silent> <C-]> :call <SID>goto()<CR>
 augroup END
