@@ -1,0 +1,12 @@
+snippet ngm "@NgModule"
+import { NgModule } from '@angular/core';
+
+@NgModule({
+	imports: [${1}],
+	declarations: [${2}],
+	providers: [${3}],
+	bootstrap: [${4}]
+})
+export class ${5:AppModule} {${0:${VISUAL}}}
+
+endsnippet
