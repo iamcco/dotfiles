@@ -153,6 +153,10 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# proxy
+alias proxy='export http_proxy=127.0.0.1:52881 && export https_proxy=127.0.0.1:52882'
+alias unproxy='unset http_proxy && unset https_proxy'
+
 # icu4c
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
