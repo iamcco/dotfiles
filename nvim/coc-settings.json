@@ -1,6 +1,7 @@
 {
     "coc.preferences.triggerAfterInsertEnter": false,
     "coc.preferences.diagnostic.enable": true,
+    "tsserver.implicitProjectConfig.experimentalDecorators": true,
     "languageserver": {
         "sh": {
             "command": "bash-language-server",
