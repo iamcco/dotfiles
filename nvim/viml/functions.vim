@@ -74,15 +74,27 @@ function! UserFuncGetFileName()
 endfunction
 
 function! UserFuncGetLinterWarnings() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
+  let info = get(b:, 'coc_diagnostic_info', {})
+  let l:counts = {}
+  try
+    let l:counts = ale#statusline#Count(bufnr(''))
+  catch /.*/
+  endtry
+  let l:all_errors = get(l:counts, 'error', 0) + get(l:counts, 'style_error', 0)
+  let l:all_non_errors = get(l:counts, 'total', 0) - l:all_errors
+  let l:all_non_errors = l:all_non_errors + get(info, 'warning', 0)
   return l:all_non_errors == 0 ? '' : printf('%d', l:all_non_errors)
 endfunction
 
 function! UserFuncGetLinterErrors() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
+  let info = get(b:, 'coc_diagnostic_info', {})
+  let l:counts = {}
+  try
+    let l:counts = ale#statusline#Count(bufnr(''))
+  catch /.*/
+  endtry
+  let l:all_errors = get(l:counts, 'error', 0) + get(l:counts, 'style_error', 0)
+  let l:all_errors = l:all_errors + get(info, 'error', 0)
   return l:all_errors == 0 ? '' : printf('%d', l:all_errors)
 endfunction
 

@@ -1,4 +1,6 @@
 {
+    "eslint.autoFix": true,
+    "eslint.autoFixOnSave": true,
     "coc.preferences.triggerAfterInsertEnter": false,
     "coc.preferences.diagnostic.enable": true,
     "tsserver.implicitProjectConfig.experimentalDecorators": true,
