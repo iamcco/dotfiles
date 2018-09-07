@@ -1,3 +1,11 @@
+" if hidden not set, TextEdit might fail.
+set hidden
+" Better display for messages
+set cmdheight=1
+" always show signcolumns
+set signcolumn=yes
+" for showSignatureHelp
+set noshowmode
 set completeopt=noinsert,menuone,noselect
 
 " use <tab> for trigger completion and navigate next complete item
