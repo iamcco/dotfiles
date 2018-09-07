@@ -73,26 +73,35 @@ endfunction
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
+" Use `[c` and `]c` for navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Remap for format selected region
+vmap <leader>fm <Plug>(coc-format-selected)
+nmap <leader>fm <Plug>(coc-format-selected)
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+vmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <Plug>(coc-codeaction-selected)
+
+" Use `:Format` for format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` for fold current buffer
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+
 " Show signature help while editing
 autocmd CursorHoldI,CursorMovedI * silent! call CocAction('showSignatureHelp')
 
-let s:action_types = ['jumpDefinition', 'jumpImplementation']
-let s:current_action_index = 0
-
-function! s:goto() abort
-    for l:action in s:action_types
-        call CocAction(l:action)
-    endfor
-endfunction
-
-augroup CocActionMapping
-    autocmd!
-    autocmd FileType javascript noremap <buffer> <silent> <C-]> :call <SID>goto()<CR>
-    autocmd FileType jsx noremap <buffer> <silent> <C-]> :call <SID>goto()<CR>
-    autocmd FileType typescript noremap <buffer> <silent> <C-]> :call <SID>goto()<CR>
-    autocmd FileType javascript.jsx noremap <buffer> <silent> <C-]> :call <SID>goto()<CR>
-    autocmd FileType python noremap <buffer> <silent> <C-]> :call <SID>goto()<CR>
-augroup END
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 function! s:clear_input() abort
     let s:input_word = ''
