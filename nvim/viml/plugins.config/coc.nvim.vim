@@ -65,7 +65,7 @@ inoremap <silent><expr> <TAB>
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 "inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Use <C-x></C-u> to complete custom sources, including emoji, include and words
-inoremap <silent> <C-x><C-u> <Plug>(coc-complete-custom)
+imap <silent> <C-x><C-o> <Plug>(coc-complete-custom)
 " Use <cr> for confirm completion.
 inoremap <expr> <CR> pumvisible() ? <SID>press_enter() : "\<C-g>u\<CR>"
 "inoremap <expr> <CR> (pumvisible() ? "\<c-y>" : "\<CR>")
