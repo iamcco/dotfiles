@@ -35,3 +35,59 @@ export default StyleSheet.create({
 	${0:${VISUAL}}
 })
 endsnippet
+
+snippet cs "classes"
+classes.
+endsnippet
+
+snippet cn "className"
+className={ ${1:class} }
+endsnippet
+
+snippet cncs "className={ classes. }"
+className={ classes.${1:class} }
+endsnippet
+
+snippet pt ".propTypes = {...}"
+${1:name}.propTypes = {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet Pt "PropTypes."
+PropTypes.${1}
+endsnippet
+
+snippet Pts "PropTypes.string"
+PropTypes.string,
+endsnippet
+
+snippet Pto "PropTypes.object"
+PropTypes.object,
+endsnippet
+
+snippet Pte "PropTypes.element"
+PropTypes.element,
+endsnippet
+
+snippet Ptf "PropTypes.func"
+PropTypes.func,
+endsnippet
+
+snippet Ptb "PropTypes.bool"
+PropTypes.bool,
+endsnippet
+
+snippet Ptsh "PropTypes.shape({...})"
+PropTypes.shape({
+	${1}
+})
+endsnippet
+
+snippet Ptof "PropTypes.oneOf([])"
+PropTypes.oneOf([${1}]),
+endsnippet
+
+snippet Ptot "PropTypes.oneOfType([])"
+PropTypes.oneOfType([${1}]),
+endsnippet
