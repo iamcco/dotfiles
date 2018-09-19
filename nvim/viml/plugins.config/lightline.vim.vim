@@ -3,7 +3,7 @@ let g:lightline = {
             \ 'active': {
             \   'left': [
             \             ['mode', 'paste'],
-            \             ['readonly', 'activeFilename', 'modified'],
+            \             ['readonly', 'activeFilename', 'charvaluehex', 'modified'],
             \             ['gitBranchAndBlame']
             \           ],
             \   'right': [
@@ -12,7 +12,15 @@ let g:lightline = {
             \              ['filetype']
             \            ]
             \ },
+            \ 'inactive': {
+            \   'left': [],
+            \   'right': []
+            \ },
+            \ 'component': {
+            \   'charvaluehex': '0x%B',
+            \ },
             \ 'component_expand': {
+            \   'inactiveFilename': 'UserFuncGetInactiveFilename',
             \   'activeFilename': 'UserFuncGetFileName',
             \   'gitBranchAndBlame': 'UserFuncGitBranchAndBlame',
             \   'linter_warnings': 'UserFuncGetLinterWarnings',

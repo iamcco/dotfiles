@@ -59,35 +59,48 @@ PropTypes.${1}
 endsnippet
 
 snippet Pts "PropTypes.string"
-PropTypes.string,
+${1:name}: PropTypes.string,
+${0:${VISUAL}}
+endsnippet
+
+snippet Ptn "PropTypes.number"
+${1:name}: PropTypes.number,
+${0:${VISUAL}}
 endsnippet
 
 snippet Pto "PropTypes.object"
-PropTypes.object,
+${1:name}: PropTypes.object,
+${0:${VISUAL}}
 endsnippet
 
 snippet Pte "PropTypes.element"
-PropTypes.element,
+${1:name}: PropTypes.element,
+${0:${VISUAL}}
 endsnippet
 
 snippet Ptf "PropTypes.func"
-PropTypes.func,
+${1:name}: PropTypes.func,
+${0:${VISUAL}}
 endsnippet
 
 snippet Ptb "PropTypes.bool"
-PropTypes.bool,
+${1:name}: PropTypes.bool,
+${0:${VISUAL}}
 endsnippet
 
 snippet Ptsh "PropTypes.shape({...})"
-PropTypes.shape({
-	${1}
+${1:name}: PropTypes.shape({
+	${2}
 })
+${0:${VISUAL}}
 endsnippet
 
 snippet Ptof "PropTypes.oneOf([])"
-PropTypes.oneOf([${1}]),
+${1:name}: PropTypes.oneOf([${2}]),
+${0:${VISUAL}}
 endsnippet
 
 snippet Ptot "PropTypes.oneOfType([])"
-PropTypes.oneOfType([${1}]),
+${1:name}: PropTypes.oneOfType([${2}]),
+${0:${VISUAL}}
 endsnippet

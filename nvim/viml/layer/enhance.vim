@@ -1,5 +1,6 @@
 Plug 'iamcco/mathjax-support-for-mkdp', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
+Plug 'tpope/vim-markdown'
 Plug 'iamcco/dict.vim', { 'on': 'Dict' }
 Plug 'iamcco/smartIM.nvim'
 Plug 'iamcco/go-to-file.vim'
