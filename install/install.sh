@@ -144,6 +144,16 @@ promise() {
         msg_aoi "install dotfiles:"; msg_green " DONE\n"
     }
 
+    install_config() {
+        msg_aoi "install config\n"
+        local path_to_config="${path_to_config_dir}/config"
+        ls "${path_to_config}" | while read item
+        do
+            mk_symlink "${path_to_config}/${item}" "${HOME}/.config/${item}"
+        done
+        msg_aoi "install config:"; msg_green " DONE\n"
+    }
+
     install_neovim_config() {
         msg_aoi "install neovim config\n"
         local path_to_nvim="${HOME}/.config"
@@ -167,7 +177,7 @@ promise() {
     }
 
     install_all() {
-        install_dotfiles && install_neovim_config
+        install_dotfiles && install_config && install_neovim_config
     }
 
     # show menu

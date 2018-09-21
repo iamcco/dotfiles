@@ -9,7 +9,7 @@ scriptencoding utf-8
 if has('mac')
   let g:python_host_prog = expand('~/.pyenv/shims/python')
   let g:python3_host_prog = expand('~/.pyenv/shims/python3')
-  let g:node_host_prog = '/usr/local/lib/node_modules/neovim/bin/cli.js'
+  let g:node_host_prog = expand('~/.config/yarn/global/node_modules/neovim/bin/cli.js')
 elseif has('unix')
   let g:node_host_prog = expand('~/npm-global/lib/node_modules/neovim/bin/cli.js')
 endif
