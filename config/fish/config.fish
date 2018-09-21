@@ -1,3 +1,5 @@
+set fish_greeting \> Too Young Too Simple, Sometimes Naive \<
+
 # JAVA
 switch (uname)
 case Darwin
@@ -34,3 +36,7 @@ if which thefuck
     eval $thefuckalias
     set -e thefuckalias
 end
+
+# proxy
+alias proxy 'set -x http_proxy 127.0.0.1:49501; set -x https_proxy 127.0.0.1:49501'
+alias unproxy 'set -e http_proxy; set -e https_proxy'
