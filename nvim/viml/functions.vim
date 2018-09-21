@@ -151,4 +151,7 @@ function! UserFuncDetectFileType() abort
       set nocursorcolumn
       set colorcolumn=0
     endif
+    if l:fileName ==# 'tsconfig.json' || l:fileName ==# 'jsconfig.json'
+      set filetype=jsonc
+    endif
 endfunction

@@ -1,6 +1,8 @@
 {
+    "eslint.filetypes": ["javascript","javascript.jsx", "typescript", "typescript.jsx"],
     "eslint.autoFix": true,
     "eslint.autoFixOnSave": true,
+    "tslint.autoFixOnSave": true,
     "coc.preferences.triggerAfterInsertEnter": false,
     "coc.preferences.diagnostic.enable": true,
     "tsserver.implicitProjectConfig.experimentalDecorators": true,
