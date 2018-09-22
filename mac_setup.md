@@ -46,3 +46,4 @@
 - `fisher i omf/thefuck`
 - `fisher i omf/hash`
 - `fihser i omf/gi`
+- `gi update-completions`
