@@ -1,0 +1,1 @@
+/Users/chenguangzhou/.config/fisherman/pj/completions/pj.fish

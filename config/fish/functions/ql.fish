@@ -1,0 +1,1 @@
+/Users/chenguangzhou/.config/fisherman/osx/functions/ql.fish
