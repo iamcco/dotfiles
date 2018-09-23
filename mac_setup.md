@@ -8,6 +8,7 @@
 - install [ brew ](https://brew.sh)
 - `brew install the_silver_searcher`
 - `brew install homebrew/cask/spectacle`
+- `brew install asciinema`
 
 # terminal
 
@@ -32,6 +33,13 @@
 
 - install node：`brew install node`
 - `yarn global add neovim`
+- `yarn global add bash-language-server`
+- `yarn global add eslint`
+- `yarn global add tslint`
+- `yarn global add http-server`
+- `yarn global add cnpm`
+  > `npm config set prefix ~/.config/npm`
+  > `npm config set cache ~/.config/npm/cache`
 
 # fish
 

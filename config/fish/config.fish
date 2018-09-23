@@ -17,6 +17,12 @@ case Darwin
     end
 end
 
+# npm
+set NPM_HOME $HOME/.config/npm
+if test -d "$NPM_HOME/bin"
+    set -gx PATH $NPM_HOME/bin $PATH
+end
+
 # rustup
 set CARGO_HOME $HOME/.cargo
 if test -d "$CARGO_HOME"
