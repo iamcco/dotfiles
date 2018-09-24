@@ -1,28 +1,41 @@
 {
-    "eslint.filetypes": ["javascript","javascript.jsx", "typescript", "typescript.jsx"],
-    "eslint.autoFix": true,
-    "eslint.autoFixOnSave": true,
-    "tslint.autoFixOnSave": true,
-    "coc.preferences.triggerAfterInsertEnter": false,
-    "coc.preferences.diagnostic.enable": true,
-    "tsserver.implicitProjectConfig.experimentalDecorators": true,
-    "languageserver": {
-        "sh": {
-            "command": "bash-language-server",
-            "args": ["start", "--stdio"],
-            "filetypes": ["sh"],
-            "cwd": "./",
-            "initializationOptions": {},
-            "settings": {}
-        },
-        "dart": {
-            "command": "dart_language_server",
-            "args": [],
-            "filetypes": ["dart"],
-            "cwd": "./lib",
-            "initializationOptions": {},
-            "settings": {}
-        }
+  // coc settting
+  "coc.preferences.triggerAfterInsertEnter": false,
+  "coc.preferences.diagnostic.enable": true,
+  // prettier
+  "prettier.eslintIntegration": true,
+  "prettier.tslintIntegration": true,
+  "prettier.stylelintIntegration": true,
+  // eslint
+  "eslint.filetypes": [
+    "javascript",
+    "javascript.jsx",
+    "typescript",
+    "typescript.jsx"
+  ],
+  "eslint.autoFix": true,
+  "eslint.autoFixOnSave": true,
+  "tslint.autoFixOnSave": true,
+  // tsserver
+  "tsserver.implicitProjectConfig.experimentalDecorators": true,
+  // languageserver
+  "languageserver": {
+    "sh": {
+      "command": "bash-language-server",
+      "args": ["start", "--stdio"],
+      "filetypes": ["sh"],
+      "cwd": "./",
+      "initializationOptions": {},
+      "settings": {}
+    },
+    "dart": {
+      "command": "dart_language_server",
+      "args": [],
+      "filetypes": ["dart"],
+      "cwd": "./lib",
+      "initializationOptions": {},
+      "settings": {}
     }
+  }
+  // vim:ft=jsonc
 }
-// vim:ft=jsonc
