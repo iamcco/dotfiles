@@ -29,6 +29,18 @@ if test -d "$CARGO_HOME"
     set -gx PATH $CARGO_HOME/bin $PATH
 end
 
+# flutter
+set FLUTTER_HOME $HOME/sdk/flutter
+if test -d "$FLUTTER_HOME/bin"
+    set -gx PATH $FLUTTER_HOME/bin $PATH
+end
+if test -d "$FLUTTER_HOME/bin/cache/dart-sdk/bin"
+    set -gx PATH $FLUTTER_HOME/bin/cache/dart-sdk/bin $PATH
+end
+if test -d "$HOME/.pub-cache/bin"
+    set -gx PATH $HOME/.pub-cache/bin $PATH
+end
+
 # fish proxy
 set proxy_host 127.0.0.1:49501
 set proxy_auth false

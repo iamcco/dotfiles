@@ -46,7 +46,6 @@
 - `npm install -g eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node`
 - `npm install -g stylelint-config-standard`
 
-
 # fish
 - 安装fisher
 
@@ -68,3 +67,9 @@
 
 - `gem install solargraph`
 - `:CocInstall coc-solargraph`
+
+# flutter
+
+- ~/sdk/flutter
+- https://flutter.io/setup-macos/
+- `pub global activate dart_language_server`
