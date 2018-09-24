@@ -5,6 +5,7 @@ Plug 'chemzqm/jsonc.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'posva/vim-vue'
+Plug 'dag/vim-fish'
 "Plug 'joker1007/vim-markdown-quote-syntax', { 'for': 'markdown' }
 "Plug 'neoclide/vim-jsx-improve'
 "Plug 'othree/html5.vim'
