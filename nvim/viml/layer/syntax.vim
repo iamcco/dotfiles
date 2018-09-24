@@ -1,5 +1,6 @@
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+"Plug 'neoclide/vim-jsx-improve'
 Plug 'luochen1990/rainbow'
 Plug 'chemzqm/jsonc.vim'
 Plug 'leafgarland/typescript-vim'
