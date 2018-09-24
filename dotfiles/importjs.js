@@ -1,5 +1,6 @@
 module.exports = {
-    aliases: {
-        styles: './style'
-    },
-};
+  aliases: {
+    styles: './style'
+  }
+}
+

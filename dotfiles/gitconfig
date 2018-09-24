@@ -7,14 +7,12 @@
     autocrlf = false
     quotepath = off
     editor = nvim
-    excludesfile = /Users/aioiyuuko/.gitignore_global
 [gui]
     encoding = utf-8
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
     path = 
 [mergetool "sourcetree"]
-    cmd = /Users/aioiyuuko/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
     trustExitCode = true
 [alias]
     dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
