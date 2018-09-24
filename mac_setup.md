@@ -13,6 +13,9 @@
 # terminal
 
 - install iterm2: `brew install homebrew/cask/iterm2`
+- 配置 iterm2 终端颜色
+- 安装字体
+- 导入 iterm2 配置
 
 # edit
 
@@ -42,11 +45,13 @@
   > `npm config set cache ~/.config/npm/cache`
 
 # fish
+- 安装fisher
 
 - install fish：`brew install fish`
   > `vim /etc/shells`
   > add `/usr/local/bin/fish`
   > `chsh -s /usr/local/bin/fish`
+- `fisher i hasanozgan/theme-lambda`
 - `fisher i omf/pj`
 - `fisher i omf/osx`
 - `fisher i omf/proxy`
