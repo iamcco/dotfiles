@@ -27,7 +27,7 @@ Plug 'itchyny/calendar.vim'
 Plug 'tweekmonster/helpful.vim'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'junegunn/vader.vim'
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'        "与 coc.vim 冲突
 Plug 'juanibiapina/vim-lighttree'
 Plug 'mattn/webapi-vim'
 Plug 'jbgutierrez/vim-babel'
