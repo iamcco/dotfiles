@@ -9,6 +9,7 @@
 - `brew install the_silver_searcher`
 - `brew install homebrew/cask/spectacle`
 - `brew install asciinema`
+- `brew install watchman`
 
 # terminal
 

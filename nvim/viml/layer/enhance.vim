@@ -1,11 +1,11 @@
-Plug 'iamcco/mathjax-support-for-mkdp', { 'for': 'markdown' }
-Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
-Plug 'tpope/vim-markdown'
 Plug 'iamcco/dict.vim', { 'on': 'Dict' }
 Plug 'iamcco/smartIM.nvim'
 Plug 'iamcco/go-to-file.vim'
 Plug 'iamcco/go-to-rules.vim'
 Plug 'iamcco/node.vim'
+Plug 'iamcco/mathjax-support-for-mkdp', { 'for': 'markdown' }
+Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
+Plug 'tpope/vim-markdown'
 Plug 'mattn/emmet-vim'
 Plug 'Lokaltog/vim-easymotion'          " 快速移动
 Plug 'terryma/vim-multiple-cursors'     " 多光标编辑
@@ -27,11 +27,12 @@ Plug 'itchyny/calendar.vim'
 Plug 'tweekmonster/helpful.vim'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'junegunn/vader.vim'
-"Plug 'jiangmiao/auto-pairs'        "与 coc.vim 冲突
 Plug 'juanibiapina/vim-lighttree'
 Plug 'mattn/webapi-vim'
 Plug 'jbgutierrez/vim-babel'
 Plug 'rickhowe/diffchar.vim'
+Plug 'jiangmiao/auto-pairs'
+"Plug 'iamcco/pairs.vim'
 "Plug 'soywod/vim-keepeye'
 "Plug 'tweekmonster/braceless.vim'
 "Plug 'samuelsimoes/vim-jsx-utils'
