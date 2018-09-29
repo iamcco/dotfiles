@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/osx/functions/ql.fish
+/Users/aioiyuuko/.config/fisherman/osx/functions/ql.fish

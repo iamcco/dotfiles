@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/thefuck/functions/fuck.fish
+/Users/aioiyuuko/.config/fisherman/thefuck/functions/fuck.fish

@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/gi/functions/gi.fish
+/Users/aioiyuuko/.config/fisherman/gi/functions/gi.fish

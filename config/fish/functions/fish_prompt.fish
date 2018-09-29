@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/lambda/fish_prompt.fish
+/Users/aioiyuuko/.config/fisherman/lambda/fish_prompt.fish

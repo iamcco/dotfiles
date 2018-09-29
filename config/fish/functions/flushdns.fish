@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/osx/functions/flushdns.fish
+/Users/aioiyuuko/.config/fisherman/osx/functions/flushdns.fish

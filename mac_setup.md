@@ -49,6 +49,7 @@
 
 # fish
 - 安装fisher
+`curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher`
 
 - install fish：`brew install fish`
   > `vim /etc/shells`

@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/pj/completions/pj.fish
+/Users/aioiyuuko/.config/fisherman/pj/completions/pj.fish

@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/osx/functions/manp.fish
+/Users/aioiyuuko/.config/fisherman/osx/functions/manp.fish

@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/osx/functions/cdf.fish
+/Users/aioiyuuko/.config/fisherman/osx/functions/cdf.fish

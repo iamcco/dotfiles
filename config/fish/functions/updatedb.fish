@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/osx/functions/updatedb.fish
+/Users/aioiyuuko/.config/fisherman/osx/functions/updatedb.fish
