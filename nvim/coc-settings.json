@@ -12,9 +12,7 @@
   // eslint
   "eslint.filetypes": [
     "javascript",
-    "javascript.jsx",
-    "typescript",
-    "typescript.jsx"
+    "javascript.jsx"
   ],
   "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
