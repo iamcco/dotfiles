@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/hash/functions/hash.fish
+/Users/aioiyuuko/.config/fisherman/hash/functions/hash.fish

@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/proxy/functions/noproxy.fish
+/Users/aioiyuuko/.config/fisherman/proxy/functions/noproxy.fish

@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/osx/functions/showhidden.fish
+/Users/aioiyuuko/.config/fisherman/osx/functions/showhidden.fish

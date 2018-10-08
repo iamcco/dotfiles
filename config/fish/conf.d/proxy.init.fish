@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/proxy/init.fish
+/Users/aioiyuuko/.config/fisherman/proxy/init.fish

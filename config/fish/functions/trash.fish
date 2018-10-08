@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/osx/functions/trash.fish
+/Users/aioiyuuko/.config/fisherman/osx/functions/trash.fish

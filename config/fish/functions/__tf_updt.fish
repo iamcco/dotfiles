@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/thefuck/functions/__tf_updt.fish
+/Users/aioiyuuko/.config/fisherman/thefuck/functions/__tf_updt.fish

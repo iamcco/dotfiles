@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/thefuck/init.fish
+/Users/aioiyuuko/.config/fisherman/thefuck/init.fish

@@ -1,1 +1,1 @@
-/Users/chenguangzhou/.config/fisherman/osx/functions/itunes.fish
+/Users/aioiyuuko/.config/fisherman/osx/functions/itunes.fish
