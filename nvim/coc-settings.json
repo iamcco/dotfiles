@@ -10,12 +10,7 @@
   "prettier.tslintIntegration": true,
   "prettier.stylelintIntegration": true,
   // eslint
-  "eslint.filetypes": [
-    "javascript",
-    "javascript.jsx",
-    "typescript",
-    "typescript.jsx"
-  ],
+  "eslint.filetypes": ["javascript", "javascript.jsx"],
   "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
   "tslint.autoFixOnSave": true,
