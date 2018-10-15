@@ -50,3 +50,12 @@ if [ -f $HOME'/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; so
 
 # pj plugin
 set -gx PROJECT_PATHS ~/ ~/workspace/pxn ~/development
+
+# nvim alias for n
+function n
+    if test -z $argv
+        nvim (ag . --silent -l -g '' | fzy)
+    else
+        nvim $argv
+    end
+end
