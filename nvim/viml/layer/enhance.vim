@@ -3,8 +3,7 @@ Plug 'iamcco/smartIM.nvim'
 Plug 'iamcco/go-to-file.vim'
 Plug 'iamcco/go-to-rules.vim'
 Plug 'iamcco/node.vim'
-Plug 'iamcco/mathjax-support-for-mkdp', { 'for': 'markdown' }
-Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'tpope/vim-markdown'
 Plug 'mattn/emmet-vim'
 Plug 'Lokaltog/vim-easymotion'          " 快速移动
