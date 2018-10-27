@@ -10,6 +10,7 @@
 - `brew install homebrew/cask/spectacle`
 - `brew install asciinema`
 - `brew install watchman`
+- `brew install fzy`
 
 # terminal
 
