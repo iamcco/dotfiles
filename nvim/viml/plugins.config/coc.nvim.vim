@@ -106,10 +106,10 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 " Show signature help while editing
-autocmd CursorHoldI,CursorMovedI * silent! call CocAction('showSignatureHelp')
+autocmd CursorHoldI * silent! call CocAction('showSignatureHelp')
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd CursorHold * silent call CocAction('highlight')
 
 function! s:clear_input() abort
     let s:input_word = ''

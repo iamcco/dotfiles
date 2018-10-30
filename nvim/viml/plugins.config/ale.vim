@@ -4,10 +4,10 @@ let g:ale_linters = {
             \ 'javascript': [],
             \ 'javascript.jsx': [],
             \ 'vue': [],
-            \ 'html': ['htmlhint'],
             \ 'css': [],
             \ 'json': [],
             \ 'markdown': [],
+            \ 'html': ['htmlhint'],
             \ }
 let g:ale_fixers = {
             \ 'typescript': [],
@@ -15,10 +15,10 @@ let g:ale_fixers = {
             \ 'javascript': [],
             \ 'javascript.jsx': [],
             \ 'vue': [],
-            \ 'html': ['htmlhint'],
             \ 'css': [],
             \ 'json': [],
             \ 'markdown': [],
+            \ 'html': ['htmlhint'],
             \ }
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '●'
