@@ -4,3 +4,7 @@
 nvim/viml/plugged
 nvim/viml/plugins
 nvim/vim_plugins
+config/fish/completions/
+config/fish/functions/
+config/fish/conf.d/
+fishd.f*
