@@ -1,1 +1,0 @@
-/Users/aioiyuuko/.config/fisherman/lambda/fish_prompt.fish

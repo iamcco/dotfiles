@@ -1,1 +1,0 @@
-/Users/aioiyuuko/.config/fisherman/thefuck/init.fish

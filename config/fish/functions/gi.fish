@@ -1,1 +1,0 @@
-/Users/aioiyuuko/.config/fisherman/gi/functions/gi.fish

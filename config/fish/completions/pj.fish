@@ -1,1 +1,0 @@
-/Users/aioiyuuko/.config/fisherman/pj/completions/pj.fish
