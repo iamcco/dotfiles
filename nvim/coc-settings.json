@@ -12,13 +12,12 @@
   // eslint
   "eslint.filetypes": [
     "javascript",
-    "javascript.jsx"
+    "javascript.jsx",
+    "javascriptreact"
   ],
   "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
   "tslint.autoFixOnSave": true,
-  // tsserver
-  "tsserver.implicitProjectConfig.experimentalDecorators": true,
   // languageserver
   "languageserver": {
     "sh": {
@@ -36,7 +35,13 @@
       "cwd": "./lib",
       "initializationOptions": {},
       "settings": {}
+    },
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
     }
-  }
+  },
+  "java.format.settings.url": "/Users/chenguangzhou/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
   // vim:ft=jsonc
 }
