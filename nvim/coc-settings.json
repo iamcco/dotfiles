@@ -17,6 +17,9 @@
   ],
   "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
+  // coc build-in source
+  "coc.source.word.filetypes": null,
+  // tslint
   "tslint.autoFixOnSave": true,
   // languageserver
   "languageserver": {
