@@ -37,6 +37,7 @@
 # node
 
 - install node：`brew install node`
+- `yarn global add fx`
 - `yarn global add neovim`
 - `yarn global add bash-language-server`
 - `yarn global add tslint`
