@@ -11,8 +11,8 @@ if exists('veonim')
   execute 'source ' . s:script_path . '/veonim.vim'
 else
   let s:sourceList = [
-        \ 'plugins',
         \ 'functions',
+        \ 'plugins',
         \ 'commands',
         \ 'general',
         \ 'autocmds',
