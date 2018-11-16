@@ -53,10 +53,13 @@ function! UserFuncRelNum()
 endfunction
 
 function! UserFuncJumpLastPos()
-  if line("'\"") <= line('$')
-    normal! g`"
-    return 1
-  endif
+  try
+    if line("'\"") <= line('$')
+      normal! g`"
+      return 1
+    endif
+  catch /.*/
+  endtry
 endfunction
 
 function! UserFuncGetFileName()

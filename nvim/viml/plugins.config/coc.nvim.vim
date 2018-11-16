@@ -137,3 +137,13 @@ augroup CocSnippet
     autocmd CompleteDone *.vue call <SID>snippet()
     autocmd CursorMovedI * call <SID>clear_input()
 augroup END
+
+function! CocSetup(info)
+  if a:info.status == 'installed' || a:info.force
+    !yarn install
+    call coc#util#install_extension('coc-tsserver coc-eslint coc-prettier coc-stylelint coc-css coc-tslint coc-html coc-json coc-pyls')
+  elseif a:info.status == 'updated'
+    !yarn install
+    call coc#util#update()
+  endif
+endfunction
