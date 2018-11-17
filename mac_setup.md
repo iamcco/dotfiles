@@ -11,6 +11,7 @@
 - `brew install asciinema`
 - `brew install watchman`
 - `brew install fzy`
+- `brew install bat`
 
 # terminal
 
