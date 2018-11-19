@@ -11,6 +11,7 @@
 - `brew install asciinema`
 - `brew install watchman`
 - `brew install fzy`
+- `brew install bat`
 
 # terminal
 
@@ -37,6 +38,7 @@
 # node
 
 - install node：`brew install node`
+- `yarn global add fx`
 - `yarn global add neovim`
 - `yarn global add bash-language-server`
 - `yarn global add tslint`

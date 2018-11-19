@@ -18,7 +18,7 @@ let g:ale_fixers = {
             \ 'css': [],
             \ 'json': [],
             \ 'markdown': [],
-            \ 'html': ['htmlhint'],
+            \ 'html': [],
             \ }
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '●'
