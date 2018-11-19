@@ -162,7 +162,7 @@ endfunction
 function! UserFuncCocSetup(info)
   if a:info.status == 'installed' || a:info.force
     !yarn install
-    call coc#util#install_extension('coc-tsserver coc-eslint coc-prettier coc-stylelint coc-css coc-tslint coc-html coc-json coc-pyls')
+    call coc#util#install_extension('coc-tsserver coc-eslint coc-prettier coc-stylelint coc-css coc-tslint coc-html coc-json coc-pyls coc-wxml coc-vetur coc-java coc-solargraph coc-rls coc-jest')
   elseif a:info.status == 'updated'
     !yarn install
     call coc#util#update()
