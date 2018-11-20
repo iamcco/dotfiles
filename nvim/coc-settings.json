@@ -3,6 +3,7 @@
   "coc.preferences.triggerAfterInsertEnter": false,
   "coc.preferences.diagnostic.enable": true,
   "coc.preferences.snippets.enable": true,
+  "coc.preferences.fixInsertedWord": true,
   "coc.source.ultisnips.enable": true,
   "coc.source.neosnippet.enable": false,
   // prettier
