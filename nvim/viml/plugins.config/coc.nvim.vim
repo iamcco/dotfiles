@@ -105,11 +105,14 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
-" Show signature help while editing
-autocmd CursorHoldI * silent! call CocAction('showSignatureHelp')
+augroup coc_au
+  autocmd!
+  " Show signature help while editing
+  autocmd CursorHoldI * silent! call CocActionAsync('showSignatureHelp')
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocAction('highlight')
+  " Highlight symbol under cursor on CursorHold
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup END
 
 function! s:clear_input() abort
     let s:input_word = ''
