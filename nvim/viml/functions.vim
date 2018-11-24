@@ -160,10 +160,24 @@ function! UserFuncDetectFileType() abort
 endfunction
 
 function! UserFuncCocSetup(info)
-  if a:info.status == 'installed' || a:info.force
+  if a:info.status ==# 'installed' || a:info.force
     !yarn install
-    call coc#util#install_extension('coc-tsserver coc-eslint coc-prettier coc-stylelint coc-css coc-tslint coc-html coc-json coc-pyls')
-  elseif a:info.status == 'updated'
+    call coc#util#install_extension(join([
+          \ 'coc-word',
+          \ 'coc-emoji',
+          \ 'coc-ultisnips',
+          \ 'coc-tsserver',
+          \ 'coc-html',
+          \ 'coc-css',
+          \ 'coc-json',
+          \ 'coc-eslint',
+          \ 'coc-tslint',
+          \ 'coc-prettier',
+          \ 'coc-stylelint',
+          \ 'coc-pyls',
+          \ 'coc-java',
+          \], ' '))
+  elseif a:info.status ==# 'updated'
     !yarn install
     call coc#util#update()
   endif

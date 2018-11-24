@@ -3,22 +3,16 @@
   "coc.preferences.triggerAfterInsertEnter": false,
   "coc.preferences.diagnostic.enable": true,
   "coc.preferences.snippets.enable": true,
-  "coc.source.ultisnips.enable": true,
-  "coc.source.neosnippet.enable": false,
+  // coc build-in source
+  "coc.source.word.filetypes": null,
   // prettier
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,
   "prettier.stylelintIntegration": true,
   // eslint
-  "eslint.filetypes": [
-    "javascript",
-    "javascript.jsx",
-    "javascriptreact"
-  ],
+  "eslint.filetypes": ["javascript", "javascript.jsx", "javascriptreact"],
   "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
-  // coc build-in source
-  "coc.source.word.filetypes": null,
   // tslint
   "tslint.autoFixOnSave": true,
   // languageserver
