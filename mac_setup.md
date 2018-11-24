@@ -3,6 +3,14 @@
 - [install lantern](https://github.com/getlantern/download/wiki)
 - install chrome
 
+# finder
+
+- https://github.com/lexrus/LTFinderButtons
+
+# hammerspoon
+
+- http://www.hammerspoon.org
+
 # package manager
 
 - install [ brew ](https://brew.sh)

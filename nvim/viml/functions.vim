@@ -176,6 +176,10 @@ function! UserFuncCocSetup(info)
           \ 'coc-stylelint',
           \ 'coc-pyls',
           \ 'coc-java',
+          \ 'coc-rls',
+          \ 'coc-solargraph',
+          \ 'coc-vetur',
+          \ 'coc-wxml',
           \], ' '))
   elseif a:info.status ==# 'updated'
     !yarn install
