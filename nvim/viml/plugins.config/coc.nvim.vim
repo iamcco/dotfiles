@@ -8,6 +8,9 @@ set signcolumn=yes
 set noshowmode
 set completeopt=noinsert,menuone,noselect
 
+" Or use formatexpr for range format
+set formatexpr=CocAction('formatSelected')
+
 " use <tab> for trigger completion and navigate next complete item
 function! s:check_back_space() abort
   let l:col = col('.') - 1
@@ -80,6 +83,9 @@ function! s:show_documentation()
 endfunction
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
 
 " Use `[c` and `]c` for navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
