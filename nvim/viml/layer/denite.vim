@@ -9,5 +9,6 @@ Plug 'iamcco/buzuo.vim'
 Plug 'iamcco/project.vim'
 Plug 'iamcco/denite-source.vim'
 Plug 'iamcco/gitignore.vim'
+Plug 'iamcco/universal-editorconfig'
 Plug 'iamcco/coc-action-source.nvim'
 Plug 'iamcco/devdocs.nvim', { 'do': 'npm install' }

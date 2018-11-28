@@ -108,7 +108,8 @@ command! -nargs=? Fold :call CocAction('fold', <f-args>)
 augroup coc_au
   autocmd!
   " Show signature help while editing
-  autocmd CursorHoldI * silent! call CocActionAsync('showSignatureHelp')
+  " autocmd CursorHoldI * silent! call CocActionAsync('showSignatureHelp')
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call CocActionAsync('highlight')
