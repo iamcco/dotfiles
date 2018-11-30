@@ -181,6 +181,7 @@ function! UserFuncCocSetup(info)
           \ 'coc-vetur',
           \ 'coc-wxml',
           \ 'coc-yaml',
+          \ 'coc-highlight',
           \], ' '))
   elseif a:info.status ==# 'updated'
     !yarn install

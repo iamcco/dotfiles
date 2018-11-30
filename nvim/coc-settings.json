@@ -5,7 +5,6 @@
   "coc.preferences.snippets.enable": true,
   "coc.preferences.hoverTarget": "echo",
   // coc build-in source
-  "coc.source.word.filetypes": null,
   "coc.preferences.colorSupport": false,
   // prettier
   "prettier.eslintIntegration": true,
