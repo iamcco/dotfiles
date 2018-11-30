@@ -180,6 +180,7 @@ function! UserFuncCocSetup(info)
           \ 'coc-solargraph',
           \ 'coc-vetur',
           \ 'coc-wxml',
+          \ 'coc-yaml',
           \], ' '))
   elseif a:info.status ==# 'updated'
     !yarn install

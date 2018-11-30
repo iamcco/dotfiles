@@ -3,8 +3,10 @@
   "coc.preferences.triggerAfterInsertEnter": false,
   "coc.preferences.diagnostic.enable": true,
   "coc.preferences.snippets.enable": true,
+  "coc.preferences.hoverTarget": "echo",
   // coc build-in source
   "coc.source.word.filetypes": null,
+  "coc.preferences.colorSupport": false,
   // prettier
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,
@@ -15,6 +17,10 @@
   "eslint.autoFixOnSave": true,
   // tslint
   "tslint.autoFixOnSave": true,
+  // yaml
+  "yaml.schemas": {
+    "http://json.schemastore.org/composer": "/*"
+  },
   // languageserver
   "languageserver": {
     "sh": {
