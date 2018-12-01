@@ -28,6 +28,6 @@ tnoremap <Esc> <C-\><C-n>
 set termguicolors
 
 " autoread latest file
-set noautoread
-autocmd FocusGained * :checktime
+set autoread
+autocmd! FocusGained * :checktime
 " }}} neovim config

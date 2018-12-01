@@ -5,16 +5,11 @@
 
 scriptencoding utf-8
 
-set background=dark
-colorscheme gruvbox
+set cursorline
+set cursorcolumn
+set colorcolumn=100
+set relativenumber number
 set signcolumn=yes
+set background=dark
 
-"Controls whether to make the sign column look like the line-number column
-let g:gitgutter_override_sign_column_highlight = 1
-highlight GruvboxRedSign ctermbg=NONE
-highlight GruvboxGreenSign ctermbg=NONE
-highlight GruvboxYellowSign ctermbg=NONE
-highlight GruvboxBlueSign ctermbg=NONE
-highlight GruvboxPurpleSign ctermbg=NONE
-highlight GruvboxAquaSign ctermbg=NONE
-
+colorscheme gruvbox

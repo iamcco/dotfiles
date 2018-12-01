@@ -30,14 +30,6 @@ set scrolloff=3
 set splitright
 " }}} window scroll
 
-" folding {{{
-"set foldmethod=syntax
-" }}} folding
-
-" line number {{{
-set relativenumber number
-" }}} line number
-
 " mouse {{{
 set mouse+=a
 set mousehide
@@ -71,13 +63,8 @@ set smartcase
 set ignorecase
 " }}} match
 
-" cursor {{{
-set cursorline
-set colorcolumn=100
-set cursorcolumn
 set viewoptions=folds,options,cursor,unix,slash
 set virtualedit=onemore
-" }}} cursor
 
 " spaceline {{{
 set list
@@ -91,10 +78,6 @@ set synmaxcol=200
 " paste mode {{{
 set pastetoggle=<F12>
 " }}} paste mode
-
-" autoread {{{
-set autoread
-" }}} autoread
 
 " backup {{{
 call UserFuncInitDir()

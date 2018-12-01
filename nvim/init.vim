@@ -17,9 +17,9 @@ else
         \ 'general',
         \ 'autocmds',
         \ 'mapping',
-        \ 'style',
         \ 'neovim',
         \ 'plugins.config',
+        \ 'style',
         \]
   for s:item in s:sourceList
     exec 'source ' . s:script_path . '/viml/' . s:item . '.vim'
