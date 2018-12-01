@@ -103,7 +103,7 @@ set undofile
 " }}} backup
 
 " updatetime {{{
-set updatetime=1000
+set updatetime=300
 " }}} updatetime
 
 " substitution {{{
