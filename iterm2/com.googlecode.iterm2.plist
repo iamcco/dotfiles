@@ -671,23 +671,23 @@
 		<string>@^t</string>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>214 186 916 304 0 0 1440 877 </string>
+	<string>312 66 912 333 0 0 1680 1027 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>402 415 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
-	<string>520 561 400 129 0 0 1440 877 </string>
+	<string>341 870 400 129 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>410 363 620 392 0 0 1440 877 </string>
+	<string>530 493 620 392 0 0 1680 1050 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 126 606 469 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>385 274 796 486 0 0 1440 877 </string>
+	<string>528 453 918 514 0 0 1680 1027 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>400 213 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame com.apple.typography_panel_FantasqueSansMono-Regular</key>
 	<string>398 632 260 42 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>97 33 1233 801 0 0 1440 877 </string>
+	<string>841 0 837 1027 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>182 23 1235 801 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -696,6 +696,10 @@
 	<string>4 430 1432 447 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_04E8EC9B-E7D2-4F25-976C-D8F0E4DFB6AE</key>
 	<true/>
+	<key>NeverWarnAboutShortLivedSessions_144DD14A-AD72-4761-A46A-B800D5641AF8</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_144DD14A-AD72-4761-A46A-B800D5641AF8_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -2291,6 +2295,8 @@
 	</array>
 	<key>NoSyncConfirmBeta</key>
 	<true/>
+	<key>NoSyncHaveRequestedFullDiskAccess</key>
+	<true/>
 	<key>NoSyncHaveUsedCopyMode</key>
 	<true/>
 	<key>NoSyncHaveWarnedAboutIncompatibleSoftware</key>
@@ -2533,7 +2539,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-09-29T13:14:41Z</date>
+	<date>2018-11-29T14:53:07Z</date>
 	<key>SavePasteHistory</key>
 	<true/>
 	<key>Secure Input</key>
@@ -2585,7 +2591,7 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1538225792</real>
+	<real>1538227456</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseAdaptiveFrameRate</key>
@@ -2615,7 +2621,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.1</string>
+	<string>3.2.5</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
