@@ -147,3 +147,6 @@ augroup CocSnippet
     autocmd CompleteDone *.vue call <SID>snippet()
     autocmd CursorMovedI * call <SID>clear_input()
 augroup END
+
+" highlight text color
+highlight CocHighlightText  guibg=#707e0a ctermbg=023

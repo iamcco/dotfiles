@@ -1,14 +1,12 @@
+scriptencoding utf-8
+
 Plug 'iamcco/dict.vim', { 'on': 'Dict' }
-Plug 'iamcco/smartIM.nvim'
-Plug 'iamcco/go-to-file.vim'
-Plug 'iamcco/go-to-rules.vim'
 Plug 'iamcco/node.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'tpope/vim-markdown'
 Plug 'mattn/emmet-vim'
 Plug 'Lokaltog/vim-easymotion'          " 快速移动
 Plug 'terryma/vim-multiple-cursors'     " 多光标编辑
-Plug 'itchyny/vim-cursorword'
 Plug 'tpope/vim-surround'               " 快速环绕 ds' cs'( csw'===ysiw' ySS'
 Plug 'kana/vim-textobj-user'            " 扩展文本对象
 Plug 'terryma/vim-expand-region'        " 选中区块

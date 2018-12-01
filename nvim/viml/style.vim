@@ -18,5 +18,3 @@ highlight GruvboxBlueSign ctermbg=NONE
 highlight GruvboxPurpleSign ctermbg=NONE
 highlight GruvboxAquaSign ctermbg=NONE
 
-" coc.nvim highlight text
-highlight CocHighlightText  guibg=#111111 ctermbg=023

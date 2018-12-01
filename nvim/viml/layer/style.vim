@@ -1,6 +1,5 @@
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'ap/vim-css-color'
 Plug 'itchyny/lightline.vim'
 Plug 'icymind/NeoSolarized'
 Plug 'logico-dev/typewriter'
