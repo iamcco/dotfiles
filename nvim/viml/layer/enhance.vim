@@ -3,6 +3,7 @@ scriptencoding utf-8
 Plug 'iamcco/dict.vim', { 'on': 'Dict' }
 Plug 'iamcco/node.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
+Plug 'iamcco/lxiym.vim'
 Plug 'tpope/vim-markdown'
 Plug 'mattn/emmet-vim'
 Plug 'Lokaltog/vim-easymotion'          " 快速移动
