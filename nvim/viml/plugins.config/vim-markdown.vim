@@ -1,1 +1,1 @@
-let g:markdown_fenced_languages = ['html', 'bash=sh', 'css', 'javascript', 'js=javascript', 'typescript', 'awk', 'lua', 'styl']
+let g:markdown_fenced_languages = ['html', 'bash=sh', 'css', 'javascript', 'js=javascript', 'typescript', 'awk', 'lua', 'stylus']
