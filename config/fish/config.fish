@@ -33,6 +33,8 @@ end
 set FLUTTER_HOME $HOME/sdk/flutter
 if test -d "$FLUTTER_HOME/bin"
     set -gx PATH $FLUTTER_HOME/bin $PATH
+    set -gx PUB_HOSTED_URL https://pub.flutter-io.cn
+    set -gx FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn
 end
 if test -d "$FLUTTER_HOME/bin/cache/dart-sdk/bin"
     set -gx PATH $FLUTTER_HOME/bin/cache/dart-sdk/bin $PATH
