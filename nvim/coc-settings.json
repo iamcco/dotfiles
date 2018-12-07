@@ -1,5 +1,7 @@
 {
   // coc settting
+  "coc.preferences.minTriggerInputLength": 3,
+  "coc.preferences.maxCompleteItemCount": 15,
   "coc.preferences.triggerAfterInsertEnter": false,
   "coc.preferences.diagnostic.enable": true,
   "coc.preferences.snippets.enable": true,
