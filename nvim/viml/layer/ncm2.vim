@@ -7,7 +7,7 @@ Plug 'ncm2/ncm2-tagprefix'
 Plug 'ncm2/ncm2-cssomni'
 Plug 'ncm2/ncm2-tern', { 'do': 'npm install' }
 Plug 'ncm2/ncm2-jedi'
-Plug 'ncm2/ncm2-tmux'
+"Plug 'ncm2/ncm2-tmux'
 Plug 'ncm2/ncm2-html-subscope'
 Plug 'ncm2/ncm2-markdown-subscope'
 Plug 'ncm2/ncm2-rst-subscope'

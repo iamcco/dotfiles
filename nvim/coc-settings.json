@@ -4,6 +4,7 @@
   "coc.preferences.diagnostic.enable": true,
   "coc.preferences.snippets.enable": true,
   "coc.preferences.hoverTarget": "echo",
+  "coc.source.word.filetypes": ["markdown"],
   // prettier
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,
