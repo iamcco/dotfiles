@@ -3,21 +3,21 @@ scriptencoding utf-8
 Plug 'iamcco/dict.vim', { 'on': 'Dict' }
 Plug 'iamcco/node.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
-Plug 'iamcco/lxiym.vim'
+Plug 'iamcco/words.vim'
 Plug 'tpope/vim-markdown'
 Plug 'mattn/emmet-vim'
-Plug 'Lokaltog/vim-easymotion'          " 快速移动
-Plug 'terryma/vim-multiple-cursors'     " 多光标编辑
-Plug 'tpope/vim-surround'               " 快速环绕 ds' cs'( csw'===ysiw' ySS'
-Plug 'kana/vim-textobj-user'            " 扩展文本对象
-Plug 'terryma/vim-expand-region'        " 选中区块
-Plug 'scrooloose/nerdcommenter'         " 快速注释
+Plug 'Lokaltog/vim-easymotion'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround'
+Plug 'kana/vim-textobj-user'
+Plug 'terryma/vim-expand-region'
+Plug 'scrooloose/nerdcommenter'
 Plug 'kshenoy/vim-signature'
 Plug 'Shougo/vinarise.vim'
-Plug 'dyng/ctrlsf.vim'          " 快速搜索文件
-Plug 'simnalamburt/vim-mundo'   " 文件历史插件
-Plug 'junegunn/vim-easy-align'  " 对齐
-Plug 'tpope/vim-repeat'         " 重复命令 with .
+Plug 'dyng/ctrlsf.vim'
+Plug 'simnalamburt/vim-mundo'
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-repeat'
 Plug 'thinca/vim-quickrun'
 Plug 'kassio/neoterm'
 Plug 'metakirby5/codi.vim'
@@ -30,8 +30,3 @@ Plug 'mattn/webapi-vim'
 Plug 'jbgutierrez/vim-babel'
 Plug 'rickhowe/diffchar.vim'
 Plug 'jiangmiao/auto-pairs'
-"Plug 'iamcco/pairs.vim'
-"Plug 'soywod/vim-keepeye'
-"Plug 'tweekmonster/braceless.vim'
-"Plug 'samuelsimoes/vim-jsx-utils'
-"Plug 'alvan/vim-closetag'

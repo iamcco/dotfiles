@@ -90,5 +90,5 @@ set updatetime=300
 " }}} updatetime
 
 " substitution {{{
-set inccommand=nosplit
+set inccommand=split
 " substitution }}}
