@@ -2,13 +2,20 @@ snippet rec "react component"
 import React, { Component } from 'react';
 
 class ${1:name} extends Component {
-	constructor(props) {
-		super(props);
-		${0:${VISUAL}}
-	}
-
 	render() {
 		return (
+			${0:${VISUAL}}
+		)
+	}
+}
+
+snippet rep "react pureComponent"
+import React, { PureComponent } from 'react';
+
+class ${1:name} extends PureComponent {
+	render() {
+		return (
+			${0:${VISUAL}}
 		)
 	}
 }
@@ -28,7 +35,7 @@ function ${1:name}(props) {
 export default $1
 endsnippet
 
-snippet rens "react style"
+snippet rns "react style"
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
