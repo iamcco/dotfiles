@@ -17,30 +17,6 @@ function! s:check_back_space() abort
   return !l:col || getline('.')[l:col - 1]  =~# '\s'
 endfunction
 
-" if exists snippets
-" function s:isSnipsExpandable()
-"     try
-"         let l:line = getline('.')
-"         let l:start = col('.') - 1
-"         while l:start > 0 && l:line[l:start - 1] =~# '\k'
-"             let l:start -= 1
-"         endwhile
-"         let l:trigger = l:line[l:start : col('.')-2]
-"         " get snippets
-"         let l:snippets = UltiSnips#SnippetsInCurrentScope()
-"         let l:has_snips = !(
-"                     \ col('.') <= 1
-"                     \ || !empty(matchstr(getline('.'), '\%' . (col('.') - 1) . 'c\s'))
-"                     \ || empty(l:snippets)
-"                     \ || get(l:snippets, l:trigger, 'notExists') ==# 'notExists'
-"                     \ )
-"         " has snippets and snippets is input str
-"         return l:has_snips
-"     catch /.*/
-"         return v:false
-"     endtry
-" endfunction
-
 " tab:
 "   1. select autocomplete
 "   2. trigger autocomplete
