@@ -18,61 +18,42 @@ function! s:check_back_space() abort
 endfunction
 
 " if exists snippets
-function s:isSnipsExpandable()
-    try
-        let l:line = getline('.')
-        let l:start = col('.') - 1
-        while l:start > 0 && l:line[l:start - 1] =~# '\k'
-            let l:start -= 1
-        endwhile
-        let l:trigger = l:line[l:start : col('.')-2]
-        " get user input str
-        if s:input_word ==# ''
-            let s:input_word = l:trigger
-        endif
-        if s:input_word !=# l:trigger
-            return v:false
-        endif
-        " get snippets
-        let l:snippets = UltiSnips#SnippetsInCurrentScope()
-        let l:has_snips = !(
-                    \ col('.') <= 1
-                    \ || !empty(matchstr(getline('.'), '\%' . (col('.') - 1) . 'c\s'))
-                    \ || empty(l:snippets)
-                    \ || get(l:snippets, l:trigger, 'notExists') ==# 'notExists'
-                    \ )
-        " has snippets and snippets is input str
-        return l:has_snips
-    catch /.*/
-        return v:false
-    endtry
-endfunction
-
-" press enter when pumvisible
-function! s:press_enter() abort
-    if s:input_word ==# ''
-        return "\<C-g>u\<CR>\<C-g>u"
-    endif
-    return "\<C-y>"
-endfunction
+" function s:isSnipsExpandable()
+"     try
+"         let l:line = getline('.')
+"         let l:start = col('.') - 1
+"         while l:start > 0 && l:line[l:start - 1] =~# '\k'
+"             let l:start -= 1
+"         endwhile
+"         let l:trigger = l:line[l:start : col('.')-2]
+"         " get snippets
+"         let l:snippets = UltiSnips#SnippetsInCurrentScope()
+"         let l:has_snips = !(
+"                     \ col('.') <= 1
+"                     \ || !empty(matchstr(getline('.'), '\%' . (col('.') - 1) . 'c\s'))
+"                     \ || empty(l:snippets)
+"                     \ || get(l:snippets, l:trigger, 'notExists') ==# 'notExists'
+"                     \ )
+"         " has snippets and snippets is input str
+"         return l:has_snips
+"     catch /.*/
+"         return v:false
+"     endtry
+" endfunction
 
 " tab:
-"   1. trigger snippets
-"   2. select autocomplete
-"   3. trigger autocomplete
+"   1. select autocomplete
+"   2. trigger autocomplete
 inoremap <silent><expr> <TAB>
-      \ <SID>isSnipsExpandable() ? "<C-R>=UltiSnips#ExpandSnippet()<CR>" :
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" Use <C-x></C-u> to complete custom sources, including emoji, include and words
-imap <silent> <C-x><C-o> <Plug>(coc-complete-custom)
-" Use <cr> for confirm completion.
-inoremap <expr> <CR> pumvisible() ? <SID>press_enter() : "\<C-g>u\<CR>"
-"inoremap <expr> <CR> (pumvisible() ? "\<c-y>" : "\<CR>")
-" Use K for show documentation in preview window
+" expand snippets
+inoremap <silent> <C-Space> <C-R>=UltiSnips#ExpandSnippet()<CR>
+" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 function! s:show_documentation()
   if &filetype ==# 'vim'
@@ -82,6 +63,7 @@ function! s:show_documentation()
   endif
 endfunction
 
+" Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Remap for rename current word
@@ -121,10 +103,6 @@ augroup coc_au
   autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup END
 
-function! s:clear_input() abort
-    let s:input_word = ''
-endfunction
-
 function! s:snippet() abort
     let l:start_line = line('.')
     let l:is_position = search('\v%x0')
@@ -145,7 +123,6 @@ endfunction
 augroup CocSnippet
     autocmd!
     autocmd CompleteDone *.vue call <SID>snippet()
-    autocmd CursorMovedI * call <SID>clear_input()
     " highlight text color
     autocmd ColorScheme * highlight! CocHighlightText  guibg=#707e0a ctermbg=023
 augroup END
