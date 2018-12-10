@@ -7,7 +7,7 @@
   "coc.preferences.snippets.enable": true,
   "coc.preferences.hoverTarget": "echo",
   // coc source
-  "coc.source.word.filetypes": ["markdown"],
+  "coc.source.word.filetypes": ["markdown", "gitcommit"],
   // prettier
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,
