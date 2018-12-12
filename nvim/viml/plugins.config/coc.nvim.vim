@@ -8,9 +8,6 @@ set signcolumn=yes
 set noshowmode
 set completeopt=noinsert,menuone,noselect
 
-" Or use formatexpr for range format
-set formatexpr=CocAction('formatSelected')
-
 " use <tab> for trigger completion and navigate next complete item
 function! s:check_back_space() abort
   let l:col = col('.') - 1
@@ -71,6 +68,8 @@ command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 augroup coc_au
   autocmd!
+  " Or use formatexpr for range format
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Show signature help while editing
   " autocmd CursorHoldI * silent! call CocActionAsync('showSignatureHelp')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
