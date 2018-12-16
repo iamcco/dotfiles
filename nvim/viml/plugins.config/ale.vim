@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 let g:ale_linters = {
             \ 'typescript': [],
             \ 'typescript.tsx': [],
@@ -8,6 +10,7 @@ let g:ale_linters = {
             \ 'json': [],
             \ 'markdown': [],
             \ 'html': ['htmlhint'],
+            \ 'dart': [],
             \ }
 let g:ale_fixers = {
             \ 'typescript': [],
@@ -19,6 +22,7 @@ let g:ale_fixers = {
             \ 'json': [],
             \ 'markdown': [],
             \ 'html': [],
+            \ 'dart': ['dartfmt'],
             \ }
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '●'
