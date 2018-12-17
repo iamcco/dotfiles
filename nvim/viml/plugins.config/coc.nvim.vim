@@ -60,6 +60,9 @@ nmap <leader>fm <Plug>(coc-format-selected)
 vmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <Plug>(coc-codeaction-selected)
 
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
 " Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
