@@ -1,7 +1,6 @@
 let s:patternTable = {
       \ 'jsxRegion': '{/* %s */}'
       \}
-let s:selectPattern = ''
 let s:temp = ''
 
 function s:detectRegion() abort
@@ -15,11 +14,11 @@ function s:detectRegion() abort
     endfor
   endif
   if l:selectPattern !=# ''
-    let s:selectPattern = l:selectPattern
-    let s:temp = &l:commentstring
-    let &l:commentstring = l:selectPattern
+    if &l:commentstring !=# l:selectPattern
+      let s:temp = &l:commentstring
+      let &l:commentstring = l:selectPattern
+    endif
   else
-    let s:selectPattern = ''
     if s:temp !=# ''
       let &l:commentstring = s:temp
     endif
