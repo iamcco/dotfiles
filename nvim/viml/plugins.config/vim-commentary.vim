@@ -15,7 +15,9 @@ function s:detectRegion() abort
   endif
   if l:selectPattern !=# ''
     if &l:commentstring !=# l:selectPattern
-      let s:temp = &l:commentstring
+      if s:temp !=# ''
+        let s:temp = &l:commentstring
+      endif
       let &l:commentstring = l:selectPattern
     endif
   else
@@ -26,4 +28,12 @@ function s:detectRegion() abort
   Commentary
 endfunction
 
+function s:scan() abort
+  let l:stack = synstack(line('.'), col('.'))
+  for l:name in l:stack
+    echo synIDattr(l:name, 'name')
+  endfor
+endfunction
+
 noremap <leader>cc :call <SID>detectRegion()<CR>
+noremap <leader>v :call <SID>scan()<CR>
