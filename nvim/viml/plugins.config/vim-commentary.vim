@@ -15,7 +15,7 @@ function s:detectRegion() abort
   endif
   if l:selectPattern !=# ''
     if &l:commentstring !=# l:selectPattern
-      if s:temp !=# ''
+      if s:temp ==# ''
         let s:temp = &l:commentstring
       endif
       let &l:commentstring = l:selectPattern
