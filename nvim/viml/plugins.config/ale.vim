@@ -11,6 +11,7 @@ let g:ale_linters = {
             \ 'markdown': [],
             \ 'html': ['htmlhint'],
             \ 'dart': [],
+            \ 'less': [],
             \ }
 let g:ale_fixers = {
             \ 'typescript': [],
