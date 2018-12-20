@@ -29,6 +29,7 @@
       "filetypes": ["sh"],
       "cwd": "./",
       "initializationOptions": {},
+      "ignoredRootPaths": ["~"],
       "settings": {}
     },
     "dart": {
