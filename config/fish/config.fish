@@ -61,3 +61,8 @@ function n
         nvim $argv
     end
 end
+
+# rbenv
+if test -d "$HOME/.rbenv/shims"
+    set -gx PATH $HOME/.rbenv/shims $PATH
+end
