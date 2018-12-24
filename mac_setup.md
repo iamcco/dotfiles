@@ -74,7 +74,7 @@
   > `npm config set prefix ~/.config/npm`
   > `npm config set cache ~/.config/npm/cache`
 - `npm install -g eslint`
-- `npm install -g eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node`
+- `npm install -g babel-eslin eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node`
 - `npm install -g stylelint-config-standard`
 
 # fish
