@@ -12,6 +12,7 @@ let g:ale_linters = {
             \ 'html': ['htmlhint'],
             \ 'dart': [],
             \ 'less': [],
+            \ 'eruby': [],
             \ }
 let g:ale_fixers = {
             \ 'typescript': [],
