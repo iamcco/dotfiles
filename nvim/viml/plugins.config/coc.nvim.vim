@@ -8,6 +8,8 @@ set signcolumn=yes
 set noshowmode
 set completeopt=noinsert,menuone,noselect
 
+let g:coc_auto_copen = 0
+
 " use <tab> for trigger completion and navigate next complete item
 function! s:check_back_space() abort
   let l:col = col('.') - 1
@@ -81,6 +83,8 @@ augroup coc_au
 
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call CocActionAsync('highlight')
+  " use denite to open quickfix
+  autocmd User CocQuickfixChange :Denite -mode=normal quickfix
 augroup END
 
 function! s:snippet() abort
