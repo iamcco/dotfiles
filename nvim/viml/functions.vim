@@ -183,6 +183,7 @@ function! UserFuncCocSetup(info)
           \ 'coc-yaml',
           \ 'coc-highlight',
           \ 'coc-emmet',
+          \ 'coc-pairs'
           \], ' '))
   elseif a:info.status ==# 'updated'
     !yarn install
