@@ -34,3 +34,6 @@ Plug 'jbgutierrez/vim-babel'
 Plug 'rickhowe/diffchar.vim'
 Plug 'markonm/traces.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'

@@ -14,8 +14,8 @@ try
                 \)
     noremap <silent> <Space> :Denite source<CR>
     noremap <silent> <c-Space> :Denite menu<CR>
-    noremap <silent> <c-p> :Denite file_rec<CR>
-    noremap <silent> <Leader>b :Denite buffer<CR>
+    " noremap <silent> <c-p> :Denite file_rec<CR>
+    " noremap <silent> <Leader>b :Denite buffer<CR>
     " Add custom menus
     let s:menus = {}
     let s:menus.neovim = {
