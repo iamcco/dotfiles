@@ -19,6 +19,7 @@ call s:source('syntax')
 call s:source('format')
 call s:source('git')
 call s:source('enhance')
+call s:source('fzf')
 call s:source('denite')
 call s:source('style')
 
