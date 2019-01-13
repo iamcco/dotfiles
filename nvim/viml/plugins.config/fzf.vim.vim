@@ -1,6 +1,7 @@
 " Fzf previx
 let g:fzf_command_prefix = 'Fzf'
 
+noremap <silent> <Space> :call fzfsource#list()<CR>
 noremap <silent> <c-p> :FzfFiles<CR>
 noremap <silent> <Leader>b :FzfBuffers<CR>
 
