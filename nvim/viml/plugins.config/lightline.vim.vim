@@ -12,10 +12,6 @@ let g:lightline = {
             \              ['filetype']
             \            ]
             \ },
-            \ 'inactive': {
-            \   'left': [],
-            \   'right': []
-            \ },
             \ 'component': {
             \   'charvaluehex': '0x%B',
             \ },

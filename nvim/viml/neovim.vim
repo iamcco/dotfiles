@@ -5,7 +5,12 @@
 
 scriptencoding utf-8
 
-" neovim config {{{
+" use ture color
+set termguicolors
+
+" autoread latest file
+set autoread
+
 if has('mac')
   let g:python_host_prog = expand('~/.pyenv/shims/python')
   let g:python3_host_prog = expand('~/.pyenv/shims/python3')
@@ -14,20 +19,23 @@ elseif has('unix')
   let g:node_host_prog = expand('~/npm-global/lib/node_modules/neovim/bin/cli.js')
 endif
 
-" delete the buffer when exit terminal
-au TermClose * bd!
-
 " guicursor
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
             \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
             \,sm:block-blinkwait175-blinkoff150-blinkon175
 
-tnoremap <Esc> <C-\><C-n>
+function s:exit_to_normal() abort
+  if &filetype ==# 'fzf'
+    return "\<Esc>"
+  endif
+  return "\<C-\>\<C-n>"
+endfunction
+tnoremap <expr> <Esc> <SID>exit_to_normal()
 
-" use ture color
-set termguicolors
-
-" autoread latest file
-set autoread
-autocmd! FocusGained * :checktime
-" }}} neovim config
+augroup UserNeo
+  autocmd!
+  " delete the buffer when exit terminal
+  autocmd TermClose * bd!
+  " for autoread
+  autocmd FocusGained * :checktime
+augroup END

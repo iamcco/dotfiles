@@ -109,9 +109,6 @@ function! UserFuncGetLinterErrors() abort
   return l:all_errors == 0 ? '' : printf('%d', l:all_errors)
 endfunction
 
-let s:user_config_blame = ''
-
-
 let s:browsers = {}
 let s:browsers['chrome'] = 'open -a Google\ Chrome '
 function! UserFuncViewFile()
