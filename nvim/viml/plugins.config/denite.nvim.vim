@@ -12,7 +12,7 @@ try
                 \ '<denite:move_to_previous_line>',
                 \ 'noremap'
                 \)
-    " noremap <silent> <Space> :Denite source<CR>
+    noremap <silent> <Space> :Denite source<CR>
     noremap <silent> <c-Space> :Denite menu<CR>
     " noremap <silent> <c-p> :Denite file_rec<CR>
     " noremap <silent> <Leader>b :Denite buffer<CR>
