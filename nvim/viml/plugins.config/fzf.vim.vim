@@ -25,3 +25,6 @@ augroup FzfStateLine
   autocmd BufLeave \v[0-9]+;#FZF$ call s:fzf_buf_out()
   autocmd TermClose \v[0-9]+;#FZF$ call s:fzf_buf_out()
 augroup END
+
+command! -bang -nargs=? -complete=dir FzfFiles
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
