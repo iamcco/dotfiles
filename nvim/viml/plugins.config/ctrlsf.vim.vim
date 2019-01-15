@@ -4,3 +4,6 @@ let g:ctrlsf_default_root = 'project'
 nmap <leader>fs <Plug>CtrlSFPrompt
 nmap <leader>fw <Plug>CtrlSFCwordPath
 nmap <Leader>fo :CtrlSFOpen<CR>
+let g:ctrlsf_mapping = {
+    \ "popen": "",
+    \ }
