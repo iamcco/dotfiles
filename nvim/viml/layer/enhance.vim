@@ -36,3 +36,4 @@ Plug 'markonm/traces.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'reisub0/hot-reload.vim'
