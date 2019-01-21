@@ -108,5 +108,5 @@ augroup CocSnippet
     autocmd!
     autocmd CompleteDone *.vue call <SID>snippet()
     " highlight text color
-    autocmd ColorScheme * highlight! CocHighlightText  guibg=#707e0a ctermbg=023
+    autocmd ColorScheme * highlight! CocHighlightText  guibg=#054c20 ctermbg=023
 augroup END
