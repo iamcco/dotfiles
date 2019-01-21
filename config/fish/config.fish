@@ -56,7 +56,7 @@ set -gx PROJECT_PATHS ~/ ~/workspace/pxn ~/development
 # nvim alias for n
 function n
     if test -z $argv
-        nvim (fzf --preview "bat --style=numbers --color=always {} 2>/dev/null; or highlight -O ansi -l {} 2>/dev/null; or coderay {} 2>/dev/null; or rougify {} 2>/dev/null; or cat {}")
+        nvim (fzf --preview "env bat --style=numbers --color=always {} 2>/dev/null; or env highlight -O ansi -l {} 2>/dev/null; or env coderay {} 2>/dev/null; or env rougify {} 2>/dev/null; or env cat {}")
     else
         nvim $argv
     end
