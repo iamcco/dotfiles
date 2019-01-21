@@ -5,7 +5,6 @@
   "coc.preferences.diagnostic.enable": true,
   "coc.preferences.snippets.enable": true,
   "coc.preferences.hoverTarget": "echo",
-  "coc.preferences.numberSelect": true,
   // coc source
   "coc.source.word.filetypes": ["markdown", "gitcommit"],
   // prettier
