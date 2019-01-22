@@ -20,6 +20,7 @@
 - `brew install watchman`
 - `brew install fzy`
 - `brew install bat`
+- `brew install ripgrep`
 - `brew install diff-so-fancy`
   > config: https://github.com/so-fancy/diff-so-fancy
   ```bash
