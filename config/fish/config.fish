@@ -70,5 +70,5 @@ end
 # go
 set -x -U GOPATH $HOME/go
 if test -d "$GOPATH"
-    set -gx PATH $GOPATH $PATH
+    set -gx PATH $GOPATH/bin $PATH
 end
