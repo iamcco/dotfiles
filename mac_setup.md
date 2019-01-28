@@ -69,6 +69,7 @@
 - `yarn global add fx`
 - `yarn global add neovim`
 - `yarn global add bash-language-server`
+- `yarn global add dockerfile-language-server-nodejs`
 - `yarn global add tslint`
 - `yarn global add http-server`
 - `yarn global add cnpm`

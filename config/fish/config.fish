@@ -66,3 +66,9 @@ end
 if test -d "$HOME/.rbenv/shims"
     set -gx PATH $HOME/.rbenv/shims $PATH
 end
+
+# go
+set -x -U GOPATH $HOME/go
+if test -d "$GOPATH"
+    set -gx PATH $GOPATH/bin $PATH
+end
