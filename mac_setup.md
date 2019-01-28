@@ -106,3 +106,7 @@
 - ~/sdk/flutter
 - https://flutter.io/setup-macos/
 - `pub global activate dart_language_server`
+
+# software
+
+- http://ezip.awehunt.com/
