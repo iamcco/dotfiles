@@ -28,3 +28,4 @@ unlet s:sourceList
 
 " let $NVIM_MKDP_LOG_FILE = './log.log'
 " let $NVIM_MKDP_LOG_LEVEL = 'debug'
+" let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
