@@ -62,6 +62,7 @@
 - `pyenv global 2.7.15 3.7.0`
 - `pip3 install neovim`
 - `pip install neovim`
+- `pip3 install vim-vint`
 
 # node
 
@@ -107,6 +108,10 @@
 - ~/sdk/flutter
 - https://flutter.io/setup-macos/
 - `pub global activate dart_language_server`
+
+# lsp
+
+- [efm-langserver](https://github.com/mattn/efm-langserver)
 
 # software
 

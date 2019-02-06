@@ -44,6 +44,17 @@
       "command": "docker-langserver",
       "filetypes": ["dockerfile"],
       "args": ["--stdio"]
+    },
+    // https://github.com/mattn/efm-langserver
+    "erb": {
+      "command": "efm-langserver",
+      "args": ["-offset=1", "-stdin", "/usr/local/bin/fish", "-c", "erb -x -T - | ruby -c"],
+      "filetypes": ["eruby"]
+    },
+    "vim": {
+      "command": "efm-langserver",
+      "args": ["-stdin", "/usr/local/bin/fish", "-c", "vint --enable-neovim -"],
+      "filetypes": ["vim"]
     }
   },
   "java.format.settings.url": "/Users/chenguangzhou/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
