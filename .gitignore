@@ -8,3 +8,4 @@ config/fish/completions/
 config/fish/functions/
 config/fish/conf.d/
 fishd.f*
+fish_variables
