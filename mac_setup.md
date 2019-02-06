@@ -112,6 +112,7 @@
 # lsp
 
 - [efm-langserver](https://github.com/mattn/efm-langserver)
+  - `go get https://github.com/mattn/efm-langserver`
 
 # software
 
