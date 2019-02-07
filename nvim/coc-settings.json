@@ -17,10 +17,6 @@
   "eslint.autoFixOnSave": true,
   // tslint
   "tslint.autoFixOnSave": true,
-  // yaml
-  "yaml.schemas": {
-    "http://json.schemastore.org/composer": "/*"
-  },
   // languageserver
   "languageserver": {
     "sh": {
