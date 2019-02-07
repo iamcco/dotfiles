@@ -102,6 +102,7 @@
 
 - `gem install solargraph`
 - `:CocInstall coc-solargraph`
+- `gem install htmlbeautifier`
 
 # flutter
 
