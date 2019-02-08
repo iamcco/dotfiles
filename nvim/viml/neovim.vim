@@ -9,7 +9,7 @@ scriptencoding utf-8
 set termguicolors
 
 " transparent background for popupmenu
-set pumblend=40
+set pumblend=20
 
 " autoread latest file
 set autoread
