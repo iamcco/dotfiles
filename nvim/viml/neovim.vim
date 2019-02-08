@@ -8,6 +8,9 @@ scriptencoding utf-8
 " use ture color
 set termguicolors
 
+" transparent background for popupmenu
+set pumblend=40
+
 " autoread latest file
 set autoread
 

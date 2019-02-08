@@ -1,6 +1,6 @@
 {
   // coc settting
-  "coc.preferences.maxCompleteItemCount": 15,
+  "coc.preferences.maxCompleteItemCount": 20,
   "coc.preferences.triggerAfterInsertEnter": false,
   "coc.preferences.diagnostic.enable": true,
   "coc.preferences.snippets.enable": true,
