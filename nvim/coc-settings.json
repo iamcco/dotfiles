@@ -48,6 +48,6 @@
       "filetypes": ["vim", "eruby"]
     }
   },
-  "java.format.settings.url": "/Users/chenguangzhou/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
+  // "java.format.settings.url": "/Users/chenguangzhou/.config/coc/extensions/node_modules/coc-java/formatters/eclipse-formatter.xml"
   // vim:ft=jsonc
 }
