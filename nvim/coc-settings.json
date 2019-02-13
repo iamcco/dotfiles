@@ -44,6 +44,11 @@
       "command": "docker-langserver",
       "filetypes": ["dockerfile"],
       "args": ["--stdio"]
+    },
+    "golang": {
+      "command": "bingo",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
     }
   },
   "java.format.settings.url": "/Users/chenguangzhou/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
