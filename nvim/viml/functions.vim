@@ -151,7 +151,7 @@ function! UserFuncDetectFileType() abort
       set nocursorcolumn
       set colorcolumn=0
     endif
-    if l:fileName ==# 'tsconfig.json' || l:fileName ==# 'jsconfig.json'
+    if l:fileName =~# '\vtsconfig\.json$' || l:fileName =~# '\vjsconfig\.json$'
       set filetype=jsonc
     endif
 endfunction
@@ -179,7 +179,8 @@ function! UserFuncCocSetup(info)
           \ 'coc-wxml',
           \ 'coc-yaml',
           \ 'coc-highlight',
-          \ 'coc-emmet'
+          \ 'coc-emmet',
+          \ 'coc-tailwindcss'
           \], ' '))
   elseif a:info.status ==# 'updated'
     !yarn install

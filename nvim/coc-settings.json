@@ -1,6 +1,6 @@
 {
   // coc settting
-  "coc.preferences.maxCompleteItemCount": 15,
+  "coc.preferences.maxCompleteItemCount": 20,
   "coc.preferences.triggerAfterInsertEnter": false,
   "coc.preferences.diagnostic.enable": true,
   "coc.preferences.snippets.enable": true,
@@ -17,10 +17,6 @@
   "eslint.autoFixOnSave": true,
   // tslint
   "tslint.autoFixOnSave": true,
-  // yaml
-  "yaml.schemas": {
-    "http://json.schemastore.org/composer": "/*"
-  },
   // languageserver
   "languageserver": {
     "sh": {
@@ -49,8 +45,13 @@
       "command": "bingo",
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
+    },
+    // https://github.com/mattn/efm-langserver
+    "efm": {
+      "command": "efm-langserver",
+      "args": [],
+      "filetypes": ["vim", "eruby"]
     }
-  },
-  "java.format.settings.url": "/Users/chenguangzhou/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
+  }
   // vim:ft=jsonc
 }

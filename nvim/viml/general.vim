@@ -84,6 +84,10 @@ call UserFuncInitDir()
 set backup
 set undofile
 " }}} backup
+"
+
+" iskeyword
+set iskeyword+=-
 
 " updatetime {{{
 set updatetime=300

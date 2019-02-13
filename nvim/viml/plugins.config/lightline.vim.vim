@@ -32,6 +32,7 @@ augroup Lightline_user
     autocmd!
     autocmd User ALELint call s:update_light_line()
     autocmd User Git_Blame_Update call s:update_light_line()
+    autocmd User CocDiagnosticChange call s:update_light_line()
 augroup END
 
 function! s:update_light_line() abort

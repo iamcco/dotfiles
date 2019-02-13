@@ -5,6 +5,7 @@ function s:init_sign() abort
   highlight GruvboxBlueSign ctermbg=NONE guibg=NONE
   highlight GruvboxPurpleSign ctermbg=NONE guibg=NONE
   highlight GruvboxAquaSign ctermbg=NONE guibg=NONE
+  highlight PmenuSel cterm=bold ctermfg=229 ctermbg=109 gui=bold guifg=#fbf1c7 guibg=#83a598
 endfunction
 
 augroup GruvboxSign
