@@ -14,12 +14,11 @@ set pumblend=20
 " autoread latest file
 set autoread
 
+" use sran.nvim instead
+let g:loaded_node_provider = 1
 if has('mac')
   let g:python_host_prog = expand('~/.pyenv/shims/python')
   let g:python3_host_prog = expand('~/.pyenv/shims/python3')
-  let g:node_host_prog = expand('~/.config/yarn/global/node_modules/neovim/bin/cli.js')
-elseif has('unix')
-  let g:node_host_prog = expand('~/npm-global/lib/node_modules/neovim/bin/cli.js')
 endif
 
 " guicursor
