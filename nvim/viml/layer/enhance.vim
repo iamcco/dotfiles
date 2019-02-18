@@ -1,6 +1,7 @@
 scriptencoding utf-8
 
-Plug 'iamcco/dict.vim', { 'on': 'Dict' }
+Plug 'iamcco/sran.nvim', { 'do': 'yarn' }
+Plug 'iamcco/dict.nvim'
 Plug 'iamcco/node.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'iamcco/words.vim'
