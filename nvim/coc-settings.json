@@ -1,10 +1,12 @@
 {
   // coc settting
-  "coc.preferences.maxCompleteItemCount": 20,
-  "coc.preferences.triggerAfterInsertEnter": false,
-  "coc.preferences.diagnostic.enable": true,
   "coc.preferences.snippets.enable": true,
   "coc.preferences.hoverTarget": "echo",
+  // suggest
+  "suggest.maxCompleteItemCount": 20,
+  "suggest.triggerAfterInsertEnter": false,
+  // diagnostic
+  "diagnostic.enable": true,
   // coc source
   "coc.source.word.filetypes": ["markdown", "gitcommit"],
   // prettier
