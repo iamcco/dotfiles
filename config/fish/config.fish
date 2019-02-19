@@ -72,3 +72,9 @@ set -x -U GOPATH $HOME/go
 if test -d "$GOPATH"
     set -gx PATH $GOPATH/bin $PATH
 end
+
+# custom neovim build
+set -x -U NEOVIM_PATH $HOME/neovim
+if test -d "$NEOVIM_PATH"
+    set -gx PATH $NEOVIM_PATH/bin $PATH
+end
