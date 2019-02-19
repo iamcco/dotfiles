@@ -8,7 +8,8 @@ set signcolumn=yes
 set noshowmode
 set completeopt=noinsert,menuone,noselect
 
-let g:coc_auto_copen = 0
+" floating window
+let g:coc_force_debug = 1
 
 " use <tab> for trigger completion and navigate next complete item
 function! s:check_back_space() abort
