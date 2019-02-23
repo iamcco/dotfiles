@@ -26,7 +26,7 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 " expand snippets
-inoremap <silent> <C-Space> <C-R>=UltiSnips#ExpandSnippet()<CR>
+" inoremap <silent> <C-Space> <C-R>=UltiSnips#ExpandSnippet()<CR>
 " Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
