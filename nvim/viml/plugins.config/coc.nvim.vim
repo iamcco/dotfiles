@@ -105,13 +105,18 @@ function! s:snippet() abort
     endif
 endfunction
 
+" No CocUnderline
+hi NoCocUnderline cterm=None gui=None
 augroup CocSnippet
     autocmd!
     autocmd CompleteDone *.vue call <SID>snippet()
     " highlight text color
     autocmd ColorScheme * highlight! CocHighlightText  guibg=#054c20 ctermbg=023
     " do not underline error/info/hit lines
-    autocmd ColorScheme * highlight! clear CocUnderline
+    autocmd ColorScheme * highlight! link CocErrorHighlight NoCocUnderline
+    autocmd ColorScheme * highlight! link CocWarningHighlight NoCocUnderline
+    autocmd ColorScheme * highlight! link CocInfoHighlight NoCocUnderline
+    autocmd ColorScheme * highlight! link CocHintHighlight NoCocUnderline
 augroup END
 
 " Using CocList
