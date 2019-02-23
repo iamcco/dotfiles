@@ -110,6 +110,8 @@ augroup CocSnippet
     autocmd CompleteDone *.vue call <SID>snippet()
     " highlight text color
     autocmd ColorScheme * highlight! CocHighlightText  guibg=#054c20 ctermbg=023
+    " do not underline error/info/hit lines
+    autocmd ColorScheme * highlight! clear CocUnderline
 augroup END
 
 " Using CocList
