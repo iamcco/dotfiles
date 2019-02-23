@@ -1,4 +1,3 @@
-" vim:set et sw=2 ts=2 fdm=marker fdl=1:
 " Author:   年糕小豆汤 <ooiss@qq.com>
 " Github:   https://github.com/iamcco
 " License:  MIT License
@@ -162,7 +161,6 @@ function! UserFuncCocSetup(info)
     call coc#util#install_extension(join([
           \ 'coc-word',
           \ 'coc-emoji',
-          \ 'coc-ultisnips',
           \ 'coc-tsserver',
           \ 'coc-html',
           \ 'coc-css',

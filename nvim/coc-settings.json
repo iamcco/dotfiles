@@ -8,7 +8,7 @@
   // diagnostic
   "diagnostic.enable": true,
   // coc source
-  "coc.source.word.filetypes": ["markdown", "gitcommit"],
+  "coc.source.word.filetypes": ["markdown", "gitcommit", "gina-commit"],
   // prettier
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,

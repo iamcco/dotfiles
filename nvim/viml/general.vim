@@ -25,7 +25,6 @@ set nowrap
 
 " window scroll {{{
 set winminheight=0
-set scrolljump=5
 set scrolloff=3
 set splitright
 " }}} window scroll
