@@ -7,6 +7,7 @@
   "suggest.triggerAfterInsertEnter": false,
   // diagnostic
   "diagnostic.enable": true,
+  "diagnostic.refreshOnInsertMode": true,
   // coc source
   "coc.source.word.filetypes": ["markdown", "gitcommit", "gina-commit"],
   // prettier
