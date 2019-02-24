@@ -12,4 +12,9 @@ set relativenumber number
 set signcolumn=yes
 set background=dark
 
+augroup Style_au
+  autocmd!
+  autocmd ColorScheme * highlight! link SignColumn LineNr
+augroup END
+
 colorscheme gruvbox
