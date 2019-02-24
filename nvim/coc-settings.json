@@ -10,6 +10,8 @@
   "diagnostic.refreshOnInsertMode": true,
   // coc source
   "coc.source.word.filetypes": ["markdown", "gitcommit", "gina-commit"],
+  // snippets
+  "snippets.ultisnips.enable": false,
   // prettier
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,

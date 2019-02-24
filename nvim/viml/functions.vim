@@ -178,7 +178,9 @@ function! UserFuncCocSetup(info)
           \ 'coc-yaml',
           \ 'coc-highlight',
           \ 'coc-emmet',
-          \ 'coc-tailwindcss'
+          \ 'coc-tailwindcss',
+          \ 'coc-snippets',
+          \ 'https://github.com/xabikos/vscode-react'
           \], ' '))
   elseif a:info.status ==# 'updated'
     !yarn install

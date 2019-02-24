@@ -17,19 +17,23 @@ function! s:check_back_space() abort
   return !l:col || getline('.')[l:col - 1]  =~# '\s'
 endfunction
 
-" tab:
-"   1. select autocomplete
-"   2. trigger autocomplete
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-" expand snippets
-" inoremap <silent> <C-Space> <C-R>=UltiSnips#ExpandSnippet()<CR>
-" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" expand vue snippet
+function! s:snippet() abort
+    let l:start_line = line('.')
+    let l:is_position = search('\v%x0')
+    if l:is_position !=# 0
+        silent! s/\v\t/    /g
+        silent! s/\v%x0\n//g
+        silent! s/\v%x0/\r/g
+        let l:end_line = line('.')
+        call cursor(l:start_line, 0)
+        let l:pos = searchpos('\v\$\{\d+\}', 'n', l:end_line)
+        if l:pos[0] !=# 0 && l:pos[1] !=# 0
+            call cursor(l:pos[0], l:pos[1])
+            normal! df}
+        endif
+    endif
+endfunction
 
 function! s:show_documentation()
   if &filetype ==# 'vim'
@@ -38,6 +42,21 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" tab:
+"   1. select autocomplete
+"   2. trigger autocomplete
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" expand snippets
+" Use <C-Space> to trigger snippet expand.
+imap <C-Space> <Plug>(coc-snippets-expand)
 
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -68,57 +87,6 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" Use `:Format` for format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-" Use `:Fold` for fold current buffer
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
-
-augroup coc_au
-  autocmd!
-  " Or use formatexpr for range format
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Show signature help while editing
-  " autocmd CursorHoldI * silent! call CocActionAsync('showSignatureHelp')
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-
-  " Highlight symbol under cursor on CursorHold
-  autocmd CursorHold * silent call CocActionAsync('highlight')
-  " use denite to open quickfix
-  autocmd User CocQuickfixChange :Denite -mode=normal quickfix
-augroup END
-
-function! s:snippet() abort
-    let l:start_line = line('.')
-    let l:is_position = search('\v%x0')
-    if l:is_position !=# 0
-        silent! s/\v\t/    /g
-        silent! s/\v%x0\n//g
-        silent! s/\v%x0/\r/g
-        let l:end_line = line('.')
-        call cursor(l:start_line, 0)
-        let l:pos = searchpos('\v\$\{\d+\}', 'n', l:end_line)
-        if l:pos[0] !=# 0 && l:pos[1] !=# 0
-            call cursor(l:pos[0], l:pos[1])
-            normal! df}
-        endif
-    endif
-endfunction
-
-" No CocUnderline
-hi NoCocUnderline cterm=None gui=None
-augroup CocSnippet
-    autocmd!
-    autocmd CompleteDone *.vue call <SID>snippet()
-    " highlight text color
-    autocmd ColorScheme * highlight! CocHighlightText  guibg=#054c20 ctermbg=023
-    " do not underline error/info/hit lines
-    autocmd ColorScheme * highlight! link CocErrorHighlight NoCocUnderline
-    autocmd ColorScheme * highlight! link CocWarningHighlight NoCocUnderline
-    autocmd ColorScheme * highlight! link CocInfoHighlight NoCocUnderline
-    autocmd ColorScheme * highlight! link CocHintHighlight NoCocUnderline
-augroup END
-
 " Using CocList
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
@@ -136,3 +104,34 @@ nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" Use `:Format` for format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` for fold current buffer
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+
+" No CocUnderline
+hi NoCocUnderline cterm=None gui=None
+augroup coc_au
+  autocmd!
+  " Or use formatexpr for range format
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Show signature help while editing
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+
+  " Highlight symbol under cursor on CursorHold
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+  " use denite to open quickfix
+  autocmd User CocQuickfixChange :Denite -mode=normal quickfix
+
+  " vue
+  autocmd CompleteDone *.vue call <SID>snippet()
+  " highlight text color
+  autocmd ColorScheme * highlight! CocHighlightText  guibg=#054c20 ctermbg=023
+  " do not underline error/info/hit lines
+  autocmd ColorScheme * highlight! link CocErrorHighlight NoCocUnderline
+  autocmd ColorScheme * highlight! link CocWarningHighlight NoCocUnderline
+  autocmd ColorScheme * highlight! link CocInfoHighlight NoCocUnderline
+  autocmd ColorScheme * highlight! link CocHintHighlight NoCocUnderline
+augroup END
