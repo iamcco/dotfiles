@@ -5,6 +5,7 @@
   // suggest
   "suggest.maxCompleteItemCount": 20,
   "suggest.triggerAfterInsertEnter": false,
+  "suggest.detailMaxLength": 50,
   // diagnostic
   "diagnostic.enable": true,
   "diagnostic.refreshOnInsertMode": true,
