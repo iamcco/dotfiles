@@ -2,13 +2,15 @@
   // coc settting
   "coc.preferences.snippets.enable": true,
   "coc.preferences.hoverTarget": "echo",
+  // diagnostic
+  "diagnostic.enable": true,
+  "diagnostic.signOffset": 100,
+  "diagnostic.highlightOffset": 100,
+  "diagnostic.refreshOnInsertMode": true,
   // suggest
   "suggest.maxCompleteItemCount": 20,
   "suggest.triggerAfterInsertEnter": false,
   "suggest.detailMaxLength": 30,
-  // diagnostic
-  "diagnostic.enable": true,
-  "diagnostic.refreshOnInsertMode": true,
   // coc source
   "coc.source.word.filetypes": ["markdown", "gitcommit", "gina-commit"],
   // snippets
