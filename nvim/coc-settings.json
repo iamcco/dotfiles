@@ -3,6 +3,10 @@
   "coc.preferences.snippets.enable": true,
   "coc.preferences.hoverTarget": "echo",
   // diagnostic
+  "diagnostic.infoSign": "ღ",
+  "diagnostic.hintSign": "ஐ",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.errorSign": "✖",
   "diagnostic.enable": true,
   "diagnostic.signOffset": 100,
   "diagnostic.highlightOffset": 100,
