@@ -1,6 +1,7 @@
 scriptencoding utf-8
 
 Plug 'iamcco/sran.nvim', { 'do': { -> sran#util#install() } }
+Plug 'iamcco/git-p.nvim'
 Plug 'iamcco/dict.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'iamcco/words.vim'
