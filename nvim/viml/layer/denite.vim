@@ -1,7 +1,6 @@
 Plug 'Shougo/denite.nvim'
 Plug 'pocari/vim-denite-emoji'
 Plug 'junegunn/vim-emoji'
-Plug 'bfredl/nvim-miniyank'
 Plug 'iyuuya/denite-ale'
 Plug 'chemzqm/denite-git'
 Plug 'iamcco/react-error-codes.vim'
@@ -13,3 +12,4 @@ Plug 'iamcco/universal-editorconfig'
 Plug 'iamcco/coc-action-source.nvim'
 Plug 'iamcco/devdocs.nvim', { 'do': 'npm install' }
 Plug 'iamcco/lxiym.vim'
+" Plug 'bfredl/nvim-miniyank'
