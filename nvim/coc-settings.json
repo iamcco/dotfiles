@@ -29,6 +29,8 @@
   "eslint.autoFixOnSave": true,
   // tslint
   "tslint.autoFixOnSave": true,
+  // imselect
+  "imselect.defaultInput": "com.apple.keylayout.ABC",
   // languageserver
   "languageserver": {
     "sh": {

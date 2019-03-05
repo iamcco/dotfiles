@@ -180,6 +180,7 @@ function! UserFuncCocSetup(info)
           \ 'coc-emmet',
           \ 'coc-tailwindcss',
           \ 'coc-snippets',
+          \ 'coc-imselect',
           \ 'https://github.com/xabikos/vscode-react',
           \ 'https://github.com/xabikos/vscode-javascript'
           \], ' '))
