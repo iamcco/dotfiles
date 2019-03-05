@@ -181,6 +181,7 @@ function! UserFuncCocSetup(info)
           \ 'coc-tailwindcss',
           \ 'coc-snippets',
           \ 'coc-imselect',
+          \ 'coc-yank',
           \ 'https://github.com/xabikos/vscode-react',
           \ 'https://github.com/xabikos/vscode-javascript'
           \], ' '))
