@@ -166,7 +166,7 @@ function! UserFuncCocSetup(info)
           \ 'coc-css',
           \ 'coc-json',
           \ 'coc-eslint',
-          \ 'coc-tslint',
+          \ 'coc-tslint-plugin',
           \ 'coc-prettier',
           \ 'coc-stylelint',
           \ 'coc-pyls',
