@@ -121,11 +121,11 @@ augroup coc_au
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Show signature help while editing
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  " Use K for show documentation in preview window
+  " autocmd CursorHold * call CocActionAsync('doHover')
 
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call CocActionAsync('highlight')
-  " use denite to open quickfix
-  autocmd User CocQuickfixChange :Denite -mode=normal quickfix
 
   " vue
   autocmd CompleteDone *.vue call <SID>snippet()
