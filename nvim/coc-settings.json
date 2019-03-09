@@ -1,7 +1,6 @@
 {
   // coc settting
   "coc.preferences.snippets.enable": true,
-  "coc.preferences.hoverTarget": "echo",
   // diagnostic
   "diagnostic.infoSign": "ღ",
   "diagnostic.hintSign": "ஐ",
