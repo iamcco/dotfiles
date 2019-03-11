@@ -8,4 +8,4 @@ augroup GitPConfig
   autocmd ColorScheme * highlight! GitPDiffFloat ctermbg=239 guibg=#333333
 augroup END
 
-nmap <leader>d <Plug>(git-p-diff-preview)
+nmap <silent> <leader>d <Plug>(git-p-diff-preview)

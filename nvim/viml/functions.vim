@@ -75,14 +75,6 @@ function! UserFuncGetFileName()
   return l:filename
 endfunction
 
-function! UserFuncGetInactiveFilename()
-  let l:filename = expand('%')
-  if l:filename ==# '[Document]'
-    return ''
-  endif
-  return UserFuncGetFileName()
-endfunction
-
 function! UserFuncGetLinterWarnings() abort
   let info = get(b:, 'coc_diagnostic_info', {})
   let l:counts = {}

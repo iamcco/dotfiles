@@ -3,8 +3,7 @@ let g:lightline = {
             \ 'active': {
             \   'left': [
             \             ['mode', 'paste'],
-            \             ['readonly', 'activeFilename', 'charvaluehex', 'modified'],
-            \             ['gitBranchAndBlame']
+            \             ['readonly', 'activeFilename', 'gitDiffInfo', 'charvaluehex', 'modified'],
             \           ],
             \   'right': [
             \              ['linter_errors', 'linter_warnings', 'lineinfo'],
@@ -16,9 +15,8 @@ let g:lightline = {
             \   'charvaluehex': '0x%B',
             \ },
             \ 'component_expand': {
-            \   'inactiveFilename': 'UserFuncGetInactiveFilename',
             \   'activeFilename': 'UserFuncGetFileName',
-            \   'gitBranchAndBlame': 'UserFuncGitBranchAndBlame',
+            \   'gitDiffInfo': 'UserFuncGitDiffInfo',
             \   'linter_warnings': 'UserFuncGetLinterWarnings',
             \   'linter_errors': 'UserFuncGetLinterErrors',
             \ },
@@ -31,8 +29,8 @@ let g:lightline = {
 augroup Lightline_user
     autocmd!
     autocmd User ALELint call s:update_light_line()
-    autocmd User Git_Blame_Update call s:update_light_line()
     autocmd User CocDiagnosticChange call s:update_light_line()
+    autocmd User GitPDiffAndBlameUpdate call s:update_light_line()
 augroup END
 
 function! s:update_light_line() abort
@@ -52,21 +50,12 @@ function! s:active() abort
     let s:is_active = v:true
 endfunction
 
-function! UserFuncGitBranchAndBlame() abort
-    let l:branchAndBlame = ''
-    let l:branch = fugitive#head()
-    if l:branch !=# ''
-        let l:branchAndBlame = '%<%{"' . l:branch . '"}'
-    endif
-    if exists('b:git_blame_current_line')
-        let l:branchAndBlame = l:branchAndBlame
-                    \. '%{"  / '
-                    \. b:git_blame_current_line.date
-                    \. ' '
-                    \. b:git_blame_current_line.user
-                    \. '"}'
-    endif
-    return l:branchAndBlame
+function! UserFuncGitDiffInfo() abort
+  let l:info = ''
+  if exists('b:gitp_diff_state')
+    let l:info = '%<%{"+' . b:gitp_diff_state['add'] . ' -' . b:gitp_diff_state['delete'] . ' ~' . b:gitp_diff_state['modify'] . '"}'
+  endif
+  return l:info
 endfunction
 
 augroup UserMatchupOffscreen
