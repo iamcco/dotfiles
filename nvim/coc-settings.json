@@ -1,6 +1,7 @@
 {
   // coc settting
   "coc.preferences.snippets.enable": true,
+  "coc.preferences.snippetStatusText": "🌈",
   // diagnostic
   "diagnostic.infoSign": "ღ",
   "diagnostic.hintSign": "ஐ",
@@ -11,6 +12,7 @@
   "diagnostic.highlightOffset": 100,
   "diagnostic.refreshOnInsertMode": true,
   // suggest
+  "suggest.detailField": "abbr",
   "suggest.maxCompleteItemCount": 20,
   "suggest.triggerAfterInsertEnter": false,
   "suggest.detailMaxLength": 30,
@@ -18,6 +20,12 @@
   "coc.source.word.filetypes": ["markdown", "gitcommit", "gina-commit"],
   // snippets
   "snippets.ultisnips.enable": false,
+  "snippets.extends": {
+    "typescript": ["javascript"],
+    "javascriptreact": ["javascript"]
+  },
+  // emment
+  "emmet.showAbbreviationSuggestions": false,
   // prettier
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,
