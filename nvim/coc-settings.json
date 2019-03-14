@@ -67,11 +67,53 @@
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
     },
-    // https://github.com/mattn/efm-langserver
-    "efm": {
-      "command": "efm-langserver",
-      "args": [],
-      "filetypes": ["vim", "eruby"]
+    "dls": {
+      "command": "diagnostic-languageserver",
+      "args": ["--stdio"],
+      "filetypes": [ "vim", "email" ],
+      "trace.server": "verbose",
+      "initializationOptions": {
+        "linters": {
+          "vint": {
+            "command": "vint",
+            "debounce": 100,
+            "args": [ "--enable-neovim", "-"],
+            "offsetLine": 0,
+            "offsetColumn": 0,
+            "sourceName": "vint",
+            "formatLines": 1,
+            "formatPattern": [
+              "[^:]+:(\\d+):(\\d+):\\s*(.*$)",
+              {
+                "line": 1,
+                "column": 2,
+                "message": 3
+              }
+            ]
+          },
+          "languagetool": {
+            "command": "languagetool",
+            "debounce": 200,
+            "args": ["-"],
+            "offsetLine": 0,
+            "offsetColumn": 0,
+            "sourceName": "languagetool",
+            "formatLines": 2,
+            "formatPattern": [
+              "^\\d+?\\.\\)\\s+Line\\s+(\\d+),\\s+column\\s+(\\d+),\\s+([^\\n]+)\nMessage:\\s+(.*)$",
+              {
+                "line": 1,
+                "column": 2,
+                "message": [4, 3]
+              }
+            ],
+          }
+        },
+        "filetypes": {
+          "vim": "vint",
+          "email": "languagetool"
+        }
+      }
     }
   }
   // vim:ft=jsonc
