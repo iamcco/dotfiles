@@ -95,7 +95,7 @@
           "write-good": {
             "command": "write-good",
             "debounce": 100,
-            "args": [ "--text='%text'" ],
+            "args": [ "--text=%text" ],
             "offsetLine": 0,
             "offsetColumn": 1,
             "sourceName": "write-good",
