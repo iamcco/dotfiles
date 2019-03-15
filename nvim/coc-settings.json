@@ -70,10 +70,45 @@
     "dls": {
       "command": "diagnostic-languageserver",
       "args": ["--stdio"],
-      "filetypes": [ "vim", "email" ],
-      "trace.server": "verbose",
+      "filetypes": [ "vim", "email", "markdown" ],
+      // "trace.server": "verbose",
       "initializationOptions": {
         "linters": {
+          "markdownlint": {
+            "command": "markdownlint",
+            "isStderr": true,
+            "debounce": 100,
+            "args": [ "--stdin" ],
+            "offsetLine": 0,
+            "offsetColumn": 0,
+            "sourceName": "markdownlint",
+            "formatLines": 1,
+            "formatPattern": [
+              "^.*?:\\s+(\\d+):\\s+(.*)$",
+              {
+                "line": 1,
+                "column": -1,
+                "message": 2
+              }
+            ]
+          },
+          "write-good": {
+            "command": "write-good",
+            "debounce": 100,
+            "args": [ "--text='%text'" ],
+            "offsetLine": 0,
+            "offsetColumn": 1,
+            "sourceName": "write-good",
+            "formatLines": 1,
+            "formatPattern": [
+              "(.*)\\s+on\\s+line\\s+(\\d+)\\s+at\\s+column\\s+(\\d+)\\s*$",
+              {
+                "line": 2,
+                "column": 3,
+                "message": 1
+              }
+            ]
+          },
           "vint": {
             "command": "vint",
             "debounce": 100,
@@ -111,7 +146,8 @@
         },
         "filetypes": {
           "vim": "vint",
-          "email": "languagetool"
+          "email": "languagetool",
+          "markdown": [ "write-good", "markdownlint" ]
         }
       }
     }
