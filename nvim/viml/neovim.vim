@@ -11,6 +11,8 @@ set termguicolors
 " transparent background for popupmenu
 set pumblend=20
 
+set wildoptions=pum
+
 " autoread latest file
 set autoread
 
