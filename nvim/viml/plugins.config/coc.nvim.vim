@@ -136,8 +136,4 @@ augroup coc_au
   autocmd ColorScheme * highlight! link CocWarningHighlight NoCocUnderline
   autocmd ColorScheme * highlight! link CocInfoHighlight NoCocUnderline
   autocmd ColorScheme * highlight! link CocHintHighlight NoCocUnderline
-  autocmd ColorScheme * highlight! CocErrorFloat ctermfg=9 guifg=#ff0000 ctermfg=239 guibg=#333333
-  autocmd ColorScheme * highlight! CocInfoFloat ctermfg=11 guifg=#fab005 ctermfg=239 guibg=#333333
-  autocmd ColorScheme * highlight! CocHintFloat ctermfg=12 guifg=#15aabf ctermfg=239 guibg=#333333
-  autocmd ColorScheme * highlight! CocWarningFloat ctermfg=130 guifg=#ff922b ctermfg=239 guibg=#333333
 augroup END
