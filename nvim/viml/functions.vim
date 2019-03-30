@@ -148,37 +148,8 @@ function! UserFuncDetectFileType() abort
 endfunction
 
 function! UserFuncCocSetup(info)
-  if a:info.status ==# 'installed' || a:info.force
-    !yarn install
-    call coc#util#install_extension(join([
-          \ 'coc-word',
-          \ 'coc-emoji',
-          \ 'coc-tsserver',
-          \ 'coc-html',
-          \ 'coc-css',
-          \ 'coc-json',
-          \ 'coc-eslint',
-          \ 'coc-tslint-plugin',
-          \ 'coc-prettier',
-          \ 'coc-stylelint',
-          \ 'coc-pyls',
-          \ 'coc-java',
-          \ 'coc-rls',
-          \ 'coc-solargraph',
-          \ 'coc-vetur',
-          \ 'coc-wxml',
-          \ 'coc-yaml',
-          \ 'coc-highlight',
-          \ 'coc-emmet',
-          \ 'coc-tailwindcss',
-          \ 'coc-snippets',
-          \ 'coc-imselect',
-          \ 'coc-yank',
-          \ 'https://github.com/xabikos/vscode-react',
-          \ 'https://github.com/xabikos/vscode-javascript'
-          \], ' '))
-  elseif a:info.status ==# 'updated'
-    !yarn install
-    call coc#util#update()
+  !yarn install
+  if a:info.status ==# 'updated'
+    CocUpdate
   endif
 endfunction

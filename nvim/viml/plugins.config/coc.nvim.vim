@@ -11,6 +11,36 @@ set completeopt=noinsert,menuone,noselect
 " floating window
 let g:coc_force_debug = 1
 
+let g:coc_global_extensions = [
+      \ 'coc-word',
+      \ 'coc-emoji',
+      \ 'coc-tsserver',
+      \ 'coc-html',
+      \ 'coc-css',
+      \ 'coc-json',
+      \ 'coc-eslint',
+      \ 'coc-tslint-plugin',
+      \ 'coc-prettier',
+      \ 'coc-stylelint',
+      \ 'coc-pyls',
+      \ 'coc-java',
+      \ 'coc-rls',
+      \ 'coc-solargraph',
+      \ 'coc-vetur',
+      \ 'coc-wxml',
+      \ 'coc-yaml',
+      \ 'coc-highlight',
+      \ 'coc-emmet',
+      \ 'coc-tailwindcss',
+      \ 'coc-svg',
+      \ 'coc-angular',
+      \ 'coc-snippets',
+      \ 'coc-imselect',
+      \ 'coc-yank',
+      \ 'https://github.com/xabikos/vscode-react',
+      \ 'https://github.com/xabikos/vscode-javascript'
+      \]
+
 " use <tab> for trigger completion and navigate next complete item
 function! s:check_back_space() abort
   let l:col = col('.') - 1
