@@ -37,8 +37,6 @@ let g:coc_global_extensions = [
       \ 'coc-snippets',
       \ 'coc-imselect',
       \ 'coc-yank',
-      \ 'https://github.com/xabikos/vscode-react',
-      \ 'https://github.com/xabikos/vscode-javascript'
       \]
 
 " use <tab> for trigger completion and navigate next complete item
@@ -83,7 +81,10 @@ inoremap <silent><expr> <TAB>
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 " Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 " expand snippets
 " Use <C-Space> to trigger snippet expand.
 imap <C-Space> <Plug>(coc-snippets-expand)
@@ -116,6 +117,10 @@ nmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
+
+" float window scroll
+nnoremap <expr><C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
+nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 
 " Using CocList
 " Show all diagnostics

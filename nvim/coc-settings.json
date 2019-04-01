@@ -2,6 +2,7 @@
   // coc settting
   "coc.preferences.snippets.enable": true,
   "coc.preferences.snippetStatusText": "🌈",
+  "coc.preferences.formatOnType": true,
   // diagnostic
   "diagnostic.infoSign": "ღ",
   "diagnostic.hintSign": "ஐ",
@@ -16,6 +17,8 @@
   "suggest.maxCompleteItemCount": 20,
   "suggest.triggerAfterInsertEnter": false,
   "suggest.detailMaxLength": 30,
+  // html
+  "html.suggest.angular1": false,
   // coc source
   "coc.source.word.filetypes": ["markdown", "gitcommit", "gina-commit"],
   // snippets
