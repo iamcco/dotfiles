@@ -37,6 +37,8 @@ let g:coc_global_extensions = [
       \ 'coc-snippets',
       \ 'coc-imselect',
       \ 'coc-yank',
+      \ 'https://github.com/xabikos/vscode-react',
+      \ 'https://github.com/xabikos/vscode-javascript'
       \]
 
 " use <tab> for trigger completion and navigate next complete item
