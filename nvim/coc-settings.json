@@ -3,6 +3,9 @@
   "coc.preferences.snippets.enable": true,
   "coc.preferences.snippetStatusText": "🌈",
   "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "svg"
+  ],
   // diagnostic
   "diagnostic.infoSign": "ღ",
   "diagnostic.hintSign": "ஐ",
