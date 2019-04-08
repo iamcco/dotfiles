@@ -12,15 +12,14 @@
   "diagnostic.warningSign": "⚠",
   "diagnostic.errorSign": "✖",
   "diagnostic.enable": true,
-  "diagnostic.signOffset": 100,
-  "diagnostic.highlightOffset": 100,
+  "diagnostic.signOffset": 9999999,
+  "diagnostic.highlightOffset": 9999999,
   "diagnostic.refreshOnInsertMode": true,
   // suggest
   "suggest.detailField": "abbr",
   "suggest.maxCompleteItemCount": 20,
   "suggest.triggerAfterInsertEnter": false,
   "suggest.detailMaxLength": 30,
-  "suggest.removeDuplicatedLowerPriority": false,
   // html
   "html.suggest.angular1": false,   // angular1 is outdate, coc-angular support better
   // coc source
