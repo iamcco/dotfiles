@@ -2,9 +2,9 @@
   // coc settting
   "coc.preferences.snippets.enable": true,
   "coc.preferences.snippetStatusText": "🌈",
-  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnSaveFiletypes": [
-    "svg"
+    "svg"   // coc-svg support svg format
   ],
   // diagnostic
   "diagnostic.infoSign": "ღ",
@@ -22,9 +22,13 @@
   "suggest.detailMaxLength": 30,
   "suggest.removeDuplicatedLowerPriority": false,
   // html
-  "html.suggest.angular1": false,
+  "html.suggest.angular1": false,   // angular1 is outdate, coc-angular support better
   // coc source
-  "coc.source.word.filetypes": ["markdown", "gitcommit", "gina-commit"],
+  "coc.source.word.filetypes": [
+    "markdown",
+    "gitcommit",
+    "gina-commit"
+  ],
   // snippets
   "snippets.ultisnips.enable": false,
   "snippets.extends": {
@@ -38,7 +42,11 @@
   "prettier.tslintIntegration": true,
   "prettier.stylelintIntegration": true,
   // eslint
-  "eslint.filetypes": ["javascript", "javascript.jsx", "javascriptreact"],
+  "eslint.filetypes": [
+    "javascript",
+    "javascript.jsx",
+    "javascriptreact"
+  ],
   "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
   // tslint

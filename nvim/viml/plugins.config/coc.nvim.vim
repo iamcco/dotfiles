@@ -83,9 +83,9 @@ inoremap <silent><expr> <TAB>
 inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 " Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+      " \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " expand snippets
 " Use <C-Space> to trigger snippet expand.
