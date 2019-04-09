@@ -4,6 +4,7 @@ let g:lightline = {
             \   'left': [
             \             ['mode', 'paste'],
             \             ['readonly', 'activeFilename', 'gitDiffInfo', 'charvaluehex', 'modified'],
+            \             ['currentSymbol']
             \           ],
             \   'right': [
             \              ['linter_errors', 'linter_warnings', 'lineinfo'],
@@ -17,6 +18,7 @@ let g:lightline = {
             \ 'component_expand': {
             \   'activeFilename': 'UserFuncGetFileName',
             \   'gitDiffInfo': 'UserFuncGitDiffInfo',
+            \   'currentSymbol': 'UserFuncCurrentSymbol',
             \   'linter_warnings': 'UserFuncGetLinterWarnings',
             \   'linter_errors': 'UserFuncGetLinterErrors',
             \ },
@@ -56,6 +58,10 @@ function! UserFuncGitDiffInfo() abort
     let l:info = '%<%{"+' . b:gitp_diff_state['add'] . ' -' . b:gitp_diff_state['delete'] . ' ~' . b:gitp_diff_state['modify'] . '"}'
   endif
   return l:info
+endfunction
+
+function! UserFuncCurrentSymbol() abort
+  return get(b:, 'coc_current_function', '')
 endfunction
 
 augroup UserMatchupOffscreen
