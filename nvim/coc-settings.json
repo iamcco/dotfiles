@@ -31,6 +31,9 @@
   ],
   // snippets
   "snippets.ultisnips.enable": false,
+  "snippets.textmateSnippetsRoots": [
+    "~/.configrc/textmate-snippets"
+  ],
   "snippets.extends": {
     "typescript": ["javascript"],
     "javascriptreact": ["javascript"]

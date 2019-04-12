@@ -1,0 +1,54 @@
+{
+  "Insert Expression": {
+    "prefix": "=",
+    "body": [
+      "<%= ${1:variable} %>"
+    ],
+    "description": "Insert Expression"
+  },
+  "If Expression": {
+    "prefix": "if",
+    "body": [
+      "<% if ${1:expression} %>",
+      "${0}",
+      "<% end %>"
+    ],
+    "description": "If Expression"
+  },
+  "Each Expression": {
+    "prefix": "each",
+    "body": [
+      "<% ${1:variable}.each do |${2:item}| %>",
+      "${0}",
+      "<% end %>"
+    ],
+    "description": "Each Expression"
+  },
+  "Each With Index Expression": {
+    "prefix": "each_with_index",
+    "body": [
+      "<% ${1:variable}.each_with_index do |${2:item}, ${3:idx}| %>",
+      "${0}",
+      "<% end %>"
+    ],
+    "description": "Each With Index Expression"
+  },
+  "Form For": {
+    "prefix": "form_for",
+    "body": [
+      "<%= form_for ${1:''}, url: ${2:path}, method: :${3:post} do |f|%>",
+      "${0}",
+      "<% end %>"
+    ],
+    "description": "Each With Index Expression"
+  },
+  "Form For Multipart": {
+    "prefix": "form_for_multipart",
+    "body": [
+      "<%= form_for ${1:''}, url: ${2:path}, method: :${3:post}, html: {:multipart => true} do |f|%>",
+      "${0}",
+      "<% end %>"
+    ],
+    "description": "Each With Index Expression"
+  }
+}
