@@ -12,4 +12,3 @@ Plug 'iamcco/universal-editorconfig'
 Plug 'iamcco/coc-action-source.nvim'
 Plug 'iamcco/devdocs.nvim', { 'do': 'npm install' }
 Plug 'iamcco/lxiym.vim'
-" Plug 'bfredl/nvim-miniyank'
