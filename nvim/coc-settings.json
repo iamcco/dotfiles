@@ -54,6 +54,15 @@
   "eslint.autoFixOnSave": true,
   // tslint
   "tslint.autoFixOnSave": true,
+  // pairs
+  "pairs.enableCharacters": [
+    "(",
+    "[",
+    "{",
+    "'",
+    "\"",
+    "`"
+  ],
   // imselect
   "imselect.defaultInput": "com.apple.keylayout.ABC",
   // languageserver
