@@ -4,7 +4,8 @@
   "coc.preferences.snippetStatusText": "🌈",
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnSaveFiletypes": [
-    "svg"   // coc-svg support svg format
+    "svg",   // coc-svg support svg format
+    "dart"
   ],
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   // diagnostic
@@ -80,7 +81,7 @@
       "command": "dart_language_server",
       "args": [],
       "filetypes": ["dart"],
-      "cwd": "./lib",
+      "cwd": "",
       "initializationOptions": {},
       "settings": {}
     },
@@ -97,7 +98,13 @@
     "dls": {
       "command": "diagnostic-languageserver",
       "args": ["--stdio"],
-      "filetypes": [ "vim", "email", "markdown", "sh" ],
+      "filetypes": [
+        "vim",
+        "email",
+        "markdown",
+        "sh",
+        "dart"
+      ],
       // "trace.server": "verbose",
       "initializationOptions": {
         "linters": {
@@ -194,11 +201,20 @@
             }
           }
         },
+        "formatters": {
+          "dartfmt": {
+            "command": "dartfmt",
+            "args": [ "--fix" ],
+          }
+        },
         "filetypes": {
           "vim": "vint",
           "email": "languagetool",
           "markdown": [ "write-good", "markdownlint" ],
           "sh": "shellcheck"
+        },
+        "formatFiletypes": {
+          "dart": "dartfmt"
         }
       }
     }
