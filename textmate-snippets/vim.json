@@ -1,0 +1,28 @@
+{
+  "function": {
+    "prefix": "fun",
+    "body": [
+      "function! ${1:name}(${2:params})${3}",
+      "\t${0}",
+      "endfunction"
+    ],
+    "description": "Function Expression"
+  },
+  "autocmd": {
+    "prefix": "au",
+    "body": [
+      "autocmd ${1:group} ${2:event} ${3:pat} ${4:once} ${4:nested} ${5:cmd}"
+    ],
+    "description": "Autocmd Expression"
+  },
+  "augroup": {
+    "prefix": "aug",
+    "body": [
+      "augroup ${1:Start}",
+      "\tautocmd!",
+      "\t${0}",
+      "augroup END"
+    ],
+    "description": "Augroup Expression"
+  }
+}
