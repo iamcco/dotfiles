@@ -1,30 +1,50 @@
 " Fzf previx
 let g:fzf_command_prefix = 'Fzf'
 
-noremap <silent> <c-p> :FzfFiles<CR>
-noremap <silent> <Leader>b :FzfBuffers<CR>
+let g:fzf_layout = { 'window': 'call OpenFloatWinow()' }
 
-function s:fzf_buf_in() abort
-  echo
-  set laststatus=0
-  set noruler
-  set nonumber
-  set norelativenumber
-  set signcolumn=no
-endfunction
+function! OpenFloatWinow()
+  let height = float2nr(&lines / 3)
+  let width = &columns
+  let row = &lines - height
 
-function s:fzf_buf_out() abort
-  set laststatus=2
-  set ruler
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': row - 1,
+        \ 'col': 0,
+        \ 'width': width,
+        \ 'height': height
+        \ }
+
+  let buf = nvim_create_buf(v:false, v:true)
+  let win = nvim_open_win(buf, v:true, opts)
+
+  " use normal highlight
+  call setwinvar(win, '&winhl', 'Normal:Normal')
+
+  setlocal
+        \ buftype=nofile
+        \ nobuflisted
+        \ bufhidden=hide
+        \ nonumber
+        \ norelativenumber
+        \ signcolumn=no
 endfunction
 
 augroup FzfStateLine
   autocmd!
-  autocmd FileType fzf call s:fzf_buf_in()
-  autocmd BufEnter \v[0-9]+;#FZF$ call s:fzf_buf_in()
   autocmd BufLeave \v[0-9]+;#FZF$ call s:fzf_buf_out()
   autocmd TermClose \v[0-9]+;#FZF$ call s:fzf_buf_out()
 augroup END
+
+function! s:fzf_buf_out() abort
+  if exists('lightline#update')
+    call lightline#update()
+  endif
+endfunction
+
+noremap <silent> <c-p> :FzfFiles<CR>
+noremap <silent> <Leader>b :FzfBuffers<CR>
 
 command! -bang -nargs=? -complete=dir FzfFiles
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
