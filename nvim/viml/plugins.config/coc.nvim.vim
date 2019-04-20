@@ -38,6 +38,7 @@ let g:coc_global_extensions = [
       \ 'coc-imselect',
       \ 'coc-yank',
       \ 'coc-pairs',
+      \ 'coc-diagnostic',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]
