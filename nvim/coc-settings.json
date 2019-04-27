@@ -19,7 +19,7 @@
   "diagnostic.refreshOnInsertMode": true,
   // suggest
   "suggest.detailField": "abbr",
-  "suggest.maxCompleteItemCount": 20,
+  "suggest.maxCompleteItemCount": 50,
   "suggest.triggerAfterInsertEnter": false,
   "suggest.detailMaxLength": 30,
   // html

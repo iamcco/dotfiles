@@ -4,6 +4,8 @@ set hidden
 set cmdheight=1
 " always show signcolumns
 set signcolumn=yes
+" pum height
+set pumheight=30
 " for showSignatureHelp
 set noshowmode
 set completeopt=noinsert,menuone,noselect
