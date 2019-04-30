@@ -40,6 +40,7 @@ let g:coc_global_extensions = [
       \ 'coc-imselect',
       \ 'coc-yank',
       \ 'coc-pairs',
+      \ 'coc-git',
       \ 'coc-diagnostic',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
@@ -105,6 +106,11 @@ nmap <leader>rn <Plug>(coc-rename)
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
+" git hunk
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+nmap gs <Plug>(coc-git-chunkinfo)
+
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -135,6 +141,8 @@ nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" git status
+nnoremap <silent> <space>g  :<C-u>CocList --normal --auto-preview gstatus<CR>
 " Find symbol of current document
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols

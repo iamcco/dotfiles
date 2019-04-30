@@ -20,6 +20,7 @@
   // suggest
   "suggest.detailField": "abbr",
   "suggest.maxCompleteItemCount": 50,
+  "suggest.maxPreviewWidth": 80,
   "suggest.triggerAfterInsertEnter": false,
   "suggest.detailMaxLength": 30,
   // html
