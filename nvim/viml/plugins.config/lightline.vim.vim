@@ -3,8 +3,7 @@ let g:lightline = {
             \ 'active': {
             \   'left': [
             \             ['mode', 'paste'],
-            \             ['readonly', 'activeFilename', 'gitDiffInfo', 'charvaluehex', 'modified'],
-            \             ['currentSymbol']
+            \             ['readonly', 'activeFilename', 'gitDiffInfo', 'charvaluehex', 'modified']
             \           ],
             \   'right': [
             \              ['linter_errors', 'linter_warnings', 'lineinfo'],
@@ -18,7 +17,6 @@ let g:lightline = {
             \ 'component_expand': {
             \   'activeFilename': 'UserFuncGetFileName',
             \   'gitDiffInfo': 'UserFuncGitDiffInfo',
-            \   'currentSymbol': 'UserFuncCurrentSymbol',
             \   'linter_warnings': 'UserFuncGetLinterWarnings',
             \   'linter_errors': 'UserFuncGetLinterErrors',
             \ },
@@ -30,26 +28,15 @@ let g:lightline = {
 
 augroup Lightline_user
     autocmd!
-    autocmd User ALELint call s:update_light_line()
     autocmd User CocDiagnosticChange call s:update_light_line()
     autocmd User GitPDiffAndBlameUpdate call s:update_light_line()
 augroup END
 
 function! s:update_light_line() abort
-    if get(s:, 'is_active', v:true)
-        try
-            call lightline#update()
-        catch /.*/
-        endtry
-    endif
-endfunction
-
-function! s:deactive() abort
-    let s:is_active = v:false
-endfunction
-
-function! s:active() abort
-    let s:is_active = v:true
+    try
+        call lightline#update()
+    catch /.*/
+    endtry
 endfunction
 
 function! UserFuncGitDiffInfo() abort
@@ -59,13 +46,3 @@ function! UserFuncGitDiffInfo() abort
   endif
   return l:info
 endfunction
-
-function! UserFuncCurrentSymbol() abort
-  return get(b:, 'coc_current_function', '')
-endfunction
-
-augroup UserMatchupOffscreen
-  autocmd!
-  autocmd User MatchupOffscreenEnter call s:deactive()
-  autocmd User MatchupOffscreenLeave call s:active()
-augroup END

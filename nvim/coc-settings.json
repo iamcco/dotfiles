@@ -5,9 +5,8 @@
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "svg",   // coc-svg support svg format
-    "dart"
+    "dart"   // diagnostic-languageserver support dart format
   ],
-  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   // diagnostic
   "diagnostic.infoSign": "ღ",
   "diagnostic.hintSign": "ஐ",
