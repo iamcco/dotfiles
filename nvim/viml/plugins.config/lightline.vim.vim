@@ -40,6 +40,14 @@ function! s:update_light_line() abort
 endfunction
 
 function! UserFuncGitDiffInfo() abort
+  " let l:res = ''
+  " if exists('g:coc_git_status')
+    " let l:res = l:res . '%<%{"' . g:coc_git_status . '"}'
+  " endif
+  " if exists('b:coc_git_status')
+    " let l:res = l:res . '%<%{"' . b:coc_git_status . '"}'
+  " endif
+  " return l:res
   let l:info = ''
   if exists('b:gitp_diff_state')
     let l:info = '%<%{"+' . b:gitp_diff_state['add'] . ' -' . b:gitp_diff_state['delete'] . ' ~' . b:gitp_diff_state['modify'] . '"}'

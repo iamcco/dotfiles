@@ -74,6 +74,15 @@
   "diagnostic-languageserver.formatFiletypes": {
     "dart": "dartfmt"
   },
+  // git
+  "git.enableGutters": false,
+  "git.signOffset": 99,
+  "git.branchCharacter": "⎇",
+  "git.addedSign.text": "▏",
+  "git.changedSign.text": "▏",
+  "git.removedSign.text": "▏",
+  "git.topRemovedSign.text": "‾",
+  "git.changeRemovedSign.text": "≃",
   // imselect
   "imselect.defaultInput": "com.apple.keylayout.ABC",
   // languageserver
