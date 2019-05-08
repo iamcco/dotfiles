@@ -8,5 +8,6 @@ let g:markdown_fenced_languages = [
       \ 'awk',
       \ 'lua',
       \ 'stylus',
-      \ 'vim'
+      \ 'vim',
+      \ 'help'
       \]
