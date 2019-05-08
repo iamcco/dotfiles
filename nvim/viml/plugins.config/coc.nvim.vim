@@ -4,14 +4,16 @@ set hidden
 set cmdheight=1
 " always show signcolumns
 set signcolumn=yes
-" pum height
-set pumheight=30
-" for showSignatureHelp
-set noshowmode
-set completeopt=noinsert,menuone,noselect
 
-" floating window
-let g:coc_force_debug = 1
+if exists('+pumheight')
+  " pum height
+  set pumheight=30
+endif
+
+" do not show mode use statuline instead
+set noshowmode
+
+set completeopt=noinsert,menuone,noselect
 
 let g:coc_global_extensions = [
       \ 'coc-word',
@@ -70,14 +72,6 @@ function! s:snippet() abort
     endif
 endfunction
 
-function! s:show_documentation()
-  if &filetype ==# 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
 " tab:
 "   1. select autocomplete
 "   2. trigger autocomplete
@@ -93,11 +87,11 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " expand snippets
-" Use <C-Space> to trigger snippet expand.
-imap <C-Space> <Plug>(coc-snippets-expand)
+" Use <C-Space> to trigger snippet expand or refresh autocomplete items
+imap <silent> <expr> <C-Space> <SID>check_back_space() ? coc#refresh() : "\<Plug>(coc-snippets-expand)"
 
-" Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Use K for show documentation in float window
+nnoremap <silent> K :call CocAction('doHover')<CR>
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)

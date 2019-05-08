@@ -7,5 +7,6 @@ let g:markdown_fenced_languages = [
       \ 'typescript',
       \ 'awk',
       \ 'lua',
-      \ 'stylus'
+      \ 'stylus',
+      \ 'vim'
       \]
