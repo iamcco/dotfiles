@@ -35,6 +35,7 @@ let g:coc_global_extensions = [
       \ 'coc-yaml',
       \ 'coc-highlight',
       \ 'coc-emmet',
+      \ 'coc-vimlsp',
       \ 'coc-tailwindcss',
       \ 'coc-svg',
       \ 'coc-angular',

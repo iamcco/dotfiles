@@ -66,10 +66,11 @@
   ],
   // diagnostic-languageserver
   "diagnostic-languageserver.filetypes": {
-    "vim": "vint",
     "email": "languagetool",
     "markdown": [ "write-good", "markdownlint" ],
-    "sh": "shellcheck"
+    "sh": "shellcheck",
+    "elixir": ["mix_credo", "mix_credo_compile"],
+    "eelixir": ["mix_credo", "mix_credo_compile"],
   },
   "diagnostic-languageserver.formatFiletypes": {
     "dart": "dartfmt"
