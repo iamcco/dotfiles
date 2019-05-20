@@ -4,8 +4,10 @@
   "coc.preferences.snippetStatusText": "🌈",
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnSaveFiletypes": [
-    "svg",   // coc-svg support svg format
-    "dart"   // diagnostic-languageserver support dart format
+    "svg",    // coc-svg support svg format
+    "dart",   // diagnostic-languageserver support dart format
+    "elixir", // diagnostic-languageserver support elixir format
+    "eelixir" // diagnostic-languageserver support elixir format
   ],
   // diagnostic
   "diagnostic.infoSign": "ღ",
@@ -70,10 +72,12 @@
     "markdown": [ "write-good", "markdownlint" ],
     "sh": "shellcheck",
     "elixir": ["mix_credo", "mix_credo_compile"],
-    "eelixir": ["mix_credo", "mix_credo_compile"],
+    "eelixir": ["mix_credo", "mix_credo_compile"]
   },
   "diagnostic-languageserver.formatFiletypes": {
-    "dart": "dartfmt"
+    "dart": "dartfmt",
+    "elixir": "mix_format",
+    "eelixir": "mix_format"
   },
   // git
   "git.enableGutters": false,
