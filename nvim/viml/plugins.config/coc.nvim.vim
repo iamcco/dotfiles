@@ -45,6 +45,8 @@ let g:coc_global_extensions = [
       \ 'coc-pairs',
       \ 'coc-git',
       \ 'coc-diagnostic',
+      \ 'coc-gitignore',
+      \ 'coc-project',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]
@@ -130,6 +132,7 @@ nnoremap <expr><C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
 nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 
 " Using CocList
+nnoremap <silent> <Space><Space> :CocList<CR>
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions

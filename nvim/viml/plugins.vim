@@ -22,7 +22,6 @@ call s:source('fzf')
 call s:source('sran')
 call s:source('text-operate')
 call s:source('utils')
-call s:source('denite')
 call s:source('style')
 
 call plug#end()
