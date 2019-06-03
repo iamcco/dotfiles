@@ -63,7 +63,7 @@ set ignorecase
 " }}} match
 
 set viewoptions=folds,options,cursor,unix,slash
-" set virtualedit=onemore
+set virtualedit=onemore
 
 " spaceline {{{
 set list

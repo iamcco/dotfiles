@@ -1,1 +1,1 @@
-Plug 'neoclide/coc.nvim',  { 'do': function('UserFuncCocSetup')}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}

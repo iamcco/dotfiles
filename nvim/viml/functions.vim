@@ -146,10 +146,3 @@ function! UserFuncDetectFileType() abort
       set filetype=jsonc
     endif
 endfunction
-
-function! UserFuncCocSetup(info)
-  !yarn install
-  if a:info.status ==# 'updated'
-    CocUpdate
-  endif
-endfunction
