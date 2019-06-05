@@ -1,0 +1,23 @@
+{
+  "Coc-Activate-Example": {
+    "prefix": "cocae",
+    "body": [
+      "import { ExtensionContext, workspace } from 'coc.nvim'",
+      "",
+      "type Trace = 'off' | 'message' | 'verbose'",
+      "",
+      "export async function activate(context: ExtensionContext): Promise<void> {",
+      "  let config = workspace.getConfiguration('${1:name}')",
+      "  let enable = config.get<boolean>('enable', true)",
+      "",
+      "  if (!enable) {",
+      "    return",
+      "  }",
+      "",
+      "  const trace = config.get<Trace>('trace.server', 'off')",
+      "  ${0}",
+      "}"
+    ],
+    "description": "coc activate example"
+  }
+}
