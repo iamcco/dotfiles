@@ -9,5 +9,6 @@ let g:markdown_fenced_languages = [
       \ 'lua',
       \ 'stylus',
       \ 'vim',
-      \ 'help'
+      \ 'help',
+      \ 'yaml'
       \]

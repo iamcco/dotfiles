@@ -1,4 +1,8 @@
 let g:lightline = {
+            \ 'separator': { 'left': "\ue0b4", 'right': "\ue0b6" },
+            \ 'subseparator': { 'left': "", 'right': "" },
+            \ 'tabline_separator': { 'left': "\ue0b4", 'right': "\ue0b6" },
+            \ 'tabline_subseparator': { 'left': "", 'right': "" },
             \ 'colorscheme': 'gruvbox',
             \ 'active': {
             \   'left': [
@@ -13,6 +17,7 @@ let g:lightline = {
             \ },
             \ 'component': {
             \   'charvaluehex': '0x%B',
+            \   'vim_logo': "\ue7c5"
             \ },
             \ 'component_expand': {
             \   'activeFilename': 'UserFuncGetFileName',
@@ -24,7 +29,10 @@ let g:lightline = {
             \   'linter_warnings': 'warning',
             \   'linter_errors': 'error'
             \ },
-            \ }
+            \ 'tabline': {
+            \   'left': [ [ 'vim_logo', 'tabs' ] ],
+            \ },
+            \}
 
 augroup Lightline_user
     autocmd!
