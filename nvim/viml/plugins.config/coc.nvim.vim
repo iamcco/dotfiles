@@ -48,7 +48,6 @@ let g:coc_global_extensions = [
       \ 'coc-gitignore',
       \ 'coc-project',
       \ 'coc-post',
-      \ 'coc-smartf',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]
@@ -186,14 +185,3 @@ augroup coc_au
   autocmd ColorScheme * highlight! link CocInfoHighlight NoCocUnderline
   autocmd ColorScheme * highlight! link CocHintHighlight NoCocUnderline
 augroup END
-
-" press <esc> to cancel.
-nmap f <Plug>(coc-smartf-forward)
-nmap F <Plug>(coc-smartf-backward)
-nmap ; <Plug>(coc-smartf-repeat)
-nmap , <Plug>(coc-smartf-repeat-opposite)
-
-augroup Smartf
-  autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#e3ff00
-  autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
-augroup end
