@@ -7,7 +7,8 @@ let g:lightline = {
             \ 'active': {
             \   'left': [
             \             ['mode', 'paste'],
-            \             ['readonly', 'activeFilename', 'gitDiffInfo', 'charvaluehex', 'modified']
+            \             ['readonly', 'gitDiffInfo', 'charvaluehex', 'modified'],
+            \             ['activeFilename']
             \           ],
             \   'right': [
             \              ['linter_errors', 'linter_warnings', 'lineinfo'],
@@ -16,7 +17,7 @@ let g:lightline = {
             \            ]
             \ },
             \ 'component': {
-            \   'charvaluehex': '0x%B',
+            \   'charvaluehex': '0x%-2B',
             \   'vim_logo': "\ue7c5"
             \ },
             \ 'component_expand': {
@@ -31,13 +32,14 @@ let g:lightline = {
             \ },
             \ 'tabline': {
             \   'left': [ [ 'vim_logo', 'tabs' ] ],
+            \   'right': [],
             \ },
             \}
 
 augroup Lightline_user
     autocmd!
     autocmd User CocDiagnosticChange call s:update_light_line()
-    autocmd User GitPDiffAndBlameUpdate call s:update_light_line()
+    autocmd User CocGitStatusChange call s:update_light_line()
 augroup END
 
 function! s:update_light_line() abort
@@ -48,17 +50,11 @@ function! s:update_light_line() abort
 endfunction
 
 function! UserFuncGitDiffInfo() abort
-  " let l:res = ''
-  " if exists('g:coc_git_status')
-    " let l:res = l:res . '%<%{"' . g:coc_git_status . '"}'
-  " endif
-  " if exists('b:coc_git_status')
-    " let l:res = l:res . '%<%{"' . b:coc_git_status . '"}'
-  " endif
-  " return l:res
-  let l:info = ''
-  if exists('b:gitp_diff_state')
-    let l:info = '%<%{"+' . b:gitp_diff_state['add'] . ' -' . b:gitp_diff_state['delete'] . ' ~' . b:gitp_diff_state['modify'] . '"}'
-  endif
-  return l:info
+  let l:diff = get(b:, 'coc_git_status', '') !=# ''
+        \ ? ' ' . trim(b:coc_git_status)
+        \ : ''
+  return '%<%{"'
+        \. get(g:, 'coc_git_status', '')
+        \. l:diff
+        \. '"}'
 endfunction

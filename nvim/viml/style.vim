@@ -15,6 +15,10 @@ set background=dark
 augroup Style_au
   autocmd!
   autocmd ColorScheme * highlight! link SignColumn LineNr
+  " diff sign highlight groups
+  autocmd ColorScheme * highlight GitAddHi    guifg=#b8bb26 ctermfg=40
+  autocmd ColorScheme * highlight GitModifyHi guifg=#83a598 ctermfg=33
+  autocmd ColorScheme * highlight GitDeleteHi guifg=#f3423a ctermfg=196
 augroup END
 
 colorscheme gruvbox

@@ -107,14 +107,21 @@
     "eelixir": "mix_format"
   },
   // git
-  "git.enableGutters": false,
+  "git.enableGutters": true,
   "git.signOffset": 99,
-  "git.branchCharacter": "⎇",
+  "git.addGlameToVirtualText": true,
+  "git.virtualTextPrefix": "     ",
+  "git.branchCharacter": "\uf418",
   "git.addedSign.text": "▏",
   "git.changedSign.text": "▏",
   "git.removedSign.text": "▏",
   "git.topRemovedSign.text": "‾",
   "git.changeRemovedSign.text": "≃",
+  "git.addedSign.hlGroup": "GitAddHi",
+  "git.changedSign.hlGroup": "GitModifyHi",
+  "git.removedSign.hlGroup": "GitDeleteHi",
+  "git.topRemovedSign.hlGroup": "GitDeleteHi",
+  "git.changeRemovedSign.hlGroup": "GitDeleteHi",
   // imselect
   "imselect.defaultInput": "com.apple.keylayout.ABC",
   // languageserver

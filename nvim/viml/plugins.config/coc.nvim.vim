@@ -58,24 +58,6 @@ function! s:check_back_space() abort
   return !l:col || getline('.')[l:col - 1]  =~# '\s'
 endfunction
 
-" expand vue snippet
-function! s:snippet() abort
-    let l:start_line = line('.')
-    let l:is_position = search('\v%x0')
-    if l:is_position !=# 0
-        silent! s/\v\t/    /g
-        silent! s/\v%x0\n//g
-        silent! s/\v%x0/\r/g
-        let l:end_line = line('.')
-        call cursor(l:start_line, 0)
-        let l:pos = searchpos('\v\$\{\d+\}', 'n', l:end_line)
-        if l:pos[0] !=# 0 && l:pos[1] !=# 0
-            call cursor(l:pos[0], l:pos[1])
-            normal! df}
-        endif
-    endif
-endfunction
-
 " tab:
 "   1. select autocomplete
 "   2. trigger autocomplete
@@ -114,6 +96,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+" git diff
+nmap <silent> <leader>d <Plug>(coc-git-chunkinfo)
 
 " Remap for format selected region
 vmap <leader>fm <Plug>(coc-format-selected)
@@ -161,8 +145,6 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
-" No CocUnderline
-hi NoCocUnderline cterm=None gui=None
 augroup coc_au
   autocmd!
   " Or use formatexpr for range format
@@ -175,13 +157,13 @@ augroup coc_au
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call CocActionAsync('highlight')
 
-  " vue
-  autocmd CompleteDone *.vue call <SID>snippet()
   " highlight text color
   autocmd ColorScheme * highlight! CocHighlightText  guibg=#054c20 ctermbg=023
   " do not underline error/info/hit lines
-  autocmd ColorScheme * highlight! link CocErrorHighlight NoCocUnderline
-  autocmd ColorScheme * highlight! link CocWarningHighlight NoCocUnderline
-  autocmd ColorScheme * highlight! link CocInfoHighlight NoCocUnderline
-  autocmd ColorScheme * highlight! link CocHintHighlight NoCocUnderline
+  autocmd ColorScheme * highlight! CocErrorHighlight cterm=None gui=None
+  autocmd ColorScheme * highlight! CocWarningHighlight cterm=None gui=None
+  autocmd ColorScheme * highlight! CocInfoHighlight cterm=None gui=None
+  autocmd ColorScheme * highlight! CocHintHighlight cterm=None gui=None
+  " virtual text highlight
+  autocmd ColorScheme * highlight! CocCodeLens guifg=#606060 ctermfg=60
 augroup END
