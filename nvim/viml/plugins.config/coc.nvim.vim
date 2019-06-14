@@ -43,7 +43,7 @@ let g:coc_global_extensions = [
       \ 'coc-imselect',
       \ 'coc-yank',
       \ 'coc-pairs',
-      \ 'coc-git',
+      \ 'coc-git-p',
       \ 'coc-diagnostic',
       \ 'coc-gitignore',
       \ 'coc-project',
