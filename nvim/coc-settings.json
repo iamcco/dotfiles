@@ -20,6 +20,8 @@
   "diagnostic.refreshOnInsertMode": true,
   // suggest
   "suggest.detailField": "abbr",
+  "coc.source.around.firstMatch": false,
+  "coc.source.buffer.firstMatch": false,
   "suggest.maxCompleteItemCount": 50,
   "suggest.maxPreviewWidth": 80,
   "suggest.triggerAfterInsertEnter": false,
@@ -147,6 +149,16 @@
       "command": "docker-langserver",
       "filetypes": ["dockerfile"],
       "args": ["--stdio"]
+    },
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
     },
     "golang": {
       "command": "bingo",
