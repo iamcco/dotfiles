@@ -137,6 +137,9 @@
   "git.topRemovedSign.hlGroup":    "GitDeleteHi",
   "git.changeRemovedSign.hlGroup": "GitDeleteHi",
 
+  // list
+  "session.directory": "~/.vimbackupfile",
+
   // imselect
   "imselect.defaultInput": "com.apple.keylayout.ABC",
 
