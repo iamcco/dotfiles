@@ -1,0 +1,22 @@
+{
+  "name": "coc-source",
+  "version": "1.0.0",
+  "description": "my personal coc-extensions",
+  "main": "index.js",
+  "author": "iamcco",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "@types/node": "^12.6.1",
+    "coc.nvim": "^0.0.72",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5"
+  },
+  "dependencies": {
+    "rxjs": "^6.5.2"
+  }
+}

@@ -72,7 +72,7 @@ exports.activate = context => {
   context.subscriptions.push(commands.registerCommand('webpack.watch', async () => {
     cwd = workspace.cwd
     task.start({
-      cmd: 'webpack',
+      cmd: './node_modules/.bin/webpack',
       args: ['--watch', '--no-color'],
       cwd: workspace.cwd
     })
