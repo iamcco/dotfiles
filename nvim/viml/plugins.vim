@@ -14,7 +14,6 @@ endfunction
 call plug#begin(s:script_path . '/plugins')
 
 call s:source('coc')
-"call s:source('ncm2')
 call s:source('syntax')
 call s:source('format')
 call s:source('enhance')
