@@ -40,6 +40,7 @@ let g:coc_global_extensions = [
       \ 'coc-svg',
       \ 'coc-angular',
       \ 'coc-snippets',
+      \ 'coc-imselect',
       \ 'coc-yank',
       \ 'coc-pairs',
       \ 'coc-git',
