@@ -1,4 +1,4 @@
-import { Neovim, Window, Buffer as NVIMBuffer, OutputChannel } from 'coc.nvim';
+import { Neovim, Window, Buffer as NVIMBuffer } from 'coc.nvim';
 import { Subject, Subscription, from, timer } from 'rxjs';
 import { concatMap, switchMap, scan, filter, map } from 'rxjs/operators';
 
@@ -11,8 +11,7 @@ export class FloatWindow {
   constructor(
     private nvim: Neovim,
     private maxWidth: number,
-    private delayGap: number,
-    private output: OutputChannel | undefined
+    private delayGap: number
   ) {
     this.subscription = this.source$.pipe(
       scan((acc, content) => {
@@ -40,7 +39,7 @@ export class FloatWindow {
     let l = 0
     let lines = content.split(/\r?\n/)
     for (let line of lines) {
-      l = l + Math.max(1, Math.ceil(Buffer.byteLength(line) / this.maxWidth))
+      l = l + Math.max(1, Math.ceil(Buffer.byteLength(line) / (this.maxWidth + 2)))
     }
     return l
   }
@@ -49,7 +48,7 @@ export class FloatWindow {
     const col = await this.nvim.getOption('columns') as number
     const row = await this.nvim.getOption('lines') as number
     const height = this.getHeight(content)
-    const width = Math.min(this.maxWidth, Buffer.byteLength(content))
+    const width = Math.min(this.maxWidth, Buffer.byteLength(content) + 2)
 
     return {
       focusable: false,
@@ -57,7 +56,7 @@ export class FloatWindow {
       anchor: 'SE',
       height,
       width,
-      row: row - 2,
+      row: row - 4,
       col
     }
   }
@@ -91,12 +90,14 @@ export class FloatWindow {
 
     this.nvim.pauseNotification()
     await win.setOption('number', false)
+    await win.setOption('foldcolumn', 1)
     await win.setOption('wrap', true)
     await win.setOption('relativenumber', false)
     await win.setOption('cursorline', false)
     await win.setOption('cursorcolumn', false)
     await win.setOption('conceallevel', 2)
     await win.setOption('signcolumn', 'no')
+    await win.setOption('winhighlight', 'FoldColumn:NormalFloat')
     await this.nvim.resumeNotification()
     return true
   }

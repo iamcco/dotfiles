@@ -139,12 +139,11 @@ var coc_nvim_1 = __webpack_require__(1);
 var floatwindow_1 = __webpack_require__(5);
 function activate(context) {
     return __awaiter(this, void 0, void 0, function () {
-        var subscriptions, output, floatWin;
+        var subscriptions, floatWin;
         var _this = this;
         return __generator(this, function (_a) {
             subscriptions = context.subscriptions;
-            output = coc_nvim_1.workspace.createOutputChannel('coc-status');
-            floatWin = new floatwindow_1.FloatWindow(coc_nvim_1.workspace.nvim, 60, 1000, output);
+            floatWin = new floatwindow_1.FloatWindow(coc_nvim_1.workspace.nvim, 60, 1000);
             subscriptions.push(floatWin);
             subscriptions.push(coc_nvim_1.workspace.registerAutocmd({
                 event: ['User', 'CocStatusChange'],
@@ -214,12 +213,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var rxjs_1 = __webpack_require__(6);
 var operators_1 = __webpack_require__(108);
 var FloatWindow = /** @class */ (function () {
-    function FloatWindow(nvim, maxWidth, delayGap, output) {
+    function FloatWindow(nvim, maxWidth, delayGap) {
         var _this = this;
         this.nvim = nvim;
         this.maxWidth = maxWidth;
         this.delayGap = delayGap;
-        this.output = output;
         this.source$ = new rxjs_1.Subject();
         this.subscription = this.source$.pipe(operators_1.scan(function (acc, content) {
             var preContent = acc.preContent;
@@ -241,7 +239,7 @@ var FloatWindow = /** @class */ (function () {
         var lines = content.split(/\r?\n/);
         for (var _i = 0, lines_1 = lines; _i < lines_1.length; _i++) {
             var line = lines_1[_i];
-            l = l + Math.max(1, Math.ceil(Buffer.byteLength(line) / this.maxWidth));
+            l = l + Math.max(1, Math.ceil(Buffer.byteLength(line) / (this.maxWidth + 2)));
         }
         return l;
     };
@@ -257,14 +255,14 @@ var FloatWindow = /** @class */ (function () {
                     case 2:
                         row = _a.sent();
                         height = this.getHeight(content);
-                        width = Math.min(this.maxWidth, Buffer.byteLength(content));
+                        width = Math.min(this.maxWidth, Buffer.byteLength(content) + 2);
                         return [2 /*return*/, {
                                 focusable: false,
                                 relative: 'editor',
                                 anchor: 'SE',
                                 height: height,
                                 width: width,
-                                row: row - 2,
+                                row: row - 4,
                                 col: col
                             }];
                 }
@@ -320,26 +318,32 @@ var FloatWindow = /** @class */ (function () {
                         return [4 /*yield*/, win.setOption('number', false)];
                     case 5:
                         _a.sent();
-                        return [4 /*yield*/, win.setOption('wrap', true)];
+                        return [4 /*yield*/, win.setOption('foldcolumn', 1)];
                     case 6:
                         _a.sent();
-                        return [4 /*yield*/, win.setOption('relativenumber', false)];
+                        return [4 /*yield*/, win.setOption('wrap', true)];
                     case 7:
                         _a.sent();
-                        return [4 /*yield*/, win.setOption('cursorline', false)];
+                        return [4 /*yield*/, win.setOption('relativenumber', false)];
                     case 8:
                         _a.sent();
-                        return [4 /*yield*/, win.setOption('cursorcolumn', false)];
+                        return [4 /*yield*/, win.setOption('cursorline', false)];
                     case 9:
                         _a.sent();
-                        return [4 /*yield*/, win.setOption('conceallevel', 2)];
+                        return [4 /*yield*/, win.setOption('cursorcolumn', false)];
                     case 10:
                         _a.sent();
-                        return [4 /*yield*/, win.setOption('signcolumn', 'no')];
+                        return [4 /*yield*/, win.setOption('conceallevel', 2)];
                     case 11:
                         _a.sent();
-                        return [4 /*yield*/, this.nvim.resumeNotification()];
+                        return [4 /*yield*/, win.setOption('signcolumn', 'no')];
                     case 12:
+                        _a.sent();
+                        return [4 /*yield*/, win.setOption('winhighlight', 'FoldColumn:NormalFloat')];
+                    case 13:
+                        _a.sent();
+                        return [4 /*yield*/, this.nvim.resumeNotification()];
+                    case 14:
                         _a.sent();
                         return [2 /*return*/, true];
                 }
