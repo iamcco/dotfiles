@@ -145,6 +145,9 @@
   "imselect.defaultInput": "com.apple.keylayout.ABC",
   "imselect.enableStatusItem": false,
 
+  // clock
+  "clock.enable": true,
+
   // languageserver
   "languageserver": {
     "sh": {
