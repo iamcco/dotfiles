@@ -1,7 +1,7 @@
 {
   // coc settting
   "coc.preferences.snippets.enable": true,
-  "coc.preferences.snippetStatusText": "🌈",
+  "coc.preferences.snippetStatusText": "",
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "svg",    // coc-svg support svg format
@@ -83,6 +83,7 @@
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,
   "prettier.stylelintIntegration": true,
+  "prettier.statusItemText": "",
 
   // eslint
   "eslint.filetypes": [
@@ -142,6 +143,7 @@
 
   // imselect
   "imselect.defaultInput": "com.apple.keylayout.ABC",
+  "imselect.enableStatusItem": false,
 
   // languageserver
   "languageserver": {

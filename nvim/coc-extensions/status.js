@@ -245,24 +245,21 @@ var FloatWindow = /** @class */ (function () {
     };
     FloatWindow.prototype.getWinConfig = function (content) {
         return __awaiter(this, void 0, void 0, function () {
-            var col, row, height, width;
+            var col, height, width;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.nvim.getOption('columns')];
                     case 1:
                         col = _a.sent();
-                        return [4 /*yield*/, this.nvim.getOption('lines')];
-                    case 2:
-                        row = _a.sent();
                         height = this.getHeight(content);
                         width = Math.min(this.maxWidth, Buffer.byteLength(content) + 2);
                         return [2 /*return*/, {
                                 focusable: false,
                                 relative: 'editor',
-                                anchor: 'SE',
+                                anchor: 'NE',
                                 height: height,
                                 width: width,
-                                row: row - 4,
+                                row: 7,
                                 col: col
                             }];
                 }
@@ -318,25 +315,25 @@ var FloatWindow = /** @class */ (function () {
                         return [4 /*yield*/, win.setOption('number', false)];
                     case 5:
                         _a.sent();
-                        return [4 /*yield*/, win.setOption('foldcolumn', 1)];
+                        return [4 /*yield*/, win.setOption('wrap', true)];
                     case 6:
                         _a.sent();
-                        return [4 /*yield*/, win.setOption('wrap', true)];
+                        return [4 /*yield*/, win.setOption('relativenumber', false)];
                     case 7:
                         _a.sent();
-                        return [4 /*yield*/, win.setOption('relativenumber', false)];
+                        return [4 /*yield*/, win.setOption('cursorline', false)];
                     case 8:
                         _a.sent();
-                        return [4 /*yield*/, win.setOption('cursorline', false)];
+                        return [4 /*yield*/, win.setOption('cursorcolumn', false)];
                     case 9:
                         _a.sent();
-                        return [4 /*yield*/, win.setOption('cursorcolumn', false)];
+                        return [4 /*yield*/, win.setOption('conceallevel', 2)];
                     case 10:
                         _a.sent();
-                        return [4 /*yield*/, win.setOption('conceallevel', 2)];
+                        return [4 /*yield*/, win.setOption('signcolumn', 'no')];
                     case 11:
                         _a.sent();
-                        return [4 /*yield*/, win.setOption('signcolumn', 'no')];
+                        return [4 /*yield*/, win.setOption('foldcolumn', 1)];
                     case 12:
                         _a.sent();
                         return [4 /*yield*/, win.setOption('winhighlight', 'FoldColumn:NormalFloat')];
@@ -352,29 +349,29 @@ var FloatWindow = /** @class */ (function () {
     };
     FloatWindow.prototype.update = function (content) {
         return __awaiter(this, void 0, void 0, function () {
-            var isNewWin, _a, win, buf, winConfig;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
+            var isNewWin, win, winConfig;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
                     case 0: return [4 /*yield*/, this.createBuffer()];
                     case 1:
-                        _b.sent();
-                        return [4 /*yield*/, this.createWindow(content)];
+                        _a.sent();
+                        return [4 /*yield*/, this.buf.setLines(content, { start: 0, end: -1 })];
                     case 2:
-                        isNewWin = _b.sent();
-                        _a = this, win = _a.win, buf = _a.buf;
-                        if (!!isNewWin) return [3 /*break*/, 4];
-                        return [4 /*yield*/, this.getWinConfig(content)];
+                        _a.sent();
+                        return [4 /*yield*/, this.createWindow(content)];
                     case 3:
-                        winConfig = _b.sent();
+                        isNewWin = _a.sent();
+                        win = this.win;
+                        if (!!isNewWin) return [3 /*break*/, 5];
+                        return [4 /*yield*/, this.getWinConfig(content)];
+                    case 4:
+                        winConfig = _a.sent();
                         this.nvim.call('nvim_win_set_config', [
                             win.id,
                             winConfig
                         ]);
-                        _b.label = 4;
-                    case 4: return [4 /*yield*/, buf.setLines(content, { start: 0, end: -1 })];
-                    case 5:
-                        _b.sent();
-                        return [2 /*return*/];
+                        _a.label = 5;
+                    case 5: return [2 /*return*/];
                 }
             });
         });
