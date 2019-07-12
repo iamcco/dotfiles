@@ -50,6 +50,8 @@ let g:coc_global_extensions = [
       \ 'coc-project',
       \ 'coc-post',
       \ 'coc-clock',
+      \ 'coc-translator',
+      \ 'coc-marketplace',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]

@@ -10,6 +10,8 @@
     "eelixir" // diagnostic-languageserver support elixir format
   ],
 
+  "npm.binPath": "cnpm",
+
   // diagnostic
   "diagnostic.infoSign":            "ღ",
   "diagnostic.hintSign":            "ஐ",
@@ -188,14 +190,11 @@
       "filetypes": ["go"]
     /* }, */
     /* "vimls": { */
-      /* "command": "~/development/vim-language-server/bin/index.js", */
-      /* "args": ["--stdio"], */
-      /* "filetypes": ["vim"], */
+      /* "module": "/Users/aioiyuuko/my/vim-language-server/bin/index.js", */
+      /* "args": ["--node-ipc"], */
       /* "initializationOptions": { */
-        /* "iskeyword": "@,48-57,_,192-255,-", */
-        /* "vimruntime": "/usr/local/Caskroom/neovim-nightly/latest/nvim-osx64/share/nvim/runtime", */
-        /* "runtimepath": "/Users/chenguangzhou/.config/nvim,/Users/chenguangzhou/.configrc/nvim/viml/plugins/coc.nvim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-jsx-improve/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/jsonc.vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/typescript-vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-tsx/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/dart-vim-plugin/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-vue/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-fish/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-stylus/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-markdown/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-elixir/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-editorconfig/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/markdown-preview.nvim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/words.vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/emmet-vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-commentary/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-mundo/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/neoterm/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/codi.vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-quickrun/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/helpful.vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/startuptime.vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vader.vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/diffchar.vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/traces.vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/hot-reload.vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/sran.nvim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/clock.nvim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-easy-align/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-multiple-cursors/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-expand-region/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-surround/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-repeat/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-textobj-user/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-textobj-delimited/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-swap/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/dict.nvim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-lighttree/,/Users/chenguangzhou/.fzf/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/fzf.vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/ctrlsf.vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/goyo.vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/limelight.vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/lightline.vim/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/NeoSolarized/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/typewriter/,/Users/chenguangzhou/.configrc/nvim/viml/plugins/gruvbox/,/etc/xdg/nvim,/Users/chenguangzhou/.local/share/nvim/site,/usr/local/share/nvim/site,/usr/share/nvim/site,/usr/local/Caskroom/neovim-nightly/latest/nvim-osx64/share/nvim/runtime,/usr/share/nvim/site/after,/usr/local/share/nvim/site/after,/Users/chenguangzhou/.local/share/nvim/site/after,/etc/xdg/nvim/after,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-jsx-improve/after,/Users/chenguangzhou/.configrc/nvim/viml/plugins/vim-tsx/after,/Users/chenguangzhou/.configrc/nvim/viml/plugins/ctrlsf.vim/after,/Users/chenguangzhou/.config/nvim/after" */
       /* }, */
+      /* "filetypes": [ "vim" ], */
       /* "trace.server": "verbose" */
     }
   }
