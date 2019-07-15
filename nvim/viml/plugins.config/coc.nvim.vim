@@ -52,6 +52,7 @@ let g:coc_global_extensions = [
       \ 'coc-clock',
       \ 'coc-translator',
       \ 'coc-marketplace',
+      \ 'coc-smartf',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]
@@ -143,6 +144,12 @@ nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+" press <esc> to cancel.
+nmap f <Plug>(coc-smartf-forward)
+nmap F <Plug>(coc-smartf-backward)
+nmap ; <Plug>(coc-smartf-repeat)
+nmap , <Plug>(coc-smartf-repeat-opposite)
+
 " Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
@@ -170,4 +177,7 @@ augroup coc_au
   autocmd ColorScheme * highlight! CocHintHighlight cterm=None gui=None
   " virtual text highlight
   autocmd ColorScheme * highlight! CocCodeLens guifg=#606060 ctermfg=60
+  " smartf
+  autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#ffbf67
+  autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
 augroup END

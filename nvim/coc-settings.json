@@ -150,6 +150,10 @@
   // clock
   "clock.enable": true,
 
+  // smartf
+  "smartf.wordJump": false,
+  "smartf.jumpOnTrigger": true,
+
   // languageserver
   "languageserver": {
     "sh": {
