@@ -153,6 +153,15 @@
   // smartf
   "smartf.wordJump": false,
   "smartf.jumpOnTrigger": true,
+  "smartf.charactersIgnoreByNavigator": [
+    "a",
+    "i",
+    "c",
+    "s",
+    "r",
+    "y",
+    "v",
+  ],
 
   // languageserver
   "languageserver": {
