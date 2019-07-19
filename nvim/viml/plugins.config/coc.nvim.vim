@@ -53,6 +53,7 @@ let g:coc_global_extensions = [
       \ 'coc-translator',
       \ 'coc-marketplace',
       \ 'coc-smartf',
+      \ 'coc-tabnine',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]

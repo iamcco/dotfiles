@@ -156,11 +156,20 @@
   "smartf.charactersIgnoreByNavigator": [
     "a",
     "i",
+    "d",
     "c",
     "s",
+    "x",
     "r",
     "y",
+    "p",
     "v",
+    "g",
+    "h",
+    "j",
+    "k",
+    "l",
+    "*"
   ],
 
   // languageserver
