@@ -157,6 +157,9 @@ command! -nargs=0 Format :call CocAction('format')
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
+" do not underline error/info/hit lines
+highlight NoCocUnderline cterm=None gui=None
+
 augroup coc_au
   autocmd!
   " Or use formatexpr for range format
@@ -170,15 +173,24 @@ augroup coc_au
   autocmd CursorHold * silent call CocActionAsync('highlight')
 
   " highlight text color
-  autocmd ColorScheme * highlight! CocHighlightText  guibg=#054c20 ctermbg=023
+  autocmd ColorScheme * highlight! CocHighlightText guibg=#054c20 ctermbg=023
   " do not underline error/info/hit lines
-  autocmd ColorScheme * highlight! CocErrorHighlight cterm=None gui=None
-  autocmd ColorScheme * highlight! CocWarningHighlight cterm=None gui=None
-  autocmd ColorScheme * highlight! CocInfoHighlight cterm=None gui=None
-  autocmd ColorScheme * highlight! CocHintHighlight cterm=None gui=None
+  autocmd ColorScheme * highlight! link CocErrorHighlight NoCocUnderline
+  autocmd ColorScheme * highlight! link CocWarningHighlight NoCocUnderline
+  autocmd ColorScheme * highlight! link CocInfoHighlight NoCocUnderline
+  autocmd ColorScheme * highlight! link CocHintHighlight NoCocUnderline
+  " error/warning/info/hit sign
+  autocmd ColorScheme * highlight! CocErrorSign ctermfg=Red guifg=#ea6962
+  autocmd ColorScheme * highlight! CocWarningSign ctermfg=Yellow guifg=#e3a84e
+  autocmd ColorScheme * highlight! CocInfoSign ctermfg=Blue guifg=#7dae9b
+  autocmd ColorScheme * highlight! CocHintSign ctermfg=Blue guifg=#7dae9b
   " virtual text highlight
   autocmd ColorScheme * highlight! CocCodeLens guifg=#606060 ctermfg=60
   " smartf
   autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#ffbf67
   autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
+  " diff sign highlight groups
+  autocmd ColorScheme * highlight GitAddHi    guifg=#b8bb26 ctermfg=40
+  autocmd ColorScheme * highlight GitModifyHi guifg=#83a598 ctermfg=33
+  autocmd ColorScheme * highlight GitDeleteHi guifg=#f3423a ctermfg=196
 augroup END

@@ -3,7 +3,7 @@ let g:lightline = {
             \ 'subseparator': { 'left': "", 'right': "" },
             \ 'tabline_separator': { 'left': "\ue0b4", 'right': "\ue0b6" },
             \ 'tabline_subseparator': { 'left': "", 'right': "" },
-            \ 'colorscheme': 'gruvbox',
+            \ 'colorscheme': 'gruvbox_material',
             \ 'active': {
             \   'left': [
             \             ['mode', 'paste'],
