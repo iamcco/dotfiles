@@ -151,6 +151,13 @@ nmap F <Plug>(coc-smartf-backward)
 nmap ; <Plug>(coc-smartf-repeat)
 nmap , <Plug>(coc-smartf-repeat-opposite)
 
+" multiple cursors
+nmap <silent> <C-c> <Plug>(coc-cursors-position)
+nmap <silent> <C-d> <Plug>(coc-cursors-word)
+xmap <silent> <C-d> <Plug>(coc-cursors-range)
+" use normal command like `<leader>xi(`
+nmap <leader>x  <Plug>(coc-cursors-operator)
+
 " Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
@@ -193,4 +200,5 @@ augroup coc_au
   autocmd ColorScheme * highlight GitAddHi    guifg=#b8bb26 ctermfg=40
   autocmd ColorScheme * highlight GitModifyHi guifg=#83a598 ctermfg=33
   autocmd ColorScheme * highlight GitDeleteHi guifg=#f3423a ctermfg=196
+  autocmd ColorScheme * highlight CocCursorRange guibg=#b16286 guifg=#ebdbb2
 augroup END

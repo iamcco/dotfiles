@@ -155,21 +155,28 @@
   "smartf.jumpOnTrigger": true,
   "smartf.charactersIgnoreByNavigator": [
     "a",
+    "A",
     "i",
+    "I",
     "d",
+    "D",
     "c",
+    "C",
     "s",
+    "S",
     "x",
     "r",
     "y",
     "p",
+    "P",
     "v",
     "g",
     "h",
     "j",
     "k",
     "l",
-    "*"
+    "*",
+    "%"
   ],
 
   // languageserver
@@ -210,15 +217,18 @@
       "command": "bingo",
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
-    /* }, */
-    /* "vimls": { */
+    },
+    /* "vimlsp": { */
       /* "module": "/Users/aioiyuuko/my/vim-language-server/bin/index.js", */
       /* "args": ["--node-ipc"], */
       /* "initializationOptions": { */
+        /* "diagnostic": { */
+          /* "enable": true */
+        /* } */
       /* }, */
       /* "filetypes": [ "vim" ], */
       /* "trace.server": "verbose" */
-    }
+    /* } */
   }
   // vim:ft=jsonc
 }
