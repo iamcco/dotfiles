@@ -80,6 +80,9 @@
 
   // emment
   "emmet.showAbbreviationSuggestions": false,
+  "emmet.includeLanguages": {
+    "eruby": "html"
+  },
 
   // prettier
   "prettier.eslintIntegration": true,
@@ -108,6 +111,10 @@
     "\"",
     "`"
   ],
+
+  // coc-yank
+  "yank.priority": 70,
+  "yank.highlight.duration": 200,
 
   // diagnostic-languageserver
   "diagnostic-languageserver.filetypes": {

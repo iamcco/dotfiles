@@ -54,6 +54,8 @@ let g:coc_global_extensions = [
       \ 'coc-marketplace',
       \ 'coc-smartf',
       \ 'coc-tabnine',
+      \ 'coc-jest',
+      \ 'coc-calc',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]
@@ -153,7 +155,7 @@ nmap , <Plug>(coc-smartf-repeat-opposite)
 
 " multiple cursors
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
-nmap <silent> <C-d> <Plug>(coc-cursors-word)
+nmap <silent> <C-d> <Plug>(coc-cursors-word)*<Leader>/
 xmap <silent> <C-d> <Plug>(coc-cursors-range)
 " use normal command like `<leader>xi(`
 nmap <leader>x  <Plug>(coc-cursors-operator)
@@ -163,6 +165,18 @@ command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` for fold current buffer
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
+
+" Run jest for current project
+command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
+
+" Run jest for current file
+command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+
+" Run jest for current test
+command! -nargs=0 JestCurrentTest :call CocAction('runCommand', 'jest.singleTest')
+
+" Init jest in current cwd, require global jest command exists
+command! JestInit :call CocAction('runCommand', 'jest.init')
 
 " do not underline error/info/hit lines
 highlight NoCocUnderline cterm=None gui=None
