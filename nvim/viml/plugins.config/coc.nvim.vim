@@ -155,10 +155,17 @@ nmap , <Plug>(coc-smartf-repeat-opposite)
 
 " multiple cursors
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
-nmap <silent> <C-d> <Plug>(coc-cursors-word)*<Leader>/
+nmap <expr> <silent> <C-d> <SID>select_current_word()
 xmap <silent> <C-d> <Plug>(coc-cursors-range)
 " use normal command like `<leader>xi(`
 nmap <leader>x  <Plug>(coc-cursors-operator)
+
+function! s:select_current_word()
+  if !get(g:, 'coc_cursors_activated', 0)
+    return "\<Plug>(coc-cursors-word)"
+  endif
+  return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
+endfunc
 
 " Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
