@@ -86,7 +86,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 imap <silent> <expr> <C-Space> <SID>check_back_space() ? coc#refresh() : "\<Plug>(coc-snippets-expand)"
 
 " Use K for show documentation in float window
-nnoremap <silent> K :call CocAction('doHover')<CR>
+nnoremap <silent> K :call CocActionAsync('doHover')<CR>
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)

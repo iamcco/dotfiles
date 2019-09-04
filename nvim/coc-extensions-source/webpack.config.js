@@ -6,7 +6,8 @@ module.exports = {
   entry: {
     webpack: './src/webpack.ts',
     repl: './src/repl.ts',
-    status: './src/status.ts'
+    status: './src/status.ts',
+    edict: './src/edict.ts'
   },
   resolve: {
     mainFields: ['module', 'main'],
