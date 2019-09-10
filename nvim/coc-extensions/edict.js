@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 206);
+/******/ 	return __webpack_require__(__webpack_require__.s = 204);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -92,12 +92,7 @@
 module.exports = require("coc.nvim");
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-module.exports = require("path");
-
-/***/ }),
+/* 2 */,
 /* 3 */,
 /* 4 */,
 /* 5 */,
@@ -299,9 +294,7 @@ module.exports = require("path");
 /* 201 */,
 /* 202 */,
 /* 203 */,
-/* 204 */,
-/* 205 */,
-/* 206 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -341,19 +334,25 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var coc_nvim_1 = __webpack_require__(1);
-var vscode_languageserver_types_1 = __webpack_require__(207);
-var path_1 = __webpack_require__(2);
-var fs_1 = __webpack_require__(208);
+var vscode_languageserver_types_1 = __webpack_require__(205);
+var path_1 = __webpack_require__(206);
+var fs_1 = __webpack_require__(207);
+var readline_1 = __importDefault(__webpack_require__(208));
 var download_1 = __webpack_require__(209);
 var ecdictName = 'ecdict.csv';
 var ecdictUrl = 'https://raw.githubusercontent.com/skywind3000/ECDICT/master/ecdict.csv';
 var ecdictData = new Map();
 function edictInit(ecdictPath) {
     if (fs_1.existsSync(ecdictPath)) {
-        var content = fs_1.readFileSync(ecdictPath).toString().split('\n');
-        content.forEach(function (line) {
+        readline_1.default.createInterface({
+            input: fs_1.createReadStream(ecdictPath),
+            terminal: false
+        }).on('line', function (line) {
             var items = line.split(',');
             ecdictData.set(items[0].toLowerCase(), {
                 phonetic: items[1] || '',
@@ -381,9 +380,7 @@ function activate(context) {
                     edictInit(ecdictPath);
                     return [3 /*break*/, 3];
                 case 2:
-                    setTimeout(function () {
-                        edictInit(ecdictPath);
-                    }, 0);
+                    edictInit(ecdictPath);
                     _a.label = 3;
                 case 3:
                     context.subscriptions.push(coc_nvim_1.languages.registerHoverProvider(['*'], {
@@ -447,7 +444,7 @@ exports.activate = activate;
 
 
 /***/ }),
-/* 207 */
+/* 205 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2018,10 +2015,22 @@ var Is;
 
 
 /***/ }),
-/* 208 */
+/* 206 */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ }),
+/* 207 */
 /***/ (function(module, exports) {
 
 module.exports = require("fs");
+
+/***/ }),
+/* 208 */
+/***/ (function(module, exports) {
+
+module.exports = require("readline");
 
 /***/ }),
 /* 209 */
@@ -2068,7 +2077,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var fs_1 = __importDefault(__webpack_require__(208));
+var fs_1 = __importDefault(__webpack_require__(207));
 var tunnel_1 = __importDefault(__webpack_require__(210));
 var got_1 = __importDefault(__webpack_require__(219));
 var coc_nvim_1 = __webpack_require__(1);
@@ -4093,7 +4102,7 @@ module.exports.MaxBufferError = MaxBufferError;
 
 var once = __webpack_require__(234)
 var eos = __webpack_require__(236)
-var fs = __webpack_require__(208) // we only need fs to get the ReadStream and WriteStream prototypes
+var fs = __webpack_require__(207) // we only need fs to get the ReadStream and WriteStream prototypes
 
 var noop = function () {}
 var ancient = /^v?\.0/.test(process.version)
@@ -5714,7 +5723,7 @@ module.exports.TimeoutError = TimeoutError;
 
 "use strict";
 
-const fs = __webpack_require__(208);
+const fs = __webpack_require__(207);
 const util = __webpack_require__(218);
 const is = __webpack_require__(225);
 const isFormData = __webpack_require__(252);

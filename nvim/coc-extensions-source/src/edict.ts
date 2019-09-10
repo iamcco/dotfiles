@@ -1,7 +1,9 @@
 import { ExtensionContext, workspace, languages } from 'coc.nvim';
 import { Hover, MarkupKind } from 'vscode-languageserver-types'
 import { join } from 'path';
-import { existsSync, readFileSync, mkdirSync } from 'fs';
+import { existsSync, mkdirSync, createReadStream } from 'fs';
+import readline from 'readline';
+
 import { download } from './lib/download';
 
 const ecdictName = 'ecdict.csv'
@@ -11,8 +13,10 @@ const ecdictData = new Map()
 
 function edictInit(ecdictPath: string) {
   if (existsSync(ecdictPath)) {
-    const content = readFileSync(ecdictPath).toString().split('\n')
-    content.forEach(line => {
+    readline.createInterface({
+      input: createReadStream(ecdictPath),
+      terminal: false
+    }).on('line', (line: string) => {
       const items = line.split(',')
       ecdictData.set(items[0].toLowerCase(), {
         phonetic: items[1] || '',
@@ -33,9 +37,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
     await download(ecdictPath, ecdictUrl, 'edict')
     edictInit(ecdictPath)
   } else {
-    setTimeout(() => {
-      edictInit(ecdictPath)
-    }, 0);
+    edictInit(ecdictPath)
   }
 
   context.subscriptions.push(
