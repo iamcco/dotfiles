@@ -144,7 +144,7 @@ function activate(context) {
             floatWin = new floatwindow_1.FloatWindow(coc_nvim_1.workspace.nvim, 60, 1000);
             subscriptions.push(floatWin);
             subscriptions.push(coc_nvim_1.workspace.registerAutocmd({
-                event: ['User', 'CocStatusChange'],
+                event: ['User CocStatusChange'],
                 request: false,
                 callback: function () { return __awaiter(_this, void 0, void 0, function () {
                     var newStatus;

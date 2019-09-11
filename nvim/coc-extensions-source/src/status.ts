@@ -10,7 +10,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
 
   subscriptions.push(
     workspace.registerAutocmd({
-      event: ['User', 'CocStatusChange'],
+      event: ['User CocStatusChange'],
       request: false,
       callback: async () => {
         const newStatus = (await workspace.nvim.getVar('coc_status') as string || '').trim()

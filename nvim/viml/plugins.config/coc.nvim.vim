@@ -57,6 +57,7 @@ let g:coc_global_extensions = [
       \ 'coc-jest',
       \ 'coc-calc',
       \ 'coc-webpack',
+      \ 'coc-explorer',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]
@@ -153,6 +154,12 @@ nmap f <Plug>(coc-smartf-forward)
 nmap F <Plug>(coc-smartf-backward)
 nmap ; <Plug>(coc-smartf-repeat)
 nmap , <Plug>(coc-smartf-repeat-opposite)
+
+" coc-explorer
+noremap <silent> <leader>e :execute 'CocCommand explorer' .
+      \ ' --toggle' .
+      \ ' --sources=buffer+,file+' .
+      \ ' --file-columns=git,selection,icon,clip,indent,filename,size ' . expand('%:p:h')<CR>
 
 " multiple cursors
 nmap <silent> <C-c> <Plug>(coc-cursors-position)

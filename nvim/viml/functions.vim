@@ -33,8 +33,18 @@ function! UserFuncInitDir()
   endfor
 endfunction
 
+function IsBackListFiletypes() abort
+  if &filetype =~# '\v^(list|coc-explorer)$'
+    return v:true
+  endif
+  return v:false
+endfunction
+
 "使用绝对行号
 function! UserFuncAbsNum()
+  if IsBackListFiletypes()
+    return
+  endif
   if !exists('#goyo')
     set norelativenumber number
   else
@@ -44,6 +54,9 @@ endfunction
 
 "使用相对行号
 function! UserFuncRelNum()
+  if IsBackListFiletypes()
+    return
+  endif
   if !exists('#goyo')
     set relativenumber number
   else
