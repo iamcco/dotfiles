@@ -56,6 +56,10 @@
     "default":       "\uf29c"
   },
 
+  "explorer.icon.expanded": "▾",
+  "explorer.icon.shrinked": "▸",
+  "explorer.file.column.icon.enableNerdfont": true,
+
   // html
   "html.suggest.angular1": false,   // angular1 is outdate, coc-angular support better
 
@@ -154,8 +158,11 @@
   "imselect.defaultInput": "com.apple.keylayout.ABC",
   "imselect.enableStatusItem": false,
 
-  // clock
-  "clock.enable": true,
+  // coc-gitignore
+  "gitignore.templates.patch": {
+    "Node": "out/"
+  },
+
 
   // smartf
   "smartf.wordJump": false,
