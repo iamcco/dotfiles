@@ -136,7 +136,6 @@ export async function activate(context: ExtensionContext): Promise<void> {
           if (!words) {
             word = getWordByIndex(wordText, position.character - wordRange.start.character)
             words = ecdictData.get(word.toLowerCase())
-            workspace.showMessage(`${word}-${words}`)
           }
           if (!words) {
             return null

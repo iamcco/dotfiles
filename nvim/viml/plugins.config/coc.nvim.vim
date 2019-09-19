@@ -58,6 +58,7 @@ let g:coc_global_extensions = [
       \ 'coc-calc',
       \ 'coc-webpack',
       \ 'coc-explorer',
+      \ 'coc-svelte',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]
