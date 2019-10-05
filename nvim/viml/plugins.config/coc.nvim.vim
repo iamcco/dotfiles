@@ -159,8 +159,7 @@ nmap , <Plug>(coc-smartf-repeat-opposite)
 " coc-explorer
 noremap <silent> <leader>e :execute 'CocCommand explorer' .
       \ ' --toggle' .
-      \ ' --sources=buffer+,file+' .
-      \ ' --file-columns=git,selection,icon,clip,indent,filename,size ' . expand('%:p:h')<CR>
+      \ ' --sources=file+'<CR>
 
 " multiple cursors
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
