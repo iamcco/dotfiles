@@ -211,14 +211,6 @@
       "ignoredRootPaths": ["~"],
       "settings": {}
     },
-    "dart": {
-      "command": "dart_language_server",
-      "args": [],
-      "filetypes": ["dart"],
-      "cwd": "",
-      "initializationOptions": {},
-      "settings": {}
-    },
     "dockerfile": {
       "command": "docker-langserver",
       "filetypes": ["dockerfile"],
