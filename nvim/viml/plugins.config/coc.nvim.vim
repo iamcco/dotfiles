@@ -123,32 +123,32 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" float window scroll
-" nnoremap <expr><C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
-" nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
-
 " Using CocList
-nnoremap <silent> <Space><Space> :CocList<CR>
+nnoremap <silent> <Space>ll :<C-u>CocList<CR>
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>la  :<C-u>CocList diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>le  :<C-u>CocList extensions<cr>
 " Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" git status
-nnoremap <silent> <space>g  :<C-u>CocList --normal --auto-preview gstatus<CR>
+nnoremap <silent> <space>lc  :<C-u>CocList commands<cr>
 " Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>lo  :<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>ls  :<C-u>CocList -I symbols<cr>
 " Open yank list
-nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+nnoremap <silent> <space>ly  :<C-u>CocList -A --normal yank<cr>
+" git status files
+nnoremap <silent> <space>lg  :<C-u>CocList --normal --auto-preview gstatus<CR>
+" git commands
+nnoremap <silent> <space>cg  :<C-u>CocList --input=git. --normal commands<CR>
+" flutter commands
+nnoremap <silent> <space>cf  :<C-u>CocList --input=flutter. --normal commands<CR>
+" Resume latest coc list
+nnoremap <silent> <space><space>  :<C-u>CocListResume<CR>
 " Do default action for next item.
 " nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " press <esc> to cancel.
 nmap f <Plug>(coc-smartf-forward)

@@ -257,7 +257,7 @@ var FloatWindow = /** @class */ (function () {
                                 anchor: 'NE',
                                 height: height,
                                 width: width,
-                                row: 7,
+                                row: 1,
                                 col: col
                             }];
                 }
