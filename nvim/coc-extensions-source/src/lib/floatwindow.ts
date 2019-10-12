@@ -55,7 +55,7 @@ export class FloatWindow {
       anchor: 'NE',
       height,
       width,
-      row: 1,
+      row: 0,
       col
     }
   }

@@ -5,7 +5,7 @@
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "svg",    // coc-svg support svg format
-    "dart",   // diagnostic-languageserver support dart format
+    "dart",   // coc-flutter support dart format */
     "elixir", // diagnostic-languageserver support elixir format
     "eelixir" // diagnostic-languageserver support elixir format
   ],
@@ -136,7 +136,6 @@
     "eelixir":  ["mix_credo", "mix_credo_compile"]
   },
   "diagnostic-languageserver.formatFiletypes": {
-    "dart":    "dartfmt",
     "elixir":  "mix_format",
     "eelixir": "mix_format"
   },
