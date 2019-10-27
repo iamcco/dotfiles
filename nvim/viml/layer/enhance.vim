@@ -1,7 +1,6 @@
 scriptencoding utf-8
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
-Plug 'iamcco/words.vim'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-commentary'
 Plug 'simnalamburt/vim-mundo'

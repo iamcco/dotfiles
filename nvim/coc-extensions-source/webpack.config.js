@@ -5,8 +5,7 @@ module.exports = {
   mode: 'none',
   entry: {
     repl: './src/repl.ts',
-    status: './src/status.ts',
-    edict: './src/edict.ts'
+    status: './src/status.ts'
   },
   resolve: {
     mainFields: ['module', 'main'],
