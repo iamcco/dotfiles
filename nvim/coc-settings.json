@@ -66,11 +66,6 @@
   // coc source
   "coc.source.around.firstMatch": false,
   "coc.source.buffer.firstMatch": false,
-  "coc.source.word.filetypes": [
-    "markdown",
-    "gitcommit",
-    "gina-commit"
-  ],
 
   // snippets
   "snippets.ultisnips.enable": false,
@@ -98,7 +93,9 @@
   "eslint.filetypes": [
     "javascript",
     "javascript.jsx",
-    "javascriptreact"
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
   ],
   "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,

@@ -16,7 +16,6 @@ set noshowmode
 set completeopt=noinsert,menuone,noselect
 
 let g:coc_global_extensions = [
-      \ 'coc-word',
       \ 'coc-emoji',
       \ 'coc-tsserver',
       \ 'coc-html',
@@ -50,7 +49,6 @@ let g:coc_global_extensions = [
       \ 'coc-project',
       \ 'coc-post',
       \ 'coc-clock',
-      \ 'coc-translator',
       \ 'coc-marketplace',
       \ 'coc-smartf',
       \ 'coc-tabnine',
