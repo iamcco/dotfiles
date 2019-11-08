@@ -137,6 +137,8 @@ nnoremap <silent> <space>lo  :<C-u>CocList outline<cr>
 nnoremap <silent> <space>ls  :<C-u>CocList -I symbols<cr>
 " Open yank list
 nnoremap <silent> <space>ly  :<C-u>CocList -A --normal yank<cr>
+" Open translators list with the current word
+nnoremap <silent> <space>lt  :<C-u>CocList --input=<C-r>=expand('<cword>')<cr> --interactive translators<cr>
 " git status files
 nnoremap <silent> <space>lg  :<C-u>CocList --normal --auto-preview gstatus<CR>
 " git commands

@@ -85,9 +85,6 @@ set undofile
 " }}} backup
 "
 
-" iskeyword
-set iskeyword+=-
-
 " updatetime {{{
 set updatetime=300
 " }}} updatetime
