@@ -4,31 +4,39 @@ let g:fzf_command_prefix = 'Fzf'
 let g:fzf_layout = { 'window': 'call OpenFloatWinow()' }
 
 function! OpenFloatWinow()
-  let height = float2nr(&lines / 3)
-  let width = &columns
-  let row = &lines - height
+    let width = min([&columns - 4, max([80, &columns - 20])])
+    let height = min([&lines - 4, max([20, &lines - 10])])
+    let top = ((&lines - height) / 2) - 1
+    let left = (&columns - width) / 2
+    let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
 
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': row - 1,
-        \ 'col': 0,
-        \ 'width': width,
-        \ 'height': height
-        \ }
+    let top = "╭" . repeat("─", width - 2) . "╮"
+    let mid = "│" . repeat(" ", width - 2) . "│"
+    let bot = "╰" . repeat("─", width - 2) . "╯"
+    let lines = [top] + repeat([mid], height - 2) + [bot]
+    let buf = nvim_create_buf(v:false, v:true)
+    call nvim_buf_set_lines(buf, 0, -1, v:true, lines)
+    let s:bwin = nvim_open_win(buf, v:true, opts)
+    set winhl=Normal:Comment
+    let opts.row += 1
+    let opts.height -= 2
+    let opts.col += 2
+    let opts.width -= 4
+    call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
 
-  let buf = nvim_create_buf(v:false, v:true)
-  let win = nvim_open_win(buf, v:true, opts)
+    setlocal
+          \ buftype=nofile
+          \ nobuflisted
+          \ bufhidden=hide
+          \ nonumber
+          \ norelativenumber
+          \ signcolumn=no
 
-  " use normal highlight
-  call setwinvar(win, '&winhl', 'Normal:Normal')
-
-  setlocal
-        \ buftype=nofile
-        \ nobuflisted
-        \ bufhidden=hide
-        \ nonumber
-        \ norelativenumber
-        \ signcolumn=no
+    augroup AuFzfCenterWin
+      autocmd!
+      autocmd BufLeave \v[0-9]+;#FZF$ ++once call nvim_win_close(s:bwin, v:true)
+      autocmd TermClose \v[0-9]+;#FZF$ ++once call nvim_win_close(s:bwin, v:true)
+    augroup END
 endfunction
 
 augroup FzfStateLine
@@ -44,23 +52,6 @@ function! s:fzf_buf_out() abort
 endfunction
 
 noremap <silent> <c-p> :FzfFiles<CR>
-noremap <silent> <Leader>b :FzfBuffers<CR>
 
 command! -bang -nargs=? -complete=dir FzfFiles
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
-
-"   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
-"   :Ag! - Start fzf in fullscreen and display the preview window above
-command! -bang -nargs=* FzfAg
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \                 <bang>0)
-
-" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
-command! -bang -nargs=* FzfRg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
+  \ call fzf#vim#files(<q-args>, {'options': '--preview-window hidden --reverse --margin 0,0'}, <bang>0)

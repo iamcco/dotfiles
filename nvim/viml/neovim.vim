@@ -16,12 +16,11 @@ set wildoptions=pum
 " autoread latest file
 set autoread
 
-" use sran.nvim instead
-let g:loaded_node_provider = 1
-if has('mac')
-  let g:python_host_prog = expand('~/.pyenv/shims/python')
-  let g:python3_host_prog = expand('~/.pyenv/shims/python3')
-endif
+" do not use provider
+let g:loaded_node_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_python_provider = 0
+let g:loaded_python3_provider = 0
 
 " guicursor
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50

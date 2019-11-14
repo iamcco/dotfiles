@@ -127,6 +127,8 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 nnoremap <silent> <Space>ll :<C-u>CocList<CR>
 " Show all diagnostics
 nnoremap <silent> <space>la  :<C-u>CocList diagnostics<cr>
+" Show all buffers
+nnoremap <silent> <space>lb  :<C-u>CocList buffers<cr>
 " Manage extensions
 nnoremap <silent> <space>le  :<C-u>CocList extensions<cr>
 " Show commands
