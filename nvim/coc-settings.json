@@ -59,6 +59,7 @@
   "explorer.icon.expanded": "▾",
   "explorer.icon.shrinked": "▸",
   "explorer.icon.enableNerdfont": true,
+  "explorer.quitOnOpen": true,
 
   // html
   "html.suggest.angular1": false,   // angular1 is outdate, coc-angular support better
