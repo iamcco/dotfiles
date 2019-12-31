@@ -115,8 +115,10 @@
   ],
 
   // coc-yank
-  "yank.priority": 70,
+  "yank.priority": 10,
   "yank.highlight.duration": 200,
+  "yank.limit": 2,
+  "yank.list.maxsize": 100,
 
   // vimlsp
   "vimlsp.indexes.runtimepath": true,

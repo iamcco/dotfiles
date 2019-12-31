@@ -1,6 +1,7 @@
 " Fzf previx
 let g:fzf_command_prefix = 'Fzf'
 
+let g:fzf_files_options='--preview-window down:wrap --reverse'
 let g:fzf_layout = { 'window': 'call OpenFloatWinow()' }
 
 function! OpenFloatWinow()
@@ -54,4 +55,4 @@ endfunction
 noremap <silent> <c-p> :FzfFiles<CR>
 
 command! -bang -nargs=? -complete=dir FzfFiles
-  \ call fzf#vim#files(<q-args>, {'options': '--preview-window hidden --reverse --margin 0,0'}, <bang>0)
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%', '?'), <bang>0)
