@@ -59,6 +59,7 @@ let g:coc_global_extensions = [
       \ 'coc-svelte',
       \ 'coc-flutter',
       \ 'coc-zi',
+      \ 'coc-spell-checker',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]
