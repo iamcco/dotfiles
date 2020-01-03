@@ -60,6 +60,7 @@ let g:coc_global_extensions = [
       \ 'coc-flutter',
       \ 'coc-zi',
       \ 'coc-spell-checker',
+      \ 'coc-cspell-dicts',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]
