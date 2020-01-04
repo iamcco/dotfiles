@@ -61,6 +61,7 @@ let g:coc_global_extensions = [
       \ 'coc-zi',
       \ 'coc-spell-checker',
       \ 'coc-cspell-dicts',
+      \ 'coc-actions',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]
@@ -116,9 +117,9 @@ nmap <silent> <leader>d <Plug>(coc-git-chunkinfo)
 vmap <leader>fm <Plug>(coc-format-selected)
 nmap <leader>fm <Plug>(coc-format-selected)
 
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-vmap <leader>a <Plug>(coc-codeaction-selected)
-nmap <leader>a <Plug>(coc-codeaction-selected)
+" Remap for do codeAction of selected region
+vmap <silent> <space>a :<C-u>CocCommand actions.open<CR>
+nmap <silent> <space>a :<C-u>CocCommand actions.open<CR>
 
 " Remap for do codeAction of current line
 nmap <leader>ac  <Plug>(coc-codeaction)
@@ -217,10 +218,10 @@ augroup coc_au
   " highlight text color
   autocmd ColorScheme * highlight! CocHighlightText guibg=#054c20 ctermbg=023
   " do not underline error/info/hit lines
-  autocmd ColorScheme * highlight! link CocErrorHighlight NoCocUnderline
-  autocmd ColorScheme * highlight! link CocWarningHighlight NoCocUnderline
-  autocmd ColorScheme * highlight! link CocInfoHighlight NoCocUnderline
-  autocmd ColorScheme * highlight! link CocHintHighlight NoCocUnderline
+  " autocmd ColorScheme * highlight! link CocErrorHighlight NoCocUnderline
+  " autocmd ColorScheme * highlight! link CocWarningHighlight NoCocUnderline
+  " autocmd ColorScheme * highlight! link CocInfoHighlight NoCocUnderline
+  " autocmd ColorScheme * highlight! link CocHintHighlight NoCocUnderline
   " error/warning/info/hit sign
   autocmd ColorScheme * highlight! CocErrorSign ctermfg=Red guifg=#ea6962
   autocmd ColorScheme * highlight! CocWarningSign ctermfg=Yellow guifg=#e3a84e

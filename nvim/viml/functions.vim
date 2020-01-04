@@ -34,7 +34,7 @@ function! UserFuncInitDir()
 endfunction
 
 function IsBackListFiletypes() abort
-  if &filetype =~# '\v^(list|coc-explorer)$'
+  if &filetype =~# '\v^(list|coc-explorer|cocactions)$'
     return v:true
   endif
   return v:false

@@ -10,6 +10,10 @@
     "eelixir" // diagnostic-languageserver support elixir format
   ],
 
+  "highlight.disableLanguages": [
+    "cocactions"
+  ],
+
   "npm.binPath": "cnpm",
 
   // diagnostic
@@ -238,21 +242,27 @@
     "yml"
   ],
   "cSpell.userWords": [
-    "eelixir",
+    "Neovim",
+    "cocactions",
+    "nmap",
+    "vmap",
     "Nerdfont",
     "Vimruntime",
     "ccls",
     "cnpm",
     "configrc",
+    "eelixir",
     "emment",
     "eruby",
     "gitignore",
+    "iamcco",
     "imselect",
     "keylayout",
     "langserver",
     "languagetool",
     "markdownlint",
     "maxsize",
+    "nvim",
     "objc",
     "objcpp",
     "runtimepath",
