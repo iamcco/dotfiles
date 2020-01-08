@@ -118,8 +118,11 @@ vmap <leader>fm <Plug>(coc-format-selected)
 nmap <leader>fm <Plug>(coc-format-selected)
 
 " Remap for do codeAction of selected region
-vmap <silent> <space>a :<C-u>CocCommand actions.open<CR>
-nmap <silent> <space>a :<C-u>CocCommand actions.open<CR>
+function! s:cocActionsOpenFromSelected(type) abort
+  execute 'CocCommand actions.open ' . a:type
+endfunction
+map <silent> <space>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+nmap <silent> <space>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
 " Remap for do codeAction of current line
 nmap <leader>ac  <Plug>(coc-codeaction)

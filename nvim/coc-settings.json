@@ -206,6 +206,7 @@
     "%"
   ],
 
+  "cSpell.fixSpellingWithRenameProvider": true,
   "cSpell.enabledLanguageIds": [
     "asciidoc",
     "c",
@@ -243,13 +244,13 @@
   ],
   "cSpell.userWords": [
     "Neovim",
-    "cocactions",
-    "nmap",
-    "vmap",
     "Nerdfont",
+    "Signining",
     "Vimruntime",
+    "bowser",
     "ccls",
     "cnpm",
+    "cocactions",
     "configrc",
     "eelixir",
     "emment",
@@ -262,6 +263,7 @@
     "languagetool",
     "markdownlint",
     "maxsize",
+    "nmap",
     "nvim",
     "objc",
     "objcpp",
@@ -273,7 +275,8 @@
     "stylelint",
     "ultisnips",
     "vimbackupfile",
-    "vimlsp"
+    "vimlsp",
+    "vmap"
   ],
 
   // languageserver
