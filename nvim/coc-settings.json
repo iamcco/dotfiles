@@ -71,6 +71,7 @@
   // coc source
   "coc.source.around.firstMatch": false,
   "coc.source.buffer.firstMatch": false,
+  "coc.source.file.ignoreHidden": false,
 
   // snippets
   "snippets.ultisnips.enable": false,
@@ -247,6 +248,7 @@
     "Nerdfont",
     "Signining",
     "Vimruntime",
+    "bignumber",
     "bowser",
     "ccls",
     "cnpm",
@@ -267,6 +269,7 @@
     "nvim",
     "objc",
     "objcpp",
+    "operatorfunc",
     "runtimepath",
     "shellcheck",
     "shrinked",
