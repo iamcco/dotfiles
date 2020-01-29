@@ -4,4 +4,4 @@ if !exists('g:started_by_firenvim')
   Plug 'itchyny/lightline.vim'
 endif
 Plug 'sainnhe/gruvbox-material'
-Plug 'joshdick/onedark.vim'
+Plug 'iamcco/onedark.vim'
