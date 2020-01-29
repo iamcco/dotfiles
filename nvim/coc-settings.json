@@ -19,8 +19,8 @@
   // diagnostic
   "diagnostic.infoSign":            "ღ",
   "diagnostic.hintSign":            "ஐ",
-  "diagnostic.warningSign":         "⚠",
-  "diagnostic.errorSign":           "✖",
+  "diagnostic.warningSign":         "»",
+  "diagnostic.errorSign":           "×",
   "diagnostic.enable":              true,
   "diagnostic.signOffset":          9999999,
   "diagnostic.highlightOffset":     9999999,
@@ -61,7 +61,6 @@
   },
 
   "explorer.icon.expanded": "▾",
-  "explorer.icon.shrinked": "▸",
   "explorer.icon.enableNerdfont": true,
   "explorer.quitOnOpen": true,
 
