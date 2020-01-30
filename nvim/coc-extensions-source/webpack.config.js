@@ -4,8 +4,7 @@ module.exports = {
   target: 'node',
   mode: 'none',
   entry: {
-    repl: './src/repl.ts',
-    status: './src/status.ts'
+    repl: './src/repl.ts'
   },
   resolve: {
     mainFields: ['module', 'main'],
