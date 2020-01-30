@@ -2,9 +2,9 @@
 let g:fzf_command_prefix = 'Fzf'
 
 let g:fzf_files_options='--preview-window down:wrap --reverse'
-let g:fzf_layout = { 'window': 'call OpenFloatWinow()' }
+let g:fzf_layout = { 'window': 'call UserFzfOpenWin()' }
 
-function! OpenFloatWinow()
+function! UserFzfOpenWin()
     let width = min([&columns - 4, max([80, &columns - 20])])
     let height = min([&lines - 4, max([20, &lines - 10])])
     let top = ((&lines - height) / 2) - 1
@@ -15,9 +15,9 @@ function! OpenFloatWinow()
     let mid = "│" . repeat(" ", width - 2) . "│"
     let bot = "╰" . repeat("─", width - 2) . "╯"
     let lines = [top] + repeat([mid], height - 2) + [bot]
-    let buf = nvim_create_buf(v:false, v:true)
-    call nvim_buf_set_lines(buf, 0, -1, v:true, lines)
-    let s:bwin = nvim_open_win(buf, v:true, opts)
+    let s:buf_bg = nvim_create_buf(v:false, v:true)
+    call nvim_buf_set_lines(s:buf_bg, 0, -1, v:true, lines)
+    let s:bwin = nvim_open_win(s:buf_bg, v:true, opts)
     set winhl=Normal:Comment
     let opts.row += 1
     let opts.height -= 2
@@ -33,23 +33,8 @@ function! OpenFloatWinow()
           \ norelativenumber
           \ signcolumn=no
 
-    augroup AuFzfCenterWin
-      autocmd!
-      autocmd BufLeave \v[0-9]+;#FZF$ ++once call nvim_win_close(s:bwin, v:true)
-      autocmd TermClose \v[0-9]+;#FZF$ ++once call nvim_win_close(s:bwin, v:true)
-    augroup END
-endfunction
-
-augroup FzfStateLine
-  autocmd!
-  autocmd BufLeave \v[0-9]+;#FZF$ call s:fzf_buf_out()
-  autocmd TermClose \v[0-9]+;#FZF$ call s:fzf_buf_out()
-augroup END
-
-function! s:fzf_buf_out() abort
-  if exists('lightline#update')
-    call lightline#update()
-  endif
+    autocmd WinLeave * ++once call nvim_win_close(s:bwin, v:false)
+      \| execute 'bwipeout ' . s:buf_bg
 endfunction
 
 noremap <silent> <c-p> :FzfFiles<CR>

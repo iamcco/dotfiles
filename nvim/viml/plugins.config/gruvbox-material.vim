@@ -1,7 +1,4 @@
 function s:init() abort
-  if exists('g:lightline')
-    let g:lightline['colorscheme'] = 'gruvbox_material'
-  endif
   " virtual text highlight
   highlight! CocCodeLens guifg=#606060 ctermfg=60
   highlight! link SignColumn LineNr

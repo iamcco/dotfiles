@@ -1,7 +1,4 @@
 function s:init() abort
-  if exists('g:lightline')
-    let g:lightline['colorscheme'] = 'onedark'
-  endif
   " virtual text highlight
   highlight! CocCodeLens guifg=#556060 ctermfg=60
   highlight! link SignColumn LineNr

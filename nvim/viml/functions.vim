@@ -74,68 +74,14 @@ function! UserFuncJumpLastPos()
   endtry
 endfunction
 
-function! UserFuncGetFileName()
-  let l:filename = expand('%:p')
-  " 对于 index.js 特殊处理，如果文件名字是 /xxxx/xxx/xx/index.js 取 xx
-  let l:js_index_file_reg = ':s?\v^.*\/(\w+)\/index\.js$?\1?'
-  if l:filename =~? '\vindex\.js$'
-    let l:filename = fnamemodify(l:filename, l:js_index_file_reg)
-  elseif l:filename !=# ''
-    let l:filename = fnamemodify(l:filename, ':t')
-  else
-    let l:filename = '[No Name]'
-  endif
-  return l:filename
-endfunction
-
-function! UserFuncGetLinterWarnings() abort
-  let info = get(b:, 'coc_diagnostic_info', {})
-  let l:counts = {}
-  try
-    let l:counts = ale#statusline#Count(bufnr(''))
-  catch /.*/
-  endtry
-  let l:all_errors = get(l:counts, 'error', 0) + get(l:counts, 'style_error', 0)
-  let l:all_non_errors = get(l:counts, 'total', 0) - l:all_errors
-  let l:all_non_errors = l:all_non_errors + get(info, 'warning', 0)
-  return l:all_non_errors == 0 ? '' : printf('%d', l:all_non_errors)
-endfunction
-
-function! UserFuncGetLinterErrors() abort
-  let info = get(b:, 'coc_diagnostic_info', {})
-  let l:counts = {}
-  try
-    let l:counts = ale#statusline#Count(bufnr(''))
-  catch /.*/
-  endtry
-  let l:all_errors = get(l:counts, 'error', 0) + get(l:counts, 'style_error', 0)
-  let l:all_errors = l:all_errors + get(info, 'error', 0)
-  return l:all_errors == 0 ? '' : printf('%d', l:all_errors)
-endfunction
-
 let s:browsers = {}
 let s:browsers['chrome'] = 'open -a Google\ Chrome '
 function! UserFuncViewFile()
     exec 'silent !' . s:browsers['chrome'] . expand('%:p')
 endfunction
 
-function! UserFuncMapLoclistQuit()
-    if &buftype ==# 'quickfix'
-        redir => l:buffers
-        silent ls
-        redir END
-
-        let l:nr = bufnr('%')
-        for l:buf in split(l:buffers, '\n')
-            if match(l:buf, '\v^\s*'.l:nr) > -1 && match(l:buf, '\cQuickfix') == -1
-                noremap <silent><buffer> q :lclose<CR>
-            endif
-        endfor
-    endif
-endfunction
-
 function! UserFuncGetProjectDir()
-    return fnamemodify(finddir('.git', fnameescape(expand('%:p:h')) . ';'), ':h')
+    return fnamemodify(finddir('.git', fnameescape(expand('%:p:h')) . ';'), ':p:h:h')
 endfunction
 
 function! UserFuncDetectFileType() abort

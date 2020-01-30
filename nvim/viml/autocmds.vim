@@ -35,11 +35,4 @@ augroup UserDetectFileType
   autocmd BufRead,BufNewFile * call UserFuncDetectFileType()
 augroup END
 
-" mapping {{{
-augroup UserAugMapping
-    autocmd!
-    autocmd! BufWinEnter * call UserFuncMapLoclistQuit()
-augroup END
-" }}} mapping
-
 " }}}
