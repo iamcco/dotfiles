@@ -66,3 +66,7 @@ cnoremap <C-l> <S-Right>
 vnoremap <silent> <C-j> :m '>+1<CR>gv=gv
 vnoremap <silent> <C-k> :m '<-2<CR>gv=gv
 " }}} words move
+
+" Ctrl+G {{{
+nnoremap <silent> <C-G> :call UserFuncCtrlG()<CR>
+" }}} Ctrl+G

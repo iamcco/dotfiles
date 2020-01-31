@@ -105,3 +105,67 @@ function! UserFuncDetectFileType() abort
       set filetype=jsonc
     endif
 endfunction
+
+function! s:buf_total_num()
+  return len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+endfunction
+
+function! s:file_size(f)
+  let l:size = getfsize(expand(a:f))
+  if l:size == 0 || l:size == -1 || l:size == -2
+    return ''
+  endif
+  if l:size < 1024
+    return l:size.'bytes'
+  elseif l:size < 1024*1024
+    return printf('%.1f', l:size/1024.0).'K'
+  elseif l:size < 1024*1024*1024
+    return printf('%.1f', l:size/1024.0/1024.0) . 'M'
+  else
+    return printf('%.1f', l:size/1024.0/1024.0/1024.0) . 'G'
+  endif
+endfunction
+
+function s:current_char_in_hex() abort
+    let l:tmp = @a
+    normal! v"ay
+    let l:res = @a
+    let @a = l:tmp
+    if l:res ==# "\n"
+        let l:res = '\n'
+    endif
+    return printf(l:res . ':0x%x', char2nr(l:res))
+endfunction
+
+" core logic from space-vim
+function! UserFuncCtrlG() abort
+  redir => file
+  :silent f!
+  redir END
+  let l:msg = [
+        \   [substitute(file[2:], '\v"', '', 'g'), 'String'],
+        \   ['Cursor:'.line('.').':'.col('.'), 'Type'],
+        \   [s:current_char_in_hex(), 'Function'],
+        \   [s:file_size(@%), 'Keyword'],
+        \   ['TOT:'.s:buf_total_num(), 'Number'],
+        \   ['['.&ft.']', 'Label']
+        \]
+  let l:scp = &l:shortmess
+  try
+      let l:cpos = getcurpos()
+      " The message is truncated
+      setlocal shortmess+=T
+      for l:item in l:msg
+        " use highlight group
+        execute 'echohl ' . l:item[1]
+        " use echo do not add to message history
+        echon l:item[0] . ' '
+      endfor
+      if l:cpos != getcurpos()
+          call setpos('.', l:cpos)
+      endif
+  finally
+      let &l:shortmess = l:scp
+      echohl None
+  endtry
+endfunction
