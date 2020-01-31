@@ -240,7 +240,8 @@
     "typescript",
     "typescriptreact",
     "yaml",
-    "yml"
+    "yml",
+    "vim"
   ],
   "cSpell.userWords": [
     "Neovim",

@@ -124,10 +124,15 @@ endfunction
 xmap <silent> <space>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
 nmap <silent> <space>a :<C-u>let g:cocActionsTmpPos = getcurpos() \| set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
-" Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <TAB> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
 
 " Using CocList
 nnoremap <silent> <Space>ll :<C-u>CocList<CR>
@@ -242,3 +247,36 @@ augroup coc_au
   autocmd ColorScheme * highlight GitDeleteHi guifg=#f3423a ctermfg=196
   autocmd ColorScheme * highlight CocCursorRange guibg=#b16286 guifg=#ebdbb2
 augroup END
+
+" init g:statusline
+if !exists('g:statusline')
+  let g:statusline = {}
+endif
+
+" hide statusline for coc-explorer window
+let g:statusline['coc-explorer'] = {
+      \   'active': '%#StlNormal#',
+      \   'deactive': '%#StlNormal#'
+      \ }
+
+" coc-list statusline
+let g:statusline['list'] = {
+  \   'active': join([
+  \      '%#StlMode#\ %{Statusline_mode(get(b:list_status,\"mode\"))}\ %*',
+  \      '%#StlSection#%{Statusline_pad(get(b:list_status,\"name\",\"\"))}%*',
+  \      '%#StlNormal#%{Statusline_pad(get(g:,\"coc_list_loading_status\",\"\"))}',
+  \      '%=',
+  \      '%{Statusline_pad(get(b:list_status,\"cwd\",\"\"))}',
+  \      '%*',
+  \      '%#StlSection#\ %l/%{get(b:list_status,\"total\",\"\")}\ %*'
+  \   ], ''),
+  \   'deactive': join([
+  \      '%#StlNormal#\ %{Statusline_mode(get(b:list_status,\"mode\"))}\ %*',
+  \      '%#StlNormal#%{Statusline_pad(get(b:list_status,\"name\",\"\"))}%*',
+  \      '%#StlNormal#%{Statusline_pad(get(g:,\"coc_list_loading_status\",\"\"))}',
+  \      '%=',
+  \      '%{Statusline_pad(get(b:list_status,\"cwd\",\"\"))}',
+  \      '%*',
+  \      '%#StlNormal#\ %l/%{get(b:list_status,\"total\",\"\")}\ %*'
+  \   ], ''),
+  \ }
