@@ -137,6 +137,7 @@ var coc_nvim_1 = __webpack_require__(1);
 var path_1 = __webpack_require__(3);
 var fs_1 = __webpack_require__(4);
 var GIT_EXTENSION = 'coc-git-p';
+var GIT_COMMIT = 'git.commit';
 function activate(context) {
     return __awaiter(this, void 0, void 0, function () {
         var gitExt, gitApi, subscription, sub;
@@ -164,7 +165,11 @@ function activate(context) {
                         }
                     });
                     context.subscriptions.push(sub);
-                    context.subscriptions.push(coc_nvim_1.commands.registerCommand('git.commit', function () { return __awaiter(_this, void 0, void 0, function () {
+                    coc_nvim_1.commands.titles.set(GIT_COMMIT, 'Git commit');
+                    context.subscriptions.push(coc_nvim_1.Disposable.create(function () {
+                        coc_nvim_1.commands.titles.delete(GIT_COMMIT);
+                    }));
+                    context.subscriptions.push(coc_nvim_1.commands.registerCommand(GIT_COMMIT, function () { return __awaiter(_this, void 0, void 0, function () {
                         var nvim, doc, repo, _a, conflicted, staged, gitDiff, gitStatus;
                         var _this = this;
                         return __generator(this, function (_b) {
@@ -220,23 +225,35 @@ function activate(context) {
                                     _b.sent();
                                     subscription.push(coc_nvim_1.workspace.registerAutocmd({
                                         event: 'WinClosed',
-                                        request: true,
+                                        request: false,
                                         callback: function () { return __awaiter(_this, void 0, void 0, function () {
-                                            var commitEditMsg, commitMsg, commitRes;
+                                            var commitEditMsg, commitMsg, commitRes, error_1;
                                             return __generator(this, function (_a) {
                                                 switch (_a.label) {
                                                     case 0:
+                                                        // unregister autocmd
+                                                        sub.dispose();
+                                                        // close tab
+                                                        return [4 /*yield*/, nvim.command('tabclose')
+                                                            // get commit message from repo/.git/COMMIT_EDITMSG
+                                                        ];
+                                                    case 1:
+                                                        // close tab
+                                                        _a.sent();
                                                         commitEditMsg = path_1.join(repo.root, '.git', 'COMMIT_EDITMSG');
                                                         commitMsg = fs_1.readFileSync(commitEditMsg)
                                                             .toString()
                                                             .split('\n')
                                                             .filter(function (line) { return !line.startsWith('#'); })
                                                             .join('\n');
-                                                        if (!(commitMsg.trim() !== '')) return [3 /*break*/, 2];
+                                                        if (!(commitMsg.trim() !== '')) return [3 /*break*/, 5];
+                                                        _a.label = 2;
+                                                    case 2:
+                                                        _a.trys.push([2, 4, , 5]);
                                                         return [4 /*yield*/, repo.exec(['commit', '-F', '-'], {
                                                                 input: commitMsg
                                                             })];
-                                                    case 1:
+                                                    case 3:
                                                         commitRes = _a.sent();
                                                         if (commitRes.exitCode !== 0) {
                                                             coc_nvim_1.workspace.showMessage(commitRes.stderr, 'error');
@@ -244,15 +261,12 @@ function activate(context) {
                                                         else {
                                                             coc_nvim_1.workspace.showMessage(commitRes.stdout.split('\n')[0]);
                                                         }
-                                                        _a.label = 2;
-                                                    case 2: 
-                                                    // close tab
-                                                    return [4 /*yield*/, nvim.command('tabclose')];
-                                                    case 3:
-                                                        // close tab
-                                                        _a.sent();
-                                                        sub.dispose();
-                                                        return [2 /*return*/];
+                                                        return [3 /*break*/, 5];
+                                                    case 4:
+                                                        error_1 = _a.sent();
+                                                        coc_nvim_1.workspace.showMessage("" + (error_1.message || error_1), 'error');
+                                                        return [3 /*break*/, 5];
+                                                    case 5: return [2 /*return*/];
                                                 }
                                             });
                                         }); }

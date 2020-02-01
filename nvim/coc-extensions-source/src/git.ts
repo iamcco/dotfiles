@@ -75,8 +75,12 @@ export async function activate(context: ExtensionContext) {
       subscription.push(
         workspace.registerAutocmd({
           event: 'WinClosed',
-          request: true,
+          request: false,
           callback: async () => {
+            // unregister autocmd
+            sub.dispose()
+            // close tab
+            await nvim.command('tabclose')
             // get commit message from repo/.git/COMMIT_EDITMSG
             const commitEditMsg = join(repo.root, '.git', 'COMMIT_EDITMSG')
             const commitMsg = readFileSync(commitEditMsg)
@@ -85,21 +89,22 @@ export async function activate(context: ExtensionContext) {
               .filter(line => !line.startsWith('#'))
               .join('\n')
             if (commitMsg.trim() !== '') {
-              const commitRes = await repo.exec(
-                ['commit', '-F', '-'],
-                {
-                  input: commitMsg
+              try {
+                const commitRes = await repo.exec(
+                  ['commit', '-F', '-'],
+                  {
+                    input: commitMsg
+                  }
+                )
+                if (commitRes.exitCode !== 0) {
+                  workspace.showMessage(commitRes.stderr, 'error')
+                } else {
+                  workspace.showMessage(commitRes.stdout.split('\n')[0])
                 }
-              )
-              if (commitRes.exitCode !== 0) {
-                workspace.showMessage(commitRes.stderr, 'error')
-              } else {
-                workspace.showMessage(commitRes.stdout.split('\n')[0])
+              } catch (error) {
+                workspace.showMessage(`Commit fail: ${error.message || error}`, 'error')
               }
             }
-            // close tab
-            await nvim.command('tabclose')
-            sub.dispose()
           }
         }),
         workspace.registerAutocmd({
