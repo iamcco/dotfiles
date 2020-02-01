@@ -4,6 +4,7 @@ import {join} from "path";
 import {writeFileSync, readFileSync} from "fs";
 
 const GIT_EXTENSION = 'coc-git-p'
+const GIT_COMMIT = 'git.commit'
 
 export async function activate(context: ExtensionContext) {
   // get git-p extension
@@ -27,8 +28,12 @@ export async function activate(context: ExtensionContext) {
   })
   context.subscriptions.push(sub)
 
+  commands.titles.set(GIT_COMMIT, 'Git commit')
+  context.subscriptions.push(Disposable.create(() => {
+    commands.titles.delete(GIT_COMMIT)
+  }))
   context.subscriptions.push(
-    commands.registerCommand('git.commit', async () => {
+    commands.registerCommand(GIT_COMMIT, async () => {
       const nvim = workspace.nvim
       const doc = await workspace.document
       const repo = await gitApi.manager.getRepo(doc.bufnr)
