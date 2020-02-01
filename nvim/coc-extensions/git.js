@@ -227,7 +227,7 @@ function activate(context) {
                                         event: 'WinClosed',
                                         request: false,
                                         callback: function () { return __awaiter(_this, void 0, void 0, function () {
-                                            var commitEditMsg, commitMsg, commitRes, error_1;
+                                            var commitEditMsg, commitMsg, statusItem, commitRes, error_1;
                                             return __generator(this, function (_a) {
                                                 switch (_a.label) {
                                                     case 0:
@@ -246,10 +246,14 @@ function activate(context) {
                                                             .split('\n')
                                                             .filter(function (line) { return !line.startsWith('#'); })
                                                             .join('\n');
-                                                        if (!(commitMsg.trim() !== '')) return [3 /*break*/, 5];
+                                                        if (!(commitMsg.trim() !== '')) return [3 /*break*/, 6];
+                                                        statusItem = coc_nvim_1.workspace.createStatusBarItem(0, { progress: true });
+                                                        subscription.push(statusItem);
+                                                        statusItem.text = 'git';
+                                                        statusItem.show();
                                                         _a.label = 2;
                                                     case 2:
-                                                        _a.trys.push([2, 4, , 5]);
+                                                        _a.trys.push([2, 4, 5, 6]);
                                                         return [4 /*yield*/, repo.exec(['commit', '-F', '-'], {
                                                                 input: commitMsg
                                                             })];
@@ -261,12 +265,16 @@ function activate(context) {
                                                         else {
                                                             coc_nvim_1.workspace.showMessage(commitRes.stdout.split('\n')[0]);
                                                         }
-                                                        return [3 /*break*/, 5];
+                                                        return [3 /*break*/, 6];
                                                     case 4:
                                                         error_1 = _a.sent();
-                                                        coc_nvim_1.workspace.showMessage("" + (error_1.message || error_1), 'error');
-                                                        return [3 /*break*/, 5];
-                                                    case 5: return [2 /*return*/];
+                                                        coc_nvim_1.workspace.showMessage("Commit fail: " + (error_1.message || error_1), 'error');
+                                                        return [3 /*break*/, 6];
+                                                    case 5:
+                                                        statusItem.hide();
+                                                        statusItem.dispose();
+                                                        return [7 /*endfinally*/];
+                                                    case 6: return [2 /*return*/];
                                                 }
                                             });
                                         }); }

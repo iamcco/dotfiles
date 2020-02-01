@@ -89,6 +89,10 @@ export async function activate(context: ExtensionContext) {
               .filter(line => !line.startsWith('#'))
               .join('\n')
             if (commitMsg.trim() !== '') {
+              const statusItem = workspace.createStatusBarItem(0, { progress: true })
+              subscription.push(statusItem)
+              statusItem.text = 'git'
+              statusItem.show()
               try {
                 const commitRes = await repo.exec(
                   ['commit', '-F', '-'],
@@ -103,6 +107,9 @@ export async function activate(context: ExtensionContext) {
                 }
               } catch (error) {
                 workspace.showMessage(`Commit fail: ${error.message || error}`, 'error')
+              } finally {
+                statusItem.hide()
+                statusItem.dispose()
               }
             }
           }
