@@ -1,7 +1,7 @@
 import {ExtensionContext, commands, workspace, extensions, Disposable} from "coc.nvim";
 import { ExtensionApi } from 'coc-git-p';
 import {join} from "path";
-import {writeFileSync, readFileSync} from "fs";
+import {writeFileSync, readFileSync, existsSync} from "fs";
 
 const GIT_EXTENSION = 'coc-git-p'
 const GIT_COMMIT = 'git.commit'
@@ -56,21 +56,22 @@ export async function activate(context: ExtensionContext) {
       nvim.command(`edit +setl\\ buftype=nofile git://diff`, true)
       nvim.command('setl foldmethod=syntax nobuflisted noswapfile bufhidden=wipe', true)
       nvim.command('setf git', true)
-      nvim.call('append', [0, gitDiff.stdout.split('\n')], true)
-      nvim.command('normal! Gdddd', true)
+      nvim.call('append', [0, gitDiff.stdout.split('\n').slice(0,-1)], true)
       nvim.command('normal! zi', true)
       nvim.command(`exe 1`, true)
       // create commit buffer
       nvim.command(`vsplit git://commit`, true)
       nvim.command('setl nobuflisted noswapfile bufhidden=wipe', true)
       nvim.command('setf gitcommit', true)
-      nvim.call('append', [0, gitStatus.stdout.split('\n').map(line => `# ${line}`)], true)
-      nvim.command('normal! Gdddd', true)
+      nvim.call('append', [1, gitStatus.stdout.split('\n').map(line => `# ${line}`).slice(0,-1)], true)
       nvim.command(`exe 1`, true)
-      nvim.command(`normal! O`, true)
       nvim.command(`startinsert`, true)
       nvim.command(`setl nomodified`, true)
-      await nvim.resumeNotification(false, true)
+      await nvim.resumeNotification(false, false)
+
+      // update commit
+      const commitEditMsg = join(repo.root, '.git', 'COMMIT_EDITMSG')
+      writeFileSync(commitEditMsg, [''].concat(gitStatus.stdout.split('\n').map(line => `# ${line}`)).slice(0, -1).join('\n'))
 
       subscription.push(
         workspace.registerAutocmd({
@@ -83,6 +84,9 @@ export async function activate(context: ExtensionContext) {
             await nvim.command('tabclose')
             // get commit message from repo/.git/COMMIT_EDITMSG
             const commitEditMsg = join(repo.root, '.git', 'COMMIT_EDITMSG')
+            if (!existsSync(commitEditMsg)) {
+              return
+            }
             const commitMsg = readFileSync(commitEditMsg)
               .toString()
               .split('\n')

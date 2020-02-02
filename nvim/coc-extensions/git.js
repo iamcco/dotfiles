@@ -170,7 +170,7 @@ function activate(context) {
                         coc_nvim_1.commands.titles.delete(GIT_COMMIT);
                     }));
                     context.subscriptions.push(coc_nvim_1.commands.registerCommand(GIT_COMMIT, function () { return __awaiter(_this, void 0, void 0, function () {
-                        var nvim, doc, repo, _a, conflicted, staged, gitDiff, gitStatus;
+                        var nvim, doc, repo, _a, conflicted, staged, gitDiff, gitStatus, commitEditMsg;
                         var _this = this;
                         return __generator(this, function (_b) {
                             switch (_b.label) {
@@ -206,23 +206,24 @@ function activate(context) {
                                     nvim.command("edit +setl\\ buftype=nofile git://diff", true);
                                     nvim.command('setl foldmethod=syntax nobuflisted noswapfile bufhidden=wipe', true);
                                     nvim.command('setf git', true);
-                                    nvim.call('append', [0, gitDiff.stdout.split('\n')], true);
-                                    nvim.command('normal! Gdddd', true);
+                                    nvim.call('append', [0, gitDiff.stdout.split('\n').slice(0, -1)], true);
                                     nvim.command('normal! zi', true);
                                     nvim.command("exe 1", true);
                                     // create commit buffer
                                     nvim.command("vsplit git://commit", true);
                                     nvim.command('setl nobuflisted noswapfile bufhidden=wipe', true);
                                     nvim.command('setf gitcommit', true);
-                                    nvim.call('append', [0, gitStatus.stdout.split('\n').map(function (line) { return "# " + line; })], true);
-                                    nvim.command('normal! Gdddd', true);
+                                    nvim.call('append', [1, gitStatus.stdout.split('\n').map(function (line) { return "# " + line; }).slice(0, -1)], true);
                                     nvim.command("exe 1", true);
-                                    nvim.command("normal! O", true);
                                     nvim.command("startinsert", true);
                                     nvim.command("setl nomodified", true);
-                                    return [4 /*yield*/, nvim.resumeNotification(false, true)];
+                                    return [4 /*yield*/, nvim.resumeNotification(false, false)
+                                        // update commit
+                                    ];
                                 case 6:
                                     _b.sent();
+                                    commitEditMsg = path_1.join(repo.root, '.git', 'COMMIT_EDITMSG');
+                                    fs_1.writeFileSync(commitEditMsg, [''].concat(gitStatus.stdout.split('\n').map(function (line) { return "# " + line; })).slice(0, -1).join('\n'));
                                     subscription.push(coc_nvim_1.workspace.registerAutocmd({
                                         event: 'WinClosed',
                                         request: false,
@@ -241,6 +242,9 @@ function activate(context) {
                                                         // close tab
                                                         _a.sent();
                                                         commitEditMsg = path_1.join(repo.root, '.git', 'COMMIT_EDITMSG');
+                                                        if (!fs_1.existsSync(commitEditMsg)) {
+                                                            return [2 /*return*/];
+                                                        }
                                                         commitMsg = fs_1.readFileSync(commitEditMsg)
                                                             .toString()
                                                             .split('\n')
