@@ -209,9 +209,6 @@ command! -nargs=0 JestCurrentTest :call CocAction('runCommand', 'jest.singleTest
 " Init jest in current cwd, require global jest command exists
 command! JestInit :call CocAction('runCommand', 'jest.init')
 
-" do not underline error/info/hit lines
-highlight NoCocUnderline cterm=None gui=None
-
 augroup coc_au
   autocmd!
   " Or use formatexpr for range format
@@ -224,13 +221,15 @@ augroup coc_au
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call CocActionAsync('highlight')
 
+  " do not underline error/info/hit lines
+  autocmd ColorScheme * highlight! CocUndercurl cterm=undercurl gui=undercurl
   " highlight text color
   autocmd ColorScheme * highlight! CocHighlightText guibg=#054c20 ctermbg=023
   " do not underline error/info/hit lines
-  " autocmd ColorScheme * highlight! link CocErrorHighlight NoCocUnderline
-  " autocmd ColorScheme * highlight! link CocWarningHighlight NoCocUnderline
-  " autocmd ColorScheme * highlight! link CocInfoHighlight NoCocUnderline
-  " autocmd ColorScheme * highlight! link CocHintHighlight NoCocUnderline
+  autocmd ColorScheme * highlight! link CocErrorHighlight CocUndercurl
+  autocmd ColorScheme * highlight! link CocWarningHighlight CocUndercurl
+  autocmd ColorScheme * highlight! link CocInfoHighlight CocUndercurl
+  autocmd ColorScheme * highlight! link CocHintHighlight CocUndercurl
   " error/warning/info/hit sign
   autocmd ColorScheme * highlight! CocErrorSign ctermfg=Red guifg=#ea6962
   autocmd ColorScheme * highlight! CocWarningSign ctermfg=Yellow guifg=#e3a84e
