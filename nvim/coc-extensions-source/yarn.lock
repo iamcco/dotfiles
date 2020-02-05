@@ -565,10 +565,10 @@ clone-response@^1.0.2:
   dependencies:
     mimic-response "^1.0.0"
 
-coc-git-p@^1.7.2:
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/coc-git-p/-/coc-git-p-1.7.2.tgz#091f9762aa3150197e6801068df33b03e09081af"
-  integrity sha512-Ww9U3IHr4F3aikQdRPk1eIn8wI2qDka8l5r/mB/02KdiQUW7qfcw5UDqnE81dK9/Soet+fzyVi+DDVOliulWyg==
+coc-git@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/coc-git/-/coc-git-1.7.0.tgz#724d1551c294c93a35c91b7a7e184721854363b6"
+  integrity sha512-aHrEg7/XWNyWWrSaJ5XCba2Kvps4BCT5eHtArVSEFiz7ud9qfXBsTypzDl17fDz8MDYRE+vt8ZuXhhPjRKvfHQ==
 
 coc.nvim@^0.0.72:
   version "0.0.72"

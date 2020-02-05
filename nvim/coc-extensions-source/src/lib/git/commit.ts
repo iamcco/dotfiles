@@ -1,8 +1,8 @@
 import {ExtensionContext, commands, workspace, Disposable} from "coc.nvim";
-import { ExtensionApi } from 'coc-git-p';
+import { ExtensionApi } from 'coc-git';
 import {join} from "path";
 import {writeFileSync, readFileSync, existsSync} from "fs";
-import {IExecutionResult} from "coc-git-p/lib/git";
+import {IExecutionResult} from "coc-git/lib/git";
 
 const GIT_COMMIT = 'git.commit'
 

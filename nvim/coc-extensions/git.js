@@ -136,7 +136,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var coc_nvim_1 = __webpack_require__(1);
 var commit_1 = __webpack_require__(3);
 var push_1 = __webpack_require__(6);
-var GIT_EXTENSION = 'coc-git-p';
+var GIT_EXTENSION = 'coc-git';
 function activate(context) {
     return __awaiter(this, void 0, void 0, function () {
         var gitExt, gitApi;

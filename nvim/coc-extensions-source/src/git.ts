@@ -1,10 +1,10 @@
 import {ExtensionContext, workspace, extensions } from "coc.nvim";
-import { ExtensionApi } from 'coc-git-p';
+import { ExtensionApi } from 'coc-git';
 
 import { activate as activateCommit } from './lib/git/commit';
 import { activate as activatePush } from './lib/git/push';
 
-const GIT_EXTENSION = 'coc-git-p'
+const GIT_EXTENSION = 'coc-git'
 
 export async function activate(context: ExtensionContext) {
   // get git-p extension

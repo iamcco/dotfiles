@@ -1,6 +1,6 @@
 import {ExtensionContext, workspace, commands, Disposable, StatusBarItem} from "coc.nvim"
-import {ExtensionApi} from "coc-git-p"
-import {IExecutionResult} from "coc-git-p/lib/git"
+import {ExtensionApi} from "coc-git"
+import {IExecutionResult} from "coc-git/lib/git"
 
 const GIT_PUSH = 'git.push'
 
