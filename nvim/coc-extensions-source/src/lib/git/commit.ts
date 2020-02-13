@@ -71,13 +71,18 @@ export async function activate(context: ExtensionContext, gitApi: ExtensionApi) 
 
       subscription.push(
         workspace.registerAutocmd({
-          event: 'WinClosed',
+          event: 'WinClosed <buffer>',
+          pattern: '',
           request: false,
           callback: async () => {
             // unregister autocmd
             sub.dispose()
             // close tab
-            await nvim.command('tabclose')
+            const tab = await nvim.tabpage
+            const windows = await tab.windows
+            if (windows.length > 1) {
+              await nvim.command('tabclose')
+            }
             // get commit message from repo/.git/COMMIT_EDITMSG
             const commitEditMsg = join(repo.root, '.git', 'COMMIT_EDITMSG')
             if (!existsSync(commitEditMsg)) {
@@ -113,9 +118,10 @@ export async function activate(context: ExtensionContext, gitApi: ExtensionApi) 
               }
             }
           }
-        }),
+        } as any),
         workspace.registerAutocmd({
-          event: 'BufWriteCmd',
+          event: 'BufWriteCmd <buffer>',
+          pattern: '',
           request: true,
           callback: async () => {
             // set buffer nomodified
@@ -126,7 +132,7 @@ export async function activate(context: ExtensionContext, gitApi: ExtensionApi) 
             const commitEditMsg = join(repo.root, '.git', 'COMMIT_EDITMSG')
             writeFileSync(commitEditMsg, lines.join('\n'))
           }
-        })
+        } as any)
       )
     })
   )

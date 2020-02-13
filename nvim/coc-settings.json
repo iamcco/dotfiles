@@ -247,7 +247,6 @@
     "Neovim",
     "Nerdfont",
     "Signining",
-    "Vimruntime",
     "bignumber",
     "bowser",
     "ccls",
@@ -270,7 +269,7 @@
     "objc",
     "objcpp",
     "operatorfunc",
-    "runtimepath",
+    "sfile",
     "shellcheck",
     "shrinked",
     "smartf",
@@ -278,8 +277,8 @@
     "stylelint",
     "ultisnips",
     "vimbackupfile",
+    "viml",
     "vimlsp",
-    "vmap"
   ],
 
   // languageserver

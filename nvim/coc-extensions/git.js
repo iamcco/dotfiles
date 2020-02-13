@@ -296,22 +296,28 @@ function activate(context, gitApi) {
                                 commitEditMsg = path_1.join(repo.root, '.git', 'COMMIT_EDITMSG');
                                 fs_1.writeFileSync(commitEditMsg, [''].concat(gitStatus.stdout.split('\n').map(function (line) { return "# " + line; })).slice(0, -1).join('\n'));
                                 subscription.push(coc_nvim_1.workspace.registerAutocmd({
-                                    event: 'WinClosed',
+                                    event: 'WinClosed <buffer>',
+                                    pattern: '',
                                     request: false,
                                     callback: function () { return __awaiter(_this, void 0, void 0, function () {
-                                        var commitEditMsg, commitMsg, statusItem, commitRes, error_1;
+                                        var tab, windows, commitEditMsg, commitMsg, statusItem, commitRes, error_1;
                                         return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
                                                     // unregister autocmd
                                                     sub.dispose();
-                                                    // close tab
-                                                    return [4 /*yield*/, nvim.command('tabclose')
-                                                        // get commit message from repo/.git/COMMIT_EDITMSG
-                                                    ];
+                                                    return [4 /*yield*/, nvim.tabpage];
                                                 case 1:
-                                                    // close tab
+                                                    tab = _a.sent();
+                                                    return [4 /*yield*/, tab.windows];
+                                                case 2:
+                                                    windows = _a.sent();
+                                                    if (!(windows.length > 1)) return [3 /*break*/, 4];
+                                                    return [4 /*yield*/, nvim.command('tabclose')];
+                                                case 3:
                                                     _a.sent();
+                                                    _a.label = 4;
+                                                case 4:
                                                     commitEditMsg = path_1.join(repo.root, '.git', 'COMMIT_EDITMSG');
                                                     if (!fs_1.existsSync(commitEditMsg)) {
                                                         return [2 /*return*/];
@@ -321,18 +327,18 @@ function activate(context, gitApi) {
                                                         .split('\n')
                                                         .filter(function (line) { return !line.startsWith('#'); })
                                                         .join('\n');
-                                                    if (!(commitMsg.trim() !== '')) return [3 /*break*/, 6];
+                                                    if (!(commitMsg.trim() !== '')) return [3 /*break*/, 9];
                                                     statusItem = coc_nvim_1.workspace.createStatusBarItem(0, { progress: true });
                                                     subscription.push(statusItem);
                                                     statusItem.text = 'commit';
                                                     statusItem.show();
-                                                    _a.label = 2;
-                                                case 2:
-                                                    _a.trys.push([2, 4, 5, 6]);
+                                                    _a.label = 5;
+                                                case 5:
+                                                    _a.trys.push([5, 7, 8, 9]);
                                                     return [4 /*yield*/, repo.exec(['commit'].concat(args, ['-F', '-']), {
                                                             input: commitMsg
                                                         })];
-                                                case 3:
+                                                case 6:
                                                     commitRes = _a.sent();
                                                     if (commitRes.exitCode !== 0) {
                                                         coc_nvim_1.workspace.showMessage(commitRes.stderr, 'error');
@@ -340,21 +346,22 @@ function activate(context, gitApi) {
                                                     else {
                                                         coc_nvim_1.workspace.showMessage(commitRes.stdout.split('\n')[0]);
                                                     }
-                                                    return [3 /*break*/, 6];
-                                                case 4:
+                                                    return [3 /*break*/, 9];
+                                                case 7:
                                                     error_1 = _a.sent();
                                                     coc_nvim_1.workspace.showMessage("Commit fail: " + (error_1.message || error_1), 'error');
-                                                    return [3 /*break*/, 6];
-                                                case 5:
+                                                    return [3 /*break*/, 9];
+                                                case 8:
                                                     statusItem.hide();
                                                     statusItem.dispose();
                                                     return [7 /*endfinally*/];
-                                                case 6: return [2 /*return*/];
+                                                case 9: return [2 /*return*/];
                                             }
                                         });
                                     }); }
                                 }), coc_nvim_1.workspace.registerAutocmd({
-                                    event: 'BufWriteCmd',
+                                    event: 'BufWriteCmd <buffer>',
+                                    pattern: '',
                                     request: true,
                                     callback: function () { return __awaiter(_this, void 0, void 0, function () {
                                         var buf, lines, commitEditMsg;
