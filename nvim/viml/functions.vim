@@ -34,7 +34,7 @@ function! UserFuncInitDir()
 endfunction
 
 function IsBackListFiletypes() abort
-  if &filetype =~# '\v^(list|coc-explorer|cocactions)$'
+  if &filetype =~# '\v^(list|coc-explorer|cocactions|any-jump)$'
     return v:true
   endif
   return v:false
@@ -46,9 +46,9 @@ function! UserFuncAbsNum()
     return
   endif
   if !exists('#goyo')
-    set norelativenumber number
+    setlocal norelativenumber number
   else
-    set norelativenumber nonumber
+    setlocal norelativenumber nonumber
   endif
 endfunction
 
@@ -58,9 +58,9 @@ function! UserFuncRelNum()
     return
   endif
   if !exists('#goyo')
-    set relativenumber number
+    setlocal relativenumber number
   else
-    set norelativenumber nonumber
+    setlocal norelativenumber nonumber
   endif
 endfunction
 
@@ -101,7 +101,7 @@ function! UserFuncDetectFileType() abort
       set nocursorcolumn
       set colorcolumn=0
     endif
-    if l:fileName =~# '\vtsconfig\.json$' || l:fileName =~# '\vjsconfig\.json$'
+    if l:fileName =~# '\vtsconfig(\..*)*\.json$' || l:fileName =~# '\vjsconfig(\..*)*\.json$'
       set filetype=jsonc
     endif
 endfunction
