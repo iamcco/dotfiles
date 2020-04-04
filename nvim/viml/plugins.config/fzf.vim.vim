@@ -1,4 +1,4 @@
-" Fzf previx
+" Fzf prefix
 let g:fzf_command_prefix = 'Fzf'
 
 let g:fzf_files_options='--preview-window down:wrap --reverse'
