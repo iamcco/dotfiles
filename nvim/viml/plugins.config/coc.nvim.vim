@@ -131,8 +131,8 @@ omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
 " Use <TAB> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <S-TAB> <Plug>(coc-range-select)
-xmap <silent> <S-TAB> <Plug>(coc-range-select)
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
 
 " Using CocList
 nnoremap <silent> <Space>ll :<C-u>CocList<CR>
@@ -245,6 +245,9 @@ augroup coc_au
   autocmd ColorScheme * highlight GitModifyHi guifg=#83a598 ctermfg=33
   autocmd ColorScheme * highlight GitDeleteHi guifg=#f3423a ctermfg=196
   autocmd ColorScheme * highlight CocCursorRange guibg=#b16286 guifg=#ebdbb2
+  " coc-explorer
+  autocmd ColorScheme * highlight! link CocExplorerNormalFloatBorder Comment
+  autocmd ColorScheme * highlight! link CocExplorerNormalFloat Normal
 augroup END
 
 " init g:statusline

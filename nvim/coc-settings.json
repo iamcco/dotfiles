@@ -25,6 +25,7 @@
   "diagnostic.signOffset":          9999999,
   "diagnostic.highlightOffset":     9999999,
   "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.separateRelatedInformationAsDiagnostics": true,
 
   // suggest
   "suggest.detailField": "abbr",
@@ -69,6 +70,7 @@
 
   // html
   "html.suggest.angular1": false,   // angular1 is outdate, coc-angular support better
+  "html.autoClosingTags": true,
 
   // coc source
   "coc.source.around.firstMatch": false,
@@ -281,7 +283,8 @@
     "ultisnips",
     "vimbackupfile",
     "viml",
-    "vimlsp"
+    "vimlsp",
+    "vsplit"
   ],
 
   // languageserver

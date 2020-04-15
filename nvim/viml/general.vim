@@ -57,7 +57,6 @@ set laststatus=2
 " }}} statusline
 
 " match {{{
-set showmatch
 set smartcase
 set ignorecase
 " }}} match
