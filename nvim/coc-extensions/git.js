@@ -255,7 +255,7 @@ function activate(context, gitApi) {
                                 if (staged === 0) {
                                     return [2 /*return*/, coc_nvim_1.workspace.showMessage('Nothing to commit!')];
                                 }
-                                return [4 /*yield*/, repo.exec(['--no-pager', 'diff', 'head'])
+                                return [4 /*yield*/, repo.exec(['--no-pager', 'diff', '--cached'])
                                     // get current git status
                                 ];
                             case 4:

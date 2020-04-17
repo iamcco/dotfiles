@@ -36,7 +36,7 @@ export async function activate(context: ExtensionContext, gitApi: ExtensionApi) 
         return workspace.showMessage('Nothing to commit!')
       }
       // get diff to head
-      const gitDiff = await repo.exec(['--no-pager', 'diff', 'head'])
+      const gitDiff = await repo.exec(['--no-pager', 'diff', '--cached'])
       // get current git status
       let gitStatus: IExecutionResult<string>
       if (args.indexOf('--amend') !== -1) {

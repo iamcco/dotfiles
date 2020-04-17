@@ -10,6 +10,9 @@ set cursorline
 " set colorcolumn=100
 set relativenumber number
 set signcolumn=yes
-set background=dark
 
-colorscheme onedark
+if !exists('g:loaded_color')
+  let g:loaded_color = 1
+  set background=dark
+  colorscheme onedark
+endif
