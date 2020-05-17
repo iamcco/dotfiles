@@ -62,6 +62,7 @@ let g:coc_global_extensions = [
       \ 'coc-spell-checker',
       \ 'coc-cspell-dicts',
       \ 'coc-actions',
+      \ 'coc-leetcode',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]
