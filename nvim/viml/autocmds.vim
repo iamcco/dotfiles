@@ -25,7 +25,7 @@ augroup UserAugFileType
     autocmd!
     autocmd BufRead,BufNewFile *.{md,mkd,markdown,mdown,mkdn,mdwn} set filetype=markdown
     " move cursor to the first line for gitcommit
-    autocmd FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+    autocmd FileType gitcommit au! BufWinEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 augroup END
 " }}}
 

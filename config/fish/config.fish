@@ -4,7 +4,7 @@ set fish_greeting \> Too Young Too Simple, Sometimes Naive \<
 # JAVA and android
 switch (uname)
 case Darwin
-    set -gx JAVA_HOME /Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home
+    set -gx JAVA_HOME /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
     if test -d "$JAVA_HOME"
         set CLASS_PATH $JAVA_HOME/lib/dt.jar $JAVA_HOME/lib/tools.jar
         set -gx PATH $JAVA_HOME/bin $PATH
