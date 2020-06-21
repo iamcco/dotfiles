@@ -27,6 +27,8 @@
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
 
+  "flutter.openDevLogSplitCommand": "botright 10split",
+  "flutter.lsp.initialization.suggestFromUnimportedLibraries": false,
   // suggest
   "suggest.detailField": "abbr",
   "suggest.maxCompleteItemCount": 50,
