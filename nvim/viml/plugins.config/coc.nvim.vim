@@ -64,6 +64,7 @@ let g:coc_global_extensions = [
       \ 'coc-actions',
       \ 'coc-leetcode',
       \ 'coc-rainbow-fart',
+      \ 'coc-utools',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]

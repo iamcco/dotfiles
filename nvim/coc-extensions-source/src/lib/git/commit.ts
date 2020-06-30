@@ -69,6 +69,8 @@ export async function activate(context: ExtensionContext, gitApi: ExtensionApi) 
       const commitEditMsg = join(repo.root, '.git', 'COMMIT_EDITMSG')
       writeFileSync(commitEditMsg, [''].concat(gitStatus.stdout.split('\n').map(line => `# ${line}`)).slice(0, -1).join('\n'))
 
+      const commitTab = await nvim.tabpage
+      const tabNumber = await commitTab.number
       subscription.push(
         workspace.registerAutocmd({
           event: 'WinClosed <buffer>',
@@ -78,10 +80,17 @@ export async function activate(context: ExtensionContext, gitApi: ExtensionApi) 
             // unregister autocmd
             sub.dispose()
             // close tab
-            const tab = await nvim.tabpage
-            const windows = await tab.windows
-            if (windows.length > 1) {
-              await nvim.command('tabclose')
+            try {
+              const curTab = await nvim.tabpage
+              const curTabNUmber = await curTab.number
+              if (tabNumber === curTabNUmber) {
+                const windows = await curTab.windows
+                if (windows.length >= 1) {
+                  await nvim.command('tabclose')
+                }
+              }
+            } catch (error) {
+              // TODO
             }
             // get commit message from repo/.git/COMMIT_EDITMSG
             const commitEditMsg = join(repo.root, '.git', 'COMMIT_EDITMSG')

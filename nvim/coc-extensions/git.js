@@ -234,7 +234,7 @@ function activate(context, gitApi) {
                     args[_i] = arguments[_i];
                 }
                 return __awaiter(_this, void 0, void 0, function () {
-                    var nvim, doc, repo, _a, conflicted, staged, gitDiff, gitStatus, commitEditMsg;
+                    var nvim, doc, repo, _a, conflicted, staged, gitDiff, gitStatus, commitEditMsg, commitTab, tabNumber;
                     var _this = this;
                     return __generator(this, function (_b) {
                         switch (_b.label) {
@@ -295,29 +295,46 @@ function activate(context, gitApi) {
                                 _b.sent();
                                 commitEditMsg = path_1.join(repo.root, '.git', 'COMMIT_EDITMSG');
                                 fs_1.writeFileSync(commitEditMsg, [''].concat(gitStatus.stdout.split('\n').map(function (line) { return "# " + line; })).slice(0, -1).join('\n'));
+                                return [4 /*yield*/, nvim.tabpage];
+                            case 10:
+                                commitTab = _b.sent();
+                                return [4 /*yield*/, commitTab.number];
+                            case 11:
+                                tabNumber = _b.sent();
                                 subscription.push(coc_nvim_1.workspace.registerAutocmd({
                                     event: 'WinClosed <buffer>',
                                     pattern: '',
                                     request: false,
                                     callback: function () { return __awaiter(_this, void 0, void 0, function () {
-                                        var tab, windows, commitEditMsg, commitMsg, statusItem, commitRes, error_1;
+                                        var curTab, curTabNUmber, windows, error_1, commitEditMsg, commitMsg, statusItem, commitRes, error_2;
                                         return __generator(this, function (_a) {
                                             switch (_a.label) {
                                                 case 0:
                                                     // unregister autocmd
                                                     sub.dispose();
-                                                    return [4 /*yield*/, nvim.tabpage];
+                                                    _a.label = 1;
                                                 case 1:
-                                                    tab = _a.sent();
-                                                    return [4 /*yield*/, tab.windows];
+                                                    _a.trys.push([1, 7, , 8]);
+                                                    return [4 /*yield*/, nvim.tabpage];
                                                 case 2:
-                                                    windows = _a.sent();
-                                                    if (!(windows.length > 1)) return [3 /*break*/, 4];
-                                                    return [4 /*yield*/, nvim.command('tabclose')];
+                                                    curTab = _a.sent();
+                                                    return [4 /*yield*/, curTab.number];
                                                 case 3:
-                                                    _a.sent();
-                                                    _a.label = 4;
+                                                    curTabNUmber = _a.sent();
+                                                    if (!(tabNumber === curTabNUmber)) return [3 /*break*/, 6];
+                                                    return [4 /*yield*/, curTab.windows];
                                                 case 4:
+                                                    windows = _a.sent();
+                                                    if (!(windows.length >= 1)) return [3 /*break*/, 6];
+                                                    return [4 /*yield*/, nvim.command('tabclose')];
+                                                case 5:
+                                                    _a.sent();
+                                                    _a.label = 6;
+                                                case 6: return [3 /*break*/, 8];
+                                                case 7:
+                                                    error_1 = _a.sent();
+                                                    return [3 /*break*/, 8];
+                                                case 8:
                                                     commitEditMsg = path_1.join(repo.root, '.git', 'COMMIT_EDITMSG');
                                                     if (!fs_1.existsSync(commitEditMsg)) {
                                                         return [2 /*return*/];
@@ -327,18 +344,18 @@ function activate(context, gitApi) {
                                                         .split('\n')
                                                         .filter(function (line) { return !line.startsWith('#'); })
                                                         .join('\n');
-                                                    if (!(commitMsg.trim() !== '')) return [3 /*break*/, 9];
+                                                    if (!(commitMsg.trim() !== '')) return [3 /*break*/, 13];
                                                     statusItem = coc_nvim_1.workspace.createStatusBarItem(0, { progress: true });
                                                     subscription.push(statusItem);
                                                     statusItem.text = 'commit';
                                                     statusItem.show();
-                                                    _a.label = 5;
-                                                case 5:
-                                                    _a.trys.push([5, 7, 8, 9]);
+                                                    _a.label = 9;
+                                                case 9:
+                                                    _a.trys.push([9, 11, 12, 13]);
                                                     return [4 /*yield*/, repo.exec(['commit'].concat(args, ['-F', '-']), {
                                                             input: commitMsg
                                                         })];
-                                                case 6:
+                                                case 10:
                                                     commitRes = _a.sent();
                                                     if (commitRes.exitCode !== 0) {
                                                         coc_nvim_1.workspace.showMessage(commitRes.stderr, 'error');
@@ -346,16 +363,16 @@ function activate(context, gitApi) {
                                                     else {
                                                         coc_nvim_1.workspace.showMessage(commitRes.stdout.split('\n')[0]);
                                                     }
-                                                    return [3 /*break*/, 9];
-                                                case 7:
-                                                    error_1 = _a.sent();
-                                                    coc_nvim_1.workspace.showMessage("Commit fail: " + (error_1.message || error_1), 'error');
-                                                    return [3 /*break*/, 9];
-                                                case 8:
+                                                    return [3 /*break*/, 13];
+                                                case 11:
+                                                    error_2 = _a.sent();
+                                                    coc_nvim_1.workspace.showMessage("Commit fail: " + (error_2.message || error_2), 'error');
+                                                    return [3 /*break*/, 13];
+                                                case 12:
                                                     statusItem.hide();
                                                     statusItem.dispose();
                                                     return [7 /*endfinally*/];
-                                                case 9: return [2 /*return*/];
+                                                case 13: return [2 /*return*/];
                                             }
                                         });
                                     }); }

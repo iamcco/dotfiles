@@ -16,6 +16,12 @@
 
   "npm.binPath": "cnpm",
 
+  // coc-actions
+  "coc-actions.showActionKind": false,
+
+  // coc-yank
+  "yank.enableCompletion": false,
+
   // diagnostic
   "diagnostic.infoSign":            "ღ",
   "diagnostic.hintSign":            "ஐ",
@@ -27,8 +33,9 @@
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
 
+  // coc-flutter
   "flutter.openDevLogSplitCommand": "botright 10split",
-  "flutter.lsp.initialization.suggestFromUnimportedLibraries": false,
+
   // suggest
   "suggest.detailField": "abbr",
   "suggest.maxCompleteItemCount": 50,
@@ -254,7 +261,9 @@
     "Neovim",
     "Nerdfont",
     "Signining",
+    "Unimported",
     "bignumber",
+    "botright",
     "bowser",
     "ccls",
     "cnpm",

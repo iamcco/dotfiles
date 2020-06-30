@@ -8,6 +8,13 @@ export async function activate(context: ExtensionContext): Promise<void> {
       if (!buffer) {
         return
       }
+      if (args.length === 0) {
+        const cmd = await workspace.requestInput('jsdo(l,ln) =>')
+        if ((cmd || '').trim() === '') {
+          return
+        }
+        args.push(cmd)
+      }
       const lines = await buffer.getLines()
       const fn = Function('l', 'ln', `return ${args.join(' ').trim().replace(/^return/, '')}`)
       // vim line start from 1

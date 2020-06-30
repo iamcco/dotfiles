@@ -145,7 +145,7 @@ function activate(context) {
                     args[_i] = arguments[_i];
                 }
                 return __awaiter(_this, void 0, void 0, function () {
-                    var doc, buffer, lines, fn, newLines;
+                    var doc, buffer, cmd, lines, fn, newLines;
                     return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0: return [4 /*yield*/, coc_nvim_1.workspace.document];
@@ -155,8 +155,17 @@ function activate(context) {
                                 if (!buffer) {
                                     return [2 /*return*/];
                                 }
-                                return [4 /*yield*/, buffer.getLines()];
+                                if (!(args.length === 0)) return [3 /*break*/, 3];
+                                return [4 /*yield*/, coc_nvim_1.workspace.requestInput('jsdo(l,ln) =>')];
                             case 2:
+                                cmd = _a.sent();
+                                if ((cmd || '').trim() === '') {
+                                    return [2 /*return*/];
+                                }
+                                args.push(cmd);
+                                _a.label = 3;
+                            case 3: return [4 /*yield*/, buffer.getLines()];
+                            case 4:
                                 lines = _a.sent();
                                 fn = Function('l', 'ln', "return " + args.join(' ').trim().replace(/^return/, ''));
                                 newLines = lines.map(function (line, lineNumber) { return fn(line, lineNumber + 1); });
