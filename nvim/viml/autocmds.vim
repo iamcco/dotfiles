@@ -35,4 +35,10 @@ augroup UserDetectFileType
   autocmd BufRead,BufNewFile * call UserFuncDetectFileType()
 augroup END
 
+" yank highlight
+augroup LuaHighlight
+  autocmd!
+  autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
+augroup END
+
 " }}}

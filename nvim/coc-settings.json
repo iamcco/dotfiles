@@ -19,9 +19,6 @@
   // coc-actions
   "coc-actions.showActionKind": false,
 
-  // coc-yank
-  "yank.enableCompletion": false,
-
   // diagnostic
   "diagnostic.infoSign":            "ღ",
   "diagnostic.hintSign":            "ஐ",
@@ -134,16 +131,17 @@
 
   // coc-yank
   "yank.priority": 10,
+  "yank.highlight.enable": false, // use neovim's built-in instead
   "yank.highlight.duration": 200,
   "yank.limit": 2,
   "yank.list.maxsize": 100,
+  "yank.enableCompletion": false,
 
   // vimlsp
   "vimlsp.indexes.runtimepath": true,
   "vimlsp.indexes.gap": 10,
   "vimlsp.indexes.count": 3,
   "vimlsp.suggest.fromVimruntime": true,
-  "vimlsp.suggest.fromRuntimepath": false,
 
   // diagnostic-languageserver
   "diagnostic-languageserver.filetypes": {
