@@ -1,5 +1,4 @@
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'sainnhe/gruvbox-material'
 Plug 'iamcco/onedark.vim'
 Plug 'iamcco/statusline.vim'

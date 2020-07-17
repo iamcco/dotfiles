@@ -127,6 +127,12 @@ endfunction
 xmap <silent> <space>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
 nmap <silent> <space>a :<C-u>let g:cocActionsTmpPos = getcurpos() \| set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
+function! s:changeCaseFromSelected(type) abort
+  execute 'CocCommand utools.changeCase.toggle ' . a:type
+endfunction
+xmap <silent> <space>cc :<C-u>execute 'CocCommand utools.changeCase.toggle ' . visualmode()<CR>
+nmap <silent> <space>cc :<C-u>set operatorfunc=<SID>changeCaseFromSelected<CR>g@
+
 " Create mappings for function text object, requires document symbols feature of languageserver.
 xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)

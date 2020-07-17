@@ -4,9 +4,7 @@ module.exports = {
   target: 'node',
   mode: 'none',
   entry: {
-    repl: './src/repl.ts',
-    git: './src/git.ts',
-    commands: './src/commands.ts'
+    repl: './src/repl.ts'
   },
   resolve: {
     mainFields: ['module', 'main'],

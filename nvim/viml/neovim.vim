@@ -37,8 +37,6 @@ tnoremap <expr> <Esc> <SID>exit_to_normal()
 
 augroup UserNeo
   autocmd!
-  " delete the buffer when exit terminal
-  autocmd TermClose * bd!
   " for autoread
   autocmd FocusGained * :checktime
 augroup END
