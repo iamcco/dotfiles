@@ -33,8 +33,9 @@ function! UserFuncInitDir()
   endfor
 endfunction
 
-function IsBackListFiletypes() abort
-  if &filetype =~# '\v^(list|coc-explorer|cocactions|any-jump)$'
+function s:isBackListFiletypes() abort
+  let l:ft = &filetype
+  if l:ft ==# '' || l:ft =~# '\v^(list|coc-explorer|cocactions|any-jump|utools)$'
     return v:true
   endif
   return v:false
@@ -42,7 +43,7 @@ endfunction
 
 "使用绝对行号
 function! UserFuncAbsNum()
-  if IsBackListFiletypes()
+  if s:isBackListFiletypes()
     return
   endif
   if !exists('#goyo')
@@ -54,7 +55,7 @@ endfunction
 
 "使用相对行号
 function! UserFuncRelNum()
-  if IsBackListFiletypes()
+  if s:isBackListFiletypes()
     return
   endif
   if !exists('#goyo')

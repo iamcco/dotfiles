@@ -50,8 +50,6 @@ let g:coc_global_extensions = [
       \ 'coc-post',
       \ 'coc-clock',
       \ 'coc-marketplace',
-      \ 'coc-smartf',
-      \ 'coc-tabnine',
       \ 'coc-jest',
       \ 'coc-calc',
       \ 'coc-webpack',
@@ -158,27 +156,21 @@ nnoremap <silent> <space>lo  :<C-u>CocList outline<cr>
 " Search workspace symbols
 nnoremap <silent> <space>ls  :<C-u>CocList -I symbols<cr>
 " Open yank list
-nnoremap <silent> <space>ly  :<C-u>CocList -A --normal yank<cr>
+nnoremap <silent> <space>ly  :<C-u>CocList -A yank<cr>
 " Open translators list with the current word
 nnoremap <silent> <space>lt  :<C-u>CocList --input=<C-r>=expand('<cword>')<cr> --interactive translators<cr>
 " git status files
-nnoremap <silent> <space>lg  :<C-u>CocList --normal --auto-preview gstatus<CR>
+nnoremap <silent> <space>lg  :<C-u>CocList --auto-preview gstatus<CR>
 " git commands
-nnoremap <silent> <space>cg  :<C-u>CocList --input=git. --normal commands<CR>
+nnoremap <silent> <space>cg  :<C-u>CocList --input=git. commands<CR>
 " flutter commands
-nnoremap <silent> <space>cf  :<C-u>CocList --input=flutter. --normal commands<CR>
+nnoremap <silent> <space>cf  :<C-u>CocList --input=flutter. commands<CR>
 " Resume latest coc list
 nnoremap <silent> <space><space>  :<C-u>CocListResume<CR>
 " Do default action for next item.
 " nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-
-" press <esc> to cancel.
-nmap f <Plug>(coc-smartf-forward)
-nmap F <Plug>(coc-smartf-backward)
-nmap ; <Plug>(coc-smartf-repeat)
-nmap , <Plug>(coc-smartf-repeat-opposite)
 
 " coc-explorer
 noremap <silent> <leader>e :execute 'CocCommand explorer' .
@@ -246,9 +238,6 @@ augroup coc_au
   autocmd ColorScheme * highlight! CocHintSign ctermfg=Blue guifg=#7dae9b
   " virtual text highlight
   autocmd ColorScheme * highlight! CocCodeLens guifg=#606060 ctermfg=60
-  " smartf
-  autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#ffbf67
-  autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
   " diff sign highlight groups
   autocmd ColorScheme * highlight GitAddHi    guifg=#b8bb26 ctermfg=40
   autocmd ColorScheme * highlight GitModifyHi guifg=#83a598 ctermfg=33
@@ -269,25 +258,3 @@ let g:statusline['coc-explorer'] = {
       \   'active': '%#StlNormal#',
       \   'deactive': '%#StlNormal#'
       \ }
-
-" coc-list statusline
-let g:statusline['list'] = {
-  \   'active': join([
-  \      '%#StlMode#\ %{Statusline_mode(get(b:list_status,\"mode\"))}\ %*',
-  \      '%#StlSection#%{Statusline_pad(get(b:list_status,\"name\",\"\"))}%*',
-  \      '%#StlNormal#%{Statusline_pad(get(g:,\"coc_list_loading_status\",\"\"))}',
-  \      '%=',
-  \      '%{Statusline_pad(get(b:list_status,\"cwd\",\"\"))}',
-  \      '%*',
-  \      '%#StlSection#\ %l/%{get(b:list_status,\"total\",\"\")}\ %*'
-  \   ], ''),
-  \   'deactive': join([
-  \      '%#StlNormal#\ %{Statusline_mode(get(b:list_status,\"mode\"))}\ %*',
-  \      '%#StlNormal#%{Statusline_pad(get(b:list_status,\"name\",\"\"))}%*',
-  \      '%#StlNormal#%{Statusline_pad(get(g:,\"coc_list_loading_status\",\"\"))}',
-  \      '%=',
-  \      '%{Statusline_pad(get(b:list_status,\"cwd\",\"\"))}',
-  \      '%*',
-  \      '%#StlNormal#\ %l/%{get(b:list_status,\"total\",\"\")}\ %*'
-  \   ], ''),
-  \ }

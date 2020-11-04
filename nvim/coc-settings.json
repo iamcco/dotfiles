@@ -33,6 +33,12 @@
   // coc-flutter
   "flutter.openDevLogSplitCommand": "botright 10split",
 
+  // utools
+  "utools.changeCase.toggle": [
+    "camelCase",
+    "snakeCase"
+  ],
+
   // suggest
   "suggest.detailField": "abbr",
   "suggest.maxCompleteItemCount": 50,
@@ -188,35 +194,6 @@
 
   // clock
   "clock.enable": false,
-
-  // smartf
-  "smartf.wordJump": false,
-  "smartf.jumpOnTrigger": true,
-  "smartf.charactersIgnoreByNavigator": [
-    "a",
-    "A",
-    "i",
-    "I",
-    "d",
-    "D",
-    "c",
-    "C",
-    "s",
-    "S",
-    "x",
-    "r",
-    "y",
-    "p",
-    "P",
-    "v",
-    "g",
-    "h",
-    "j",
-    "k",
-    "l",
-    "*",
-    "%"
-  ],
 
   "cSpell.fixSpellingWithRenameProvider": true,
   "cSpell.enabledLanguageIds": [
