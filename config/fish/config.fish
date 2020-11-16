@@ -43,10 +43,6 @@ if test -d "$HOME/.pub-cache/bin"
     set -gx PATH $HOME/.pub-cache/bin $PATH
 end
 
-# fish proxy
-set proxy_host 127.0.0.1:49501
-set proxy_auth false
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f $HOME'/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source $HOME'/google-cloud-sdk/path.fish.inc'; else; . $HOME'/google-cloud-sdk/path.fish.inc'; end; end
 
