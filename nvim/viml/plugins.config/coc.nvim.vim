@@ -173,10 +173,12 @@ nnoremap <silent> <space><space>  :<C-u>CocListResume<CR>
 " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 
 " coc-explorer
-noremap <silent> <leader>e :execute 'CocCommand explorer' .
+noremap <silent> <space>e :execute 'CocCommand explorer' .
       \ ' --toggle' .
-      \ ' --position=floating' .
       \ ' --sources=file+'<CR>
+noremap <silent> <space>t :execute 'CocCommand explorer' .
+      \ ' --toggle' .
+      \ ' --preset=tab'<CR>
 
 " multiple cursors
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
@@ -258,3 +260,36 @@ let g:statusline['coc-explorer'] = {
       \   'active': '%#StlNormal#',
       \   'deactive': '%#StlNormal#'
       \ }
+
+let g:coc_explorer_global_presets = {
+\   'neovim-rc': {
+\     'position': 'tab',
+\     'root-uri': '~/.configrc/nvim',
+\     'quit-on-open': v:true
+\   },
+\   'tab': {
+\     'position': 'tab',
+\     'quit-on-open': v:true,
+\   },
+\   'floating': {
+\     'position': 'floating',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingTop': {
+\     'position': 'floating',
+\     'floating-position': 'center-top',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingLeft': {
+\     'position': 'floating',
+\     'floating-position': 'left-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingRight': {
+\     'position': 'floating',
+\     'floating-position': 'right-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   }
+\ }
