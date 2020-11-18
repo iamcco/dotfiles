@@ -53,7 +53,6 @@ let g:coc_global_extensions = [
       \ 'coc-jest',
       \ 'coc-calc',
       \ 'coc-webpack',
-      \ 'coc-explorer',
       \ 'coc-svelte',
       \ 'coc-flutter',
       \ 'coc-zi',
@@ -172,14 +171,6 @@ nnoremap <silent> <space><space>  :<C-u>CocListResume<CR>
 " Do default action for previous item.
 " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 
-" coc-explorer
-noremap <silent> <space>e :execute 'CocCommand explorer' .
-      \ ' --toggle' .
-      \ ' --sources=file+'<CR>
-noremap <silent> <space>t :execute 'CocCommand explorer' .
-      \ ' --toggle' .
-      \ ' --preset=tab'<CR>
-
 " multiple cursors
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
 nmap <expr> <silent> <C-d> <SID>select_current_word()
@@ -245,51 +236,9 @@ augroup coc_au
   autocmd ColorScheme * highlight GitModifyHi guifg=#83a598 ctermfg=33
   autocmd ColorScheme * highlight GitDeleteHi guifg=#f3423a ctermfg=196
   autocmd ColorScheme * highlight CocCursorRange guibg=#b16286 guifg=#ebdbb2
-  " coc-explorer
-  autocmd ColorScheme * highlight! link CocExplorerNormalFloatBorder Comment
-  autocmd ColorScheme * highlight! link CocExplorerNormalFloat Normal
 augroup END
 
 " init g:statusline
 if !exists('g:statusline')
   let g:statusline = {}
 endif
-
-" hide statusline for coc-explorer window
-let g:statusline['coc-explorer'] = {
-      \   'active': '%#StlNormal#',
-      \   'deactive': '%#StlNormal#'
-      \ }
-
-let g:coc_explorer_global_presets = {
-\   'neovim-rc': {
-\     'position': 'tab',
-\     'root-uri': '~/.configrc/nvim',
-\     'quit-on-open': v:true
-\   },
-\   'tab': {
-\     'position': 'tab',
-\     'quit-on-open': v:true,
-\   },
-\   'floating': {
-\     'position': 'floating',
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingTop': {
-\     'position': 'floating',
-\     'floating-position': 'center-top',
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingLeft': {
-\     'position': 'floating',
-\     'floating-position': 'left-center',
-\     'floating-width': 50,
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingRight': {
-\     'position': 'floating',
-\     'floating-position': 'right-center',
-\     'floating-width': 50,
-\     'open-action-strategy': 'sourceWindow',
-\   }
-\ }

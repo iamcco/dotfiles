@@ -73,13 +73,6 @@
     "default":       "\uf29c"
   },
 
-  "explorer.icon.expanded": "▾",
-  "explorer.icon.enableNerdfont": true,
-  "explorer.quitOnOpen": true,
-  "explorer.floating.width": -20,
-  "explorer.floating.height": -10,
-  "explorer.openAction.strategy": "sourceWindow",
-
   // html
   "html.suggest.angular1": false,   // angular1 is outdate, coc-angular support better
   "html.autoClosingTags": true,
