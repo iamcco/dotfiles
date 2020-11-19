@@ -12,7 +12,7 @@ let g:lua_tree_root_folder_modifier = ':~' "This is the default. See :help filen
 let g:lua_tree_tab_open = 0 "0 by default, will open the tree when entering a new tab and the tree was previously open
 let g:lua_tree_allow_resize = 1 "0 by default, will not resize the tree when opening a file
 let g:lua_tree_show_icons = {
-    \ 'git': 1,
+    \ 'git': 0,
     \ 'folders': 1,
     \ 'files': 0,
     \ }

@@ -175,11 +175,6 @@
   // list
   "session.directory": "~/.vimbackupfile",
 
-  // imselect
-  "imselect.defaultInput": "com.apple.keylayout.ABC",
-  "imselect.enableStatusItem": false,
-  "imselect.enableFloating": false,
-
   // coc-gitignore
   "gitignore.templates.patch": {
     "Node": "out/"
