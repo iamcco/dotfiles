@@ -236,8 +236,3 @@ augroup coc_au
   autocmd ColorScheme * highlight GitDeleteHi guifg=#f3423a ctermfg=196
   autocmd ColorScheme * highlight CocCursorRange guibg=#b16286 guifg=#ebdbb2
 augroup END
-
-" init g:statusline
-if !exists('g:statusline')
-  let g:statusline = {}
-endif

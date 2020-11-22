@@ -72,7 +72,9 @@ nnoremap <silent> <Space>f :LuaTreeFindFile<CR>
 " a list of groups can be found at `:help lua_tree_highlight`
 
 " hide statusline for LuaTree window
-let g:statusline['LuaTree'] = {
-      \   'active': '%#StlNormal#',
-      \   'deactive': '%#StlNormal#'
-      \ }
+if exists('g:statusline')
+  let g:statusline['LuaTree'] = {
+        \   'active': '%#StlNormal#',
+        \   'deactive': '%#StlNormal#'
+        \ }
+endif
