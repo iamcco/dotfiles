@@ -25,10 +25,6 @@ let g:coc_global_extensions = [
       \ 'coc-tslint-plugin',
       \ 'coc-prettier',
       \ 'coc-stylelint',
-      \ 'coc-pyls',
-      \ 'coc-java',
-      \ 'coc-rls',
-      \ 'coc-solargraph',
       \ 'coc-vetur',
       \ 'coc-wxml',
       \ 'coc-yaml',
@@ -178,11 +174,19 @@ xmap <silent> <C-d> <Plug>(coc-cursors-range)
 nmap <leader>x  <Plug>(coc-cursors-operator)
 
 function! s:select_current_word()
-  if !get(g:, 'coc_cursors_activated', 0)
+  if !get(b:, 'coc_cursors_activated', 0)
     return "\<Plug>(coc-cursors-word)"
   endif
   return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
 endfunc
+
+" float scroll
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
 " Use `:Format` for format current buffer
 command! -nargs=0 Format :call CocAction('format')
