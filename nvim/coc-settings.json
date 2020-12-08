@@ -1,5 +1,7 @@
 {
   // coc setting
+  "coc.preferences.silentAutoupdate": true,
+  "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.snippets.enable": true,
   "coc.preferences.snippetStatusText": "",
   "coc.preferences.formatOnType": false,
@@ -7,7 +9,8 @@
     "svg",    // coc-svg support svg format
     "dart",   // coc-flutter support dart format */
     "elixir", // diagnostic-languageserver support elixir format
-    "eelixir" // diagnostic-languageserver support elixir format
+    "eelixir", // diagnostic-languageserver support elixir format
+    "html"
   ],
 
   "highlight.disableLanguages": [

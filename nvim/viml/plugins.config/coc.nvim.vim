@@ -88,16 +88,15 @@ imap <silent> <expr> <C-Space> <SID>check_back_space() ? coc#refresh() : "\<Plug
 nnoremap <silent> K :call CocActionAsync('doHover')<CR>
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+nmap <space>rn <Plug>(coc-rename)
 
 " Use `[c` and `]c` for navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 " git hunk
-nmap [g <Plug>(coc-git-prevchunk)
-nmap ]g <Plug>(coc-git-nextchunk)
-nmap gs <Plug>(coc-git-chunkinfo)
+nmap <silent> [g :CocCommand git.conflict.go.prev<CR>
+nmap <silent> ]g :CocCommand git.conflict.go.next<CR>
 
 " Remap keys for gotos
 function! s:GoToDefinitionCb(err, ...)
@@ -110,11 +109,11 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " git diff
-nmap <silent> <leader>d <Plug>(coc-git-chunkinfo)
+nmap <silent> <space>d <Plug>(coc-git-chunkinfo)
 
 " Remap for format selected region
-vmap <leader>fm <Plug>(coc-format-selected)
-nmap <leader>fm <Plug>(coc-format-selected)
+vmap <space>fm <Plug>(coc-format-selected)
+nmap <space>fm <Plug>(coc-format-selected)
 
 " Remap for do codeAction of selected region
 function! s:cocActionsOpenFromSelected(type) abort
@@ -213,7 +212,7 @@ command! JestInit :call CocAction('runCommand', 'jest.init')
 augroup coc_au
   autocmd!
   " Or use formatexpr for range format
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  autocmd FileType typescript,json,html setl formatexpr=CocAction('formatSelected')
   " Show signature help while editing
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   " Use K for show documentation in preview window
