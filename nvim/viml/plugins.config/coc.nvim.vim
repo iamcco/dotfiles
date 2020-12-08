@@ -46,7 +46,6 @@ let g:coc_global_extensions = [
       \ 'coc-clock',
       \ 'coc-marketplace',
       \ 'coc-jest',
-      \ 'coc-calc',
       \ 'coc-webpack',
       \ 'coc-svelte',
       \ 'coc-flutter',
@@ -101,7 +100,12 @@ nmap ]g <Plug>(coc-git-nextchunk)
 nmap gs <Plug>(coc-git-chunkinfo)
 
 " Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
+function! s:GoToDefinitionCb(err, ...)
+  if get(a:000, 0, v:false) ==# v:false
+    normal gf
+  endif
+endfunction
+nmap <silent> gd :call CocActionAsync('jumpDefinition', function('<SID>GoToDefinitionCb'))<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
