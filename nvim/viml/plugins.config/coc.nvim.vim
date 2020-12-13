@@ -158,6 +158,8 @@ nnoremap <silent> <space>ly  :<C-u>CocList -A yank<cr>
 nnoremap <silent> <space>lt  :<C-u>CocList --input=<C-r>=expand('<cword>')<cr> --interactive translators<cr>
 " git status files
 nnoremap <silent> <space>lg  :<C-u>CocList --auto-preview gstatus<CR>
+" undo tree
+nnoremap <silent> <space>lu  :<C-u>CocList --auto-preview undoTree<CR>
 " git commands
 nnoremap <silent> <space>cg  :<C-u>CocList --input=git. commands<CR>
 " flutter commands
