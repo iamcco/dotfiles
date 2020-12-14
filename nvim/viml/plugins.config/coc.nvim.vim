@@ -52,7 +52,6 @@ let g:coc_global_extensions = [
       \ 'coc-zi',
       \ 'coc-spell-checker',
       \ 'coc-cspell-dicts',
-      \ 'coc-actions',
       \ 'coc-leetcode',
       \ 'coc-rainbow-fart',
       \ 'coc-utools',
@@ -116,11 +115,8 @@ vmap <space>fm <Plug>(coc-format-selected)
 nmap <space>fm <Plug>(coc-format-selected)
 
 " Remap for do codeAction of selected region
-function! s:cocActionsOpenFromSelected(type) abort
-  execute 'CocCommand actions.open ' . a:type . ' ' . g:cocActionsTmpPos[1] . ' ' . g:cocActionsTmpPos[2]
-endfunction
-xmap <silent> <space>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-nmap <silent> <space>a :<C-u>let g:cocActionsTmpPos = getcurpos() \| set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+xmap <silent> <space>a  <Plug>(coc-codeaction-selected)
+nmap <silent> <space>a  <Plug>(coc-codeaction-selected)
 
 function! s:changeCaseFromSelected(type) abort
   execute 'CocCommand utools.changeCase.toggle ' . a:type
@@ -138,6 +134,8 @@ omap af <Plug>(coc-funcobj-a)
 nmap <silent> <S-TAB> <Plug>(coc-range-select)
 xmap <silent> <S-TAB> <Plug>(coc-range-select)
 
+" open coc-list files
+nnoremap <silent> <C-p> :<C-u>CocList files<CR>
 " Using CocList
 nnoremap <silent> <Space>ll :<C-u>CocList<CR>
 " Show all diagnostics
