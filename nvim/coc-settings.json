@@ -19,9 +19,6 @@
 
   "npm.binPath": "cnpm",
 
-  // coc-actions
-  "coc-actions.showActionKind": false,
-
   // diagnostic
   "diagnostic.infoSign":            "ღ",
   "diagnostic.hintSign":            "ஐ",
