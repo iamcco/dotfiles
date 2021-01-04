@@ -55,6 +55,7 @@ let g:coc_global_extensions = [
       \ 'coc-leetcode',
       \ 'coc-rainbow-fart',
       \ 'coc-utools',
+      \ 'coc-lua',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]
@@ -123,6 +124,9 @@ function! s:changeCaseFromSelected(type) abort
 endfunction
 xmap <silent> <space>cc :<C-u>execute 'CocCommand utools.changeCase.toggle ' . visualmode()<CR>
 nmap <silent> <space>cc :<C-u>set operatorfunc=<SID>changeCaseFromSelected<CR>g@
+
+" ftree
+nmap <silent> <space>e :CocCommand ftree.open<CR>
 
 " Create mappings for function text object, requires document symbols feature of languageserver.
 xmap if <Plug>(coc-funcobj-i)
