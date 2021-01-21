@@ -1,5 +1,5 @@
 # greeting text
-set fish_greeting \> Too Young Too Simple, Sometimes Naive \<
+set fish_greeting \> (curl --max-time 3 --silent https://v1.jinrishici.com/rensheng.txt) \<
 
 # JAVA and android
 switch (uname)

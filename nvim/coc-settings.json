@@ -104,15 +104,6 @@
   "prettier.statusItemText": "",
 
   // eslint
-  "eslint.filetypes": [
-    "javascript",
-    "javascript.jsx",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx"
-  ],
-  "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
 
   // tslint
@@ -157,7 +148,6 @@
 
   // git
   "git.enableGutters":             true,
-  "git.signOffset":                99,
   "git.addGBlameToVirtualText":     true,
   "git.virtualTextPrefix":         "     ",
   "git.branchCharacter":           "\uf418",
@@ -178,6 +168,13 @@
   // coc-gitignore
   "gitignore.templates.patch": {
     "Node": "out/"
+  },
+
+  // coc-lua
+  "Lua.diagnostics.globals": ["vim"],
+  "Lua.workspace.library": {
+    "/usr/local/Cellar/neovim/HEAD-faa47ea/share/nvim/runtime/lua": true,
+    "/usr/local/Cellar/neovim/HEAD-faa47ea/share/nvim/runtime/lua/vim/lsp": true
   },
 
   // clock

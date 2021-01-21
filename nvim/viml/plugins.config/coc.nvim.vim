@@ -108,6 +108,8 @@ nmap <silent> gd :call CocActionAsync('jumpDefinition', function('<SID>GoToDefin
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <c-n> :CocCommand document.jumpToNextSymbol<CR>
+nmap <silent> <c-p> :CocCommand document.jumpToPrevSymbol<CR>
 " git diff
 nmap <silent> <space>d <Plug>(coc-git-chunkinfo)
 
@@ -139,7 +141,7 @@ nmap <silent> <S-TAB> <Plug>(coc-range-select)
 xmap <silent> <S-TAB> <Plug>(coc-range-select)
 
 " open coc-list files
-nnoremap <silent> <C-p> :<C-u>CocList files<CR>
+nnoremap <silent> <Space>lf :<C-u>CocList files<CR>
 " Using CocList
 nnoremap <silent> <Space>ll :<C-u>CocList<CR>
 " Show all diagnostics
