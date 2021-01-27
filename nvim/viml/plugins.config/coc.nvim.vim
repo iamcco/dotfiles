@@ -91,8 +91,12 @@ nnoremap <silent> K :call CocActionAsync('doHover')<CR>
 nmap <space>rn <Plug>(coc-rename)
 
 " Use `[c` and `]c` for navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> [e <Plug>(coc-diagnostic-prev)
+nmap <silent> ]e <Plug>(coc-diagnostic-next)
+
+" Use `[e` and `]e` for navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev-error)
+nmap <silent> ]c <Plug>(coc-diagnostic-next-error)
 
 " git hunk
 nmap <silent> [g :CocCommand git.conflict.go.prev<CR>
@@ -107,7 +111,7 @@ endfunction
 nmap <silent> gd :call CocActionAsync('jumpDefinition', function('<SID>GoToDefinitionCb'))<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gr <Plug>(coc-references-used)
 nmap <silent> <c-n> :CocCommand document.jumpToNextSymbol<CR>
 nmap <silent> <c-p> :CocCommand document.jumpToPrevSymbol<CR>
 " git diff
@@ -135,6 +139,10 @@ xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
 " Use <TAB> for select selections ranges, needs server support, like: coc-tsserver, coc-python
 nmap <silent> <S-TAB> <Plug>(coc-range-select)

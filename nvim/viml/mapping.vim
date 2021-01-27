@@ -70,3 +70,42 @@ vnoremap <silent> <C-k> :m '<-2<CR>gv=gv
 " Ctrl+G {{{
 nnoremap <silent> <C-G> :call UserFuncCtrlG()<CR>
 " }}} Ctrl+G
+
+" f F t T
+function s:forward_cancel(...) abort
+  if get(s:, 'is_pending', v:false)
+    call feedkeys("\<ESC>")
+  endif
+endfunction
+function s:forward_repeat(action) abort
+  if a:action ==# ';'
+    call s:forward('f', s:search_char)
+  else
+    call s:forward('F', s:search_char)
+  endif
+endfunction
+function s:forward(action, ...) abort
+  let s:forward_action = a:action
+  let s:is_pending = v:true
+  if a:0 >= 1
+    let s:search_char = a:1
+  else
+    let s:timer = timer_start(1000, function('s:forward_cancel'))
+    let s:search_char = getchar()
+  endif
+  if exists('s:timer')
+    call timer_stop(s:timer)
+    unlet s:timer
+  endif
+  unlet s:is_pending
+  if s:search_char ==# 27
+    let s:search_char = ''
+    return
+  endif
+  call search(nr2char(s:search_char), a:action ==# 'F' ? 'b' : '')
+endfunction
+
+nnoremap <silent> f :call <SID>forward('f')<CR>
+nnoremap <silent> F :call <SID>forward('F')<CR>
+nnoremap <silent> ; :call <SID>forward_repeat(';')<CR>
+nnoremap <silent> , :call <SID>forward_repeat(',')<CR>
