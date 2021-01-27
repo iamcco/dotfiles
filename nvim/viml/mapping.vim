@@ -78,18 +78,21 @@ function s:forward_cancel(...) abort
   endif
 endfunction
 function s:forward_repeat(action) abort
+  if !exists('s:forward_action')
+    return
+  endif
   if a:action ==# ';'
-    call s:forward('f', s:search_char)
+    call s:forward(s:forward_action, s:search_char)
   else
-    call s:forward('F', s:search_char)
+    call s:forward(s:forward_action ==# 'f' ? 'F' : 'f', s:search_char)
   endif
 endfunction
 function s:forward(action, ...) abort
-  let s:forward_action = a:action
   let s:is_pending = v:true
   if a:0 >= 1
     let s:search_char = a:1
   else
+    let s:forward_action = a:action
     let s:timer = timer_start(1000, function('s:forward_cancel'))
     let s:search_char = getchar()
   endif
@@ -102,7 +105,7 @@ function s:forward(action, ...) abort
     let s:search_char = ''
     return
   endif
-  call search(nr2char(s:search_char), a:action ==# 'F' ? 'b' : '')
+  call search('[' . nr2char(s:search_char) . ']', a:action ==# 'F' ? 'b' : '')
 endfunction
 
 nnoremap <silent> f :call <SID>forward('f')<CR>
