@@ -5,12 +5,6 @@
 
 scriptencoding utf-8
 
-" map leader key {{{
-let mapleader = ','
-let g:mapleader = ','
-let maplocalleader = '_'
-" }}} map leader key
-
 " open file with browsers {{{
 noremap <leader>go :call UserFuncViewFile()<CR>
 " }}} open file with browsers
