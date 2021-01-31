@@ -81,8 +81,56 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " expand snippets
-" Use <C-Space> to trigger snippet expand or refresh autocomplete items
-imap <silent> <expr> <C-Space> <SID>check_back_space() ? coc#refresh() : "\<Plug>(coc-snippets-expand)"
+" Use <C-Space> to trigger snippet expand or refresh autocomplete items or
+" expand emmet abbr
+function s:refresh_or_expand() abort
+  if s:check_back_space()
+    return coc#refresh()
+  elseif coc#expandable()
+    call feedkeys("\<Plug>(coc-snippets-expand)")
+  else
+    return "\<c-o>:CocCommand emmet.expand-abbreviation\<CR>"
+  endif
+  return ''
+endfunction
+inoremap <silent> <expr> <C-Space> <SID>refresh_or_expand()
+inoremap <silent> <c-j> <c-o>:CocCommand emmet.next-edit-point<CR>
+inoremap <silent> <c-k> <c-o>:CocCommand emmet.prev-edit-point<CR>
+
+function s:select_expand(mode, dir) abort
+  if a:dir ==# '+'
+    if &filetype ==# 'html'
+      execute 'CocCommand emmet.balance ' . a:mode
+    else
+      call expand_region#next(a:mode ==# 'n' ? 'n' : 'v', '+')
+    endif
+  else
+    if &filetype ==# 'html'
+      execute 'CocCommand emmet.balance-inward ' . a:mode
+    else
+      call expand_region#next(a:mode ==# 'n' ? 'n' : 'v', '-')
+    endif
+  endif
+endfunction
+
+xnoremap <silent> + :<c-u>call <SID>select_expand(visualmode(), '+')<CR>
+nnoremap <silent> + :call <SID>select_expand('n', '+')<CR>
+xnoremap <silent> - :<c-u>call <SID>select_expand(visualmode(), '-')<CR>
+nnoremap <silent> - :call <SID>select_expand('n', '-')<CR>
+
+xnoremap <silent> <space>. :<c-u>execute 'CocCommand emmet.select-next-item ' . visualmode()<CR>
+nnoremap <silent> <space>. :CocCommand emmet.select-next-item<CR>
+xnoremap <silent> <space>, :<c-u>execute 'CocCommand emmet.select-prev-item ' . visualmode()<CR>
+nnoremap <silent> <space>, :CocCommand emmet.select-prev-item<CR>
+
+function s:comment_toggle(mode) abort
+  if a:mode !=# 'n'
+    normal gv
+  endif
+  call feedkeys("\<Plug>(vim-comment)")
+endfunction
+xnoremap <silent> <space>cc :<c-u>call <SID>comment_toggle(visualmode())<CR>
+nnoremap <silent> <space>cc :call <SID>comment_toggle('n')<CR>
 
 " Use K for show documentation in float window
 nnoremap <silent> K :call CocActionAsync('doHover')<CR>
@@ -128,8 +176,8 @@ nmap <silent> <space>a  <Plug>(coc-codeaction-selected)
 function! s:changeCaseFromSelected(type) abort
   execute 'CocCommand utools.changeCase.toggle ' . a:type
 endfunction
-xmap <silent> <space>cc :<C-u>execute 'CocCommand utools.changeCase.toggle ' . visualmode()<CR>
-nmap <silent> <space>cc :<C-u>set operatorfunc=<SID>changeCaseFromSelected<CR>g@
+xmap <silent> <space>c :<C-u>execute 'CocCommand utools.changeCase.toggle ' . visualmode()<CR>
+nmap <silent> <space>c :<C-u>set operatorfunc=<SID>changeCaseFromSelected<CR>g@
 
 " ftree
 nmap <silent> <space>e :CocCommand ftree.open<CR>

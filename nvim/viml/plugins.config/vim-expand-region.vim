@@ -1,2 +1,2 @@
-map + <Plug>(expand_region_expand)
-map _ <Plug>(expand_region_shrink)
+noremap <leader>+ <Plug>(expand_region_expand)
+noremap <leader>- <Plug>(expand_region_shrink)

@@ -35,5 +35,5 @@ function s:scan() abort
   endfor
 endfunction
 
-noremap <leader>cc :call <SID>detectRegion()<CR>
+noremap <Plug>(vim-comment) :call <SID>detectRegion()<CR>
 noremap <leader>v :call <SID>scan()<CR>
