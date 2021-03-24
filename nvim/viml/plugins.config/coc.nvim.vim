@@ -88,7 +88,7 @@ function s:refresh_or_expand() abort
     return coc#refresh()
   elseif coc#expandable()
     call feedkeys("\<Plug>(coc-snippets-expand)")
-  else
+  elseif &filetype =~# '\v(html|typescriptreact|javascriptreact)'
     return "\<c-o>:CocCommand emmet.expand-abbreviation\<CR>"
   endif
   return ''

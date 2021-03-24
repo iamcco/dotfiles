@@ -4,7 +4,7 @@
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.snippets.enable": true,
   "coc.preferences.snippetStatusText": "",
-  "coc.preferences.formatOnType": false,
+  "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "svg",    // coc-svg support svg format
     "dart",   // coc-flutter support dart format */
@@ -39,6 +39,7 @@
   ],
 
   // suggest
+  "suggest.languageSourcePriority": 99,
   "suggest.detailField": "abbr",
   "suggest.maxCompleteItemCount": 50,
   "suggest.maxPreviewWidth": 80,
@@ -77,11 +78,17 @@
   "html.autoClosingTags": true,
 
   // coc source
+  "coc.source.issues.priority": 99,
+  "coc.source.file.priority": 90,
+  "coc.source.emoji.priority": 3,
+  "coc.source.around.priority": 1,
+  "coc.source.buffer.priority": 1,
   "coc.source.around.firstMatch": false,
   "coc.source.buffer.firstMatch": false,
   "coc.source.file.ignoreHidden": false,
 
   // snippets
+  "snippets.priority": 90,
   "snippets.ultisnips.enable": false,
   "snippets.textmateSnippetsRoots": [
     "~/.configrc/textmate-snippets"
@@ -92,6 +99,7 @@
   },
 
   // emment
+  "emmet.priority": 3,
   "emmet.showAbbreviationSuggestions": true,
   "emmet.includeLanguages": {
     "eruby": "html"
