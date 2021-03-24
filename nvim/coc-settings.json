@@ -178,6 +178,10 @@
     "Node": "out/"
   },
 
+  // typescript
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+
   // coc-lua
   "Lua.diagnostics.globals": ["vim"],
   "Lua.workspace.library": {
