@@ -15,6 +15,10 @@ set noshowmode
 
 set completeopt=noinsert,menuone,noselect
 
+if exists('&tagfunc')
+  set tagfunc=CocTagFunc
+endif
+
 let g:coc_global_extensions = [
       \ 'coc-emoji',
       \ 'coc-tsserver',
@@ -88,7 +92,7 @@ function s:refresh_or_expand() abort
     return coc#refresh()
   elseif coc#expandable()
     call feedkeys("\<Plug>(coc-snippets-expand)")
-  elseif &filetype =~# '\v(html|typescriptreact|javascriptreact)'
+  elseif &filetype =~# '\v(html|typescriptreact|javascriptreact|css|scss|less|styl)'
     return "\<c-o>:CocCommand emmet.expand-abbreviation\<CR>"
   endif
   return ''
