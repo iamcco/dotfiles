@@ -53,7 +53,8 @@ var path = __webpack_require__(3);
 var programMap = {
     javascript: 'node',
     typescript: 'ts-node',
-    python: 'python'
+    python: 'python',
+    lua: 'lua'
 };
 var global_id = 0;
 exports.activate = function (context) { return __awaiter(void 0, void 0, void 0, function () {

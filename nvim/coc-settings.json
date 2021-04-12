@@ -184,10 +184,8 @@
 
   // coc-lua
   "Lua.diagnostics.globals": ["vim"],
-  "Lua.workspace.library": {
-    "/usr/local/Cellar/neovim/HEAD-faa47ea/share/nvim/runtime/lua": true,
-    "/usr/local/Cellar/neovim/HEAD-faa47ea/share/nvim/runtime/lua/vim/lsp": true
-  },
+  "Lua.runtime.version": "Lua 5.1",
+  "Lua.telemetry.enable": false,
 
   // clock
   "clock.enable": false,

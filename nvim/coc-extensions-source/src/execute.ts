@@ -4,7 +4,8 @@ const path = require('path')
 const programMap = {
   javascript: 'node',
   typescript: 'ts-node',
-  python: 'python'
+  python: 'python',
+  lua: 'lua'
 }
 let global_id = 0
 
