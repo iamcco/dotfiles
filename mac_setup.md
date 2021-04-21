@@ -53,25 +53,10 @@
 - install neovim: `brew install neovim`
 - [instal dotfiles](https://github.com/iamcco/dotfiles)
 
-# python
-
-- `brew install pyenv`
-- `pyenv install --list`
-- `pyenv install 3.7.0`
-- `pyenv install 2.7.15`
-- `pyenv global 2.7.15 3.7.0`
-- `pip3 install neovim`
-- `pip install neovim`
-- `pip3 install vim-vint`
-
 # node
 
 - install node：`brew install node`
 - `yarn global add fx`
-- `yarn global add neovim`
-- `yarn global add bash-language-server`
-- `yarn global add dockerfile-language-server-nodejs`
-- `yarn global add tslint`
 - `yarn global add http-server`
 - `yarn global add cnpm`
   > `npm config set prefix ~/.config/npm`
@@ -108,12 +93,6 @@
 
 - ~/sdk/flutter
 - https://flutter.io/setup-macos/
-- `pub global activate dart_language_server`
-
-# lsp
-
-- [efm-langserver](https://github.com/mattn/efm-langserver)
-  - `go get https://github.com/mattn/efm-langserver`
 
 # software
 
