@@ -60,6 +60,7 @@ let g:coc_global_extensions = [
       \ 'coc-rainbow-fart',
       \ 'coc-utools',
       \ 'coc-lua',
+      \ 'coc-clangd',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]
