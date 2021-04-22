@@ -15,3 +15,7 @@
 
   - spectacle `brew install homebrew/cask/spectacle`
   - nodejs `brew install node`
+  - yarn `npm install -g yarn`
+  - `brew install the_silver_searcher`
+  - `brew install ripgrep`
+  - `brew install watchman`
