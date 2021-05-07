@@ -61,6 +61,7 @@ let g:coc_global_extensions = [
       \ 'coc-utools',
       \ 'coc-lua',
       \ 'coc-clangd',
+      \ 'coc-task',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]
@@ -225,6 +226,10 @@ nnoremap <silent> <space>lt  :<C-u>CocList --input=<C-r>=expand('<cword>')<cr> -
 nnoremap <silent> <space>lg  :<C-u>CocList --auto-preview gstatus<CR>
 " undo tree
 nnoremap <silent> <space>lu  :<C-u>CocList --auto-preview undoTree<CR>
+" task list
+nnoremap <silent> <space>lm  :<C-u>CocList tasks<CR>
+" active task list
+nnoremap <silent> <space>ln  :<C-u>CocList activeTasks<CR>
 " git commands
 nnoremap <silent> <space>cg  :<C-u>CocList --input=git. commands<CR>
 " flutter commands

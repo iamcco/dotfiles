@@ -12,6 +12,20 @@
     "eelixir", // diagnostic-languageserver support elixir format
     "html"
   ],
+  "coc.preferences.rootPatterns": [
+    "package.json", // npm project
+    "CMakeLists.txt", // cmake project
+    ".git",
+    ".hg",
+    ".projections.json"
+  ],
+  "project.rootPatterns": [
+    "package.json", // npm project
+    "CMakeLists.txt", // cmake project
+    ".git",
+    ".hg",
+    ".projections.json"
+  ],
 
   "highlight.disableLanguages": [
     "cocactions"
@@ -181,6 +195,11 @@
   // typescript
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+  "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+  "typescript.format.insertSpaceAfterConstructor": true,
+  "javascript.format.insertSpaceAfterConstructor": true,
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
 
   // coc-lua
   "Lua.diagnostics.globals": ["vim"],
