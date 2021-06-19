@@ -13,7 +13,7 @@ case Darwin
     # android sdk
     set -gx ANDROID_HOME $HOME/Library/Android/sdk
     if test -d  "$ANDROID_HOME"
-        set -gx PATH $ANDROID_HOME/platform-tools $ANDROID_HOME/tools $PATH
+        set -gx PATH $ANDROID_HOME/platform-tools $ANDROID_HOME/tools $ANDROID_HOME/tools/emulator $PATH
     end
 end
 
@@ -74,3 +74,11 @@ set -x -U NEOVIM_PATH $HOME/neovim
 if test -d "$NEOVIM_PATH"
     set -gx PATH $NEOVIM_PATH/bin $PATH
 end
+
+# zoxide
+if test -f (which zoxide)
+    zoxide init fish | source
+end
+
+# brew
+set -gx HOMEBREW_NO_AUTO_UPDATE true

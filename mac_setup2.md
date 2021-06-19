@@ -19,3 +19,4 @@
   - `brew install the_silver_searcher`
   - `brew install ripgrep`
   - `brew install watchman`
+  - zoxide `brew install zoxide`
