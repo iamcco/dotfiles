@@ -62,6 +62,7 @@ let g:coc_global_extensions = [
       \ 'coc-lua',
       \ 'coc-clangd',
       \ 'coc-task',
+      \ 'coc-rust-analyzer',
       \ 'https://github.com/xabikos/vscode-react',
       \ 'https://github.com/xabikos/vscode-javascript'
       \]

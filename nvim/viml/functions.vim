@@ -35,7 +35,7 @@ endfunction
 
 function s:isBackListFiletypes() abort
   let l:ft = &filetype
-  if l:ft ==# '' || l:ft =~# '\v^(list|LuaTree|coc-explorer|cocactions|any-jump|utools)$'
+  if l:ft ==# '' || l:ft =~# '\v^(list|LuaTree|coc-explorer|cocactions|any-jump|utools|coctree)$'
     return v:true
   endif
   return v:false

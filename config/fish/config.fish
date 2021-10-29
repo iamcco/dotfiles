@@ -82,3 +82,6 @@ end
 
 # brew
 set -gx HOMEBREW_NO_AUTO_UPDATE true
+
+# alias
+abbr -a ssk kitty +kitten ssh
