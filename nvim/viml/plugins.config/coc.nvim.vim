@@ -28,7 +28,7 @@ let g:coc_global_extensions = [
       \ 'coc-eslint',
       \ 'coc-tslint-plugin',
       \ 'coc-prettier',
-      \ 'coc-stylelint',
+      \ 'coc-stylelintplus',
       \ 'coc-vetur',
       \ 'coc-wxml',
       \ 'coc-yaml',

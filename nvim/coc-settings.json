@@ -123,7 +123,9 @@
   "prettier.eslintIntegration": true,
   "prettier.tslintIntegration": true,
   "prettier.stylelintIntegration": true,
-  "prettier.statusItemText": "",
+  "prettier.onlyUseLocalVersion": true,
+  "stylelintplus.autoFixOnSave": true,
+  "stylelintplus.autoFixOnFormat": true,
 
   // eslint
   "eslint.autoFixOnSave": true,
