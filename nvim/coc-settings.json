@@ -56,7 +56,6 @@
   "suggest.languageSourcePriority": 99,
   "suggest.detailField": "abbr",
   "suggest.maxCompleteItemCount": 50,
-  "suggest.maxPreviewWidth": 80,
   "suggest.triggerAfterInsertEnter": false,
   "suggest.detailMaxLength": 30,
   "suggest.completionItemKindLabels": {
@@ -88,7 +87,6 @@
   },
 
   // html
-  "html.suggest.angular1": false,   // angular1 is outdate, coc-angular support better
   "html.autoClosingTags": true,
 
   // coc source
@@ -251,17 +249,21 @@
     "vim"
   ],
   "cSpell.userWords": [
+    "Autoupdate",
     "Neovim",
     "Nerdfont",
     "Signining",
     "Unimported",
+    "Vimruntime",
     "bignumber",
     "botright",
     "bowser",
     "ccls",
+    "cmake",
     "cnpm",
     "cocactions",
     "configrc",
+    "cssmodules",
     "eelixir",
     "emment",
     "eruby",
@@ -273,21 +275,26 @@
     "languagetool",
     "markdownlint",
     "maxsize",
+    "neovim's",
     "nmap",
     "nvim",
     "objc",
     "objcpp",
     "operatorfunc",
+    "runtimepath",
     "sfile",
     "shellcheck",
     "shrinked",
     "smartf",
     "struct",
     "stylelint",
+    "stylelintplus",
     "ultisnips",
+    "utools",
     "vimbackupfile",
     "viml",
     "vimlsp",
+    "vitejs",
     "vsplit"
   ],
 

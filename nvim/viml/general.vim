@@ -91,3 +91,10 @@ set updatetime=300
 " substitution {{{
 " set inccommand=split
 " substitution }}}
+
+" fold
+function FoldText()
+	return getline(v:foldstart) . ' ... (' . (v:foldend - v:foldstart) . ' L)'
+endfunction
+set foldtext=FoldText()
+set fillchars=fold:\  " removes trailing dots. Mind that there is a whitespace after the \!
