@@ -10,7 +10,7 @@ if exists('+pumheight')
   set pumheight=30
 endif
 
-" do not show mode use statuline instead
+" do not show mode use statusline instead
 set noshowmode
 
 set completeopt=noinsert,menuone,noselect
@@ -284,6 +284,11 @@ command! JestInit :call CocAction('runCommand', 'jest.init')
 
 augroup coc_au
   autocmd!
+  " Disable file with size > 1MB
+  autocmd BufAdd * if getfsize(expand('<afile>')) > 1024*1024 |
+        \ let b:coc_enabled=0 |
+        \ endif
+
   " Or use formatexpr for range format
   autocmd FileType typescript,json,html setl formatexpr=CocAction('formatSelected')
   " Show signature help while editing
@@ -292,7 +297,7 @@ augroup coc_au
   " autocmd CursorHold * call CocActionAsync('doHover')
 
   " Highlight symbol under cursor on CursorHold
-  autocmd CursorHold * silent call CocActionAsync('highlight')
+  autocmd CursorHold * silent! call CocActionAsync('highlight')
 
   " do not underline error/info/hit lines
   autocmd ColorScheme * highlight! CocUndercurl cterm=undercurl gui=undercurl

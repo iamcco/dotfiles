@@ -1,6 +1,7 @@
 {
   "cssmodules.camelCase": true,
   // coc setting
+  "coc.preferences.maxFileSize": "1MB",
   "coc.preferences.silentAutoupdate": true,
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.snippetStatusText": "",
@@ -39,7 +40,6 @@
   "diagnostic.warningSign":         "»",
   "diagnostic.errorSign":           "×",
   "diagnostic.enable":              true,
-  "diagnostic.highlightOffset":     9999999,
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
 
@@ -118,10 +118,6 @@
   },
 
   // prettier
-  "prettier.eslintIntegration": true,
-  "prettier.tslintIntegration": true,
-  "prettier.stylelintIntegration": true,
-  "prettier.onlyUseLocalVersion": true,
   "stylelintplus.autoFixOnSave": true,
   "stylelintplus.autoFixOnFormat": true,
 
