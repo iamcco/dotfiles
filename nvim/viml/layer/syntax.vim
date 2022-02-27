@@ -1,6 +1,6 @@
 Plug 'chemzqm/vim-jsx-improve'
 Plug 'chemzqm/jsonc.vim'
-Plug 'leafgarland/typescript-vim'
+Plug 'iamcco/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'iamcco/dart-vim-plugin'
 Plug 'posva/vim-vue'

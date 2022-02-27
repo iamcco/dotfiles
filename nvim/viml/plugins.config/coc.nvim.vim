@@ -284,10 +284,6 @@ command! JestInit :call CocAction('runCommand', 'jest.init')
 
 augroup coc_au
   autocmd!
-  " Disable file with size > 1MB
-  autocmd BufAdd * if getfsize(expand('<afile>')) > 1024*1024 |
-        \ let b:coc_enabled=0 |
-        \ endif
 
   " Or use formatexpr for range format
   autocmd FileType typescript,json,html setl formatexpr=CocAction('formatSelected')

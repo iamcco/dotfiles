@@ -1,7 +1,7 @@
 {
   "cssmodules.camelCase": true,
   // coc setting
-  "coc.preferences.maxFileSize": "1MB",
+  "coc.preferences.maxFileSize": "40KB",
   "coc.preferences.silentAutoupdate": true,
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.snippetStatusText": "",

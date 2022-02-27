@@ -1,1 +1,1 @@
-Plug 'sgur/vim-editorconfig'
+Plug 'iamcco/vim-editorconfig'
