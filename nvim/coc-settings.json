@@ -42,6 +42,7 @@
   "diagnostic.enable":              true,
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
+  "diagnostic.highlighLimit": 100,
 
   // coc-flutter
   "flutter.openDevLogSplitCommand": "botright 10split",

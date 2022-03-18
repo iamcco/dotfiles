@@ -16,6 +16,9 @@ set wildoptions=pum
 " autoread latest file
 set autoread
 
+" global statusline
+set laststatus=3
+
 " do not use provider
 let g:loaded_node_provider = 0
 let g:loaded_ruby_provider = 0
