@@ -20,7 +20,7 @@
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {
-    "got": "^9.6.0",
+    "got": "^11.8.5",
     "rxjs": "^6.5.2",
     "tunnel": "^0.0.6"
   }
