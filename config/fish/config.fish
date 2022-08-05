@@ -49,15 +49,6 @@ if [ -f $HOME'/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; so
 # pj plugin
 set -gx PROJECT_PATHS ~/ ~/workspace/pxn ~/development
 
-# nvim alias for n
-function n
-    if test -z $argv
-        nvim (fzf --preview "env bat --style=numbers --color=always {} 2>/dev/null; or env highlight -O ansi -l {} 2>/dev/null; or env coderay {} 2>/dev/null; or env rougify {} 2>/dev/null; or env cat {}")
-    else
-        nvim $argv
-    end
-end
-
 # rbenv
 if test -d "$HOME/.rbenv/shims"
     set -gx PATH $HOME/.rbenv/shims $PATH
@@ -67,12 +58,6 @@ end
 set -x -U GOPATH $HOME/go
 if test -d "$GOPATH"
     set -gx PATH $GOPATH/bin $PATH
-end
-
-# custom neovim build
-set -x -U NEOVIM_PATH $HOME/neovim
-if test -d "$NEOVIM_PATH"
-    set -gx PATH $NEOVIM_PATH/bin $PATH
 end
 
 # zoxide
@@ -85,3 +70,9 @@ set -gx HOMEBREW_NO_AUTO_UPDATE true
 
 # alias
 abbr -a ssk kitty +kitten ssh
+
+# custom neovim build
+# set -x -U NEOVIM_PATH $HOME/neovim
+# if test -d "$NEOVIM_PATH"
+#     set -gx PATH $NEOVIM_PATH/bin $PATH
+# end

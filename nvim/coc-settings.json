@@ -1,7 +1,9 @@
 {
   "cssmodules.camelCase": true,
   // coc setting
-  "coc.preferences.maxFileSize": "40KB",
+  "coc.preferences.enableMessageDialog": true,
+  "coc.preferences.enableLinkedEditing": true,
+  "coc.preferences.maxFileSize": "50KB",
   "coc.preferences.silentAutoupdate": true,
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.snippetStatusText": "",
@@ -96,8 +98,6 @@
   "coc.source.emoji.priority": 3,
   "coc.source.around.priority": 1,
   "coc.source.buffer.priority": 1,
-  "coc.source.around.firstMatch": false,
-  "coc.source.buffer.firstMatch": false,
   "coc.source.file.ignoreHidden": false,
 
   // snippets
@@ -166,6 +166,8 @@
   },
 
   // git
+  "git.showCommitInFloating": true,
+  "git.conflict.enabled": true,
   "git.enableGutters":             true,
   "git.addGBlameToVirtualText":     true,
   "git.virtualTextPrefix":         "     ",
@@ -316,6 +318,7 @@
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
     }
-  }
+  },
+  "clangd.path": "/Users/aioiyuuko/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin/clangd"
   // vim:ft=jsonc
 }

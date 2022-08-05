@@ -70,27 +70,24 @@ let g:coc_global_extensions = [
 " use <tab> for trigger completion and navigate next complete item
 function! s:check_back_space() abort
   let l:col = col('.') - 1
-  return !l:col || getline('.')[l:col - 1]  =~# '\s'
+  return !l:col || getline('.')[l:col - 1] =~ '\s'
 endfunction
 
-" tab:
-"   1. select autocomplete
-"   2. trigger autocomplete
+" Insert <tab> when previous text is space, refresh completion if not.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+	\ coc#pum#visible() ? coc#pum#next(1):
+	\ <SID>check_back_space() ? "\<Tab>" :
+	\ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+inoremap <silent><expr> <CR> coc#pum#visible()
+      \? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " expand snippets
 " Use <C-Space> to trigger snippet expand or refresh autocomplete items or
 " expand emmet abbr
-function s:refresh_or_expand() abort
+function! s:refresh_or_expand() abort
   if s:check_back_space()
     return coc#refresh()
   elseif coc#expandable()
@@ -100,9 +97,12 @@ function s:refresh_or_expand() abort
   endif
   return ''
 endfunction
-inoremap <silent> <expr> <C-Space> <SID>refresh_or_expand()
-inoremap <silent> <c-j> <c-o>:CocCommand emmet.next-edit-point<CR>
-inoremap <silent> <c-k> <c-o>:CocCommand emmet.prev-edit-point<CR>
+
+if has('nvim')
+  inoremap <silent><expr> <c-space> <SID>refresh_or_expand()
+else
+  inoremap <silent><expr> <c-@> <SID>refresh_or_expand()
+endif
 
 function s:select_expand(mode, dir) abort
   if a:dir ==# '+'

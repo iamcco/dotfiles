@@ -17,7 +17,11 @@ set wildoptions=pum
 set autoread
 
 " global statusline
-set laststatus=3
+if has('nvim-0.7.0')
+  set laststatus=3
+else
+  set laststatus=2
+endif
 
 " do not use provider
 let g:loaded_node_provider = 0
