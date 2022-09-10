@@ -6,7 +6,6 @@
   "coc.preferences.maxFileSize": "50KB",
   "coc.preferences.silentAutoupdate": true,
   "coc.preferences.extensionUpdateCheck": "weekly",
-  "coc.preferences.snippetStatusText": "",
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "svg",    // coc-svg support svg format
@@ -44,7 +43,6 @@
   "diagnostic.enable":              true,
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
-  "diagnostic.highlighLimit": 100,
 
   // coc-flutter
   "flutter.openDevLogSplitCommand": "botright 10split",
@@ -56,6 +54,7 @@
   ],
 
   // suggest
+  "suggest.noselect": true,
   "suggest.languageSourcePriority": 99,
   "suggest.detailField": "abbr",
   "suggest.maxCompleteItemCount": 50,
@@ -257,6 +256,7 @@
     "bignumber",
     "botright",
     "bowser",
+    "btns",
     "ccls",
     "cmake",
     "cnpm",
@@ -268,6 +268,7 @@
     "eruby",
     "gitignore",
     "iamcco",
+    "iconfont",
     "imselect",
     "keylayout",
     "langserver",
