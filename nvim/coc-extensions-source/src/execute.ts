@@ -85,7 +85,7 @@ exports.activate = async (context: { subscriptions: { dispose: () => void }[] })
         }])
         if (workspace.isVim) nvim.command('redraw', true)
       } catch (e) {
-        window.showErrorMessage(e.message)
+        window.showErrorMessage((e as any).message)
       }
       release()
     })
@@ -95,7 +95,7 @@ exports.activate = async (context: { subscriptions: { dispose: () => void }[] })
         await appendLines(lines)
         if (workspace.isVim) nvim.command('redraw', true)
       } catch (e) {
-        window.showErrorMessage(e.message)
+        window.showErrorMessage((e as any).message)
       }
       release()
     })

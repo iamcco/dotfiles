@@ -5,7 +5,7 @@
 /* 1 */
 /***/ ((module) => {
 
-module.exports = require("coc.nvim");;
+module.exports = require("coc.nvim");
 
 /***/ }),
 /* 2 */
@@ -71,7 +71,7 @@ exports.activate = function (context) { return __awaiter(void 0, void 0, void 0,
                     case 0:
                         uri = doc.uri;
                         relPath = path.relative(cwd, Uri.parse(uri).fsPath);
-                        bufname = "__coc_execute_" + doc.bufnr + "__";
+                        bufname = "__coc_execute_".concat(doc.bufnr, "__");
                         task = taskMap.get(doc.bufnr);
                         if (task) {
                             task.dispose();
@@ -84,7 +84,7 @@ exports.activate = function (context) { return __awaiter(void 0, void 0, void 0,
                         if (winnr == -1 && !create)
                             return [2 /*return*/];
                         if (!(winnr == -1)) return [3 /*break*/, 6];
-                        return [4 /*yield*/, nvim.command("belowright vs " + bufname)];
+                        return [4 /*yield*/, nvim.command("belowright vs ".concat(bufname))];
                     case 2:
                         _a.sent();
                         nvim.pauseNotification();
@@ -103,7 +103,7 @@ exports.activate = function (context) { return __awaiter(void 0, void 0, void 0,
                         return [3 /*break*/, 8];
                     case 6: 
                     // clear buffer
-                    return [4 /*yield*/, nvim.command("silent call deletebufline('" + bufname + "', 1, '$')")];
+                    return [4 /*yield*/, nvim.command("silent call deletebufline('".concat(bufname, "', 1, '$')"))];
                     case 7:
                         // clear buffer
                         _a.sent();
@@ -112,24 +112,24 @@ exports.activate = function (context) { return __awaiter(void 0, void 0, void 0,
                     case 9:
                         bufId = _a.sent();
                         buf = nvim.createBuffer(bufId);
-                        t = workspace.createTask("execute-" + global_id);
+                        t = workspace.createTask("execute-".concat(global_id));
                         global_id = global_id + 1;
                         cmd = programMap[doc.filetype];
                         return [4 /*yield*/, t.start({ cwd: cwd, cmd: cmd, args: [relPath] })];
                     case 10:
                         succeed = _a.sent();
                         if (!succeed) {
-                            window.showErrorMessage("Command failed to start: " + cmd + " " + relPath);
+                            window.showErrorMessage("Command failed to start: ".concat(cmd, " ").concat(relPath));
                             return [2 /*return*/];
                         }
-                        statusItem.text = cmd + " " + relPath;
+                        statusItem.text = "".concat(cmd, " ").concat(relPath);
                         statusItem.show();
                         taskMap.set(doc.bufnr, t);
                         t.onExit(function (code) {
                             statusItem.hide();
                             taskMap.delete(doc.bufnr);
                             if (code != 0) {
-                                window.showErrorMessage(cmd + " exit with code: " + code);
+                                window.showErrorMessage("".concat(cmd, " exit with code: ").concat(code));
                             }
                         });
                         empty = true;
@@ -269,7 +269,7 @@ exports.activate = function (context) { return __awaiter(void 0, void 0, void 0,
 /* 3 */
 /***/ ((module) => {
 
-module.exports = require("path");;
+module.exports = require("path");
 
 /***/ })
 /******/ 	]);

@@ -65,7 +65,7 @@ function activate(context) {
                     else if (filetype === 'python') {
                         prog = 'python';
                     }
-                    return [4 /*yield*/, coc_nvim_1.workspace.createTerminal({
+                    return [4 /*yield*/, coc_nvim_1.window.createTerminal({
                             name: prog || 'terminal'
                         })];
                 case 2:
@@ -106,7 +106,7 @@ function activate(context) {
                     return [4 /*yield*/, nvim.call('visualmode')];
                 case 2:
                     visualmode = _a.sent();
-                    return [4 /*yield*/, coc_nvim_1.workspace.getSelectedRange(visualmode, doc)];
+                    return [4 /*yield*/, coc_nvim_1.window.getSelectedRange(visualmode)];
                 case 3:
                     range = _a.sent();
                     if (!range)
@@ -126,7 +126,7 @@ exports.activate = activate;
 /* 1 */
 /***/ ((module) => {
 
-module.exports = require("coc.nvim");;
+module.exports = require("coc.nvim");
 
 /***/ })
 /******/ 	]);

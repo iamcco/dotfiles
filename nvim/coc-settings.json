@@ -7,59 +7,32 @@
   "coc.preferences.silentAutoupdate": true,
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnType": false,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "svg",    // coc-svg support svg format
-    "dart",   // coc-flutter support dart format */
-    "elixir", // diagnostic-languageserver support elixir format
-    "eelixir", // diagnostic-languageserver support elixir format
-    "html"
-  ],
-  "coc.preferences.rootPatterns": [
+  "[svg][dart][html][rust]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "workspace.bottomUpFiletypes": ["rust"],
+  "workspace.rootPatterns": [
     "package.json", // npm project
     "CMakeLists.txt", // cmake project
-    ".git",
-    ".hg",
-    ".projections.json"
-  ],
-  "project.rootPatterns": [
-    "package.json", // npm project
-    "CMakeLists.txt", // cmake project
+    "Cargo.toml", // rust
     ".git",
     ".hg",
     ".projections.json"
   ],
 
-  "highlight.disableLanguages": [
-    "cocactions"
-  ],
-
-  "npm.binPath": "cnpm",
-
-  // diagnostic
-  "diagnostic.infoSign":            "ღ",
-  "diagnostic.hintSign":            "ஐ",
-  "diagnostic.warningSign":         "»",
-  "diagnostic.errorSign":           "×",
-  "diagnostic.enable":              true,
-  "diagnostic.refreshOnInsertMode": true,
-  "diagnostic.separateRelatedInformationAsDiagnostics": true,
-
-  // coc-flutter
-  "flutter.openDevLogSplitCommand": "botright 10split",
-
-  // utools
-  "utools.changeCase.toggle": [
-    "camelCase",
-    "snakeCase"
-  ],
+  // coc source
+  "coc.source.issues.priority": 99,
+  "coc.source.file.priority": 90,
+  "coc.source.emoji.priority": 3,
+  "coc.source.around.priority": 1,
+  "coc.source.buffer.priority": 1,
+  "coc.source.file.ignoreHidden": false,
 
   // suggest
   "suggest.noselect": true,
-  "suggest.languageSourcePriority": 99,
   "suggest.detailField": "abbr",
-  "suggest.maxCompleteItemCount": 50,
   "suggest.triggerAfterInsertEnter": false,
-  "suggest.detailMaxLength": 30,
+  "suggest.labelMaxLength": 100,
   "suggest.completionItemKindLabels": {
     "keyword":       "\uf1de",
     "variable":      "\ue79b",
@@ -88,16 +61,14 @@
     "default":       "\uf29c"
   },
 
-  // html
-  "html.autoClosingTags": true,
-
-  // coc source
-  "coc.source.issues.priority": 99,
-  "coc.source.file.priority": 90,
-  "coc.source.emoji.priority": 3,
-  "coc.source.around.priority": 1,
-  "coc.source.buffer.priority": 1,
-  "coc.source.file.ignoreHidden": false,
+  // diagnostic
+  "diagnostic.infoSign":            "ღ",
+  "diagnostic.hintSign":            "ஐ",
+  "diagnostic.warningSign":         "»",
+  "diagnostic.errorSign":           "×",
+  "diagnostic.enable":              true,
+  "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.separateRelatedInformationAsDiagnostics": true,
 
   // snippets
   "snippets.priority": 90,
@@ -110,12 +81,31 @@
     "javascriptreact": ["javascript"]
   },
 
-  // emment
-  "emmet.priority": 3,
-  "emmet.showAbbreviationSuggestions": true,
-  "emmet.includeLanguages": {
-    "eruby": "html"
-  },
+  "project.rootPatterns": [
+    "package.json", // npm project
+    "CMakeLists.txt", // cmake project
+    "Cargo.toml", // rust project
+    ".git",
+    ".hg",
+    ".projections.json"
+  ],
+
+  "npm.binPath": "cnpm",
+
+  // coc-flutter
+  "flutter.openDevLogSplitCommand": "botright 10split",
+
+  "rust-analyzer.diagnostics.experimental.enable": true,
+  "rust-analyzer.rustfmt.rangeFormatting.enable": true,
+
+  // utools
+  "utools.changeCase.toggle": [
+    "camelCase",
+    "snakeCase"
+  ],
+
+  // html
+  "html.autoClosingTags": true,
 
   // prettier
   "stylelintplus.autoFixOnSave": true,
@@ -202,8 +192,7 @@
   "javascript.autoClosingTags": true,
 
   // coc-lua
-  "Lua.diagnostics.globals": ["vim"],
-  "Lua.runtime.version": "Lua 5.1",
+  "sumneko-lua.enableNvimLuaDev": true,
   "Lua.telemetry.enable": false,
 
   // clock

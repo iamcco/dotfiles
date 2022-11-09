@@ -60,6 +60,15 @@ if test -d "$GOPATH"
     set -gx PATH $GOPATH/bin $PATH
 end
 
+# DEVKITPRO
+set -gx DEVKITPRO /opt/devkitpro
+
+# lovepotion
+set -x -U LOVEPOTION $HOME/.config/lovebrew/bin
+if test -d "$LOVEPOTION"
+    set -gx PATH $LOVEPOTION $PATH
+end
+
 # zoxide
 if test -f (which zoxide)
     zoxide init fish | source

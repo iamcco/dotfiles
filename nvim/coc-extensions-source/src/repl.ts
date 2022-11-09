@@ -1,4 +1,4 @@
-import { commands, workspace, ExtensionContext, Terminal } from 'coc.nvim'
+import { commands, ExtensionContext, window, Terminal, workspace } from 'coc.nvim'
 
 export function activate(context: ExtensionContext) {
   let { nvim } = workspace
@@ -13,7 +13,7 @@ export function activate(context: ExtensionContext) {
     } else if (filetype === 'python') {
       prog = 'python'
     }
-    terminal = await workspace.createTerminal({
+    terminal = await window.createTerminal({
       name: prog || 'terminal'
     })
     if (prog) {
@@ -35,7 +35,7 @@ export function activate(context: ExtensionContext) {
     let doc = workspace.getDocument(workspace.bufnr)
     if (!doc) return
     let visualmode = await nvim.call('visualmode')
-    let range = await workspace.getSelectedRange(visualmode, doc)
+    let range = await window.getSelectedRange(visualmode)
     if (!range) return
     let text = doc.textDocument.getText(range)
     if (text && terminal) terminal.sendText(text, true)
