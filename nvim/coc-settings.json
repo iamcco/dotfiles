@@ -1,5 +1,4 @@
 {
-  "cssmodules.camelCase": true,
   // coc setting
   "coc.preferences.enableMessageDialog": true,
   "coc.preferences.enableLinkedEditing": true,
@@ -81,6 +80,13 @@
     "javascriptreact": ["javascript"]
   },
 
+  // coc list
+  "list.floatPreview": true,
+  "list.menuAction": true,
+
+  // css module
+  "cssmodules.camelCase": true,
+
   "project.rootPatterns": [
     "package.json", // npm project
     "CMakeLists.txt", // cmake project
@@ -97,6 +103,9 @@
 
   "rust-analyzer.diagnostics.experimental.enable": true,
   "rust-analyzer.rustfmt.rangeFormatting.enable": true,
+
+  // coc-zi
+  "zi.hover": false,
 
   // utools
   "utools.changeCase.toggle": [
@@ -234,57 +243,6 @@
     "yaml",
     "yml",
     "vim"
-  ],
-  "cSpell.userWords": [
-    "Autoupdate",
-    "Neovim",
-    "Nerdfont",
-    "Signining",
-    "Unimported",
-    "Vimruntime",
-    "bignumber",
-    "botright",
-    "bowser",
-    "btns",
-    "ccls",
-    "cmake",
-    "cnpm",
-    "cocactions",
-    "configrc",
-    "cssmodules",
-    "eelixir",
-    "emment",
-    "eruby",
-    "gitignore",
-    "iamcco",
-    "iconfont",
-    "imselect",
-    "keylayout",
-    "langserver",
-    "languagetool",
-    "markdownlint",
-    "maxsize",
-    "neovim's",
-    "nmap",
-    "nvim",
-    "objc",
-    "objcpp",
-    "operatorfunc",
-    "runtimepath",
-    "sfile",
-    "shellcheck",
-    "shrinked",
-    "smartf",
-    "struct",
-    "stylelint",
-    "stylelintplus",
-    "ultisnips",
-    "utools",
-    "vimbackupfile",
-    "viml",
-    "vimlsp",
-    "vitejs",
-    "vsplit"
   ],
 
   // languageserver
