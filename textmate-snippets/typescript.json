@@ -1,23 +1,29 @@
 {
-  "Coc-Activate-Example": {
-    "prefix": "cocae",
-    "body": [
-      "import { ExtensionContext, workspace } from 'coc.nvim'",
-      "",
-      "type Trace = 'off' | 'message' | 'verbose'",
-      "",
-      "export async function activate(context: ExtensionContext): Promise<void> {",
-      "  let config = workspace.getConfiguration('${1:name}')",
-      "  let enable = config.get<boolean>('enable', true)",
-      "",
-      "  if (!enable) {",
-      "    return",
-      "  }",
-      "",
-      "  const trace = config.get<Trace>('trace.server', 'off')",
-      "  ${0}",
+  "for index": {
+    "prefix": "fori",
+    "body":[
+      "for (let i = ${1:0}; i < ${2:list}.length; i += 1) {",
+      "\tconst item = ${2:list}[i];",
+      "\t${0}",
       "}"
-    ],
-    "description": "coc activate example"
+    ]
+  },
+  "console.log": {
+    "prefix": "clg",
+    "body":[
+      "console.log(${1})${0}"
+    ]
+  },
+  "console.time": {
+    "prefix": "cte",
+    "body":[
+      "console.time(${1})${0}"
+    ]
+  },
+  "console.timeEnd": {
+    "prefix": "ctd",
+    "body":[
+      "console.timeEnd(${1})${0}"
+    ]
   }
 }

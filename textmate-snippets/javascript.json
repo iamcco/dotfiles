@@ -1,1 +1,29 @@
-{ }
+{
+  "for index": {
+    "prefix": "fori",
+    "body":[
+      "for (let i = ${1:0}; i < ${2:list}.length; i += 1) {",
+      "\tconst item = ${2:list}[i];",
+      "\t${0}",
+      "}"
+    ]
+  },
+  "console.log": {
+    "prefix": "clg",
+    "body":[
+      "console.log(${1})${0}"
+    ]
+  },
+  "console.time": {
+    "prefix": "cte",
+    "body":[
+      "console.time(${1})${0}"
+    ]
+  },
+  "console.timeEnd": {
+    "prefix": "ctd",
+    "body":[
+      "console.timeEnd(${1})${0}"
+    ]
+  }
+}

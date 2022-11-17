@@ -61,9 +61,7 @@ let g:coc_global_extensions = [
       \ 'coc-sumneko-lua',
       \ 'coc-clangd',
       \ 'coc-task',
-      \ 'coc-rust-analyzer',
-      \ 'https://github.com/xabikos/vscode-react',
-      \ 'https://github.com/xabikos/vscode-javascript'
+      \ 'coc-rust-analyzer'
       \]
 
 " use <tab> for trigger completion and navigate next complete item
@@ -207,7 +205,7 @@ nnoremap <silent> <Space>lf :<C-u>CocList files<CR>
 " Using CocList
 nnoremap <silent> <Space>ll :<C-u>CocList<CR>
 " Show all diagnostics
-nnoremap <silent> <space>la  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>la  :<C-u>CocList --auto-preview diagnostics<cr>
 " Show all buffers
 nnoremap <silent> <space>lb  :<C-u>CocList buffers<cr>
 " Manage extensions
@@ -215,7 +213,7 @@ nnoremap <silent> <space>le  :<C-u>CocList extensions<cr>
 " Show commands
 nnoremap <silent> <space>lc  :<C-u>CocList commands<cr>
 " Find symbol of current document
-nnoremap <silent> <space>lo  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>lo  :<C-u>CocList --auto-preview outline<cr>
 " Search workspace symbols
 nnoremap <silent> <space>ls  :<C-u>CocList -I symbols<cr>
 " Open yank list

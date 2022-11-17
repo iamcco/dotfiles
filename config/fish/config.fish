@@ -81,7 +81,7 @@ set -gx HOMEBREW_NO_AUTO_UPDATE true
 abbr -a ssk kitty +kitten ssh
 
 # custom neovim build
-# set -x -U NEOVIM_PATH $HOME/neovim
-# if test -d "$NEOVIM_PATH"
-#     set -gx PATH $NEOVIM_PATH/bin $PATH
-# end
+set -x -U NEOVIM_PATH $HOME/neovim
+if test -d "$NEOVIM_PATH"
+    set -gx PATH $NEOVIM_PATH/bin $PATH
+end
