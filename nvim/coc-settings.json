@@ -2,7 +2,7 @@
   // coc setting
   "coc.preferences.enableMessageDialog": true,
   "coc.preferences.enableLinkedEditing": true,
-  "coc.preferences.maxFileSize": "50KB",
+  "coc.preferences.maxFileSize": "100KB",
   "coc.preferences.silentAutoupdate": true,
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnType": false,
@@ -26,6 +26,21 @@
   "coc.source.around.priority": 1,
   "coc.source.buffer.priority": 1,
   "coc.source.file.ignoreHidden": false,
+
+  "codeLens.enable": true,
+  "codeLens.position": "top",
+  "codeLens.subseparator": " | ",
+
+  "rust-analyzer.lens.enable": true,
+  "rust-analyzer.lens.location": "above_name",
+  "rust-analyzer.lens.run.enable": true,
+  "rust-analyzer.lens.debug.enable": true,
+  "rust-analyzer.lens.references.trait.enable": true,
+  "rust-analyzer.lens.forceCustomCommands": true,
+  "rust-analyzer.lens.references.adt.enable": true,
+  "rust-analyzer.lens.implementations.enable": true,
+  "rust-analyzer.lens.references.method.enable": true,
+  "rust-analyzer.lens.references.enumVariant.enable": true,
 
   // suggest
   "suggest.noselect": true,

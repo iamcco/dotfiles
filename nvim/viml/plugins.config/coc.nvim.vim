@@ -85,7 +85,7 @@ inoremap <silent><expr> <CR> coc#pum#visible()
 " Use <C-Space> to trigger snippet expand or refresh autocomplete items or
 " expand emmet abbr
 function! s:refresh_or_expand() abort
-  if s:check_back_space()
+  if !s:check_back_space()
     return coc#refresh()
   elseif coc#expandable()
     call feedkeys("\<Plug>(coc-snippets-expand)")
@@ -122,10 +122,8 @@ nnoremap <silent> + :call <SID>select_expand('n', '+')<CR>
 xnoremap <silent> - :<c-u>call <SID>select_expand(visualmode(), '-')<CR>
 nnoremap <silent> - :call <SID>select_expand('n', '-')<CR>
 
-xnoremap <silent> <space>. :<c-u>execute 'CocCommand emmet.select-next-item ' . visualmode()<CR>
-nnoremap <silent> <space>. :CocCommand emmet.select-next-item<CR>
-xnoremap <silent> <space>, :<c-u>execute 'CocCommand emmet.select-prev-item ' . visualmode()<CR>
-nnoremap <silent> <space>, :CocCommand emmet.select-prev-item<CR>
+" wrap select range to emmet
+vnoremap <silent> <space>s :<c-u>execute 'CocCommand emmet.wrap-with-abbreviation ' . visualmode()<CR>
 
 function s:comment_toggle(mode) abort
   if a:mode !=# 'n'
