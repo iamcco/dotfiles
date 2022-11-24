@@ -85,7 +85,7 @@ inoremap <silent><expr> <CR> coc#pum#visible()
 " Use <C-Space> to trigger snippet expand or refresh autocomplete items or
 " expand emmet abbr
 function! s:refresh_or_expand() abort
-  if !s:check_back_space()
+  if s:check_back_space()
     return coc#refresh()
   elseif coc#expandable()
     call feedkeys("\<Plug>(coc-snippets-expand)")

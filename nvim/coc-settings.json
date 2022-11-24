@@ -9,6 +9,7 @@
   "[svg][dart][html][rust]": {
     "coc.preferences.formatOnSave": true
   },
+
   "workspace.bottomUpFiletypes": ["rust"],
   "workspace.rootPatterns": [
     "package.json", // npm project
