@@ -61,7 +61,8 @@ let g:coc_global_extensions = [
       \ 'coc-sumneko-lua',
       \ 'coc-clangd',
       \ 'coc-task',
-      \ 'coc-rust-analyzer'
+      \ 'coc-rust-analyzer',
+      \ 'coc-ds-pinyin-lsp'
       \]
 
 " use <tab> for trigger completion and navigate next complete item
@@ -316,11 +317,3 @@ augroup coc_au
   " autocomplete menu
   autocmd ColorScheme * highlight CocMenuSel guibg=#5C6370 ctermbg=59
 augroup END
-
-" coc-settings
-" lua workspace library
-call coc#config('Lua.workspace.library', {
-  \ $VIMRUNTIME . "/lua": v:true,
-  \ $VIMRUNTIME . "/lua/vim/lsp": v:true
-  \ })
-

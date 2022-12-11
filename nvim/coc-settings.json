@@ -6,7 +6,7 @@
   "coc.preferences.silentAutoupdate": true,
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnType": false,
-  "[svg][dart][html][rust]": {
+  "[css][scss][less][svg][dart][html][rust][typescript][javascript][typescriptreact][javascriptreact]": {
     "coc.preferences.formatOnSave": true
   },
 
@@ -20,6 +20,9 @@
     ".projections.json"
   ],
 
+  // inlayHint
+  "inlayHint.enable": false,
+
   // coc source
   "coc.source.issues.priority": 99,
   "coc.source.file.priority": 90,
@@ -28,20 +31,21 @@
   "coc.source.buffer.priority": 1,
   "coc.source.file.ignoreHidden": false,
 
-  "codeLens.enable": true,
-  "codeLens.position": "top",
+  "codeLens.enable": false,
+  "codeLens.position": "eol",
   "codeLens.subseparator": " | ",
 
-  "rust-analyzer.lens.enable": true,
-  "rust-analyzer.lens.location": "above_name",
-  "rust-analyzer.lens.run.enable": true,
-  "rust-analyzer.lens.debug.enable": true,
-  "rust-analyzer.lens.references.trait.enable": true,
-  "rust-analyzer.lens.forceCustomCommands": true,
-  "rust-analyzer.lens.references.adt.enable": true,
-  "rust-analyzer.lens.implementations.enable": true,
-  "rust-analyzer.lens.references.method.enable": true,
-  "rust-analyzer.lens.references.enumVariant.enable": true,
+  "rust-analyzer.lens.enable": false,
+  "rust-analyzer.lens.run.enable": false,
+  "rust-analyzer.lens.debug.enable": false,
+  "rust-analyzer.lens.references.trait.enable": false,
+  "rust-analyzer.lens.forceCustomCommands": false,
+  "rust-analyzer.lens.references.adt.enable": false,
+  "rust-analyzer.lens.implementations.enable": false,
+  "rust-analyzer.lens.references.method.enable": false,
+  "rust-analyzer.lens.references.enumVariant.enable": false,
+  "rust-analyzer.diagnostics.experimental.enable": true,
+  "rust-analyzer.rustfmt.rangeFormatting.enable": true,
 
   // suggest
   "suggest.noselect": true,
@@ -95,10 +99,13 @@
     "typescript": ["javascript"],
     "javascriptreact": ["javascript"]
   },
+  "suggest.asciiCharactersOnly": true,
 
   // coc list
   "list.floatPreview": true,
   "list.menuAction": true,
+
+  "links.tooltip": true,
 
   // css module
   "cssmodules.camelCase": true,
@@ -116,9 +123,6 @@
 
   // coc-flutter
   "flutter.openDevLogSplitCommand": "botright 10split",
-
-  "rust-analyzer.diagnostics.experimental.enable": true,
-  "rust-analyzer.rustfmt.rangeFormatting.enable": true,
 
   // coc-zi
   "zi.hover": false,
