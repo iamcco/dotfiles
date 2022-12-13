@@ -20,7 +20,6 @@ if exists('&tagfunc')
 endif
 
 let g:coc_global_extensions = [
-      \ 'coc-emoji',
       \ 'coc-tsserver',
       \ 'coc-html',
       \ 'coc-css',

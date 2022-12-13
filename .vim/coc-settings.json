@@ -16,6 +16,7 @@
     "aioiyuuko",
     "bignumber",
     "bigone",
+    "borderhighlight",
     "botright",
     "bowser",
     "btns",
@@ -89,6 +90,7 @@
     "vimlsp",
     "vitejs",
     "vsplit",
+    "winblend",
     "wxml"
   ]
 }

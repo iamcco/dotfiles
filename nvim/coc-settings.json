@@ -99,7 +99,6 @@
     "typescript": ["javascript"],
     "javascriptreact": ["javascript"]
   },
-  "suggest.asciiCharactersOnly": true,
 
   // coc list
   "list.floatPreview": true,
@@ -126,6 +125,12 @@
 
   // coc-zi
   "zi.hover": false,
+
+  // ds-pinyin-lsp
+  "ds-pinyin-lsp.completion_on": true,
+  "ds-pinyin-lsp.show_symbols": true,
+  "ds-pinyin-lsp.match_as_same_as_input": true,
+  "ds-pinyin-lsp.match_long_input": true,
 
   // utools
   "utools.changeCase.toggle": [
