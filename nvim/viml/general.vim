@@ -89,7 +89,7 @@ set updatetime=300
 " }}} updatetime
 
 " substitution {{{
-" set inccommand=split
+set inccommand=split
 " substitution }}}
 
 " fold

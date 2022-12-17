@@ -26,7 +26,6 @@
   // coc source
   "coc.source.issues.priority": 99,
   "coc.source.file.priority": 90,
-  "coc.source.emoji.priority": 3,
   "coc.source.around.priority": 1,
   "coc.source.buffer.priority": 1,
   "coc.source.file.ignoreHidden": false,
@@ -86,8 +85,8 @@
   "diagnostic.warningSign":         "»",
   "diagnostic.errorSign":           "×",
   "diagnostic.enable":              true,
-  "diagnostic.refreshOnInsertMode": true,
-  "diagnostic.separateRelatedInformationAsDiagnostics": true,
+  // 插入模式下更新会卡输入
+  "diagnostic.refreshOnInsertMode": false,
 
   // snippets
   "snippets.priority": 90,
@@ -129,6 +128,9 @@
   // ds-pinyin-lsp
   "ds-pinyin-lsp.completion_on": true,
   "ds-pinyin-lsp.show_symbols": true,
+  "ds-pinyin-lsp.show_symbols_only_follow_by_hanzi": true,
+  "ds-pinyin-lsp.show_symbols_by_n_times": 2,
+  "ds-pinyin-lsp.max_suggest": 5,
   "ds-pinyin-lsp.match_as_same_as_input": true,
   "ds-pinyin-lsp.match_long_input": true,
 

@@ -33,7 +33,6 @@ let g:coc_global_extensions = [
       \ 'coc-yaml',
       \ 'coc-highlight',
       \ 'coc-vimlsp',
-      \ 'coc-tailwindcss',
       \ 'coc-svg',
       \ 'coc-angular',
       \ 'coc-snippets',
@@ -48,8 +47,6 @@ let g:coc_global_extensions = [
       \ 'coc-clock',
       \ 'coc-marketplace',
       \ 'coc-jest',
-      \ 'coc-webpack',
-      \ 'coc-svelte',
       \ 'coc-flutter',
       \ 'coc-zi',
       \ 'coc-spell-checker',
@@ -89,7 +86,7 @@ function! s:refresh_or_expand() abort
     return coc#refresh()
   elseif coc#expandable()
     call feedkeys("\<Plug>(coc-snippets-expand)")
-  elseif &filetype =~# '\v(html|typescriptreact|javascriptreact|css|scss|less|styl)'
+  elseif &filetype =~# '\v(html|typescriptreact|javascriptreact|css|scss|less|styl|markdown)'
     return "\<c-o>:CocCommand emmet.expand-abbreviation\<CR>"
   endif
   return ''
