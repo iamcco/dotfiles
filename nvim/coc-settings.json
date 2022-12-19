@@ -2,7 +2,7 @@
   // coc setting
   "coc.preferences.enableMessageDialog": true,
   "coc.preferences.enableLinkedEditing": true,
-  "coc.preferences.maxFileSize": "100KB",
+  "coc.preferences.maxFileSize": "1024KB",
   "coc.preferences.silentAutoupdate": true,
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnType": false,
@@ -130,9 +130,10 @@
   "ds-pinyin-lsp.show_symbols": true,
   "ds-pinyin-lsp.show_symbols_only_follow_by_hanzi": true,
   "ds-pinyin-lsp.show_symbols_by_n_times": 2,
-  "ds-pinyin-lsp.max_suggest": 5,
+  "ds-pinyin-lsp.max_suggest": 6,
   "ds-pinyin-lsp.match_as_same_as_input": true,
   "ds-pinyin-lsp.match_long_input": true,
+  "ds-pinyin-lsp.status_bar_flag": "拼",
 
   // utools
   "utools.changeCase.toggle": [
@@ -144,6 +145,9 @@
   "html.autoClosingTags": true,
 
   // prettier
+  "prettier.statusItemText": "🅿",
+
+  // stylelintplus
   "stylelintplus.autoFixOnSave": true,
   "stylelintplus.autoFixOnFormat": true,
 
@@ -230,10 +234,12 @@
   // coc-lua
   "sumneko-lua.enableNvimLuaDev": true,
   "Lua.telemetry.enable": false,
+  "Lua.completion.callSnippet": "Replace",
 
   // clock
   "clock.enable": false,
 
+  "cSpell.status-bar-text": "🅲🆂",
   "cSpell.fixSpellingWithRenameProvider": true,
   "cSpell.enabledLanguageIds": [
     "asciidoc",
