@@ -276,6 +276,15 @@ command! -nargs=0 JestCurrentTest :call CocAction('runCommand', 'jest.singleTest
 " Init jest in current cwd, require global jest command exists
 command! JestInit :call CocAction('runCommand', 'jest.init')
 
+function s:cursor_hight() abort
+  let l:max_len = max(map(getline(1,'$'), 'len(v:val)'))
+  if  line('$') > 2000 || l:max_len > 200
+    return
+  endif
+
+  call CocActionAsync('highlight')
+endfunction
+
 augroup coc_au
   autocmd!
 
@@ -287,7 +296,7 @@ augroup coc_au
   " autocmd CursorHold * call CocActionAsync('doHover')
 
   " Highlight symbol under cursor on CursorHold
-  autocmd CursorHold * silent! call CocActionAsync('highlight')
+  autocmd CursorHold * silent! call s:cursor_hight()
 
   " do not underline error/info/hit lines
   autocmd ColorScheme * highlight! CocUndercurl cterm=undercurl gui=undercurl

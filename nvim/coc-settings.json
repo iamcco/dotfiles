@@ -2,7 +2,7 @@
   // coc setting
   "coc.preferences.enableMessageDialog": true,
   "coc.preferences.enableLinkedEditing": true,
-  "coc.preferences.maxFileSize": "1024KB",
+  "coc.preferences.maxFileSize": "500KB",
   "coc.preferences.silentAutoupdate": true,
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnType": false,

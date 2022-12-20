@@ -46,11 +46,7 @@ function! UserFuncAbsNum()
   if s:isBackListFiletypes()
     return
   endif
-  if !exists('#goyo')
-    setlocal norelativenumber number
-  else
-    setlocal norelativenumber nonumber
-  endif
+  setlocal norelativenumber number
 endfunction
 
 "使用相对行号
@@ -58,11 +54,7 @@ function! UserFuncRelNum()
   if s:isBackListFiletypes()
     return
   endif
-  if !exists('#goyo')
-    setlocal relativenumber number
-  else
-    setlocal norelativenumber nonumber
-  endif
+  setlocal relativenumber number
 endfunction
 
 function! UserFuncJumpLastPos()
@@ -153,7 +145,7 @@ function! UserFuncCtrlG() abort
         \]
   let l:scp = &l:shortmess
   try
-      let l:cpos = getcurpos()
+      let l:cPos = getcurpos()
       " The message is truncated
       setlocal shortmess+=T
       for l:item in l:msg
@@ -162,8 +154,8 @@ function! UserFuncCtrlG() abort
         " use echo do not add to message history
         echon l:item[0] . ' '
       endfor
-      if l:cpos != getcurpos()
-          call setpos('.', l:cpos)
+      if l:cPos != getcurpos()
+          call setpos('.', l:cPos)
       endif
   finally
       let &l:shortmess = l:scp

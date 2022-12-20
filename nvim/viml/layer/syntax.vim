@@ -1,4 +1,3 @@
-Plug 'chemzqm/vim-jsx-improve'
 Plug 'chemzqm/jsonc.vim'
 Plug 'iamcco/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
