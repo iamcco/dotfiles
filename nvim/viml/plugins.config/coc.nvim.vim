@@ -74,11 +74,6 @@ function! s:check_back_space() abort
   return s:get_pre_char() =~ '\s'
 endfunction
 
-" check pre char of cursor if is pair symbols
-function s:check_pair_chars() abort
-  return s:get_pre_char() =~ '\v''|"|`|\(|\{|\[|<'
-endfunction
-
 " Insert <tab> when previous text is space, refresh completion if not.
 inoremap <silent><expr> <TAB>
 	\ coc#pum#visible() ? coc#pum#next(1):
@@ -89,6 +84,11 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible()
       \? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" check pre char of cursor if is pair symbols
+function! s:check_pair_chars() abort
+  return s:get_pre_char() =~ '\v''|"|`|\(|\{|\[|\<'
+endfunction
 
 " Use <C-Space> to trigger snippet expand or refresh autocomplete items or
 " expand pairs
@@ -214,6 +214,8 @@ omap ac <Plug>(coc-classobj-a)
 nmap <silent> <S-TAB> <Plug>(coc-range-select)
 xmap <silent> <S-TAB> <Plug>(coc-range-select)
 
+" Resume latest coc list
+nnoremap <silent> <space><space>  :<C-u>CocListResume<CR>
 " open coc-list files
 nnoremap <silent> <Space>lf :<C-u>CocList files<CR>
 " Using CocList
@@ -242,16 +244,13 @@ nnoremap <silent> <space>lu  :<C-u>CocList --auto-preview undoTree<CR>
 nnoremap <silent> <space>lm  :<C-u>CocList tasks<CR>
 " active task list
 nnoremap <silent> <space>ln  :<C-u>CocList activeTasks<CR>
-" git commands
-nnoremap <silent> <space>cg  :<C-u>CocList --input=git. commands<CR>
-" flutter commands
+" list flutter commands
 nnoremap <silent> <space>cf  :<C-u>CocList --input=flutter. commands<CR>
-" Resume latest coc list
-nnoremap <silent> <space><space>  :<C-u>CocListResume<CR>
-" Do default action for next item.
-" nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-" nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" list git commands
+nnoremap <silent> <space>cg  :<C-u>CocList --input=git. commands<CR>
+" git commit/push
+nnoremap <space>gc :<C-u>CocCommand utools.git.commit
+nnoremap <space>gp :<C-u>CocCommand utools.git.push
 
 " multiple cursors
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
@@ -269,6 +268,8 @@ endfunc
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <Plug>(coc_user_scroll_forward) coc#float#has_scroll() ? coc#float#scroll(1) : ""
+  nnoremap <silent><nowait><expr> <Plug>(coc_user_scroll_backward) coc#float#has_scroll() ? coc#float#scroll(0) : ""
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
   inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
@@ -311,8 +312,6 @@ augroup coc_au
   autocmd FileType typescript,json,html setl formatexpr=CocAction('formatSelected')
   " Show signature help while editing
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  " Use K for show documentation in preview window
-  " autocmd CursorHold * call CocActionAsync('doHover')
 
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent! call s:cursor_hight()

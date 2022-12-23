@@ -103,8 +103,8 @@
   "list.floatPreview": true,
   "list.menuAction": true,
   "list.insertMappings": {
-		"<C-f>": "feedkeys:\\<C-f>",
-		"<C-b>": "feedkeys:\\<C-b>",
+    "<C-f>": "feedkeys:\\<Plug>(coc_user_scroll_forward)",
+    "<C-b>": "feedkeys:\\<Plug>(coc_user_scroll_backward)",
   },
 
   "links.tooltip": true,

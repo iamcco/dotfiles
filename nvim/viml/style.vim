@@ -6,8 +6,6 @@
 scriptencoding utf-8
 
 set cursorline
-" set cursorcolumn
-" set colorcolumn=100
 set relativenumber number
 set signcolumn=yes
 
