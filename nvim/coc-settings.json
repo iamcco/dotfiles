@@ -102,6 +102,10 @@
   // coc list
   "list.floatPreview": true,
   "list.menuAction": true,
+  "list.insertMappings": {
+		"<C-f>": "feedkeys:\\<C-f>",
+		"<C-b>": "feedkeys:\\<C-b>",
+  },
 
   "links.tooltip": true,
 
@@ -156,16 +160,6 @@
 
   // tslint
   "tslint.autoFixOnSave": true,
-
-  // pairs
-  "pairs.enableCharacters": [
-    "(",
-    "[",
-    "{",
-    "'",
-    "\"",
-    "`"
-  ],
 
   // coc-yank
   "yank.priority": 10,

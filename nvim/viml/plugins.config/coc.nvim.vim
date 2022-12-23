@@ -37,7 +37,6 @@ let g:coc_global_extensions = [
       \ 'coc-angular',
       \ 'coc-snippets',
       \ 'coc-yank',
-      \ 'coc-pairs',
       \ 'coc-git',
       \ 'coc-lists',
       \ 'coc-diagnostic',
@@ -61,10 +60,23 @@ let g:coc_global_extensions = [
       \ 'coc-ds-pinyin-lsp'
       \]
 
-" use <tab> for trigger completion and navigate next complete item
-function! s:check_back_space() abort
+" get pre char of cursor
+function! s:get_pre_char() abort
   let l:col = col('.') - 1
-  return !l:col || getline('.')[l:col - 1] =~ '\s'
+  if !l:col
+    return ''
+  endif
+  return getline('.')[l:col - 1]
+endfunction
+
+" check pre cursor if is empty
+function! s:check_back_space() abort
+  return s:get_pre_char() =~ '\s'
+endfunction
+
+" check pre char of cursor if is pair symbols
+function s:check_pair_chars() abort
+  return s:get_pre_char() =~ '\v''|"|`|\(|\{|\[|<'
 endfunction
 
 " Insert <tab> when previous text is space, refresh completion if not.
@@ -78,15 +90,22 @@ inoremap <silent><expr> <CR> coc#pum#visible()
       \? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" expand snippets
 " Use <C-Space> to trigger snippet expand or refresh autocomplete items or
+" expand pairs
+" expand snippets
 " expand emmet abbr
 function! s:refresh_or_expand() abort
   if s:check_back_space()
+    " refresh auto completion
     return coc#refresh()
+  elseif s:check_pair_chars()
+    " expand pairs
+    return "\<c-o>:CocCommand pairs.expand " . s:get_pre_char() . "\<CR>"
   elseif coc#expandable()
+    " expand snippets register for coc.nvim
     call feedkeys("\<Plug>(coc-snippets-expand)")
   elseif &filetype =~# '\v(html|typescriptreact|javascriptreact|css|scss|less|styl|markdown)'
+    " expand emmet addr
     return "\<c-o>:CocCommand emmet.expand-abbreviation\<CR>"
   endif
   return ''
