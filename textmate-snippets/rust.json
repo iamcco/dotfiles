@@ -1,0 +1,43 @@
+{
+  "New Yew function component": {
+    "prefix": "yewfc",
+    "body": [
+      "#[derive(PartialEq, Properties)]",
+      "pub struct ${1:ComponentName}Props {}",
+      "",
+      "#[function_component]",
+      "pub fn $1(props: &${1}Props) -> Html {",
+      "\tlet ${1}Props {} = props;",
+      "\thtml! {",
+      "\t\t<${2:div}>$0</${2}>",
+      "}",
+      "}"
+    ],
+    "description": "Create a minimal Yew function component"
+  },
+  "New Yew struct component": {
+    "prefix": "yewsc",
+    "body": [
+      "pub struct ${1:ComponentName};",
+      "",
+      "pub enum ${1}Msg {",
+      "}",
+      "",
+      "impl Component for ${1} {",
+      "\ttype Message = ${1}Msg;",
+      "\ttype Properties = ();",
+      "",
+      "\tfn create(ctx: &Context<Self>) -> Self {",
+      "\t\tSelf",
+      "\t}",
+      "",
+      "\tfn view(&self, ctx: &Context<Self>) -> Html {",
+      "\t\thtml! {",
+      "\t\t\t$0",
+      "\t\t}",
+      "\t}",
+      "}"
+    ],
+    "description": "Create a new Yew component with a message enum"
+  }
+}

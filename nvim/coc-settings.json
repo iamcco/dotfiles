@@ -131,11 +131,13 @@
 
   // ds-pinyin-lsp
   "ds-pinyin-lsp.completion_on": true,
+  "ds-pinyin-lsp.completion_around_mode": true,
+  "ds-pinyin-lsp.completion_trigger_characters": ">",
   "ds-pinyin-lsp.show_symbols": true,
   "ds-pinyin-lsp.show_symbols_only_follow_by_hanzi": true,
   "ds-pinyin-lsp.show_symbols_by_n_times": 2,
-  "ds-pinyin-lsp.max_suggest": 6,
-  "ds-pinyin-lsp.match_as_same_as_input": true,
+  "ds-pinyin-lsp.max_suggest": 50,
+  "ds-pinyin-lsp.match_as_same_as_input": false,
   "ds-pinyin-lsp.match_long_input": true,
   "ds-pinyin-lsp.status_bar_flag": "拼",
 
