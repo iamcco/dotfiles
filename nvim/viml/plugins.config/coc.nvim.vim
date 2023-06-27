@@ -57,7 +57,8 @@ let g:coc_global_extensions = [
       \ 'coc-clangd',
       \ 'coc-task',
       \ 'coc-rust-analyzer',
-      \ 'coc-ds-pinyin-lsp'
+      \ 'coc-ds-pinyin-lsp',
+      \ 'coc-pairs',
       \]
 
 " get pre char of cursor

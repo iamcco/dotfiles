@@ -1,35 +1,43 @@
 [user]
     name = iamcco
     email = ooiss@qq.com
+
 [push]
     default = simple
+
+[pull]
+    rebase = true
+
 [core]
     autocrlf = false
     quotepath = off
     editor = nvim
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta
+
 [gui]
     encoding = utf-8
-[difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path =
-[mergetool "sourcetree"]
-    trustExitCode = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    side-by-side = true
+    true-color = always
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
 [alias]
-    ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
-[color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold 52
-    newNormal = green bold
-    newHighlight = green bold 22
-[color]
-    ui = true
-[color "diff"]
-    meta = yellow
-    frag = magenta bold
-    commit = yellow bold
-    old = red bold
-    new = green bold
-    whitespace = red reverse
-[pull]
-	rebase = true
+    co = checkout
+    pl = pull
+    ps = push
+    cm = commit
+    br = branch
+    st = status
+    bl = blame
+    t = tag

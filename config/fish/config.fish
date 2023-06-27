@@ -1,6 +1,11 @@
 # greeting text
 set fish_greeting \> (curl --max-time 3 --silent https://v1.jinrishici.com/rensheng.txt) \<
 
+# .local
+if test -d "$HOME/.local/bin"
+    set -gx PATH $HOME/.local/bin $PATH
+end
+
 # JAVA and android
 switch (uname)
 case Darwin
@@ -85,3 +90,7 @@ set -x -U NEOVIM_PATH $HOME/neovim
 if test -d "$NEOVIM_PATH"
     set -gx PATH $NEOVIM_PATH/bin $PATH
 end
+
+# n 
+# nodejs manager
+set -x N_PREFIX "$HOME/n"; contains "$N_PREFIX/bin" $PATH; or set -a PATH "$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
