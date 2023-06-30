@@ -11,6 +11,10 @@ set signcolumn=yes
 
 if !exists('g:loaded_color')
   let g:loaded_color = 1
-  set background=dark
+  if $THEME == 'dark'
+    set background=dark
+  else
+    set background=light
+  endif
   colorscheme onedark
 endif

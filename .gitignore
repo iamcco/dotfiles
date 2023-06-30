@@ -10,3 +10,5 @@ config/fish/conf.d/
 fishd.f*
 fish_variables
 node_modules/
+current-theme.conf
+kitty.conf.bak

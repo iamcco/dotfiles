@@ -86,11 +86,6 @@ inoremap <silent><expr> <CR> coc#pum#visible()
       \? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" check pre char of cursor if is pair symbols
-function! s:check_pair_chars() abort
-  return s:get_pre_char() =~ '\v''|"|`|\(|\{|\[|\<'
-endfunction
-
 " Use <C-Space> to trigger snippet expand or refresh autocomplete items or
 " expand pairs
 " expand snippets
@@ -99,9 +94,6 @@ function! s:refresh_or_expand() abort
   if s:check_back_space()
     " refresh auto completion
     return coc#refresh()
-  elseif s:check_pair_chars()
-    " expand pairs
-    return "\<c-o>:CocCommand pairs.expand " . s:get_pre_char() . "\<CR>"
   elseif coc#expandable()
     " expand snippets register for coc.nvim
     call feedkeys("\<Plug>(coc-snippets-expand)")
@@ -319,25 +311,9 @@ augroup coc_au
 
   " do not underline error/info/hit lines
   autocmd ColorScheme * highlight! CocUndercurl cterm=undercurl gui=undercurl
-  " highlight text color
-  autocmd ColorScheme * highlight! CocHighlightText guibg=#054c20 ctermbg=023
   " do not underline error/info/hit lines
   autocmd ColorScheme * highlight! link CocErrorHighlight CocUndercurl
   autocmd ColorScheme * highlight! link CocWarningHighlight CocUndercurl
   autocmd ColorScheme * highlight! link CocInfoHighlight CocUndercurl
   autocmd ColorScheme * highlight! link CocHintHighlight CocUndercurl
-  " error/warning/info/hit sign
-  autocmd ColorScheme * highlight! CocErrorSign ctermfg=Red guifg=#ea6962
-  autocmd ColorScheme * highlight! CocWarningSign ctermfg=Yellow guifg=#e3a84e
-  autocmd ColorScheme * highlight! CocInfoSign ctermfg=Blue guifg=#7dae9b
-  autocmd ColorScheme * highlight! CocHintSign ctermfg=Blue guifg=#7dae9b
-  " virtual text highlight
-  autocmd ColorScheme * highlight! CocCodeLens guifg=#606060 ctermfg=60
-  " diff sign highlight groups
-  autocmd ColorScheme * highlight GitAddHi    guifg=#b8bb26 ctermfg=40
-  autocmd ColorScheme * highlight GitModifyHi guifg=#83a598 ctermfg=33
-  autocmd ColorScheme * highlight GitDeleteHi guifg=#f3423a ctermfg=196
-  autocmd ColorScheme * highlight CocCursorRange guibg=#b16286 guifg=#ebdbb2
-  " autocomplete menu
-  autocmd ColorScheme * highlight CocMenuSel guibg=#5C6370 ctermbg=59
 augroup END

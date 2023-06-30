@@ -208,7 +208,7 @@
   // clock
   "clock.enable": false,
 
-  "cSpell.status-bar-text": "🅲🆂",
+  "cSpell.status-bar-text": "🅲 🆂",
   "cSpell.fixSpellingWithRenameProvider": true,
   "cSpell.enabledLanguageIds": [
     "asciidoc",

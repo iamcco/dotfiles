@@ -94,3 +94,47 @@ end
 # n 
 # nodejs manager
 set -x N_PREFIX "$HOME/n"; contains "$N_PREFIX/bin" $PATH; or set -a PATH "$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+# kitty theme according to system theme
+function dark -d "Set dark theme"
+  if [ $THEME = "dark" ]
+      return
+  end
+  set -xU THEME "dark"
+  kitty +kitten themes --reload-in=all onedark
+  git config --global delta.light false
+end
+
+function light -d "Set light theme"
+  if [ $THEME = "light" ]
+      return
+  end
+  set -xU THEME "light"
+  kitty +kitten themes --reload-in=all onelight
+  git config --global delta.light true
+end
+
+if defaults read "Apple Global Domain" AppleInterfaceStyle &> /dev/null
+    dark
+else
+    light
+end
+
+# key mapping
+# https://fishshell.com/docs/current/interactive.html#vi-mode-commands
+function fish_default_mode_prompt
+    # disabled vim mode indicator
+end
+
+function fish_user_key_bindings
+    # Execute this once per mode that emacs bindings should be used in
+    fish_default_key_bindings -M insert
+
+    # Then execute the vi-bindings so they take precedence when there's a conflict.
+    # Without --no-erase fish_vi_key_bindings will default to
+    # resetting all bindings.
+    # The argument specifies the initial mode (insert, "default" or visual).
+    fish_vi_key_bindings --no-erase insert
+end
+
+fish_user_key_bindings
