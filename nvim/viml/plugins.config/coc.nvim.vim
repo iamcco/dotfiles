@@ -308,12 +308,4 @@ augroup coc_au
 
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent! call s:cursor_hight()
-
-  " do not underline error/info/hit lines
-  autocmd ColorScheme * highlight! CocUndercurl cterm=undercurl gui=undercurl
-  " do not underline error/info/hit lines
-  autocmd ColorScheme * highlight! link CocErrorHighlight CocUndercurl
-  autocmd ColorScheme * highlight! link CocWarningHighlight CocUndercurl
-  autocmd ColorScheme * highlight! link CocInfoHighlight CocUndercurl
-  autocmd ColorScheme * highlight! link CocHintHighlight CocUndercurl
 augroup END

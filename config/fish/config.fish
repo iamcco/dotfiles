@@ -11,7 +11,7 @@ switch (uname)
 case Darwin
     set -gx JAVA_HOME /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
     if test -d "$JAVA_HOME"
-        set CLASS_PATH $JAVA_HOME/lib/dt.jar $JAVA_HOME/lib/tools.jar
+        set -gx CLASS_PATH $JAVA_HOME/lib/dt.jar $JAVA_HOME/lib/tools.jar
         set -gx PATH $JAVA_HOME/bin $PATH
     end
 
@@ -23,13 +23,13 @@ case Darwin
 end
 
 # npm
-set NPM_HOME $HOME/.config/npm
+set -gx NPM_HOME $HOME/.config/npm
 if test -d "$NPM_HOME/bin"
     set -gx PATH $NPM_HOME/bin $PATH
 end
 
 # rustup
-set CARGO_HOME $HOME/.cargo
+set -gx CARGO_HOME $HOME/.cargo
 if test -d "$CARGO_HOME"
     set -gx PATH $CARGO_HOME/bin $PATH
 end
@@ -51,9 +51,6 @@ end
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f $HOME'/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source $HOME'/google-cloud-sdk/path.fish.inc'; else; . $HOME'/google-cloud-sdk/path.fish.inc'; end; end
 
-# pj plugin
-set -gx PROJECT_PATHS ~/ ~/workspace/pxn ~/development
-
 # rbenv
 if test -d "$HOME/.rbenv/shims"
     set -gx PATH $HOME/.rbenv/shims $PATH
@@ -65,17 +62,8 @@ if test -d "$GOPATH"
     set -gx PATH $GOPATH/bin $PATH
 end
 
-# DEVKITPRO
-set -gx DEVKITPRO /opt/devkitpro
-
-# lovepotion
-set -x -U LOVEPOTION $HOME/.config/lovebrew/bin
-if test -d "$LOVEPOTION"
-    set -gx PATH $LOVEPOTION $PATH
-end
-
 # zoxide
-if test -f (which zoxide)
+if which zoxide &> /dev/null
     zoxide init fish | source
 end
 
@@ -91,34 +79,9 @@ if test -d "$NEOVIM_PATH"
     set -gx PATH $NEOVIM_PATH/bin $PATH
 end
 
-# n 
+# n
 # nodejs manager
 set -x N_PREFIX "$HOME/n"; contains "$N_PREFIX/bin" $PATH; or set -a PATH "$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-
-# kitty theme according to system theme
-function dark -d "Set dark theme"
-  if [ $THEME = "dark" ]
-      return
-  end
-  set -xU THEME "dark"
-  kitty +kitten themes --reload-in=all onedark
-  git config --global delta.light false
-end
-
-function light -d "Set light theme"
-  if [ $THEME = "light" ]
-      return
-  end
-  set -xU THEME "light"
-  kitty +kitten themes --reload-in=all onelight
-  git config --global delta.light true
-end
-
-if defaults read "Apple Global Domain" AppleInterfaceStyle &> /dev/null
-    dark
-else
-    light
-end
 
 # key mapping
 # https://fishshell.com/docs/current/interactive.html#vi-mode-commands
@@ -137,4 +100,52 @@ function fish_user_key_bindings
     fish_vi_key_bindings --no-erase insert
 end
 
-fish_user_key_bindings
+# kitty theme according to system theme
+switch (uname)
+case Darwin
+  function system_theme -d "Get system theme"
+      defaults read "Apple Global Domain" AppleInterfaceStyle &> /dev/null; and echo "Dark"; or echo "Light"
+  end
+
+  function toggle_theme -d "Toggle theme"
+      osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
+  end
+
+  function trigger_neovim -d "Trigger neovim to update theme"
+      for pid in (pgrep nvim)
+          kill -SIGUSR1 $pid
+      end
+  end
+
+  function dark -d "Set dark theme"
+    if [ $THEME = "Dark" -a "$argv[1]" != "force" ]
+        return
+    end
+    set -xU THEME "Dark"
+    kitty +kitten themes --reload-in=all onedark
+    git config --global delta.light false
+    if [ (system_theme) = "Light" ]
+        toggle_theme
+    end
+    trigger_neovim
+  end
+
+  function light -d "Set light theme"
+    if [ $THEME = "Light" -a "$argv[1]" != "force" ]
+        return
+    end
+    set -xU THEME "Light"
+    kitty +kitten themes --reload-in=all onelight
+    git config --global delta.light true
+    if [ (system_theme) = "Dark" ]
+        toggle_theme
+    end
+    trigger_neovim
+  end
+
+  if [ (system_theme) = "Dark" ]
+      dark
+  else
+      light
+  end
+end

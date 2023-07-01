@@ -23,12 +23,6 @@ else
   set laststatus=2
 endif
 
-" do not use provider
-let g:loaded_node_provider = 0
-let g:loaded_ruby_provider = 0
-let g:loaded_python_provider = 0
-let g:loaded_python3_provider = 0
-
 " guicursor
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
             \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
