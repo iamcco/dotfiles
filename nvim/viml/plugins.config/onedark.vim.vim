@@ -23,7 +23,7 @@ function s:init_dark() abort
   highlight! GitModifyHi guifg=#83a598 ctermfg=33
   highlight! GitDeleteHi guifg=#f3423a ctermfg=196
   " autocomplete menu
-  highlight! CocMenuSel guibg=#5C6370 ctermbg=59
+  highlight! PmenuSel guibg=#5C6370 ctermbg=59
 endfunction
 
 function s:init_light() abort
@@ -56,7 +56,8 @@ function s:init_light() abort
   highlight! GitModifyHi guifg=#76730c ctermfg=33
   highlight! GitDeleteHi guifg=#f3423a ctermfg=196
   " autocomplete menu
-  highlight! CocMenuSel guibg=#a39c8f ctermbg=59
+  highlight! PmenuSel guibg=#a39c8f ctermbg=59
+  highlight! PmenuThumb guibg=#a39c8f ctermbg=59
   " diff text
   highlight! DiffAdd  guifg=#1f9d53
   highlight! DiffAdded  guifg=#1f9d53
@@ -86,6 +87,10 @@ function! s:update_scheme() abort
   if !has('mac')
     return
   endif
+  if get(s:, 'update_theme_last_time', 0) != 0 && s:update_theme_last_time == localtime()
+    return
+  endif
+  let s:update_theme_last_time = localtime()
   " system_theme: fish function to get system theme
   let l:system_theme = trim(system('system_theme'))
   if l:system_theme ==# 'Dark' && &background != 'Dark'

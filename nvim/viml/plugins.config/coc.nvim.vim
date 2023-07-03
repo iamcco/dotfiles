@@ -244,6 +244,7 @@ nnoremap <silent> <space>cg  :<C-u>CocList --input=git. commands<CR>
 " git commit/push
 nnoremap <space>gc :<C-u>CocCommand utools.git.commit
 nnoremap <space>gp :<C-u>CocCommand utools.git.push
+nnoremap <space>gd :<C-u>DiffviewOpen <CR>
 
 " multiple cursors
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
