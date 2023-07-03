@@ -83,16 +83,25 @@ function! s:init_theme()
   endif
 endfunction
 
-function! s:update_scheme() abort
+function! s:get_system_theme() abort
+   let l:theme = trim(system(['defaults', 'read', 'Apple Global Domain', 'AppleInterfaceStyle']))
+   if l:theme == 'Dark'
+     return 'Dark'
+   endif
+   return 'Light'
+endfunction
+
+function! s:update_color_scheme() abort
   if !has('mac')
     return
   endif
+
   if get(s:, 'update_theme_last_time', 0) != 0 && s:update_theme_last_time == localtime()
     return
   endif
   let s:update_theme_last_time = localtime()
-  " system_theme: fish function to get system theme
-  let l:system_theme = trim(system('system_theme'))
+
+  let l:system_theme = s:get_system_theme()
   if l:system_theme ==# 'Dark' && &background != 'Dark'
     set background=dark
     doautocmd ColorScheme onedark
@@ -104,21 +113,25 @@ function! s:update_scheme() abort
   end
 endfunction
 
-function! s:change_theme(cmd) abort
-  if trim(system('system_theme')) == a:cmd
+function! s:change_theme_to(cmd) abort
+  if s:get_system_theme() == a:cmd
     return
   endif
-  call system(a:cmd . ' force')
-  call s:update_scheme()
+  " use list params to run command directly
+  call jobstart(['fish', '-c', 'set -xU THEME ' . a:cmd])
+  call jobstart(['kitty', '+kitten', 'themes', '--reload-in=all', a:cmd == 'Dark' ? 'onedark' : 'onelight'])
+  call jobstart(['git', 'config', '--global', 'delta.light', a:cmd == 'Dark' ? 'false' : 'true'])
+  call system(['osascript', '-e', 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'])
+  call s:update_color_scheme()
 endfunction
 
 augroup ThemeOneDark
   autocmd!
   autocmd ColorScheme onedark call s:init_theme()
-  autocmd Signal * call s:update_scheme()
+  autocmd Signal * call s:update_color_scheme()
 augroup END
 
 if has('mac')
-  command! Dark call s:change_theme('dark')
-  command! Light call s:change_theme('light')
+  command! Dark call s:change_theme_to('Dark')
+  command! Light call s:change_theme_to('Light')
 endif

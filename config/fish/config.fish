@@ -118,7 +118,7 @@ case Darwin
   end
 
   function dark -d "Set dark theme"
-    if [ $THEME = "Dark" -a "$argv[1]" != "force" ]
+    if [ $THEME = "Dark" ]
         return
     end
     set -xU THEME "Dark"
@@ -131,7 +131,7 @@ case Darwin
   end
 
   function light -d "Set light theme"
-    if [ $THEME = "Light" -a "$argv[1]" != "force" ]
+    if [ $THEME = "Light" ]
         return
     end
     set -xU THEME "Light"
