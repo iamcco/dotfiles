@@ -114,21 +114,24 @@ function! s:update_color_scheme() abort
 endfunction
 
 function! s:change_theme_to(cmd) abort
-  if s:get_system_theme() == a:cmd
+  let l:system_theme = s:get_system_theme()
+  if l:system_theme == a:cmd && &background == a:cmd
     return
   endif
   " use list params to run command directly
   call jobstart(['fish', '-c', 'set -xU THEME ' . a:cmd])
   call jobstart(['kitty', '+kitten', 'themes', '--reload-in=all', a:cmd == 'Dark' ? 'onedark' : 'onelight'])
   call jobstart(['git', 'config', '--global', 'delta.light', a:cmd == 'Dark' ? 'false' : 'true'])
-  call system(['osascript', '-e', 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'])
+  if l:system_theme != a:cmd
+    call system(['osascript', '-e', 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'])
+  endif
   call s:update_color_scheme()
 endfunction
 
 augroup ThemeOneDark
   autocmd!
   autocmd ColorScheme onedark call s:init_theme()
-  autocmd Signal * call s:update_color_scheme()
+  autocmd Signal SIGUSR1 call s:update_color_scheme()
 augroup END
 
 if has('mac')
