@@ -262,8 +262,6 @@ endfunc
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <Plug>(coc_user_scroll_forward) coc#float#has_scroll() ? coc#float#scroll(1) : ""
-  nnoremap <silent><nowait><expr> <Plug>(coc_user_scroll_backward) coc#float#has_scroll() ? coc#float#scroll(0) : ""
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
   inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
@@ -292,7 +290,7 @@ command! JestInit :call CocAction('runCommand', 'jest.init')
 
 function s:cursor_hight() abort
   let l:max_len = max(map(getline(1,'$'), 'len(v:val)'))
-  if  line('$') > 2000 || l:max_len > 200
+  if  line('$') > 4000 || l:max_len > 200
     return
   endif
 

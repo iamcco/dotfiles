@@ -6,7 +6,7 @@
   "coc.preferences.silentAutoupdate": true,
   "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnType": false,
-  "[css][scss][less][svg][dart][html][rust][typescript][javascript][typescriptreact][javascriptreact]": {
+  "[c][css][scss][less][svg][dart][html][rust][typescript][javascript][typescriptreact][javascriptreact]": {
     "coc.preferences.formatOnSave": true
   },
 
@@ -76,14 +76,14 @@
   "list.floatPreview": true,
   "list.menuAction": true,
   "list.insertMappings": {
-    "<C-f>": "feedkeys:\\<Plug>(coc_user_scroll_forward)",
-    "<C-b>": "feedkeys:\\<Plug>(coc_user_scroll_backward)",
+    "<C-f>": "do:previewdown",
+    "<C-b>": "do:previewup",
   },
-
+  "list.normalMappings": {
+    "<C-f>": "do:previewdown",
+    "<C-b>": "do:previewup",
+  },
   "links.tooltip": true,
-
-  // css module
-  "cssmodules.camelCase": true,
 
   "project.rootPatterns": [
     "package.json", // npm project
@@ -202,7 +202,6 @@
 
   // coc-lua
   "sumneko-lua.enableNvimLuaDev": true,
-  "Lua.telemetry.enable": false,
   "Lua.completion.callSnippet": "Replace",
 
   // clock

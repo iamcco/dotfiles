@@ -83,6 +83,12 @@ end
 # nodejs manager
 set -x N_PREFIX "$HOME/n"; contains "$N_PREFIX/bin" $PATH; or set -a PATH "$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
+# DEVKITPRO
+set -gx DEVKITPRO /opt/devkitpro
+
+# Python3
+set -gx PATH $HOME/Library/Python/3.9/bin $PATH
+
 # key mapping
 # https://fishshell.com/docs/current/interactive.html#vi-mode-commands
 function fish_default_mode_prompt

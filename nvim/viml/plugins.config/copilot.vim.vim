@@ -6,6 +6,6 @@ let g:copilot_filetypes = {
       \ }
 
 " remap keys
-inoremap <silent><script><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : copilot#Accept("\<CR>")
+inoremap <silent><script><expr> <S-f> copilot#Accept("\<CR>")
 inoremap <silent> <C-l> <Plug>(copilot-next)
 inoremap <silent> <C-h> <Plug>(copilot-previous)
