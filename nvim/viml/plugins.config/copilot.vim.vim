@@ -6,6 +6,7 @@ let g:copilot_filetypes = {
       \ }
 
 " remap keys
-inoremap <silent><script><expr> <S-f> copilot#Accept("\<CR>")
+" <c-f> to scroll down if there is no suggestion
+inoremap <silent><script><expr> <c-f> empty(copilot#GetDisplayedSuggestion().text) ? coc#float#scroll(1) : copilot#Accept("")
 inoremap <silent> <C-l> <Plug>(copilot-next)
 inoremap <silent> <C-h> <Plug>(copilot-previous)

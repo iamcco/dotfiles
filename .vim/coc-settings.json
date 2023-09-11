@@ -83,6 +83,7 @@
     "qrcode",
     "runtimepath",
     "rustfmt",
+    "scopilot",
     "sfile",
     "shellcheck",
     "shrinked",
