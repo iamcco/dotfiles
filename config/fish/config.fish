@@ -6,26 +6,35 @@ if test -d "$HOME/.local/bin"
     set -gx PATH $HOME/.local/bin $PATH
 end
 
-# JAVA and android
 switch (uname)
 case Darwin
+    # JAVA and android
     set -gx JAVA_HOME /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
     if test -d "$JAVA_HOME"
         set -gx CLASS_PATH $JAVA_HOME/lib/dt.jar $JAVA_HOME/lib/tools.jar
         set -gx PATH $JAVA_HOME/bin $PATH
     end
-
     # android sdk
     set -gx ANDROID_HOME $HOME/Library/Android/sdk
     if test -d  "$ANDROID_HOME"
         set -gx PATH $ANDROID_HOME/platform-tools $ANDROID_HOME/tools $ANDROID_HOME/tools/emulator $PATH
     end
+
+    # brew
+    set -gx HOMEBREW_NO_AUTO_UPDATE true
+    set -gx HOMEBREW_NO_ANALYTICS 1
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 end
 
 # npm
 set -gx NPM_HOME $HOME/.config/npm
 if test -d "$NPM_HOME/bin"
     set -gx PATH $NPM_HOME/bin $PATH
+end
+
+set -gx DENO_INSTALL $HOME/.deno
+if test -d "$DENO_INSTALL/bin"
+    set -gx PATH $DENO_INSTALL/bin $PATH
 end
 
 # rustup
@@ -66,9 +75,6 @@ end
 if which zoxide &> /dev/null
     zoxide init fish | source
 end
-
-# brew
-set -gx HOMEBREW_NO_AUTO_UPDATE true
 
 # alias
 abbr -a ssk kitty +kitten ssh

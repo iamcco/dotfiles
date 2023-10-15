@@ -83,7 +83,6 @@
     "<C-f>": "do:previewdown",
     "<C-b>": "do:previewup",
   },
-  "links.tooltip": true,
 
   "project.rootPatterns": [
     "package.json", // npm project
@@ -156,11 +155,13 @@
     "markdown": [ "write-good", "markdownlint" ],
     "sh":       "shellcheck",
     "elixir":   ["mix_credo", "mix_credo_compile"],
-    "eelixir":  ["mix_credo", "mix_credo_compile"]
+    "eelixir":  ["mix_credo", "mix_credo_compile"],
+    "fish": "fish",
   },
   "diagnostic-languageserver.formatFiletypes": {
     "elixir":  "mix_format",
-    "eelixir": "mix_format"
+    "eelixir": "mix_format",
+    "fish": "fish_indent",
   },
 
   // git

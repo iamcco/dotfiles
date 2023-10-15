@@ -307,4 +307,7 @@ augroup coc_au
 
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent! call s:cursor_hight()
+  " neovim >= 9 will ignore redraw send from channel
+  " https://github.com/neoclide/coc.nvim/issues/2993
+  autocmd User CocStatusChange redrawstatus
 augroup END
