@@ -1,7 +1,7 @@
 {
   // coc setting
   "coc.preferences.enableMessageDialog": true,
-  "coc.preferences.enableLinkedEditing": true,
+  "coc.preferences.enableLinkedEditing": false,
   "coc.preferences.maxFileSize": "500KB",
   "coc.preferences.silentAutoupdate": true,
   "coc.preferences.extensionUpdateCheck": "weekly",
@@ -10,7 +10,7 @@
     "coc.preferences.formatOnSave": true
   },
 
-  "workspace.bottomUpFiletypes": ["rust"],
+  "workspace.bottomUpFiletypes": [],
   "workspace.rootPatterns": [
     "package.json", // npm project
     "CMakeLists.txt", // cmake project
@@ -22,6 +22,13 @@
 
   // inlayHint
   "inlayHint.enable": false,
+  "inlayHint.display": false,
+  "inlayHint.enableParameter": true,
+
+  // codeLens
+  "codeLens.enable": false,
+  "codeLens.position": "eol",
+  "codeLens.subseparator": " | ",
 
   // coc source
   "coc.source.issues.priority": 99,
@@ -29,22 +36,6 @@
   "coc.source.around.priority": 1,
   "coc.source.buffer.priority": 1,
   "coc.source.file.ignoreHidden": false,
-
-  "codeLens.enable": false,
-  "codeLens.position": "eol",
-  "codeLens.subseparator": " | ",
-
-  "rust-analyzer.lens.enable": false,
-  "rust-analyzer.lens.run.enable": false,
-  "rust-analyzer.lens.debug.enable": false,
-  "rust-analyzer.lens.references.trait.enable": false,
-  "rust-analyzer.lens.forceCustomCommands": false,
-  "rust-analyzer.lens.references.adt.enable": false,
-  "rust-analyzer.lens.implementations.enable": false,
-  "rust-analyzer.lens.references.method.enable": false,
-  "rust-analyzer.lens.references.enumVariant.enable": false,
-  "rust-analyzer.diagnostics.experimental.enable": true,
-  "rust-analyzer.rustfmt.rangeFormatting.enable": true,
 
   // suggest
   "suggest.noselect": true,
@@ -72,6 +63,27 @@
     "javascriptreact": ["javascript"]
   },
 
+  // deno
+  "deno.inlayHints.variableTypes.enabled": true,
+  "deno.inlayHints.parameterNames.enabled": "literals",
+  "deno.inlayHints.functionLikeReturnTypes.enabled": true,
+
+  // rust
+  "rust-analyzer.lens.enable": false,
+  "rust-analyzer.lens.run.enable": false,
+  "rust-analyzer.lens.debug.enable": false,
+  "rust-analyzer.lens.references.trait.enable": false,
+  "rust-analyzer.lens.forceCustomCommands": false,
+  "rust-analyzer.lens.references.adt.enable": false,
+  "rust-analyzer.lens.implementations.enable": false,
+  "rust-analyzer.lens.references.method.enable": false,
+  "rust-analyzer.lens.references.enumVariant.enable": false,
+  "rust-analyzer.diagnostics.experimental.enable": true,
+  "rust-analyzer.rustfmt.rangeFormatting.enable": true,
+
+  // dioxus
+  "dioxus.formatOnSave": "followFormatOnSave",
+
   // coc list
   "list.floatPreview": true,
   "list.menuAction": true,
@@ -93,7 +105,7 @@
     ".projections.json"
   ],
 
-  "npm.binPath": "cnpm",
+  // "npm.binPath": "cnpm",
 
   // coc-flutter
   "flutter.openDevLogSplitCommand": "botright 10split",
@@ -191,6 +203,11 @@
   },
 
   // typescript
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "literals",
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": false,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,

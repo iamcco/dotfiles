@@ -2,6 +2,7 @@ function s:init_dark() abort
   " virtual text highlight
   highlight! CocCodeLens guifg=#556060 ctermfg=60
   highlight! link SignColumn LineNr
+  highlight! link NormalFloat Pmenu
   highlight! Visual guifg=NONE guibg=#484848 guisp=NONE gui=NONE ctermfg=NONE ctermbg=242 cterm=NONE
   highlight! VisualNOS guifg=NONE guibg=#484848 guisp=NONE gui=reverse ctermfg=NONE ctermbg=242 cterm=NONE
   highlight! IncSearch guifg=#f107dd guibg=NONE guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold
@@ -18,6 +19,10 @@ function s:init_dark() abort
   " virtual text highlight
   highlight! CocCodeLens guifg=#606060 ctermfg=60
   highlight! CocCursorRange guibg=#b16286 guifg=#ebdbb2
+  " inlay hint
+  highlight! CocInlayHint guifg=#606060 ctermfg=60
+  highlight! CocInlayHintParameter guifg=#606060 ctermfg=60
+  highlight! CocInlayHintType guifg=#606060 ctermfg=60
   " diff sign highlight groups
   highlight! GitAddHi    guifg=#b8bb26 ctermfg=40
   highlight! GitModifyHi guifg=#83a598 ctermfg=33
@@ -30,6 +35,7 @@ function s:init_light() abort
   " virtual text highlight
   highlight! CocCodeLens guifg=#aa9f9f ctermfg=60
   highlight! link SignColumn LineNr
+  highlight! link NormalFloat Pmenu
   highlight! Visual guifg=NONE guibg=#b7b7b7 guisp=NONE gui=NONE ctermfg=NONE ctermbg=242 cterm=NONE
   highlight! VisualNOS guifg=NONE guibg=#b7b7b7 guisp=NONE gui=reverse ctermfg=NONE ctermbg=242 cterm=NONE
   highlight! IncSearch guifg=NONE guibg=#fab3df guisp=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=bold
@@ -51,6 +57,10 @@ function s:init_light() abort
   " virtual text highlight
   highlight! CocCodeLens guifg=#9f9f9f ctermfg=60
   highlight! CocCursorRange guibg=#4e9d79 guifg=#14244d
+  " inlay hint
+  highlight! CocInlayHint guifg=#9f9f9f ctermfg=60
+  highlight! CocInlayHintParameter guifg=#9f9f9f ctermfg=60
+  highlight! CocInlayHintType guifg=#9f9f9f ctermfg=60
   " diff sign highlight groups
   highlight! GitAddHi    guifg=#1f9d53 ctermfg=40
   highlight! GitModifyHi guifg=#76730c ctermfg=33

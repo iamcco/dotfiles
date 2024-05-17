@@ -32,6 +32,11 @@ if test -d "$NPM_HOME/bin"
     set -gx PATH $NPM_HOME/bin $PATH
 end
 
+# yarn
+if test -d "$HOME/.yarn/bin"
+    set -gx PATH $HOME/.yarn/bin $PATH
+end
+
 set -gx DENO_INSTALL $HOME/.deno
 if test -d "$DENO_INSTALL/bin"
     set -gx PATH $DENO_INSTALL/bin $PATH
@@ -42,6 +47,8 @@ set -gx CARGO_HOME $HOME/.cargo
 if test -d "$CARGO_HOME"
     set -gx PATH $CARGO_HOME/bin $PATH
 end
+set -gx RUSTUP_DIST_SERVER "https://rsproxy.cn"
+set -gx export RUSTUP_UPDATE_ROOT "https://rsproxy.cn/rustup"
 
 # flutter
 set FLUTTER_HOME $HOME/sdk/flutter
@@ -79,6 +86,8 @@ end
 # alias
 abbr -a ssk kitty +kitten ssh
 
+abbr -a ghs gh copilot suggest
+
 # custom neovim build
 set -x -U NEOVIM_PATH $HOME/neovim
 if test -d "$NEOVIM_PATH"
@@ -91,6 +100,11 @@ set -x N_PREFIX "$HOME/n"; contains "$N_PREFIX/bin" $PATH; or set -a PATH "$N_PR
 
 # DEVKITPRO
 set -gx DEVKITPRO /opt/devkitpro
+set -gx DEVKITARM /opt/devkitpro/devkitARM
+set -gx DEVKITA64 /opt/devkitpro/devkitA64
+set -gx PATH $DEVKITPRO/tools/bin $PATH
+set -gx PATH $DEVKITARM/bin $PATH
+set -gx PATH $DEVKITA64/bin $PATH
 
 # Python3
 set -gx PATH $HOME/Library/Python/3.9/bin $PATH
