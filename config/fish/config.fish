@@ -88,6 +88,10 @@ abbr -a ssk kitty +kitten ssh
 
 abbr -a ghs gh copilot suggest
 
+# git alias
+abbr -a gdrt git push origin :refs/tags/
+abbr -a gdt git tag -d
+
 # custom neovim build
 set -x -U NEOVIM_PATH $HOME/neovim
 if test -d "$NEOVIM_PATH"
@@ -105,6 +109,10 @@ set -gx DEVKITA64 /opt/devkitpro/devkitA64
 set -gx PATH $DEVKITPRO/tools/bin $PATH
 set -gx PATH $DEVKITARM/bin $PATH
 set -gx PATH $DEVKITA64/bin $PATH
+
+# VITASDK
+set -gx VITASDK $HOME/vitasdk
+set -gx PATH $VITASDK/bin $PATH
 
 # Python3
 set -gx PATH $HOME/Library/Python/3.9/bin $PATH

@@ -57,6 +57,7 @@ let g:coc_global_extensions = [
       \ 'coc-clangd',
       \ 'coc-task',
       \ 'coc-rust-analyzer',
+      \ 'coc-dioxus',
       \ 'coc-ds-pinyin-lsp',
       \ 'coc-pairs',
       \]
@@ -77,10 +78,12 @@ endfunction
 
 " Insert <tab> when previous text is space, refresh completion if not.
 inoremap <silent><expr> <TAB>
-	\ coc#pum#visible() ? coc#pum#next(1):
+	\ coc#pum#visible() ? coc#pum#next(0):
 	\ <SID>check_back_space() ? "\<Tab>" :
 	\ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(0) : "\<C-h>"
+inoremap <expr><c-n> coc#pum#visible() ? coc#pum#next(0) : "\<C-h>"
+inoremap <expr><c-p> coc#pum#visible() ? coc#pum#prev(0) : "\<C-h>"
 
 inoremap <silent><expr> <CR> coc#pum#visible()
       \? coc#_select_confirm()

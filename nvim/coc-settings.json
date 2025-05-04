@@ -73,7 +73,6 @@
   "rust-analyzer.lens.run.enable": false,
   "rust-analyzer.lens.debug.enable": false,
   "rust-analyzer.lens.references.trait.enable": false,
-  "rust-analyzer.lens.forceCustomCommands": false,
   "rust-analyzer.lens.references.adt.enable": false,
   "rust-analyzer.lens.implementations.enable": false,
   "rust-analyzer.lens.references.method.enable": false,
@@ -284,6 +283,9 @@
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
     }
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   }
   // vim:ft=jsonc
 }
