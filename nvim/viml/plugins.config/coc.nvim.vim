@@ -60,6 +60,7 @@ let g:coc_global_extensions = [
       \ 'coc-dioxus',
       \ 'coc-ds-pinyin-lsp',
       \ 'coc-pairs',
+      \ 'coc-github-copilot',
       \]
 
 " get pre char of cursor
@@ -261,14 +262,21 @@ function! s:select_current_word()
   return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
 endfunc
 
+function! s:float_has_scroll() abort
+  let win_ids = filter(coc#float#get_float_win_list(), 'coc#float#scrollable(v:val) && getwinvar(v:val,"kind","") !=# "pum"')
+  return !empty(win_ids)
+endfunction
+
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  nnoremap <silent><nowait><expr> <C-f> <SID>float_has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> <SID>float_has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  vnoremap <silent><nowait><expr> <C-f> <SID>float_has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> <SID>float_has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> <SID>float_has_scroll() && coc#pum#has_item_selected() ? "\<c-r>=coc#float#scroll(1)\<cr>" : coc#inline#visible() ? coc#inline#accept() : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> <SID>float_has_scroll() && coc#pum#has_item_selected() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  inoremap <silent><nowait><expr> <C-l> coc#inline#visible() ? coc#inline#next() : "\<C-l>"
+  inoremap <silent><nowait><expr> <C-h> coc#inline#visible() ? coc#inline#prev() : "\<C-h>"
 endif
 
 " Use `:Format` for format current buffer

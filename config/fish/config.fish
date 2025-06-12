@@ -110,6 +110,10 @@ set -gx PATH $DEVKITPRO/tools/bin $PATH
 set -gx PATH $DEVKITARM/bin $PATH
 set -gx PATH $DEVKITA64/bin $PATH
 
+# PSP
+set -gx PSPDEV $HOME/pspdev
+set -gx PATH $PSPDEV/bin $PATH
+
 # VITASDK
 set -gx VITASDK $HOME/vitasdk
 set -gx PATH $VITASDK/bin $PATH
@@ -183,3 +187,7 @@ case Darwin
       light
   end
 end
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :

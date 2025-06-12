@@ -3,12 +3,14 @@
   "coc.preferences.enableMessageDialog": true,
   "coc.preferences.enableLinkedEditing": false,
   "coc.preferences.maxFileSize": "500KB",
-  "coc.preferences.silentAutoupdate": true,
-  "coc.preferences.extensionUpdateCheck": "weekly",
   "coc.preferences.formatOnType": false,
   "[c][css][scss][less][svg][dart][html][rust][typescript][javascript][typescriptreact][javascriptreact]": {
     "coc.preferences.formatOnSave": true
   },
+
+  // extensions
+  "extensions.silentAutoupdate": true,
+  "extensions.updateCheck": "weekly",
 
   "workspace.bottomUpFiletypes": [],
   "workspace.rootPatterns": [
@@ -36,6 +38,9 @@
   "coc.source.around.priority": 1,
   "coc.source.buffer.priority": 1,
   "coc.source.file.ignoreHidden": false,
+
+  // github copilot
+  "github-copilot.statusIcon": "🅶 🅲 ",
 
   // suggest
   "suggest.noselect": true,
